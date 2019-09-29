@@ -1,0 +1,30 @@
+2019-09-27T19:25:48+00:00 CRITICAL Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php:62
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-includes/comment-template.php(1510): require()
+#1 /Users/user/Sites/primex/public_html/wp-content/themes/primex/single.php(82): comments_template()
+#2 /Users/user/Sites/primex/public_html/wp-includes/template-loader.php(78): include('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-blog-header.php(19): require_once('/Users/user/Sit...')
+#4 /Users/user/Sites/primex/public_html/index.php(17): require('/Users/user/Sit...')
+#5 {main}
+  thrown в /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php на строке 62
+
+2019-09-27T19:28:05+00:00 CRITICAL Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php:62
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-includes/comment-template.php(1510): require()
+#1 /Users/user/Sites/primex/public_html/wp-content/themes/primex/single.php(82): comments_template()
+#2 /Users/user/Sites/primex/public_html/wp-includes/template-loader.php(78): include('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-blog-header.php(19): require_once('/Users/user/Sit...')
+#4 /Users/user/Sites/primex/public_html/index.php(17): require('/Users/user/Sit...')
+#5 {main}
+  thrown в /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php на строке 62
+
+2019-09-27T19:38:40+00:00 CRITICAL Uncaught Error: Call to undefined function ittour_create_session_table() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/theme-support.php:14
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/themes/primex/functions.php(46): require_once()
+#1 /Users/user/Sites/primex/public_html/wp-settings.php(499): include('/Users/user/Sit...')
+#2 /Users/user/Sites/primex/public_html/wp-config.php(80): require_once('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#4 /Users/user/Sites/primex/public_html/wp-cron.php(39): require_once('/Users/user/Sit...')
+#5 {main}
+  thrown в /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/theme-support.php на строке 14
+

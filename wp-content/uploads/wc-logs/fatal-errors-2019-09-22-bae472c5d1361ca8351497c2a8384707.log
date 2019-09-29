@@ -1,0 +1,10 @@
+2019-09-22T11:04:00+00:00 CRITICAL Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php:62
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-includes/comment-template.php(1510): require()
+#1 /Users/user/Sites/primex/public_html/wp-content/themes/primex/single.php(82): comments_template()
+#2 /Users/user/Sites/primex/public_html/wp-includes/template-loader.php(78): include('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-blog-header.php(19): require_once('/Users/user/Sit...')
+#4 /Users/user/Sites/primex/public_html/index.php(17): require('/Users/user/Sit...')
+#5 {main}
+  thrown в /Users/user/Sites/primex/public_html/wp-content/themes/primex/comments.php на строке 62
+

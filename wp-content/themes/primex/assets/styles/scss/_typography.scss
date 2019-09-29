@@ -1,0 +1,21 @@
+/* ----------------------------------------------------------------
+	Typography
+-----------------------------------------------------------------*/
+body {
+  line-height: 1.5;
+  color: #555;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+  color: #1ABC9C;
+}
+
+a:hover { color: #222; }
+
+a img { border: none; }
+
+img { max-width: 100%; }
+
+iframe { border: none !important; }
