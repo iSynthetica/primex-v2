@@ -264,9 +264,15 @@ function snth_the_breadcrumbs() {
     }
 }
 
-function snth_pagination() {
+function snth_pagination($args = array()) {
     global $wp_query;
     $big = 999999999;
+
+    $defaults = array(
+        'pagination_class' => 'pagination justify-content-center'
+    );
+
+    $args = wp_parse_args( $args, $defaults );
 
     $paginate_links = paginate_links( array(
         'base' => str_replace( $big, '%#%', html_entity_decode( get_pagenum_link( $big ) ) ),
@@ -297,13 +303,139 @@ function snth_pagination() {
 
     if ( $paginate_links ) {
         echo '<nav aria-label="Page navigation" class="page-navigation">';
-        echo '<ul class="pagination justify-content-center">';
+        echo '<ul class="'.$args['pagination_class'].'">';
         foreach ($paginate_links as $link) {
             echo $link;
         }
         echo '</ul>';
         echo '</nav><!--// end .pagination -->';
     }
+}
+
+function snth_link_pages( $args = '' ) {
+    global $page, $numpages, $multipage, $more;
+
+    $defaults = array(
+        'before'           => '<p class="post-nav-links">' . __( 'Pages:' ),
+        'after'            => '</p>',
+        'link_before'      => '',
+        'link_after'       => '',
+        'link_before_disabled'      => '',
+        'link_after_disabled'       => '',
+        'aria_current'     => 'page',
+        'next_or_number'   => 'number',
+        'separator'        => ' ',
+        'nextpagelink'     => __( 'Next page' ),
+        'previouspagelink' => __( 'Previous page' ),
+        'pagelink'         => '%',
+        'echo'             => 1,
+    );
+
+    $params = wp_parse_args( $args, $defaults );
+
+    /**
+     * Filters the arguments used in retrieving page links for paginated posts.
+     *
+     * @since 3.0.0
+     *
+     * @param array $params An array of arguments for page links for paginated posts.
+     */
+    $r = apply_filters( 'wp_link_pages_args', $params );
+
+    $output = '';
+    if ( $multipage ) {
+        if ( 'number' == $r['next_or_number'] ) {
+            $output .= $r['before'];
+            for ( $i = 1; $i <= $numpages; $i++ ) {
+                $link = str_replace( '%', $i, $r['pagelink'] );
+
+                if ( $i != $page || ! $more && 1 == $page ) {
+                    $link = $r['link_before'] . _snth_link_page( $i ) . $link . '</a>' . $r['link_after'];
+                } elseif ( $i === $page ) {
+                    $link = $r['link_before_disabled'] . '<span class="post-page-numbers page-link current" aria-current="' . esc_attr( $r['aria_current'] ) . '">' . $link . '</span>' . $r['link_after_disabled'];
+                }
+                /**
+                 * Filters the HTML output of individual page number links.
+                 *
+                 * @since 3.6.0
+                 *
+                 * @param string $link The page number HTML output.
+                 * @param int    $i    Page number for paginated posts' page links.
+                 */
+                $link = apply_filters( 'wp_link_pages_link', $link, $i );
+
+                // Use the custom links separator beginning with the second link.
+                $output .= ( 1 === $i ) ? ' ' : $r['separator'];
+                $output .= $link;
+            }
+            $output .= $r['after'];
+        } elseif ( $more ) {
+            $output .= $r['before'];
+            $prev    = $page - 1;
+            if ( $prev > 0 ) {
+                $link = $r['link_before'] . _snth_link_page( $prev ) . $r['previouspagelink'] . '</a>' . $r['link_after'];
+
+                /** This filter is documented in wp-includes/post-template.php */
+                $output .= apply_filters( 'wp_link_pages_link', $link, $prev );
+            }
+            $next = $page + 1;
+            if ( $next <= $numpages ) {
+                if ( $prev ) {
+                    $output .= $r['separator'];
+                }
+                $link = $r['link_before'] . _snth_link_page( $next ) . $r['nextpagelink'] . '</a>' . $r['link_after'];
+
+                /** This filter is documented in wp-includes/post-template.php */
+                $output .= apply_filters( 'wp_link_pages_link', $link, $next );
+            }
+            $output .= $r['after'];
+        }
+    }
+
+    /**
+     * Filters the HTML output of page links for paginated posts.
+     *
+     * @since 3.6.0
+     *
+     * @param string $output HTML output of paginated posts' page links.
+     * @param array  $args   An array of arguments.
+     */
+    $html = apply_filters( 'wp_link_pages', $output, $args );
+
+    if ( $r['echo'] ) {
+        echo $html;
+    }
+    return $html;
+}
+
+function _snth_link_page( $i ) {
+    global $wp_rewrite;
+    $post       = get_post();
+    $query_args = array();
+
+    if ( 1 == $i ) {
+        $url = get_permalink();
+    } else {
+        if ( '' == get_option( 'permalink_structure' ) || in_array( $post->post_status, array( 'draft', 'pending' ) ) ) {
+            $url = add_query_arg( 'page', $i, get_permalink() );
+        } elseif ( 'page' == get_option( 'show_on_front' ) && get_option( 'page_on_front' ) == $post->ID ) {
+            $url = trailingslashit( get_permalink() ) . user_trailingslashit( "$wp_rewrite->pagination_base/" . $i, 'single_paged' );
+        } else {
+            $url = trailingslashit( get_permalink() ) . user_trailingslashit( $i, 'single_paged' );
+        }
+    }
+
+    if ( is_preview() ) {
+
+        if ( ( 'draft' !== $post->post_status ) && isset( $_GET['preview_id'], $_GET['preview_nonce'] ) ) {
+            $query_args['preview_id']    = wp_unslash( $_GET['preview_id'] );
+            $query_args['preview_nonce'] = wp_unslash( $_GET['preview_nonce'] );
+        }
+
+        $url = get_preview_post_link( $post, $query_args, $url );
+    }
+
+    return '<a href="' . esc_url( $url ) . '" class="post-page-numbers page-link">';
 }
 
 function snth_comments_cb($comment, $args, $depth) {

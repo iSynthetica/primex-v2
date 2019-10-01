@@ -269,3 +269,45 @@ Stack trace:
 [29-Sep-2019 09:14:22 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:310
 [29-Sep-2019 09:14:22 UTC] PHP   5. wp_update_themes() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:286
 [29-Sep-2019 09:14:22 UTC] PHP   6. trigger_error() /Users/user/Sites/primex/public_html/wp-includes/update.php:569
+[29-Sep-2019 10:18:51 UTC] PHP Notice:  Undefined variable: layout in /Users/user/Sites/primex/public_html/wp-content/themes/primex/archive.php on line 32
+[29-Sep-2019 10:18:51 UTC] PHP Stack trace:
+[29-Sep-2019 10:18:51 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/index.php:0
+[29-Sep-2019 10:18:51 UTC] PHP   2. require() /Users/user/Sites/primex/public_html/index.php:17
+[29-Sep-2019 10:18:51 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-blog-header.php:19
+[29-Sep-2019 10:18:51 UTC] PHP   4. include() /Users/user/Sites/primex/public_html/wp-includes/template-loader.php:78
+[29-Sep-2019 10:18:51 UTC] PHP Notice:  Undefined variable: layout in /Users/user/Sites/primex/public_html/wp-content/themes/primex/archive.php on line 59
+[29-Sep-2019 10:18:51 UTC] PHP Stack trace:
+[29-Sep-2019 10:18:51 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/index.php:0
+[29-Sep-2019 10:18:51 UTC] PHP   2. require() /Users/user/Sites/primex/public_html/index.php:17
+[29-Sep-2019 10:18:51 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-blog-header.php:19
+[29-Sep-2019 10:18:51 UTC] PHP   4. include() /Users/user/Sites/primex/public_html/wp-includes/template-loader.php:78
+[01-Oct-2019 07:54:16 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /Users/user/Sites/primex/public_html/wp-includes/update.php on line 160
+[01-Oct-2019 07:54:16 UTC] PHP Stack trace:
+[01-Oct-2019 07:54:16 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-cron.php:0
+[01-Oct-2019 07:54:16 UTC] PHP   2. do_action_ref_array() /Users/user/Sites/primex/public_html/wp-cron.php:133
+[01-Oct-2019 07:54:16 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:531
+[01-Oct-2019 07:54:16 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:310
+[01-Oct-2019 07:54:16 UTC] PHP   5. wp_version_check() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:286
+[01-Oct-2019 07:54:16 UTC] PHP   6. trigger_error() /Users/user/Sites/primex/public_html/wp-includes/update.php:160
+[01-Oct-2019 07:54:26 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /Users/user/Sites/primex/public_html/wp-includes/update.php on line 384
+[01-Oct-2019 07:54:26 UTC] PHP Stack trace:
+[01-Oct-2019 07:54:26 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-cron.php:0
+[01-Oct-2019 07:54:26 UTC] PHP   2. do_action_ref_array() /Users/user/Sites/primex/public_html/wp-cron.php:133
+[01-Oct-2019 07:54:26 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:531
+[01-Oct-2019 07:54:26 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:310
+[01-Oct-2019 07:54:26 UTC] PHP   5. wp_update_plugins() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:286
+[01-Oct-2019 07:54:26 UTC] PHP   6. trigger_error() /Users/user/Sites/primex/public_html/wp-includes/update.php:384
+[01-Oct-2019 07:54:26 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /Users/user/Sites/primex/public_html/wp-includes/update.php on line 569
+[01-Oct-2019 07:54:26 UTC] PHP Stack trace:
+[01-Oct-2019 07:54:26 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-cron.php:0
+[01-Oct-2019 07:54:26 UTC] PHP   2. do_action_ref_array() /Users/user/Sites/primex/public_html/wp-cron.php:133
+[01-Oct-2019 07:54:26 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:531
+[01-Oct-2019 07:54:26 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:310
+[01-Oct-2019 07:54:26 UTC] PHP   5. wp_update_themes() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:286
+[01-Oct-2019 07:54:26 UTC] PHP   6. trigger_error() /Users/user/Sites/primex/public_html/wp-includes/update.php:569
+[01-Oct-2019 08:02:52 UTC] PHP Notice:  Undefined variable: categories_list in /Users/user/Sites/primex/public_html/wp-content/themes/primex/single.php on line 22
+[01-Oct-2019 08:02:52 UTC] PHP Stack trace:
+[01-Oct-2019 08:02:52 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/index.php:0
+[01-Oct-2019 08:02:52 UTC] PHP   2. require() /Users/user/Sites/primex/public_html/index.php:17
+[01-Oct-2019 08:02:52 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-blog-header.php:19
+[01-Oct-2019 08:02:52 UTC] PHP   4. include() /Users/user/Sites/primex/public_html/wp-includes/template-loader.php:78

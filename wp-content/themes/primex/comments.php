@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area" class="clearfix">
+<div id="comments" class="comments-area clearfix">
 	<?php
 	if ( have_comments() ) :
 		?>

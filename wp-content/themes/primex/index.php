@@ -1,4 +1,9 @@
 <?php
+/**
+ *
+ */
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 $layout = 'right-sidebar';
 ?>
 
@@ -10,14 +15,8 @@ $layout = 'right-sidebar';
         <h1 class="entry-title"><?php echo __('Blog', 'primex'); ?></h1>
         <span>Page Content on the Left &amp; Sidebar on the Right</span>
         <?php snth_the_breadcrumbs(); ?>
-
-<!--            <ol class="breadcrumb">-->
-<!--                <li class="breadcrumb-item"><a href="#">Home</a></li>-->
-<!--                <li class="breadcrumb-item"><a href="#">Pages</a></li>-->
-<!--                <li class="breadcrumb-item active" aria-current="page">Right Sidebar</li>-->
-<!--            </ol>-->
     </div>
-</section><!-- #page-title end -->
+</section>
 
 <!-- Content ============================================= -->
 <section id="content">
@@ -37,7 +36,11 @@ $layout = 'right-sidebar';
                                 snth_show_template('blog/classic.php');
                             }
 
-                            snth_pagination();
+                            $pagination_args = array(
+                                    'pagination_class' => 'pagination justify-content-center pagination-lg pagination-rounded '
+                            );
+
+                            snth_pagination($pagination_args);
                             ?>
                         </div>
                         <?php
