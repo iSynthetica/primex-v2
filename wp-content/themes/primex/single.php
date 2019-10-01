@@ -47,7 +47,7 @@ while ( have_posts() ) :
                 <?php
                 snth_link_pages(
                     array(
-                        'before' => '<ul class="pagination pagination-transparent pagination-rounded"><li  class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'twentynineteen' ) . '</span></li>',
+                        'before' => '<ul class="pagination pagination-transparent pagination-rounded"><li  class="page-item disabled"><span class="page-link">' . __( 'Pages:', 'primex' ) . '</span></li>',
                         'after'  => '</ul>',
                         'link_before'  => '<li  class="page-item">',
                         'link_after'  => '</li>',
@@ -58,14 +58,23 @@ while ( have_posts() ) :
             </div>
         </div>
 
-        <div class="post-navigation clearfix"></div>
-
         <?php
         // If comments are open or we have at least one comment, load up the comment template.
         if ( comments_open() || get_comments_number() ) {
             comments_template();
         }
         ?>
+
+        <div class="post-navigation clearfix">
+            <?php
+            echo snth_get_the_post_navigation(
+                array(
+                    'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'primex' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper"><i class="fas fa-angle-left"></i> ' . '</span>%title</span>',
+                    'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'primex' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper"> <i class="fas fa-angle-right"></i>' . '</span></span>',
+                )
+            );
+            ?>
+        </div>
     </div>
     <?php
     $post_content = ob_get_clean();

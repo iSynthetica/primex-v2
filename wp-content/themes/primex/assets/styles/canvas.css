@@ -11636,6 +11636,15 @@ body:not(.device-touch) #gotoTop {
 
 #gotoTop:hover { background-color: #1ABC9C; }
 
+#gotoTop i {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+}
+
 
 /* ----------------------------------------------------------------
 	Error 404
