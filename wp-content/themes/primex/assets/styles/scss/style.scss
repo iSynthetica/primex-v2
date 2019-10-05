@@ -42,6 +42,12 @@
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
+@import "magnific-popup";
+@import "animate";
+@import "swiper";
+
+
 @import "settings";
 @import "functions";
 
@@ -50,3 +56,7 @@
 @import "typography";
 @import "header";
 @import "helpers";
+
+@import "canvas";
+@import "dark";
+@import "responsive";

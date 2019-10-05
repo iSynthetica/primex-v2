@@ -22,17 +22,9 @@ function snth_enqueue_scripts() {
 
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', SNTH_SCRIPTS_URL.'/'.$site_js, array( 'jquery' ), SNTH_VERSION . time(), true );
-    // wp_enqueue_script( 'plugins-js', SNTH_SCRIPTS_URL.'/plugins.js', array( 'jquery' ), SNTH_VERSION . time(), true );
-    // wp_enqueue_script( 'functions-js', SNTH_SCRIPTS_URL.'/functions.js', array( 'jquery' ), SNTH_VERSION . time(), true );
 
     // Register main stylesheet
     wp_enqueue_style( 'site-css', SNTH_STYLES_URL.'/'.$site_css, array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'canvas-css', SNTH_STYLES_URL.'/canvas.css', array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'swiper-css', SNTH_STYLES_URL.'/swiper.css', array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'dark-css', SNTH_STYLES_URL.'/dark.css', array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'animate-css', SNTH_STYLES_URL.'/animate.css', array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'magnific-popup-css', SNTH_STYLES_URL.'/magnific-popup.css', array(), SNTH_VERSION . time(), 'all' );
-    wp_enqueue_style( 'responsive-css', SNTH_STYLES_URL.'/responsive.css', array(), SNTH_VERSION . time(), 'all' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );

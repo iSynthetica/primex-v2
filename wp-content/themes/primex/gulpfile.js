@@ -63,6 +63,7 @@ const SOURCE = {
         VENDORS + '/jQuery-Paginate.js',
         VENDORS + '/infinite-scroll.js',
         VENDORS + '/jqueryui.js',
+        VENDORS + '/jqueryvalidation.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production
         'assets/scripts/js/**/*.js',
@@ -200,7 +201,7 @@ gulp.task('watch', function() {
     gulp.watch(SOURCE.scripts, gulp.parallel('scripts'));
 
     // Watch images files
-    gulp.watch(SOURCE.images, gulp.parallel('images'));
+    // gulp.watch(SOURCE.images, gulp.parallel('images'));
 
 });
 

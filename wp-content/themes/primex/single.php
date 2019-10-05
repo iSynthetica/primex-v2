@@ -58,13 +58,6 @@ while ( have_posts() ) :
             </div>
         </div>
 
-        <?php
-        // If comments are open or we have at least one comment, load up the comment template.
-        if ( comments_open() || get_comments_number() ) {
-            comments_template();
-        }
-        ?>
-
         <div class="post-navigation clearfix">
             <?php
             echo snth_get_the_post_navigation(
@@ -75,6 +68,13 @@ while ( have_posts() ) :
             );
             ?>
         </div>
+
+        <?php
+        // If comments are open or we have at least one comment, load up the comment template.
+        if ( comments_open() || get_comments_number() ) {
+            comments_template();
+        }
+        ?>
     </div>
     <?php
     $post_content = ob_get_clean();
