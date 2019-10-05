@@ -50,3 +50,5 @@ require_once(SNTH_INCLUDES.'/comments.php');
 require_once(SNTH_INCLUDES.'/menu.php');
 // Templates
 require_once(SNTH_INCLUDES.'/content-templates.php');
+// Templates
+require_once(SNTH_INCLUDES.'/wc.php');
