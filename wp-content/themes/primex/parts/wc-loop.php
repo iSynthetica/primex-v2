@@ -45,14 +45,29 @@ if ( woocommerce_product_loop() ) {
     do_action( 'woocommerce_no_products_found' );
 }
 $content = ob_get_clean();
+
+if (is_shop()) {
+    ?>
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>Shop</h1>
+            <span>Page Content on the Left &amp; Sidebar on the Right</span>
+            <?php snth_the_breadcrumbs(); ?>
+        </div>
+    </section><!-- #page-title end -->
+    <?php
+} else {
+    ?>
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1><?php woocommerce_page_title(); ?></h1>
+            <span>Page Content on the Left &amp; Sidebar on the Right</span>
+            <?php snth_the_breadcrumbs(); ?>
+        </div>
+    </section><!-- #page-title end -->
+    <?php
+}
 ?>
-<section id="page-title">
-    <div class="container clearfix">
-        <h1><?php echo get_the_title(); ?></h1>
-        <span>Page Content on the Left &amp; Sidebar on the Right</span>
-        <?php snth_the_breadcrumbs(); ?>
-    </div>
-</section><!-- #page-title end -->
 
 
 <section id="content">
