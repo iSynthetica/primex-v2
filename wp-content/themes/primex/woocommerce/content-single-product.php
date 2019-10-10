@@ -52,7 +52,7 @@ if ( post_password_required() ) {
                 /**
                  * Hook: woocommerce_single_product_summary.
                  *
-                 * @hooked woocommerce_template_single_title - 5
+                 * @unhooked woocommerce_template_single_title - 5
                  * @hooked woocommerce_template_single_rating - 10
                  * @hooked woocommerce_template_single_price - 10
                  * @hooked woocommerce_template_single_excerpt - 20
