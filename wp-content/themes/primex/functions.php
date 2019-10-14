@@ -38,14 +38,20 @@ define('SNTH_IMAGES_URL', SNTH_ASSETS_URL.'/images');
 define('SNTH_FONTS_URL', SNTH_ASSETS_URL.'/fonts');
 define('SNTH_INCLUDES_URL', SNTH_URL.'/includes');
 
+// Settings
+require_once(SNTH_INCLUDES.'/settings.php');
 // Helpers library
 require_once(SNTH_INCLUDES.'/helpers.php');
 // Theme support options
 require_once(SNTH_INCLUDES.'/enqueue-scripts.php');
 // Theme support options
 require_once(SNTH_INCLUDES.'/theme-support.php');
+// Theme support options
+require_once(SNTH_INCLUDES.'/shortcodes.php');
 // Comments
 require_once(SNTH_INCLUDES.'/comments.php');
+// Sidebar
+require_once(SNTH_INCLUDES.'/sidebar.php');
 // Menues
 require_once(SNTH_INCLUDES.'/menu.php');
 // Templates

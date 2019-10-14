@@ -1,0 +1,24 @@
+2019-10-13T09:23:44+00:00 CRITICAL Uncaught Error: Call to undefined function twentyseventeen_unique_id() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/searchform.php:13
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-includes/general-template.php(258): require()
+#1 /Users/user/Sites/primex/public_html/wp-content/themes/primex/parts/header/nav.php(63): get_search_form()
+#2 /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/helpers.php(50): include('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-content/themes/primex/header.php(50): snth_show_template('header/nav.php')
+#4 /Users/user/Sites/primex/public_html/wp-includes/template.php(722): require_once('/Users/user/Sit...')
+#5 /Users/user/Sites/primex/public_html/wp-includes/template.php(671): load_template('/Users/user/Sit...', true)
+#6 /Users/user/Sites/primex/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#7 /Users/user/Sites/primex/public_html/wp-content/themes/primex/index.php(10): get_header()
+# в /Users/user/Sites/primex/public_html/wp-content/themes/primex/searchform.php на строке 13
+
+2019-10-13T09:25:06+00:00 CRITICAL Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/searchform.php:18
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-includes/general-template.php(258): require()
+#1 /Users/user/Sites/primex/public_html/wp-content/themes/primex/parts/header/nav.php(63): get_search_form()
+#2 /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/helpers.php(50): include('/Users/user/Sit...')
+#3 /Users/user/Sites/primex/public_html/wp-content/themes/primex/header.php(50): snth_show_template('header/nav.php')
+#4 /Users/user/Sites/primex/public_html/wp-includes/template.php(722): require_once('/Users/user/Sit...')
+#5 /Users/user/Sites/primex/public_html/wp-includes/template.php(671): load_template('/Users/user/Sit...', true)
+#6 /Users/user/Sites/primex/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#7 /Users/user/Sites/primex/public_html/wp-content/themes/primex/index.php(10): get_header()
+#8  в /Users/user/Sites/primex/public_html/wp-content/themes/primex/searchform.php на строке 18
+

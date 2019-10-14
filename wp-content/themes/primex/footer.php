@@ -17,11 +17,8 @@
         <!-- Footer Widgets
         ============================================= -->
         <div class="footer-widgets-wrap clearfix">
-
             <div class="col_two_third">
-
                 <div class="col_one_third">
-
                     <div class="widget clearfix">
 
                         <img src="<?php echo SNTH_IMAGES_URL ?>/canvas/footer-widget-logo.png" alt="" class="footer-logo">
@@ -46,19 +43,7 @@
                 <div class="col_one_third">
 
                     <div class="widget widget_links clearfix">
-
-                        <h4>Blogroll</h4>
-
-                        <ul>
-                            <li><a href="http://codex.wordpress.org/">Documentation</a></li>
-                            <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
-                            <li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
-                            <li><a href="http://wordpress.org/support/">Support Forums</a></li>
-                            <li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
-                            <li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-                            <li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
-                        </ul>
-
+                        <?php dynamic_sidebar( 'footer2' ); ?>
                     </div>
 
                 </div>
@@ -66,42 +51,7 @@
                 <div class="col_one_third col_last">
 
                     <div class="widget clearfix">
-                        <h4>Recent Posts</h4>
-
-                        <div id="post-list-footer">
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                    </div>
-                                    <ul class="entry-meta">
-                                        <li>10th July 2014</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <?php dynamic_sidebar( 'footer3' ); ?>
                     </div>
 
                 </div>

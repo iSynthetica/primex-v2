@@ -86,3 +86,5 @@ function snth_google_map_api( $api ) {
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'snth_google_map_api');
+
+add_filter( 'widget_text', 'do_shortcode' );
