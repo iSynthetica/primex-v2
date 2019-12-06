@@ -297,6 +297,26 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
     <?php
 }
 
+function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
+    $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $item['category']->name)
+                ->mergeCells('A'.$row.':E'.$row);
+    $row++;
+    if (!empty($item['products'])) {
+        foreach ($item['products'] as $product) {
+            $product_data = $product->get_data();
+
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $product_data['name'])
+                        ->mergeCells('A'.$row.':E'.$row);
+
+            $row++;
+        }
+    }
+    return array(
+        'spreadsheet' => $spreadsheet,
+        'row' => $row
+    );
+}
+
 add_action('init', 'wooaioc_rewrite_rule');
 
 function wooaioc_rewrite_rule() {
