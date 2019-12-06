@@ -60,6 +60,10 @@ function snth_settings_shortcodes($shortcodes) {
             'id' => 'snth_widget_blogroll',
             'callback' => 'snth_widget_blogroll',
         ),
+        array(
+            'id' => 'snth_cart_icon',
+            'callback' => 'snth_cart_icon',
+        ),
     );
 }
 add_filter('snth_shortcodes', 'snth_settings_shortcodes', 999);

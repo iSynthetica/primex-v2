@@ -61,3 +61,55 @@ function snth_widget_blogroll() {
     <?php
     return ob_get_clean();
 }
+
+function snth_cart_icon() {
+    global $woocommerce;
+    $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
+    $cart_url = wc_get_cart_url();  // Set Cart URL
+    $cart = WC()->cart->get_cart();
+
+    ob_start();
+    ?>
+    <div id="top-cart">
+        <a href="#" id="top-cart-trigger"><i class="fas fa-shopping-cart"></i><span><?php echo $cart_count; ?></span></a>
+        <div class="top-cart-content">
+            <div class="top-cart-title">
+                <h4><?php echo __( 'Shopping Cart', 'primex' ); ?></h4>
+            </div>
+            <div class="top-cart-items">
+                <?php
+                foreach( $cart as $cart_item ){
+                    // var_dump($cart_item);
+                    $product = wc_get_product( $cart_item['product_id'] );
+                    ?>
+                    <div class="top-cart-item clearfix">
+                        <div class="top-cart-item-image">
+                            <a href="<?php echo get_permalink( $product->get_id() ); ?>">
+                                <img
+                                        class="image_fade"
+                                        src="<?php echo get_the_post_thumbnail_url( $product->get_id(), 'thumbnail' ); ?>"
+                                        alt="<?php echo $product->get_name(); ?>"
+                                >
+                            </a>
+                        </div>
+                        <div class="top-cart-item-desc">
+                            <a href="#"><?php echo $product->get_name(); ?></a>
+                            <span class="top-cart-item-price"><?php echo wc_price($cart_item['line_total']); ?></span>
+                            <span class="top-cart-item-quantity">x <?php echo $cart_item['quantity']; ?></span>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="top-cart-action clearfix">
+                <span class="fleft top-checkout-price"><?php echo $woocommerce->cart->get_cart_total(); ?></span>
+                <a href="<?php echo $cart_url; ?>" class="button button-3d button-small nomargin fright">
+                    <?php echo __( 'View Cart', 'primex' ); ?>
+                </a>
+            </div>
+        </div>
+    </div><!-- #top-cart end -->
+    <?php
+    return ob_get_clean();
+}
