@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Product Reviews Shortcode\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-18 22:51+0000\n"
+"PO-Revision-Date: 2019-10-19 10:22+0000\n"
+"Last-Translator: Tobias B. Conrad <support@saleswonder.biz>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.4"
+
+#. Description of the plugin
+msgid "Add your product reviews on any page using shortcode with product ID"
+msgstr ""
+
+#: templates/product-reviews.php:30
+msgid "Average rating"
+msgstr "Durchschnittliche Bewertung"
+
+#: templates/product-reviews.php:31
+msgid "based on"
+msgstr "basierend auf"
+
+#: admin/help.php:101
+msgid ""
+"By default only customer reviews will be displayed, if you want to show "
+"reviews replies use parameter <code>show_nested</code> with value <strong>"
+"yes</strong>"
+msgstr ""
+
+#: admin/help.php:24
+msgid "Default shortcode usage"
+msgstr ""
+
+#: admin/help.php:80
+msgid "Disabled Structured Data shortcode usage"
+msgstr ""
+
+#: admin/help.php:32 admin/help.php:49 admin/help.php:71 admin/help.php:87
+#: admin/help.php:105
+msgid "Example"
+msgstr ""
+
+#: includes/functions.php:175
+msgid "How to use"
+msgstr ""
+
+#: admin/help.php:83
+msgid ""
+"If you are going to use more then one shortcode per page we recommend you to "
+"use structured data markup only for one, otherwise google get two reviews "
+"schemas. You can disable it by adding parameter <code>show_schema</code> "
+"with value <strong>no</strong>"
+msgstr ""
+
+#: admin/help.php:57
+msgid ""
+"If you need to show separated amount of reviews rating add each product via "
+"single product short code."
+msgstr ""
+
+#: admin/help.php:155
+msgid "More great plugins"
+msgstr "Mehr Marketing-Automatisierungs-Plug-ins"
+
+#: admin/help.php:41
+msgid "Multiple products shortcode usage"
+msgstr ""
+
+#: admin/help.php:64
+msgid "Number of reviews shortcode usage"
+msgstr ""
+
+#: admin/help.php:158
+msgid ""
+"Please have a look at our other plugins too by visiting <a "
+"href=\"saleswonder.biz\" target=\"_blank\">saleswonder.biz</a>"
+msgstr ""
+
+#: admin/help.php:45
+msgid ""
+"Rating of multiple products will be summed up and shown as total rating."
+msgstr ""
+
+#: templates/product-reviews.php:31
+msgid "reviews"
+msgstr "Bewertungen"
+
+#: admin/help.php:122
+msgid "Reviews shortcode templating"
+msgstr ""
+
+#: admin/help.php:98
+msgid "Show reviews reply shortcode usage"
+msgstr ""
+
+#: admin/help.php:126
+msgid ""
+"Structure of the reviews can be changed by copy files in the list below to "
+"your custom field, then this structure will be used by default"
+msgstr ""
+
+#: admin/help.php:125
+msgid ""
+"Styles are taken from WooCommerce, so it looks the same as on the product "
+"details page."
+msgstr ""
+
+#: admin/help.php:117
+msgid ""
+"Test your Schema.org by check your page with the <a href=\"https://search."
+"google.com/structured-data/testing-tool\" target=\"_blank\">google "
+"structured data tool</a>"
+msgstr ""
+
+#: admin/help.php:114
+msgid "Testing"
+msgstr ""
+
+#: admin/help.php:28
+msgid "The only required parameter is <code>products_ids</code>"
+msgstr ""
+
+#: admin/help.php:27
+msgid "To input your user reviews list on any site page use shortcode "
+msgstr ""
+
+#. Name of the plugin
+msgid "Woo Product Reviews Shortcode"
+msgstr ""
+
+#: woo-product-reviews-shrtcd.php:30 admin/help.php:20
+msgid "Woo Product Reviews Shortcode Help"
+msgstr ""
+
+#. 1. URL link.
+#: woo-product-reviews-shrtcd.php:41
+#, php-format
+msgid ""
+"Woo Product Reviews Shortcode requires Woocommerce plugin to be installed "
+"and active. You can download %s here."
+msgstr ""
+
+#: woo-product-reviews-shrtcd.php:30
+msgid "Woo Reviews Shortcode"
+msgstr ""
+
+#: admin/help.php:67
+msgid ""
+"You can set up how many reviews should be displayed, by default it’s 5. Use "
+"parameter <code>per_page</code> to change this value. If you want to show "
+"all reviews set it to <strong>0</strong>"
+msgstr ""
+
+#: admin/help.php:44
+msgid ""
+"You can use as many products as you want, just separate products IDs with "
+"comma. As additional parameter you can add <code>product_title</code> to use "
+"it for all products"
+msgstr ""
