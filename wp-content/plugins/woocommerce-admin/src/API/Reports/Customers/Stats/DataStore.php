@@ -29,22 +29,29 @@ class DataStore extends CustomersDataStore implements DataStoreInterface {
 	);
 
 	/**
-	 * SQL columns to select in the db query and their mapping to SQL code.
+	 * Cache identifier.
 	 *
-	 * @var array
+	 * @var string
 	 */
-	protected $report_columns = array(
-		'customers_count'     => 'COUNT( * ) as customers_count',
-		'avg_orders_count'    => 'AVG( orders_count ) as avg_orders_count',
-		'avg_total_spend'     => 'AVG( total_spend ) as avg_total_spend',
-		'avg_avg_order_value' => 'AVG( avg_order_value ) as avg_avg_order_value',
-	);
+	protected $cache_key = 'customers_stats';
 
 	/**
-	 * Constructor.
+	 * Data store context used to pass to filters.
+	 *
+	 * @var string
 	 */
-	public function __construct() {
-		// This space intentionally left blank (to avoid parent constructor).
+	protected $context = 'customer_stats';
+
+	/**
+	 * Assign report columns once full table name has been assigned.
+	 */
+	protected function assign_report_columns() {
+		$this->report_columns = array(
+			'customers_count'     => 'COUNT( * ) as customers_count',
+			'avg_orders_count'    => 'AVG( orders_count ) as avg_orders_count',
+			'avg_total_spend'     => 'AVG( total_spend ) as avg_total_spend',
+			'avg_avg_order_value' => 'AVG( avg_order_value ) as avg_avg_order_value',
+		);
 	}
 
 	/**
@@ -56,7 +63,7 @@ class DataStore extends CustomersDataStore implements DataStoreInterface {
 	public function get_data( $query_args ) {
 		global $wpdb;
 
-		$customers_table_name = $wpdb->prefix . self::TABLE_NAME;
+		$customers_table_name = self::get_db_table_name();
 
 		// These defaults are only partially applied when used via REST API, as that has its own defaults.
 		$defaults   = array(
@@ -69,10 +76,16 @@ class DataStore extends CustomersDataStore implements DataStoreInterface {
 		$query_args = wp_parse_args( $query_args, $defaults );
 		$this->normalize_timezones( $query_args, $defaults );
 
+		/*
+		 * We need to get the cache key here because
+		 * parent::update_intervals_sql_params() modifies $query_args.
+		 */
 		$cache_key = $this->get_cache_key( $query_args );
-		$data      = wp_cache_get( $cache_key, $this->cache_group );
+		$data      = $this->get_cached_data( $cache_key );
 
 		if ( false === $data ) {
+			$this->initialize_queries();
+
 			$data = (object) array(
 				'customers_count'     => 0,
 				'avg_orders_count'    => 0,
@@ -82,32 +95,23 @@ class DataStore extends CustomersDataStore implements DataStoreInterface {
 
 			$selections       = $this->selected_columns( $query_args );
 			$sql_query_params = $this->get_sql_query_params( $query_args );
+			// Clear SQL clauses set for parent class queries that are different here.
+			$this->subquery->clear_sql_clause( 'select' );
+			$this->subquery->add_sql_clause( 'select', 'SUM( gross_total ) AS total_spend,' );
+			$this->subquery->add_sql_clause(
+				'select',
+				'CASE WHEN COUNT( order_id ) = 0 THEN NULL ELSE COUNT( order_id ) END AS orders_count,'
+			);
+			$this->subquery->add_sql_clause(
+				'select',
+				'CASE WHEN COUNT( order_id ) = 0 THEN NULL ELSE SUM( gross_total ) / COUNT( order_id ) END AS avg_order_value'
+			);
 
+			$this->clear_sql_clause( array( 'order_by', 'limit' ) );
+			$this->add_sql_clause( 'select', $selections );
+			$this->add_sql_clause( 'from', "({$this->subquery->get_query_statement()}) AS tt" );
 			$report_data = $wpdb->get_results(
-				"SELECT {$selections} FROM
-				(
-					SELECT
-						(
-							CASE WHEN COUNT( order_id ) = 0
-								THEN NULL
-								ELSE COUNT( order_id )
-							END
-						) as orders_count,
-      					SUM( gross_total ) as total_spend, 
-						( SUM( gross_total ) / COUNT( order_id ) ) as avg_order_value
-					FROM
-						{$customers_table_name}
-						{$sql_query_params['from_clause']}
-					WHERE
-						1=1
-						{$sql_query_params['where_time_clause']}
-						{$sql_query_params['where_clause']}
-					GROUP BY
-						{$customers_table_name}.customer_id
-					HAVING
-						1=1
-						{$sql_query_params['having_clause']}
-				) as tt",
+				$this->get_query_statement(),
 				ARRAY_A
 			); // WPCS: cache ok, DB call ok, unprepared SQL ok.
 
@@ -117,19 +121,9 @@ class DataStore extends CustomersDataStore implements DataStoreInterface {
 
 			$data = (object) $this->cast_numbers( $report_data[0] );
 
-			wp_cache_set( $cache_key, $data, $this->cache_group );
+			$this->set_cached_data( $cache_key, $data );
 		}
 
 		return $data;
-	}
-
-	/**
-	 * Returns string to be used as cache key for the data.
-	 *
-	 * @param array $params Query parameters.
-	 * @return string
-	 */
-	protected function get_cache_key( $params ) {
-		return 'woocommerce_' . self::TABLE_NAME . '_stats_' . md5( wp_json_encode( $params ) );
 	}
 }
