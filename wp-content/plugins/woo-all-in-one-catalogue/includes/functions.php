@@ -297,24 +297,163 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
     <?php
 }
 
+function wooaioc_get_columns_catalogue_item() {
+    return array(
+            'A' => array(
+                    'width' => '8',
+            ),
+            'B' => array(
+                'width' => '32',
+            ),
+            'C' => array(
+                'width' => '55',
+            ),
+            'D' => array(
+                'width' => '16',
+            ),
+            'E' => array(
+                'width' => '16',
+            ),
+    );
+}
+
 function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
     $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $item['category']->name)
-                ->mergeCells('A'.$row.':E'.$row);
+                ->mergeCells('A'.$row.':E'.$row)->getStyle('A' . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
     $row++;
     if (!empty($item['products'])) {
+        $spreadsheet->getActiveSheet()->setCellValue('A' . $row, __('SKU', 'woo-all-in-one-catalogue'))
+                    ->getStyle('A'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        $spreadsheet->getActiveSheet()->setCellValue('B' . $row, __('Product Title', 'woo-all-in-one-catalogue'))
+                    ->getStyle('B'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        $spreadsheet->getActiveSheet()->setCellValue('C' . $row, __('Product Description', 'woo-all-in-one-catalogue'))
+                    ->getStyle('C'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        $spreadsheet->getActiveSheet()->setCellValue('D' . $row, __('Price', 'woo-all-in-one-catalogue'))
+                    ->getStyle('D'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        $spreadsheet->getActiveSheet()->setCellValue('E' . $row, __('Wholesale Price', 'woo-all-in-one-catalogue'))
+                    ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+
+        $row++;
         foreach ($item['products'] as $product) {
             $product_data = $product->get_data();
 
-            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $product_data['name'])
-                        ->mergeCells('A'.$row.':E'.$row);
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $product_data['sku'])
+                        ->getStyle('A'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $product_data['name'])
+                        ->getStyle('B'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $product_data['description'])
+                        ->getStyle('C'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, '')
+                        ->getStyle('D'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, '')
+                        ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+
+            $spreadsheet->getActiveSheet()->getStyle('A'.$row.':E'.$row)
+                        ->getAlignment()->setWrapText(true);
 
             $row++;
         }
     }
+
+    if (!empty($item['children'])) {
+        foreach ($item['children'] as $children_item) {
+            $result = wooaioc_add_row_catalogue_item($children_item, $spreadsheet, $row);
+            $spreadsheet = $result['spreadsheet'];
+            $row = $result['row'];
+        }
+    }
+
     return array(
         'spreadsheet' => $spreadsheet,
         'row' => $row
     );
+}
+
+function wooaioc_get_row_style($type) {
+    $style = array(
+        'parent_category' => array(
+            'font' => array(
+                'bold' => true,
+            ),
+            'alignment' => array(
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ),
+        ),
+        'product_table_header' => array(
+            'alignment' => array(
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ),
+            'fill' => array(
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'color' => array(
+                    'rgb' => 'EEEEEE',
+                )
+            ),
+            'borders' => array(
+                'top' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'right' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'bottom' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'left' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+            ),
+        ),
+        'product_table_body' => array(
+            'alignment' => array(
+                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_TOP,
+            ),
+            'borders' => array(
+                'top' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'right' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'bottom' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+                'left' => array(
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => array(
+                        'rgb' => '333333',
+                    )
+                ),
+            ),
+        ),
+    );
+
+    if (!empty($style[$type])) {
+        return $style[$type];
+    }
+
+    return array();
 }
 
 add_action('init', 'wooaioc_rewrite_rule');
