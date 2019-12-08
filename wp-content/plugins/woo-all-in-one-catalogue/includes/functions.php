@@ -356,22 +356,23 @@ function wooaioc_get_columns_catalogue_item() {
             'B' => array(
                 'width' => '32',
                 'title' => __('Product Title', 'woo-all-in-one-catalogue'),
-                'field' => 'sku',
+                'field' => 'name',
             ),
             'C' => array(
                 'width' => '55',
                 'title' => __('Product Description', 'woo-all-in-one-catalogue'),
-                'field' => 'sku',
+                'field' => 'description',
             ),
             'D' => array(
                 'width' => '16',
-                'title' => __('Price', 'woo-all-in-one-catalogue'),
-                'field' => 'sku',
+                'title' => __('Price', 'woo-all-in-one-catalogue') . ' ' . get_woocommerce_currency_symbol(),
+                'field' => 'price',
+                'format' => 'money'
             ),
             'E' => array(
                 'width' => '16',
-                'title' => __('Wholesale Price', 'woo-all-in-one-catalogue'),
-                'field' => 'sku',
+                'title' => __('Wholesale Price', 'woo-all-in-one-catalogue') . ' ' . get_woocommerce_currency_symbol(),
+                'field' => 'wholesale_price',
             ),
     );
 }
@@ -388,30 +389,17 @@ function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
                 ->mergeCells($first_letter.$row.':'.$last_letter.$row)->getStyle($first_letter . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
     $row++;
     if (!empty($item['products'])) {
-
         foreach ($columns as $letter => $column) {
-            $spreadsheet->getActiveSheet()->setCellValue($letter . $row, $column['title'])
-                ->getStyle($letter.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+            $cell = $letter.$row;
+            $spreadsheet->getActiveSheet()->setCellValue($cell, $column['title'])
+                ->getStyle($cell)->applyFromArray(wooaioc_get_row_style('product_table_header'));
         }
 
         $row++;
+
         foreach ($item['products'] as $product) {
-            $product_data = $product->get_data();
-
-            $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $product_data['sku'])
-                        ->getStyle('A'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
-            $spreadsheet->getActiveSheet()->setCellValue('B' . $row, $product_data['name'])
-                        ->getStyle('B'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
-            $spreadsheet->getActiveSheet()->setCellValue('C' . $row, $product_data['description'])
-                        ->getStyle('C'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
-            $spreadsheet->getActiveSheet()->setCellValue('D' . $row, '')
-                        ->getStyle('D'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
-            $spreadsheet->getActiveSheet()->setCellValue('E' . $row, '')
-                        ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
-
-            $spreadsheet->getActiveSheet()->getStyle($first_letter.$row.':'.$last_letter.$row)
-                        ->getAlignment()->setWrapText(true);
-
+            $spreadsheet = wooaioc_get_row_product_item($product, $spreadsheet, $row);
+            $spreadsheet->getActiveSheet()->getStyle($first_letter.$row.':'.$last_letter.$row)->getAlignment()->setWrapText(true);
             $row++;
         }
     }
@@ -428,6 +416,43 @@ function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
         'spreadsheet' => $spreadsheet,
         'row' => $row
     );
+}
+
+function wooaioc_get_row_product_item($product, $spreadsheet, $row) {
+    $columns = wooaioc_get_columns_catalogue_item();
+    $columns_letters = array_keys($columns);
+    $first_letter = $columns_letters[0];
+    $last_letter = end($columns_letters);
+    reset($columns_letters);
+
+    foreach ($columns as $letter => $column) {
+        $cell = $letter.$row;
+        $value = wooaioc_get_product_item_value($product, $column['field']);
+        $spreadsheet->getActiveSheet()->setCellValue($cell, $value)
+                    ->getStyle($cell)->applyFromArray(wooaioc_get_row_style('product_table_body'));
+    }
+
+    return $spreadsheet;
+}
+
+function wooaioc_get_product_item_value($product, $field) {
+    $product_data = $product->get_data();
+
+    switch ($field) {
+        case 'sku':
+            return $product_data['sku'];
+        case 'name':
+            return $product_data['name'];
+        case 'description':
+            return $product_data['description'];
+        case 'price':
+            $regular_price = $product->get_regular_price();
+            $sale_price = $product->get_sale_price();
+            $price = $product->get_price();
+            return $price;
+        default:
+            return '';
+    }
 }
 
 function wooaioc_get_row_style($type) {
