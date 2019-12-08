@@ -205,7 +205,17 @@ function wooaioc_get_product_categories_tree($parent = 0) {
                 $tree[$cat->term_id]['products'] = array();
 
                 foreach ($products as $product) {
+                    $product_type = $product->get_type();
                     $tree[$cat->term_id]['products'][$product->get_id()] = $product;
+                    if ('variable' === $product_type) {
+                        $available_variations = $product->get_available_variations();
+                        if (!empty($available_variations)) {
+                            foreach ($available_variations as $variation) {
+                                $variation_product = wc_get_product($variation['variation_id']);
+                                $tree[$cat->term_id]['products'][$variation_product->get_id()] = $variation_product;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -225,29 +235,56 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                 <?php
                 foreach ($item['products'] as $product) {
                     $product_data = $product->get_data();
+                    $product_type = $product->get_type();
                     ?>
                     <tr>
-                        <td>
-                            <div style="padding:1px 5px;">
-                                <?php
-                                if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
-                                    ?>
-                                    <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
-                                        <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 60px;width: auto;">
-                                    </a>
+                        <?php
+                        if ('variation' === $product_type) {
+                            ?>
+                            <td>
+                                <div style="padding:1px 5px 1px 3px;">
+                                    -
+                                </div>
+                            </td>
+                            <td>
+                                <div style="padding:1px 5px 1px 5px;">
                                     <?php
-                                }
-                                ?>
-                            </div>
-                        </td>
+                                    if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
+                                        ?>
+                                        <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
+                                            <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 45px;width: auto;">
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </td>
+                            <?php
+                        } else {
+                            ?>
+                            <td colspan="2">
+                                <div style="padding:1px 5px 1px 0;">
+                                    <?php
+                                    if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
+                                        ?>
+                                        <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
+                                            <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 65px;width: auto;">
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </td>
+                            <?php
+                        }
+                        ?>
                         <td>
                             <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
                                 <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
                                     <?php echo $product_data['name'] ?>
                                 </a>
-                                <?php
-                                // var_dump($product_data);
-                                ?>
+                                <br>
+                                <?php echo $product_type; ?>
                             </div>
                         </td>
                         <td>
@@ -263,16 +300,28 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                             </div>
                         </td>
                         <td>
-                            <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                <input type="number" min="0" class="catalogue-item-qty" style="max-width:60px;">
-                            </div>
+                            <?php
+                            if ('variable' !== $product_type) {
+                                ?>
+                                <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
+                                    <input type="number" min="0" class="catalogue-item-qty" style="max-width:60px;">
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </td>
                         <td>
-                            <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                <button class="button" type="button">
-                                    <?php _e('Add to cart', 'woo-all-in-one-catalogue'); ?>
-                                </button>
-                            </div>
+                            <?php
+                            if ('variable' !== $product_type) {
+                                ?>
+                                <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
+                                    <button class="button" type="button">
+                                        <?php _e('Add to cart', 'woo-all-in-one-catalogue'); ?>
+                                    </button>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                     <?php
@@ -300,38 +349,50 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
 function wooaioc_get_columns_catalogue_item() {
     return array(
             'A' => array(
-                    'width' => '8',
+                'width' => '8',
+                'title' => __('SKU', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'B' => array(
                 'width' => '32',
+                'title' => __('Product Title', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'C' => array(
                 'width' => '55',
+                'title' => __('Product Description', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'D' => array(
                 'width' => '16',
+                'title' => __('Price', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'E' => array(
                 'width' => '16',
+                'title' => __('Wholesale Price', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
     );
 }
 
 function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
-    $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $item['category']->name)
-                ->mergeCells('A'.$row.':E'.$row)->getStyle('A' . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
+
+    $columns = wooaioc_get_columns_catalogue_item();
+    $columns_letters = array_keys($columns);
+    $first_letter = $columns_letters[0];
+    $last_letter = end($columns_letters);
+    reset($columns_letters);
+
+    $spreadsheet->getActiveSheet()->setCellValue($first_letter . $row, $item['category']->name)
+                ->mergeCells($first_letter.$row.':'.$last_letter.$row)->getStyle($first_letter . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
     $row++;
     if (!empty($item['products'])) {
-        $spreadsheet->getActiveSheet()->setCellValue('A' . $row, __('SKU', 'woo-all-in-one-catalogue'))
-                    ->getStyle('A'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('B' . $row, __('Product Title', 'woo-all-in-one-catalogue'))
-                    ->getStyle('B'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('C' . $row, __('Product Description', 'woo-all-in-one-catalogue'))
-                    ->getStyle('C'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('D' . $row, __('Price', 'woo-all-in-one-catalogue'))
-                    ->getStyle('D'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('E' . $row, __('Wholesale Price', 'woo-all-in-one-catalogue'))
-                    ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+
+        foreach ($columns as $letter => $column) {
+            $spreadsheet->getActiveSheet()->setCellValue($letter . $row, $column['title'])
+                ->getStyle($letter.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        }
 
         $row++;
         foreach ($item['products'] as $product) {
@@ -348,7 +409,7 @@ function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
             $spreadsheet->getActiveSheet()->setCellValue('E' . $row, '')
                         ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
 
-            $spreadsheet->getActiveSheet()->getStyle('A'.$row.':E'.$row)
+            $spreadsheet->getActiveSheet()->getStyle($first_letter.$row.':'.$last_letter.$row)
                         ->getAlignment()->setWrapText(true);
 
             $row++;
