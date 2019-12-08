@@ -349,38 +349,50 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
 function wooaioc_get_columns_catalogue_item() {
     return array(
             'A' => array(
-                    'width' => '8',
+                'width' => '8',
+                'title' => __('SKU', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'B' => array(
                 'width' => '32',
+                'title' => __('Product Title', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'C' => array(
                 'width' => '55',
+                'title' => __('Product Description', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'D' => array(
                 'width' => '16',
+                'title' => __('Price', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
             'E' => array(
                 'width' => '16',
+                'title' => __('Wholesale Price', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
     );
 }
 
 function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
-    $spreadsheet->getActiveSheet()->setCellValue('A' . $row, $item['category']->name)
-                ->mergeCells('A'.$row.':E'.$row)->getStyle('A' . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
+
+    $columns = wooaioc_get_columns_catalogue_item();
+    $columns_letters = array_keys($columns);
+    $first_letter = $columns_letters[0];
+    $last_letter = end($columns_letters);
+    reset($columns_letters);
+
+    $spreadsheet->getActiveSheet()->setCellValue($first_letter . $row, $item['category']->name)
+                ->mergeCells($first_letter.$row.':'.$last_letter.$row)->getStyle($first_letter . $row)->applyFromArray(wooaioc_get_row_style('parent_category'));
     $row++;
     if (!empty($item['products'])) {
-        $spreadsheet->getActiveSheet()->setCellValue('A' . $row, __('SKU', 'woo-all-in-one-catalogue'))
-                    ->getStyle('A'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('B' . $row, __('Product Title', 'woo-all-in-one-catalogue'))
-                    ->getStyle('B'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('C' . $row, __('Product Description', 'woo-all-in-one-catalogue'))
-                    ->getStyle('C'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('D' . $row, __('Price', 'woo-all-in-one-catalogue'))
-                    ->getStyle('D'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
-        $spreadsheet->getActiveSheet()->setCellValue('E' . $row, __('Wholesale Price', 'woo-all-in-one-catalogue'))
-                    ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+
+        foreach ($columns as $letter => $column) {
+            $spreadsheet->getActiveSheet()->setCellValue($letter . $row, $column['title'])
+                ->getStyle($letter.$row)->applyFromArray(wooaioc_get_row_style('product_table_header'));
+        }
 
         $row++;
         foreach ($item['products'] as $product) {
@@ -397,7 +409,7 @@ function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
             $spreadsheet->getActiveSheet()->setCellValue('E' . $row, '')
                         ->getStyle('E'.$row)->applyFromArray(wooaioc_get_row_style('product_table_body'));
 
-            $spreadsheet->getActiveSheet()->getStyle('A'.$row.':E'.$row)
+            $spreadsheet->getActiveSheet()->getStyle($first_letter.$row.':'.$last_letter.$row)
                         ->getAlignment()->setWrapText(true);
 
             $row++;
