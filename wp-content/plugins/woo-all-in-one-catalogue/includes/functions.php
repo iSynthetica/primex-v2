@@ -246,7 +246,7 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                                     -
                                 </div>
                             </td>
-                            <td>
+                            <td style="min-width: 100px;">
                                 <div style="padding:1px 5px 1px 5px;">
                                     <?php
                                     if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
@@ -262,7 +262,7 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                             <?php
                         } else {
                             ?>
-                            <td colspan="2">
+                            <td colspan="2" style="min-width: 100px;">
                                 <div style="padding:1px 5px 1px 0;">
                                     <?php
                                     if ( '' !== get_the_post_thumbnail($product_data['id']) ) {

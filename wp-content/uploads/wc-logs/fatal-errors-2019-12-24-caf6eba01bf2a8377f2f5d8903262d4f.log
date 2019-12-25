@@ -1,0 +1,96 @@
+2019-12-24T09:15:13+00:00 CRITICAL Uncaught Error: Call to a member function get_results() on null in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/tables.php:7
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php(254): do_action('toplevel_page_w...')
+#5 {main}
+  thrown в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/tables.php на строке 7
+
+2019-12-24T09:54:33+00:00 CRITICAL syntax error, unexpected ')' в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/tables.php на строке 33
+
+2019-12-24T10:43:02+00:00 CRITICAL syntax error, unexpected '<' в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/export_attributes.php на строке 30
+
+2019-12-24T12:03:16+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_attributes.php:17
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php(254): do_action('toplevel_page_w...')
+#5 {main}
+  thrown в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_attributes.php на строке 17
+
+2019-12-24T18:48:27+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(45): WC_Product->set_sku('1311')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T18:52:04+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(45): WC_Product->set_sku('1311')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T18:57:53+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1311')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T19:47:05+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1304')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T19:47:20+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1304')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T19:47:26+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1304')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T19:47:30+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1304')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-24T19:47:46+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(51): WC_Product->set_sku('1304')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+

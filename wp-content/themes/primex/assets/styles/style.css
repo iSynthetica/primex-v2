@@ -32136,3 +32136,27 @@ body #side-panel.dark #side-panel-trigger-close a {
     display: none; }
   #logo a.retina-logo {
     display: inline-block; } }
+
+.product-add-to-cart-quick-view {
+  height: 44px;
+  line-height: 44px; }
+  .product-add-to-cart-quick-view a {
+    display: block;
+    float: left;
+    width: 50%;
+    font-size: 13px;
+    color: #333;
+    background-color: #F5F5F5;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.1); }
+    .product-add-to-cart-quick-view a.item-quick-view {
+      border-right: 0; }
+    .product-add-to-cart-quick-view a i {
+      position: relative;
+      top: 1px;
+      font-size: 14px;
+      margin-right: 3px; }
+    .product-add-to-cart-quick-view a:hover {
+      background-color: #333;
+      color: #FFF;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }

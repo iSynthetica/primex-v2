@@ -19,5 +19,6 @@ define('WOOAIOIE_CSS_URL', WOOAIOIE_URL . '/assets/css');
 define('WOOAIOIE_FILE', __FILE__ );
 define('WOOAIOIE_PATH', plugin_dir_path(__FILE__));
 
+include_once(WOOAIOIE_PATH . '/includes/class-background-create-products.php');
 require_once(WOOAIOIE_PATH . '/includes/functions.php');
 require_once(WOOAIOIE_PATH . '/includes/admin.php');

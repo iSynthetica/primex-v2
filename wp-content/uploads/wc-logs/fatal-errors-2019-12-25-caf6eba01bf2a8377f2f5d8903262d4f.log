@@ -1,0 +1,61 @@
+2019-12-25T10:31:31+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_products.php(56): WC_Product->set_sku('1311')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php(19): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioie_admin_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-25T12:21:06+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:21:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:21:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:21:27+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:21:44+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:22:21+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:23:07+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:23:07+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:23:23+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:23:27+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:23:44+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:24:22+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:24:22+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:25:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:25:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:25:27+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:25:44+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:26:21+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:27:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:27:24+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:27:27+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:27:45+00:00 CRITICAL Class 'Wtsr_Background_Process' not found в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:28:10+00:00 CRITICAL Cannot declare class Wooaioie_Background_Create_Product, because the name is already in use в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:28:15+00:00 CRITICAL Cannot declare class Wooaioie_Background_Create_Product, because the name is already in use в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:28:27+00:00 CRITICAL Cannot declare class Wooaioie_Background_Create_Product, because the name is already in use в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
+2019-12-25T12:28:27+00:00 CRITICAL Cannot declare class Wooaioie_Background_Create_Product, because the name is already in use в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
+
