@@ -59,3 +59,19 @@ Stack trace:
 
 2019-12-25T12:28:27+00:00 CRITICAL Cannot declare class Wooaioie_Background_Create_Product, because the name is already in use в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php на строке 5
 
+2019-12-25T16:28:37+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/functions.php(223): WC_Product->set_sku('1342-1577291317')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php(74): wooaioie_create_single_product(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php(39): Wooaioie_Background_Create_Product_Process->bg_task(Array)
+#4 /var/www/tsvitok в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+
+2019-12-25T16:32:53+00:00 CRITICAL Uncaught WC_Data_Exception: Неверный или дублированный артикул. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:810
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xD0\x9D\xD0\xB5\xD0\xB2\xD0\xB5\xD1\x80\xD0\xBD\xD1\x8B\xD0...', 400, Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/functions.php(223): WC_Product->set_sku('1342-1577291573')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php(74): wooaioie_create_single_product(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/class-background-create-products-process.php(39): Wooaioie_Background_Create_Product_Process->bg_task(Array)
+#4 /var/www/tsvitok в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php на строке 810
+

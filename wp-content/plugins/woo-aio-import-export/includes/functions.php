@@ -249,6 +249,26 @@ function wooaioie_create_single_product($product_value) {
                 unset($product_value['total_sales']);
             }
 
+            if (!empty($product_value['upsell_ids'])) {
+                if (!empty(unserialize($product_value['upsell_ids']))) {
+                    $existed_upsell = get_post_meta($created_id, '_upsell_ids', true);
+
+                    if (empty($existed_upsell)) {
+                        update_post_meta( $created_id, '_upsell_ids', $product_value['upsell_ids'] );
+                    }
+                }
+            }
+
+            if (!empty($product_value['cross_sell_ids'])) {
+                if (!empty(unserialize($product_value['cross_sell_ids']))) {
+                    $existed_crosssell = get_post_meta($created_id, '_crosssell_ids', true);
+
+                    if (empty($existed_crosssell)) {
+                        update_post_meta( $created_id, '_crosssell_ids', $product_value['cross_sell_ids'] );
+                    }
+                }
+            }
+
             if (!empty($product_value['attributes_meta'])) {
                 if (!empty(unserialize($product_value['attributes_meta']))) {
                     $sql = "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id = '{$created_id}' AND meta_key = '_product_attributes'";
