@@ -20,6 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
+
+$class = ( $args['class'] ) ? $args['class'] : 'button';
+$class .= ' button-reveal';
+$add_to_cart_text = '<i class="fas fa-cart-plus"></i>' . '<span>' . esc_html( $product->add_to_cart_text() ) . '</span>';
 ?>
     <div class="product-add-to-cart center">
     <?php
@@ -27,9 +31,9 @@ global $product;
         sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
             esc_url( $product->add_to_cart_url() ),
             esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-            esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
+            esc_attr( $class ),
             isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
-            esc_html( $product->add_to_cart_text() )
+            $add_to_cart_text
         ),
     $product, $args );
     ?>

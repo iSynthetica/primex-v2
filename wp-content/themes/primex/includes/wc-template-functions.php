@@ -44,11 +44,20 @@ function snth_wc_get_gallery_image_html( $attachment_id, $main_image = false ) {
     return '<div data-thumb="' . esc_url( $full_src[0] ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="woocommerce-product-gallery__image slide"><a href="' . esc_url( $full_src[0] ) . '">' . $image . '</a></div>';
 }
 
+function snth_wc_product_additional_information_heading($title) {
+    return false;
+}
+
+function snth_wc_product_description_heading($title) {
+    return false;
+}
+
 
 
 function snth_wc_template_loop_product_image_start() {
     ?>
     <div class="product-image">
+    <a href="<?php echo get_permalink() ?>">
     <?php
 }
 
@@ -65,14 +74,91 @@ function snth_wc_template_loop_product_thumbnail() {
 
 function snth_wc_template_loop_product_image_end() {
     ?>
+    </a>
     </div>
     <?php
 }
 
 function snth_wc_template_loop_product_quick_view_start() {
     ?>
-    <div class="product-add-to-cart-quick-view">
-        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
+    <div class="product-quick-view">
+    <?php
+}
+
+function snth_wc_template_loop_quick_view() {
+    global $post;
+    $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+
+    if ( ! $short_description ) {
+        return;
+    }
+    ?>
+    <button class="button button-border button-mini button-border-thin btn-block button-reveal" data-toggle="modal" data-target="#product-modal-desc-<?php echo $post->ID ?>">
+        <i class="fas fa-info"></i><span><?php echo __('Quick view', 'primex') ?></span>
+    </button>
+
+    <div class="modal fade" id="product-modal-desc-<?php echo $post->ID ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="woocommerce-product-details__short-description">
+                            <?php echo $short_description; // WPCS: XSS ok. ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <?php woocommerce_template_loop_add_to_cart(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function snth_wc_template_loop_product_quick_view_end() {
+    ?>
+    </div>
+    <?php
+}
+
+function snth_wc_template_loop_product_desc_start() {
+    ?>
+    <div class="product-desc center">
+    <?php
+}
+
+/**
+ * Show the product title in the product loop. By default this is an H2.
+ */
+function snth_wc_template_loop_product_title() {
+    global $post;
+    ?>
+    <div class="product-title">
+        <h3>
+            <a href="<?php echo get_permalink() ?>">
+                <?php echo get_the_title(); ?>
+            </a>
+        </h3>
+    </div>
+    <?php
+}
+
+function snth_wc_template_loop_price() {
+    ?>
+    <div class="product-price">
+        <?php wc_get_template( 'loop/price.php' ); ?>
+    </div>
+    <?php
+}
+
+function snth_wc_template_loop_product_desc_end() {
+    ?>
+    </div>
     <?php
 }
 
@@ -114,47 +200,4 @@ function snth_wc_template_loop_add_to_cart( $args = array() ) {
 
         wc_get_template( 'loop/add-to-cart.php', $args );
     }
-}
-
-function snth_wc_template_loop_quick_view() {
-    ?>
-    <a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Quick View</span></a>
-    <?php
-}
-
-function snth_wc_template_loop_product_quick_view_end() {
-    ?>
-    </div>
-    <?php
-}
-
-function snth_wc_template_loop_product_desc_start() {
-    ?>
-    <div class="product-desc center">
-    <?php
-}
-
-/**
- * Show the product title in the product loop. By default this is an H2.
- */
-function snth_wc_template_loop_product_title() {
-    ?>
-    <div class="product-title">
-        <h3><?php echo get_the_title(); ?></h3>
-    </div>
-    <?php
-}
-
-function snth_wc_template_loop_price() {
-    ?>
-    <div class="product-price">
-        <?php wc_get_template( 'loop/price.php' ); ?>
-    </div>
-    <?php
-}
-
-function snth_wc_template_loop_product_desc_end() {
-    ?>
-    </div>
-    <?php
 }

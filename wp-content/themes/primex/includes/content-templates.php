@@ -579,6 +579,9 @@ function snth_comment_form_defaults($defaults) {
 
     $defaults['comment_field'] = '<div class="clear"></div><div class="col_full"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment"  name="comment" cols="58" rows="7" tabindex="4" class="sm-form-control" maxlength="65525" required="required"></textarea></div>';
 
+
+    $defaults['cancel_reply_before'] = '';
+    $defaults['cancel_reply_after'] = '';
     $defaults['fields'] = $fields;
     $defaults['class_submit'] = 'button button-3d nomargin';
     $defaults['class_form'] = 'clearfix';

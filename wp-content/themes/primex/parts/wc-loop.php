@@ -81,7 +81,7 @@ if (is_shop()) {
                 </div>
 
                 <div class="sidebar nobottommargin col_last clearfix">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('woocommerce'); ?>
                 </div>
                 <?php
             } elseif ('left-sidebar' === $layout) {
@@ -91,7 +91,7 @@ if (is_shop()) {
                 </div>
 
                 <div class="sidebar nobottommargin clearfix">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('woocommerce'); ?>
                 </div>
                 <?php
             } else {

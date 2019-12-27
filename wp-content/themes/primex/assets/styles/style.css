@@ -15923,10 +15923,7 @@ h5 > span:not(.nocolor):not(.badge),
 h6 > span:not(.nocolor):not(.badge) {
   color: #1ABC9C; }
 
-p,
 pre,
-ul,
-ol,
 dl,
 dd,
 blockquote,
@@ -15935,6 +15932,11 @@ table,
 fieldset,
 form {
   margin-bottom: 30px; }
+
+p,
+ul,
+ol {
+  margin-bottom: 0.9375rem; }
 
 small {
   font-family: 'Lato', sans-serif; }
@@ -16305,6 +16307,10 @@ span.middot {
 
 .magnific-max-width .mfp-content {
   max-width: 800px; }
+
+ul,
+ol {
+  list-style-position: inside; }
 
 /*-----------------------------------------------------------------------------------
 
@@ -32137,6 +32143,19 @@ body #side-panel.dark #side-panel-trigger-close a {
   #logo a.retina-logo {
     display: inline-block; } }
 
+.sticky-style-2 #logo {
+  padding-top: 1.8125rem;
+  padding-bottom: 1.8125rem; }
+  .sticky-style-2 #logo img {
+    height: 42px;
+    transition: height .4s ease, opacity .3s ease; }
+
+.product-quick-view {
+  padding-top: 0.9375rem; }
+  .product-quick-view .button.button-mini {
+    margin: 0;
+    text-align: center; }
+
 .product-add-to-cart-quick-view {
   height: 44px;
   line-height: 44px; }
@@ -32160,3 +32179,6 @@ body #side-panel.dark #side-panel-trigger-close a {
       background-color: #333;
       color: #FFF;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
+
+.woocommerce-product-attributes td p:last-child {
+  margin-bottom: 0; }

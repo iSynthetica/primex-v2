@@ -39,10 +39,7 @@ h4 > span:not(.nocolor):not(.badge),
 h5 > span:not(.nocolor):not(.badge),
 h6 > span:not(.nocolor):not(.badge) { color: #1ABC9C; }
 
-p,
 pre,
-ul,
-ol,
 dl,
 dd,
 blockquote,
@@ -50,5 +47,9 @@ address,
 table,
 fieldset,
 form { margin-bottom: 30px; }
+
+p,
+ul,
+ol { margin-bottom: rem-calc(15); }
 
 small { font-family: 'Lato', sans-serif; }

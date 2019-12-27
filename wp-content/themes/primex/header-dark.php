@@ -7,8 +7,6 @@
  * @since Prime-X 1.0
  */
 ?>
-
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
@@ -43,8 +41,8 @@
                 <!-- Logo
                 ============================================= -->
                 <div id="logo">
-                    <a href="index.html" class="standard-logo" data-dark-logo="<?php echo SNTH_IMAGES_URL ?>/canvas/logo-dark.png"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/logo.png" alt="Canvas Logo"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="<?php echo SNTH_IMAGES_URL ?>/canvas/logo-dark@2x.png"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/logo@2x.png" alt="Canvas Logo"></a>
+                    <a href="<?php echo get_home_url() ?>" class="standard-logo" data-dark-logo="<?php echo SNTH_IMAGES_URL ?>/canvas/logo-dark.png"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/logo.png" alt="Canvas Logo"></a>
+                    <a href="<?php echo get_home_url() ?>" class="retina-logo" data-dark-logo="<?php echo SNTH_IMAGES_URL ?>/canvas/logo-dark@2x.png"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/logo@2x.png" alt="Canvas Logo"></a>
                 </div><!-- #logo end -->
 
                 <?php snth_show_template('header/nav.php'); ?>

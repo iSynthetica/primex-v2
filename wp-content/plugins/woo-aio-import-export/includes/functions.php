@@ -194,17 +194,12 @@ function wooaioie_create_single_product($product_value) {
 
         if ($created_id) {
             $simple_product = wc_get_product( $created_id );
+
             $simple_product->set_name($product_value['name']);
             $simple_product->set_slug($product_value['slug']);
             $simple_product->set_status($product_value['status']);
-
             $description = htmlspecialchars_decode (base64_decode($product_value['description']));
-            $array = array();
-            preg_match_all( '/src="([^"]*)"/i', $description, $array ) ;
-            // print_r( $array[1] ) ;
-
             $simple_product->set_description($description);
-
             $simple_product->set_short_description(htmlspecialchars_decode (base64_decode($product_value['short_description'])));
 
             unset($product_value['name']);
@@ -368,12 +363,36 @@ function wooaioie_create_single_product($product_value) {
                 unset($product_value['categories']);
             }
 
+            if (!empty($product_value['_retail_percent'])) {
+                delete_post_meta($created_id, '_retail_percent');
+                update_post_meta($created_id, '_retail_percent', $product_value['_retail_percent']);
+                unset($product_value['_retail_percent']);
+            }
+
+            if (!empty($product_value['_custom_manual'])) {
+                delete_post_meta($created_id, '_custom_manual');
+                update_post_meta($created_id, '_custom_manual', $product_value['_custom_manual']);
+                unset($product_value['_custom_manual']);
+            }
+
+            if (!empty($product_value['video_group'])) {
+                delete_post_meta($created_id, 'video_group');
+                update_post_meta($created_id, 'video_group', $product_value['video_group']);
+                unset($product_value['video_group']);
+            }
+
+            if (!empty($product_value['_yoast_wpseo_primary_product_cat'])) {
+                delete_post_meta($created_id, '_yoast_wpseo_primary_product_cat');
+                update_post_meta($created_id, '_yoast_wpseo_primary_product_cat', $product_value['_yoast_wpseo_primary_product_cat']);
+                unset($product_value['_yoast_wpseo_primary_product_cat']);
+            }
+
             $simple_product_id = $simple_product->save();
         }
 
-        ob_start();
-        print_r($product_value);
-        error_log(ob_get_clean());
+//        ob_start();
+//        print_r($product_value);
+//        error_log(ob_get_clean());
 
         error_log('TASK FINISHED ========================================= ');
     }

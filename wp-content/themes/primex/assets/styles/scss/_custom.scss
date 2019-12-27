@@ -1,3 +1,25 @@
+.sticky-style-2 {
+    #logo {
+        padding-top: rem-calc(29);
+        padding-bottom: rem-calc(29);
+
+        img {
+            height: 42px;
+            -webkit-transition: height .4s ease, opacity .3s ease;
+            -o-transition: height .4s ease, opacity .3s ease;
+            transition: height .4s ease, opacity .3s ease;
+        }
+    }
+}
+
+.product-quick-view {
+    padding-top: rem-calc(15);
+    .button.button-mini {
+        margin: rem-calc(0);
+        text-align: center;
+    }
+}
+
 .product-add-to-cart-quick-view {
     height: 44px;
     line-height: 44px;
@@ -26,4 +48,8 @@
             text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
         }
     }
+}
+
+.woocommerce-product-attributes td p:last-child {
+    margin-bottom: 0;
 }

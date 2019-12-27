@@ -10,7 +10,7 @@ $count_sql = "SELECT COUNT(*) AS count
 ";
 
 $count = $wpdb->get_row( $count_sql, ARRAY_A );
-$limit = 200;
+$limit = 250;
 $page = !(empty($_GET['import_page'])) ? sanitize_text_field($_GET['import_page']) : 1;
 
 if (!empty($count)) {
@@ -138,6 +138,30 @@ foreach ($products as $product_i => $product) {
 
         if ($meta_value['meta_key'] === '_sale_price_dates_from') {
             $product['date_on_sale_from'] = $meta_value['meta_value'];
+
+            unset($meta[$meta_i]);
+        }
+
+        if ($meta_value['meta_key'] === '_custom_manual') {
+            $product['_custom_manual'] = $meta_value['meta_value'];
+
+            unset($meta[$meta_i]);
+        }
+
+        if ($meta_value['meta_key'] === '_retail_percent') {
+            $product['_retail_percent'] = $meta_value['meta_value'];
+
+            unset($meta[$meta_i]);
+        }
+
+        if ($meta_value['meta_key'] === 'video_group') {
+            $product['video_group'] = $meta_value['meta_value'];
+
+            unset($meta[$meta_i]);
+        }
+
+        if ($meta_value['meta_key'] === '_yoast_wpseo_primary_product_cat') {
+            $product['_yoast_wpseo_primary_product_cat'] = $meta_value['meta_value'];
 
             unset($meta[$meta_i]);
         }
