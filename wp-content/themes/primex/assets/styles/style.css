@@ -32182,3 +32182,35 @@ body #side-panel.dark #side-panel-trigger-close a {
 
 .woocommerce-product-attributes td p:last-child {
   margin-bottom: 0; }
+
+.rating-star-container {
+  display: inline-block;
+  position: relative;
+  width: 6.32812rem !important;
+  height: 1.125rem !important;
+  line-height: 1.125rem !important;
+  font-size: 1.125rem !important; }
+  .rating-star-container > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.125rem !important;
+    font-family: 'Font Awesome 5 Free';
+    color: #1ABC9C;
+    width: 6.32812rem !important; }
+    .rating-star-container > span:before {
+      width: 6.32812rem !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '\f005 \f005 \f005 \f005 \f005'; }
+  .rating-star-container .rating-front {
+    font-weight: 700;
+    overflow: hidden; }
+  .rating-star-container .rating-back {
+    font-weight: 400; }
+
+.tab-content #comments {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none; }

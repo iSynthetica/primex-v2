@@ -93636,3 +93636,32 @@ Stack trace:
 [27-Dec-2019 12:46:24 UTC] PHP   6. locate_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/general-template.php:76
 [27-Dec-2019 12:46:24 UTC] PHP   7. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:671
 [27-Dec-2019 12:46:24 UTC] PHP   8. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:722
+[27-Dec-2019 14:54:14 UTC] PHP Notice:  Undefined variable: echo in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/wc-template-functions.php on line 268
+[27-Dec-2019 14:54:14 UTC] PHP Stack trace:
+[27-Dec-2019 14:54:14 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[27-Dec-2019 14:54:14 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[27-Dec-2019 14:54:14 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[27-Dec-2019 14:54:14 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[27-Dec-2019 14:54:14 UTC] PHP   5. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce.php:7
+[27-Dec-2019 14:54:14 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[27-Dec-2019 14:54:14 UTC] PHP   7. wc_get_template_part() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/wc-loop.php:27
+[27-Dec-2019 14:54:14 UTC] PHP   8. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:195
+[27-Dec-2019 14:54:14 UTC] PHP   9. require() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:724
+[27-Dec-2019 14:54:14 UTC] PHP  10. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/content-product.php:67
+[27-Dec-2019 14:54:14 UTC] PHP  11. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[27-Dec-2019 14:54:14 UTC] PHP  12. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[27-Dec-2019 14:54:14 UTC] PHP  13. snth_wc_template_loop_product_rating() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[27-Dec-2019 14:54:14 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'snth_wc_template_loop_add_to_cart' not found or invalid function name in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[27-Dec-2019 14:54:14 UTC] PHP Stack trace:
+[27-Dec-2019 14:54:14 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[27-Dec-2019 14:54:14 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[27-Dec-2019 14:54:14 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[27-Dec-2019 14:54:14 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[27-Dec-2019 14:54:14 UTC] PHP   5. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce.php:7
+[27-Dec-2019 14:54:14 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[27-Dec-2019 14:54:14 UTC] PHP   7. wc_get_template_part() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/wc-loop.php:27
+[27-Dec-2019 14:54:14 UTC] PHP   8. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:195
+[27-Dec-2019 14:54:14 UTC] PHP   9. require() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:724
+[27-Dec-2019 14:54:14 UTC] PHP  10. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/content-product.php:67
+[27-Dec-2019 14:54:14 UTC] PHP  11. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[27-Dec-2019 14:54:14 UTC] PHP  12. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312

@@ -53,3 +53,47 @@
 .woocommerce-product-attributes td p:last-child {
     margin-bottom: 0;
 }
+
+.rating-star-container {
+    display: inline-block;
+    position: relative;
+    width: rem-calc(101.25)!important;
+    height: rem-calc(18)!important;
+    line-height: rem-calc(18)!important;
+    font-size: rem-calc(18)!important;
+    & > span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: rem-calc(18)!important;
+        font-family: 'Font Awesome 5 Free';
+        color: #1ABC9C;
+        width: rem-calc(101.25)!important;
+        &:before {
+            width: rem-calc(101.25)!important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '\f005 \f005 \f005 \f005 \f005';
+        }
+    }
+    .rating-front {
+        font-weight: 700;
+        overflow: hidden;
+        &:before {
+        }
+    }
+    .rating-back {
+        font-weight: 400;
+        &:before {
+        }
+    }
+}
+
+.tab-content {
+    #comments {
+        padding-top: 0;
+        margin-top: 0;
+        border-top: none;
+    }
+}

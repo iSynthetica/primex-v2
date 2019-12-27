@@ -52,6 +52,46 @@ function snth_wc_product_description_heading($title) {
     return false;
 }
 
+function snth_wc_review_display_gravatar( $comment ) {
+    ?>
+    <div class="comment-meta">
+        <div class="comment-author vcard">
+            <span class="comment-avatar clearfix">
+                <?php echo get_avatar( $comment, apply_filters( 'woocommerce_review_gravatar_size', '60' ), '' ); ?>
+            </span>
+        </div>
+    </div>
+    <?php
+}
+
+function snth_wc_review_display_meta($comment) {
+    ?>
+    <div class="comment-author">John Doe<span><a href="#" title="Permalink to this comment">April 24, 2014 at 10:46AM</a></span></div>
+    <?php
+}
+
+function woocommerce_review_display_comment_text($comment) {
+    echo '<div class="description">';
+    comment_text();
+    echo '</div>';
+}
+
+function snth_wc_get_star_rating_html($html, $rating, $count) {
+    $html = '';
+    $width = ( $rating / 5 ) * 100;
+    ob_start();
+    ?>
+    <span class="rating-star-container">
+        <span class="rating-back"></span>
+        <span class="rating-front" style="width: <?php echo $width ?>%"></span>
+    </span>
+    <?php
+
+    $html .= ob_get_clean();
+
+    return $html;
+}
+
 
 
 function snth_wc_template_loop_product_image_start() {
@@ -154,6 +194,24 @@ function snth_wc_template_loop_product_desc_end() {
     ?>
     </div>
     <?php
+}
+
+function snth_wc_template_loop_product_rating() {
+    global $product;
+
+    if ( ! wc_review_ratings_enabled() ) {
+        return;
+    }
+
+    $rating_count = $product->get_rating_count();
+    $review_count = $product->get_review_count();
+    $average      = $product->get_average_rating();
+
+    if ($rating_count > 0) {
+        echo '<div class="product-loop-ratings center">';
+        echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok.
+        echo '</div>';
+    }
 }
 
 /**

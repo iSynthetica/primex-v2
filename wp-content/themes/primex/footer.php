@@ -121,7 +121,7 @@
 </div>
 
 <div class="modal fade" id="product-modal-desc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-body">
             <div class="modal-content">
 
