@@ -32214,3 +32214,8 @@ body #side-panel.dark #side-panel-trigger-close a {
   padding-top: 0;
   margin-top: 0;
   border-top: none; }
+
+.comment-form-cookies-consent label {
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: normal; }

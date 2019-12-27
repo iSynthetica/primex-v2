@@ -544,7 +544,26 @@ function snth_comment_form_defaults($defaults) {
             '<input id="url" class="sm-form-control" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></div>',
     );
 
+
+
     $defaults['comment_field'] = '<div class="clear"></div><div class="col_full"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label> <textarea id="comment"  name="comment" cols="58" rows="7" tabindex="4" class="sm-form-control" maxlength="65525" required="required"></textarea></div>';
+
+    if (!empty($defaults["fields"]["cookies"])) {
+        $consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+        $field_cookie =  sprintf(
+            '<div class="comment-form-cookies-consent col_full">%s %s</div>',
+            sprintf(
+                '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"%s />',
+                $consent
+            ),
+            sprintf(
+                '<label for="wp-comment-cookies-consent">%s</label>',
+                __( 'Save my name, email, and website in this browser for the next time I comment.' )
+            )
+        );
+
+        $defaults["fields"]["cookies"] = $field_cookie;
+    }
 
 
     $defaults['cancel_reply_before'] = '';

@@ -58,7 +58,7 @@ if ( ! comments_open() ) {
                 <div class="modal-body">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="reviewFormModalLabel"><?php esc_html_e( 'Add a review', 'primex' ); ?></h4>
+                            <h4 class="modal-title" id="reviewFormModalLabel"><?php esc_html_e( 'Add a review', 'woocommerce' ); ?></h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
 
@@ -75,7 +75,6 @@ if ( ! comments_open() ) {
                                         'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',
                                         'title_reply_after'   => '</span>',
                                         'comment_notes_after' => '',
-                                        'label_submit'        => esc_html__( 'Submit', 'woocommerce' ),
                                         'logged_in_as'        => '',
                                         'comment_field'       => '',
                                     );
@@ -98,17 +97,46 @@ if ( ! comments_open() ) {
 
                                     $comment_form['fields'] = array();
 
+                                    $i = 1;
                                     foreach ( $fields as $key => $field ) {
-                                        $field_html  = '<p class="comment-form-' . esc_attr( $key ) . '">';
+                                        $last_col = '';
+
+                                        if (2 === $i) {
+                                            $last_col = ' col_last';
+                                        }
+
+                                        $field_html  = '<div class="col_half '.$last_col.' comment-form-' . esc_attr( $key ) . '">';
                                         $field_html .= '<label for="' . esc_attr( $key ) . '">' . esc_html( $field['label'] );
 
                                         if ( $field['required'] ) {
                                             $field_html .= '&nbsp;<span class="required">*</span>';
                                         }
 
-                                        $field_html .= '</label><input id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" type="' . esc_attr( $field['type'] ) . '" value="' . esc_attr( $field['value'] ) . '" size="30" ' . ( $field['required'] ? 'required' : '' ) . ' /></p>';
+                                        $field_html .= '</label><input class="form-control" id="' . esc_attr( $key ) . '" name="' . esc_attr( $key ) . '" type="' . esc_attr( $field['type'] ) . '" value="' . esc_attr( $field['value'] ) . '" ' . ( $field['required'] ? 'required' : '' ) . ' /></div>';
 
                                         $comment_form['fields'][ $key ] = $field_html;
+                                        $i++;
+                                    }
+
+                                    if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
+                                        $consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+
+                                        $field_cookie =  sprintf(
+                                            '<div class="comment-form-cookies-consent col_full"><div class="form-check">%s %s</div></div>',
+                                            sprintf(
+                                                '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="form-check-input" type="checkbox" value="yes"%s />',
+                                                $consent
+                                            ),
+                                            sprintf(
+                                                '<label for="wp-comment-cookies-consent" class="form-check-label">%s</label>',
+                                                __( 'Save my name, email, and website in this browser for the next time I comment.' )
+                                            )
+                                        );
+
+                                        // Ensure that the passed fields include cookies consent.
+                                        if ( isset( $comment_form['fields'] ) && ! isset( $comment_form['fields']['cookies'] ) ) {
+                                            $comment_form['fields']['cookies'] = $field_cookie;
+                                        }
                                     }
 
                                     $account_page_url = wc_get_page_permalink( 'myaccount' );
@@ -128,7 +156,9 @@ if ( ! comments_open() ) {
                         </select></div>';
                                     }
 
-                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'woocommerce' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
+                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'woocommerce' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" class="form-control" rows="5" required></textarea></p>';
+
+                                    $comment_form['submit_button'] = '<button type="submit" id="%2$s" class="button button-reveal button-small">'.'<i class="far fa-comments"></i><span>'.esc_html__( 'Submit', 'woocommerce' ) . '</span>'.'</button>';
 
                                     comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
                                     ?>
@@ -141,8 +171,8 @@ if ( ! comments_open() ) {
         </div>
 
         <div class="product-modal-form-review">
-            <button class="button button-reveal" data-toggle="modal" data-target="#reviewFormModal">
-                <i class="far fa-comments"></i><span><?php esc_html_e( 'Add a review', 'primex' ); ?></span>
+            <button class="button button-reveal button-small" data-toggle="modal" data-target="#reviewFormModal">
+                <i class="far fa-comments"></i><span><?php esc_html_e( 'Add a review', 'woocommerce' ); ?></span>
             </button>
         </div>
 	<?php else : ?>
