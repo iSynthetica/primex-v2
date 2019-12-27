@@ -93,28 +93,22 @@ function snth_wc_template_loop_quick_view() {
         return;
     }
     ?>
-    <button class="button button-border button-mini button-border-thin btn-block button-reveal" data-toggle="modal" data-target="#product-modal-desc-<?php echo $post->ID ?>">
+    <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
         <i class="fas fa-info"></i><span><?php echo __('Quick view', 'primex') ?></span>
     </button>
 
-    <div class="modal fade" id="product-modal-desc-<?php echo $post->ID ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-body">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="woocommerce-product-details__short-description">
-                            <?php echo $short_description; // WPCS: XSS ok. ?>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <?php woocommerce_template_loop_add_to_cart(); ?>
-                    </div>
-                </div>
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <?php echo $short_description; // WPCS: XSS ok. ?>
             </div>
+        </div>
+        <div class="modal-footer">
+            <?php woocommerce_template_loop_add_to_cart(); ?>
         </div>
     </div>
     <?php
@@ -199,5 +193,39 @@ function snth_wc_template_loop_add_to_cart( $args = array() ) {
         }
 
         wc_get_template( 'loop/add-to-cart.php', $args );
+    }
+}
+
+function snth_wc_product_loop_carousel_start( $echo = true ) {
+    ob_start();
+
+    wc_set_loop_prop( 'loop', 0 );
+
+    ?>
+    <div id="oc-product" class="owl-carousel product-carousel carousel-widget" data-margin="30" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-md="2" data-items-lg="3" data-items-xl="4">
+    <?php
+
+    $loop_start = ob_get_clean();
+
+    if ( $echo ) {
+        echo $loop_start; // WPCS: XSS ok.
+    } else {
+        return $loop_start;
+    }
+}
+
+function snth_wc_product_loop_carousel_end( $echo = true ) {
+    ob_start();
+
+    ?>
+    </div>
+    <?php
+
+    $loop_end = ob_get_clean();
+
+    if ( $echo ) {
+        echo $loop_end; // WPCS: XSS ok.
+    } else {
+        return $loop_end;
     }
 }

@@ -11,6 +11,7 @@ add_action( 'woocommerce_single_product_summary', 'snth_wc_template_after_price_
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 20 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 30 );
 add_action( 'woocommerce_after_add_to_cart_form', 'snth_wc_template_after_price_line', 10 );
+
 add_filter('woocommerce_product_additional_information_heading', 'snth_wc_product_additional_information_heading', 100);
 add_filter('woocommerce_product_description_heading', 'snth_wc_product_description_heading', 100);
 

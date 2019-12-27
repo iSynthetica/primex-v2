@@ -120,6 +120,16 @@
     <i class="fas fa-angle-double-up"></i>
 </div>
 
+<div class="modal fade" id="product-modal-desc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -93606,3 +93606,33 @@ Stack trace:
 [26-Dec-2019 20:31:27 UTC] PHP  16. comments_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/single-product/tabs/tabs.php:49
 [26-Dec-2019 20:31:27 UTC] PHP  17. require() /var/www/tsvitokha/primex2.0/public_html/wp-includes/comment-template.php:1508
 [26-Dec-2019 20:31:27 UTC] PHP  18. comment_form() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/single-product-reviews.php:136
+[27-Dec-2019 12:28:31 UTC] PHP Notice:  Undefined variable: short_description in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/footer.php on line 133
+[27-Dec-2019 12:28:31 UTC] PHP Stack trace:
+[27-Dec-2019 12:28:31 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[27-Dec-2019 12:28:31 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[27-Dec-2019 12:28:31 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[27-Dec-2019 12:28:31 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[27-Dec-2019 12:28:31 UTC] PHP   5. get_footer() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce.php:11
+[27-Dec-2019 12:28:31 UTC] PHP   6. locate_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/general-template.php:76
+[27-Dec-2019 12:28:31 UTC] PHP   7. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:671
+[27-Dec-2019 12:28:31 UTC] PHP   8. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:722
+[27-Dec-2019 12:31:06 UTC] PHP Notice:  Undefined variable: short_description in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/footer.php on line 133
+[27-Dec-2019 12:31:06 UTC] PHP Stack trace:
+[27-Dec-2019 12:31:06 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[27-Dec-2019 12:31:06 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[27-Dec-2019 12:31:06 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[27-Dec-2019 12:31:06 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[27-Dec-2019 12:31:06 UTC] PHP   5. get_footer() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce.php:11
+[27-Dec-2019 12:31:06 UTC] PHP   6. locate_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/general-template.php:76
+[27-Dec-2019 12:31:06 UTC] PHP   7. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:671
+[27-Dec-2019 12:31:06 UTC] PHP   8. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:722
+[27-Dec-2019 12:46:24 UTC] PHP Notice:  Undefined variable: short_description in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/footer.php on line 133
+[27-Dec-2019 12:46:24 UTC] PHP Stack trace:
+[27-Dec-2019 12:46:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[27-Dec-2019 12:46:24 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[27-Dec-2019 12:46:24 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[27-Dec-2019 12:46:24 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[27-Dec-2019 12:46:24 UTC] PHP   5. get_footer() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce.php:11
+[27-Dec-2019 12:46:24 UTC] PHP   6. locate_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/general-template.php:76
+[27-Dec-2019 12:46:24 UTC] PHP   7. load_template() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:671
+[27-Dec-2019 12:46:24 UTC] PHP   8. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template.php:722
