@@ -1419,7 +1419,8 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #header.transparent-header:
     transition: opacity .5s ease, top .4s ease;
 }
 
-.style-2 .container #top-cart .top-cart-content { top: 40px; }
+.style-2 .container #top-cart .top-cart-content,
+.style-2 .container-fullwidth #top-cart .top-cart-content { top: 40px; }
 
 .style-2.sub-title .container #top-cart .top-cart-content { top: 50px; }
 

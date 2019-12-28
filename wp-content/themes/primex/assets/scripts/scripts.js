@@ -8485,7 +8485,7 @@ var SEMICOLON = SEMICOLON || {};
             SEMICOLON.header.onepageScroller();
             SEMICOLON.header.logo();
             SEMICOLON.header.topsearch();
-            SEMICOLON.header.topcart();
+            // SEMICOLON.header.topcart();
 
         },
 
@@ -11221,6 +11221,15 @@ var SEMICOLON = SEMICOLON || {};
         var productModalQuickViewContent = productModalQuickView.find('.modal-content');
         productModalQuickViewContent.html(parentQuickViewContentHtml);
         $('#product-modal-desc').modal();
+    });
+
+
+    $(document.body).on('click', "#top-cart-trigger", function(e) {
+        $('#page-menu').toggleClass('pagemenu-active', false);
+        $('#top-cart').toggleClass('top-cart-open');
+        e.stopPropagation();
+        e.preventDefault();
+
     });
 
     $(document).ready(function() {});

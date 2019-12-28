@@ -1002,7 +1002,7 @@ var SEMICOLON = SEMICOLON || {};
             SEMICOLON.header.onepageScroller();
             SEMICOLON.header.logo();
             SEMICOLON.header.topsearch();
-            SEMICOLON.header.topcart();
+            // SEMICOLON.header.topcart();
 
         },
 

@@ -22,12 +22,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
         <!-- Top Search
         ============================================= -->
-        <div id="top-search">
-            <a href="#" id="top-search-trigger"><i class="fas fa-search"></i><i class="fas fa-times"></i></a>
-    <!--        <form action="search.html" method="get">-->
-    <!--            <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">-->
-    <!--        </form>-->
-            <?php get_search_form(); ?>
-        </div><!-- #top-search end -->
+        <?php
+        if (false) {
+            ?>
+            <div id="top-search">
+                <a href="#" id="top-search-trigger"><i class="fas fa-search"></i><i class="fas fa-times"></i></a>
+                <!--        <form action="search.html" method="get">-->
+                <!--            <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">-->
+                <!--        </form>-->
+                <?php get_search_form(); ?>
+            </div><!-- #top-search end -->
+            <?php
+        }
+        ?>
     </div>
 </nav><!-- #primary-menu end -->

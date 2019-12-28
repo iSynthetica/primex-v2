@@ -9,5 +9,6 @@ function snth_wc_support()
 }
 add_action( 'after_setup_theme', 'snth_wc_support' );
 
+require_once(SNTH_INCLUDES.'/wc-core.php');
 require_once(SNTH_INCLUDES.'/wc-template-functions.php');
 require_once(SNTH_INCLUDES.'/wc-template-hooks.php');
