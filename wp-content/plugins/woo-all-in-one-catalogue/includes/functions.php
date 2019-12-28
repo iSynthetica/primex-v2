@@ -226,124 +226,70 @@ function wooaioc_get_product_categories_tree($parent = 0) {
 
 function wooaioc_display_catalogue_item($item, $depth = 0) {
     ?>
-    <li>
-        <h4><?php echo $item['category']->name; ?></h4>
-        <?php
-        if (!empty($item['products'])) {
-            ?>
-            <table class="wooaioc-catalogue-table">
-                <?php
-                foreach ($item['products'] as $product) {
-                    $product_data = $product->get_data();
-                    $product_type = $product->get_type();
-                    ?>
-                    <tr>
+    <tr>
+        <th colspan="6">
+            <h4><?php echo $item['category']->name; ?></h4>
+        </th>
+    </tr>
+    <?php
+    if (!empty($item['products'])) {
+        ?>
+            <?php
+            foreach ($item['products'] as $product) {
+                $product_data = $product->get_data();
+                $product_type = $product->get_type();
+                ?>
+                <tr>
+                    <td style="min-width: 100px;">
                         <?php
-                        if ('variation' === $product_type) {
+                        if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
                             ?>
-                            <td>
-                                <div style="padding:1px 5px 1px 3px;">
-                                    -
-                                </div>
-                            </td>
-                            <td style="min-width: 100px;">
-                                <div style="padding:1px 5px 1px 5px;">
-                                    <?php
-                                    if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
-                                        ?>
-                                        <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
-                                            <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 45px;width: auto;">
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                            </td>
-                            <?php
-                        } else {
-                            ?>
-                            <td colspan="2" style="min-width: 100px;">
-                                <div style="padding:1px 5px 1px 0;">
-                                    <?php
-                                    if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
-                                        ?>
-                                        <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
-                                            <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 65px;width: auto;">
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                            </td>
+                            <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
+                                <img class="image_fade" src="<?php echo get_the_post_thumbnail_url( $product_data['id'], 'thumbnail' ); ?>" alt="<?php echo $product_data['name'] ?>" style="max-height: 45px;width: auto;">
+                            </a>
                             <?php
                         }
                         ?>
-                        <td>
-                            <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
-                                    <?php echo $product_data['name'] ?>
-                                </a>
-                                <br>
-                                <?php echo $product_type; ?>
-                            </div>
-                        </td>
-                        <td>
-                            <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                <button class="button" type="button">
-                                    <?php _e('Description', 'woo-all-in-one-catalogue'); ?>
-                                </button>
-                            </div>
-                        </td>
-                        <td>
-                            <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                <?php echo $product->get_price_html(); ?>
-                            </div>
-                        </td>
-                        <td>
-                            <?php
-                            if ('variable' !== $product_type) {
-                                ?>
-                                <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                    <input type="number" min="0" class="catalogue-item-qty" style="max-width:60px;">
-                                </div>
-                                <?php
-                            }
+                    </td>
+
+                    <td>
+                        <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
+                            <?php echo $product->get_name() ?>
+                        </a>
+                    </td>
+                    <td>
+                        <?php do_action('wooaioc_display_catalogue_item_description', $product); ?>
+                    </td>
+                    <td>
+                        <?php echo $product->get_price_html(); ?>
+                    </td>
+                    <td>
+                        <?php
+                        if ('variable' !== $product_type) {
                             ?>
-                        </td>
-                        <td>
+                            <input type="number" min="0" class="catalogue-item-qty" style="max-width:60px;">
                             <?php
-                            if ('variable' !== $product_type) {
-                                ?>
-                                <div style="padding:1px 5px;display: inline-block;vertical-align: middle;">
-                                    <button class="button" type="button">
-                                        <?php _e('Add to cart', 'woo-all-in-one-catalogue'); ?>
-                                    </button>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <?php
-                }
-                ?>
-            </table>
-            <?php
-        }
-        if (!empty($item['children'])) {
-            ?>
-            <ul>
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        if ('variable' !== $product_type) {
+                            do_action('wooaioc_display_catalogue_item_add_to_cart', $product);
+                        }
+                        ?>
+                    </td>
+                </tr>
                 <?php
-                foreach ($item['children'] as $children_item) {
-                    wooaioc_display_catalogue_item($children_item, $depth++);
-                }
-                ?>
-            </ul>
-            <?php
+            }
+            ?>
+        <?php
+    }
+    if (!empty($item['children'])) {
+        foreach ($item['children'] as $children_item) {
+            wooaioc_display_catalogue_item($children_item, $depth++);
         }
-        ?>
-    </li>
-    <?php
+    }
 }
 
 function wooaioc_get_columns_catalogue_item() {
@@ -564,3 +510,51 @@ function wooaioc_download_catalogues($item, $depth = 0) {
     }
 }
 add_action('template_redirect', 'wooaioc_download_catalogues');
+
+function wooaioc_add_to_cart() {
+    ob_start();
+
+    // phpcs:disable WordPress.Security.NonceVerification.NoNonceVerification
+    if ( ! isset( $_POST['product_id'] ) ) {
+        return;
+    }
+
+    $product_id        = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
+    $product           = wc_get_product( $product_id );
+    $quantity          = empty( $_POST['quantity'] ) ? 1 : wc_stock_amount( wp_unslash( $_POST['quantity'] ) );
+    $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
+    $product_status    = get_post_status( $product_id );
+    $variation_id      = 0;
+    $variation         = array();
+
+    if ( $product && 'variation' === $product->get_type() ) {
+        $variation_id = $product_id;
+        $product_id   = $product->get_parent_id();
+        $variation    = $product->get_variation_attributes();
+    }
+
+    if ( $passed_validation && false !== WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation ) && 'publish' === $product_status ) {
+
+        do_action( 'woocommerce_ajax_added_to_cart', $product_id );
+
+        if ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) ) {
+            wc_add_to_cart_message( array( $product_id => $quantity ), true );
+        }
+
+        WC_AJAX::get_refreshed_fragments();
+
+    } else {
+
+        // If there was an error adding to the cart, redirect to the product page to show any errors.
+        $data = array(
+            'error'       => true,
+            'product_url' => apply_filters( 'woocommerce_cart_redirect_after_error', get_permalink( $product_id ), $product_id ),
+        );
+
+        wp_send_json( $data );
+    }
+    // phpcs:enable
+}
+
+add_action('wp_ajax_nopriv_wooaioc_add_to_cart', 'wooaioc_add_to_cart');
+add_action('wp_ajax_wooaioc_add_to_cart', 'wooaioc_add_to_cart');

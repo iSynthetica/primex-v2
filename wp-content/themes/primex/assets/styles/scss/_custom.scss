@@ -105,3 +105,27 @@
         letter-spacing: normal;
     }
 }
+
+#woocommerce-product-gallery__images {
+    &.owl-carousel {
+        img {
+            height: auto;
+        }
+        .owl-stage {
+            padding-top: 0;
+            padding-bottom: rem-calc(5);
+        }
+    }
+}
+
+#woocommerce-product-gallery__thumbnails {
+    &.owl-carousel {
+        img {
+            height: auto;
+        }
+        .owl-stage {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}

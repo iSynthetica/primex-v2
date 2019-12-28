@@ -20,13 +20,13 @@ if (!empty($catalogue_tree)) {
         <a href="<?php echo get_home_url() . '/wooaioc-download-catalogue/excel'; ?>" class="button"><?php echo $download_catalogue_label; ?></a>
     </div>
     <div class="catalogue-container">
-        <ul>
+        <table id="wooaioc-catalogue-table" class="wooaioc-catalogue-table table table-hover table-sm">
             <?php
             foreach ($catalogue_tree as $catalogue_item) {
                 wooaioc_display_catalogue_item($catalogue_item);
             }
             ?>
-        </ul>
+        </table>
     </div>
     <div class="catalogue-action-container">
         <a href="<?php echo get_home_url() . '/wooaioc-download-catalogue/excel'; ?>" class="button"><?php echo $download_catalogue_label; ?></a>

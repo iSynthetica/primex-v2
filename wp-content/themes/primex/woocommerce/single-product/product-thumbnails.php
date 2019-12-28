@@ -23,11 +23,27 @@ if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
 }
 
 global $product;
-
-$attachment_ids = $product->get_gallery_image_ids();
+$attachment_ids = array();
+$attachment_ids[] = $product->get_image_id();
+$attachment_ids = array_merge($attachment_ids, $product->get_gallery_image_ids());
 
 if ( $attachment_ids && $product->get_image_id() ) {
-	foreach ( $attachment_ids as $attachment_id ) {
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
-	}
+    ?>
+    <div id="woocommerce-product-gallery__thumbnails" class="owl-carousel" data-margin="5" data-nav="true" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5">
+        <?php
+        $index = 0;
+        foreach ( $attachment_ids as $attachment_id ) {
+            ?>
+            <div class="oc-item">
+                <?php
+                echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', snth_wc_get_gallery_image_html( $attachment_id, $index ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                ?>
+            </div>
+            <?php
+            $index++;
+        }
+        ?>
+    </div>
+    <?php
 }
+?>

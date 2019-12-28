@@ -51,3 +51,11 @@ add_action( 'woocommerce_after_shop_loop_item_title', 'snth_wc_template_loop_pri
 add_action( 'woocommerce_after_shop_loop_item_title', 'snth_wc_template_loop_product_desc_end', 15 );
 add_action( 'woocommerce_after_shop_loop_item', 'snth_wc_template_loop_product_rating', 10 );
 add_action( 'woocommerce_after_shop_loop_item', 'snth_wc_template_loop_add_to_cart', 10 );
+
+/**
+ * Catalogue
+ */
+remove_action('wooaioc_display_catalogue_item_description', 'wooaioc_display_catalogue_item_description', 10);
+remove_action('wooaioc_display_catalogue_item_add_to_cart', 'wooaioc_display_catalogue_item_add_to_cart', 10);
+add_action('wooaioc_display_catalogue_item_description', 'snth_display_catalogue_item_description', 10);
+add_action('wooaioc_display_catalogue_item_add_to_cart', 'snth_display_catalogue_item_add_to_cart', 10);

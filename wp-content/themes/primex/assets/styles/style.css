@@ -32220,3 +32220,17 @@ body #side-panel.dark #side-panel-trigger-close a {
   font-weight: normal;
   text-transform: none;
   letter-spacing: normal; }
+
+#woocommerce-product-gallery__images.owl-carousel img {
+  height: auto; }
+
+#woocommerce-product-gallery__images.owl-carousel .owl-stage {
+  padding-top: 0;
+  padding-bottom: 0.3125rem; }
+
+#woocommerce-product-gallery__thumbnails.owl-carousel img {
+  height: auto; }
+
+#woocommerce-product-gallery__thumbnails.owl-carousel .owl-stage {
+  padding-top: 0;
+  padding-bottom: 0; }

@@ -3002,7 +3002,7 @@ var SEMICOLON = SEMICOLON || {};
                     center: elementCenter,
                     lazyLoad: elementLazy,
                     nav: elementNav,
-                    navText: ['<i class="icon-angle-left"></i>','<i class="icon-angle-right"></i>'],
+                    navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
                     autoplay: elementAutoPlay,
                     autoplayTimeout: elementAutoPlayTime,
                     autoplayHoverPause: elementAutoPlayHoverPause,

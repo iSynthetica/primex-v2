@@ -11,12 +11,11 @@ function snth_wc_template_after_price_line() {
     <?php
 }
 
-function snth_wc_get_gallery_image_html( $attachment_id, $main_image = false ) {
-    $flexslider        = (bool) apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) );
+function snth_wc_get_gallery_image_html( $attachment_id, $index = 1, $main_image = false ) {
     $gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
-    $thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );
-    $image_size        = apply_filters( 'woocommerce_gallery_image_size', $flexslider || $main_image ? 'woocommerce_single' : 'woocommerce_single' );
-    $full_size         = apply_filters( 'woocommerce_gallery_full_size', apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' ) );
+    $thumbnail_size    = array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] );
+    $image_size        = $main_image ? 'woocommerce_single' : $thumbnail_size;
+    $full_size         = 'full';
     $thumbnail_src     = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
     $full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
     $alt_text          = trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
@@ -24,24 +23,23 @@ function snth_wc_get_gallery_image_html( $attachment_id, $main_image = false ) {
         $attachment_id,
         $image_size,
         false,
-        apply_filters(
-            'woocommerce_gallery_image_html_attachment_image_params',
-            array(
-                'title'                   => _wp_specialchars( get_post_field( 'post_title', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
-                'data-caption'            => _wp_specialchars( get_post_field( 'post_excerpt', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
-                'data-src'                => esc_url( $full_src[0] ),
-                'data-large_image'        => esc_url( $full_src[0] ),
-                'data-large_image_width'  => esc_attr( $full_src[1] ),
-                'data-large_image_height' => esc_attr( $full_src[2] ),
-                'class'                   => esc_attr( $main_image ? 'wp-post-image' : '' ),
-            ),
-            $attachment_id,
-            $image_size,
-            $main_image
+        array(
+            'title'                   => _wp_specialchars( get_post_field( 'post_title', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
+            'data-caption'            => _wp_specialchars( get_post_field( 'post_excerpt', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
+            'data-src'                => esc_url( $full_src[0] ),
+            'data-large_image'        => esc_url( $full_src[0] ),
+            'data-large_image_width'  => esc_attr( $full_src[1] ),
+            'data-large_image_height' => esc_attr( $full_src[2] ),
+            'class'                   => esc_attr( $main_image ? 'wp-post-image' : '' ),
         )
     );
 
-    return '<div data-thumb="' . esc_url( $full_src[0] ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="woocommerce-product-gallery__image slide"><a href="' . esc_url( $full_src[0] ) . '">' . $image . '</a></div>';
+    if ($main_image) {
+        return '<a href="' . esc_url( $full_src[0] ) . '" data-lightbox="gallery-item">' . $image . '</a>';
+    } else {
+        return '<a href="#" data-index="'.$index.'">' . $image . '</a>';
+    }
+
 }
 
 function snth_wc_product_additional_information_heading($title) {
@@ -91,8 +89,6 @@ function snth_wc_get_star_rating_html($html, $rating, $count) {
 
     return $html;
 }
-
-
 
 function snth_wc_template_loop_product_image_start() {
     ?>
@@ -286,4 +282,39 @@ function snth_wc_product_loop_carousel_end( $echo = true ) {
     } else {
         return $loop_end;
     }
+}
+
+function snth_display_catalogue_item_description($product) {
+    $short_description = $product->get_short_description();
+
+    if ( ! $short_description ) {
+        return;
+    }
+    ?>
+    <div class="product-quick-view" style="padding-top: 0;">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+            <i class="fas fa-info"></i><span><?php echo __('Quick view', 'primex') ?></span>
+        </button>
+
+        <div class="modal-content" style="display: none;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><?php echo $product->get_name(); ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="woocommerce-product-details__short-description">
+                    <?php echo $short_description; // WPCS: XSS ok. ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function snth_display_catalogue_item_add_to_cart($product) {
+    ?>
+    <button class="button button-reveal button-mini catalogue-item-add-to-cart" type="button" data-id="<?php echo $product->get_id(); ?>">
+        <i class="fas fa-cart-plus"></i><span><?php echo __( 'Add to cart', 'woocommerce' ); ?></span>
+    </button>
+    <?php
 }

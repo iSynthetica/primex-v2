@@ -2,6 +2,7 @@
     padding-left: 15px;
 }
 
-/*.catalogue-container > ul > li > ul {*/
-
-/*}*/
+#wooaioc-catalogue-table th,
+#wooaioc-catalogue-table td {
+    vertical-align: middle;
+}
