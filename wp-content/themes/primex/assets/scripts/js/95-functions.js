@@ -3417,9 +3417,9 @@ var SEMICOLON = SEMICOLON || {};
 
                 if( intRegex.test( productQuantity ) ) {
                     var productQuantityPlus = Number(productQuantity) + Number(quantityStep);
-                    $(this).parents('.quantity').find('.qty').val( productQuantityPlus );
+                    $(this).parents('.quantity').find('.qty').val( productQuantityPlus ).change();
                 } else {
-                    $(this).parents('.quantity').find('.qty').val( Number(quantityStep) );
+                    $(this).parents('.quantity').find('.qty').val( Number(quantityStep) ).change();
                 }
 
                 return false;
