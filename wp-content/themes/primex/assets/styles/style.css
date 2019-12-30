@@ -17146,6 +17146,18 @@ body.top-search-open #top-account {
 #header.sticky-header:not(.static-sticky) #primary-menu.sub-title ul li span {
   display: none; }
 
+[class^="icon-"],
+[class*=" icon-"],
+[class^="icon-line-"],
+[class*=" icon-line-"],
+[class^="icon-line2-"],
+[class*=" icon-line2-"],
+.side-header #primary-menu ul > li.sub-menu > a:after {
+  display: inline-block;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 /* ----------------------------------------------------------------
 	Helper Classes
 -----------------------------------------------------------------*/
@@ -21384,64 +21396,6 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
 .iproduct .product-image a,
 .iproduct .product-image img {
   height: auto; }
-
-/* ----------------------------------------------------------------
-	Cart
------------------------------------------------------------------*/
-.cart .remove {
-  font-size: 14px;
-  color: #FF0000; }
-
-.cart .remove:hover {
-  color: #000; }
-
-.cart th {
-  padding: 12px 15px !important;
-  font-size: 14px;
-  color: #555; }
-
-.cart td {
-  padding: 12px 15px !important;
-  vertical-align: middle !important;
-  border-color: #E5E5E5 !important; }
-
-.cart-product-thumbnail a {
-  display: block;
-  width: 68px; }
-
-.cart-product-thumbnail img {
-  display: block;
-  width: 64px;
-  height: 64px;
-  border: 2px solid #EEE; }
-
-.cart-product-thumbnail img:hover {
-  border-color: #1ABC9C; }
-
-.cart-product-name a,
-.product-name a {
-  font-weight: bold;
-  font-size: 13px;
-  color: #333; }
-
-.cart-product-name a:hover,
-.product-name a:hover {
-  color: #666; }
-
-.cart-product-price,
-.cart-product-quantity,
-.cart-product-subtotal {
-  text-align: center !important; }
-
-.cart-product-quantity .quantity {
-  display: inline-block;
-  margin: 0;
-  float: none; }
-
-td.actions {
-  padding: 20px 15px !important;
-  vertical-align: top !important;
-  background-color: #F5F5F5; }
 
 /* ----------------------------------------------------------------
 	Events
@@ -30872,7 +30826,8 @@ body #side-panel.dark #side-panel-trigger-close a {
     margin-top: 0;
     left: 0;
     z-index: 1; }
-  #primary-menu .container #primary-menu-trigger {
+  #primary-menu .container #primary-menu-trigger,
+  #primary-menu .container-fullwidth #primary-menu-trigger {
     top: 5px;
     left: 0; }
   #primary-menu > ul,
@@ -30905,10 +30860,6 @@ body #side-panel.dark #side-panel-trigger-close a {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 0 0 0 2px; }
-  #primary-menu.style-5 > ul {
-    padding-right: 0;
-    margin-right: 0;
-    border-right: 0; }
   #primary-menu ul li {
     float: none;
     margin: 0 !important;
@@ -30923,18 +30874,6 @@ body #side-panel.dark #side-panel-trigger-close a {
     padding: 14px 5px !important;
     border: none !important;
     margin: 0 !important; }
-  #primary-menu.style-5 > ul > li > a > div {
-    line-height: 22px; }
-  #primary-menu.style-5 > ul > li > a > div i {
-    display: inline-block;
-    margin: 0 6px 0 0;
-    top: -1px;
-    width: 16px;
-    font-size: 14px;
-    line-height: inherit; }
-  #primary-menu.style-6 > ul > li > a:after,
-  #primary-menu.style-6 > ul > li.current > a:after {
-    display: none; }
   #primary-menu.sub-title > ul > li,
   #primary-menu.sub-title.style-2 > div > ul > li {
     background: none !important;
@@ -30949,9 +30888,7 @@ body #side-panel.dark #side-panel-trigger-close a {
   #primary-menu.sub-title ul li:hover > a,
   #primary-menu.sub-title ul li.current > a,
   #primary-menu.sub-title div ul > li:hover > a,
-  #primary-menu.sub-title div ul > li.current > a,
-  #primary-menu.style-3 ul li:hover > a,
-  #primary-menu.style-3 ul li.current > a {
+  #primary-menu.sub-title div ul > li.current > a {
     background-color: transparent !important;
     color: #444;
     text-shadow: none; }
@@ -31854,8 +31791,8 @@ body #side-panel.dark #side-panel-trigger-close a {
   #header.full-header .container,
   .container-fullwidth {
     width: 100% !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important; }
+    padding-left: 0.9375rem !important;
+    padding-right: 0.9375rem !important; }
   #primary-menu-trigger {
     left: 20px; }
   #top-cart {
@@ -32032,6 +31969,131 @@ body #side-panel.dark #side-panel-trigger-close a {
     display: none; }
   #logo a.retina-logo {
     display: inline-block; } }
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; }
+
+.woocommerce-cart-form__contents .product-thumbnail img {
+  max-height: 45px;
+  width: auto; }
+
+.shop_table td {
+  vertical-align: middle; }
+  .shop_table td.product-quantity {
+    min-width: 170px;
+    text-align: center; }
+
+/* ----------------------------------------------------------------
+	Cart
+-----------------------------------------------------------------*/
+td.actions {
+  padding: 20px 15px !important;
+  vertical-align: top !important;
+  background-color: #F5F5F5; }
+
+@media (max-width: 767.98px) {
+  table.shop_table_responsive thead {
+    display: none; }
+  table.shop_table_responsive tbody th {
+    display: none; }
+  table.shop_table_responsive tbody .product-name {
+    font-weight: 900; }
+  table.shop_table_responsive tbody .product-thumbnail,
+  table.shop_table_responsive tbody .responsive-hide {
+    display: none; }
+  table.shop_table_responsive tbody td {
+    border: none;
+    font-size: 14px; }
+    table.shop_table_responsive tbody td.responsive-border {
+      border-top: 1px solid #ddd; }
+  table.shop_table_responsive tr {
+    display: block;
+    margin-bottom: 0.9375rem; }
+    table.shop_table_responsive tr td {
+      display: block;
+      text-align: right !important;
+      margin-bottom: 0 !important; }
+      table.shop_table_responsive tr td.responsive-no-title {
+        text-align: center !important; }
+      table.shop_table_responsive tr td.order-actions {
+        text-align: left !important; }
+      table.shop_table_responsive tr td::before {
+        content: attr(data-title) ": ";
+        font-weight: 700;
+        float: left; }
+      table.shop_table_responsive tr td.responsive-no-title::before {
+        display: none; }
+      table.shop_table_responsive tr td.product-remove::before, table.shop_table_responsive tr td.actions::before {
+        display: none; }
+  table.shop_table_responsive .product-quantity .quantity {
+    display: inline-block;
+    float: none;
+    margin-right: 0; }
+    table.shop_table_responsive .product-quantity .quantity .plus,
+    table.shop_table_responsive .product-quantity .quantity .minus {
+      display: block;
+      float: left;
+      cursor: pointer;
+      border: 0px transparent;
+      padding: 0;
+      width: 36px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #EEE;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color .2s linear;
+      -webkit-transition: background-color .2s linear;
+      -o-transition: background-color .2s linear; }
+    table.shop_table_responsive .product-quantity .quantity .qty {
+      float: left;
+      width: 50px;
+      height: 40px;
+      line-height: 40px;
+      border: 0;
+      border-left: 1px solid #DDD;
+      border-right: 1px solid #DDD;
+      background-color: #EEE;
+      text-align: center;
+      margin-bottom: 0; }
+  /**
+	 * Cart
+	 */
+  table.cart td.actions,
+  #content table.cart td.actions {
+    text-align: left; }
+    table.cart td.actions .coupon,
+    #content table.cart td.actions .coupon {
+      float: none;
+      padding-bottom: 0.5em; }
+      table.cart td.actions .coupon::after,
+      #content table.cart td.actions .coupon::after {
+        display: block;
+        clear: both;
+        content: ""; }
+      table.cart td.actions .coupon input,
+      table.cart td.actions .coupon .button,
+      table.cart td.actions .coupon .input-text,
+      #content table.cart td.actions .coupon input,
+      #content table.cart td.actions .coupon .button,
+      #content table.cart td.actions .coupon .input-text {
+        width: 48%;
+        box-sizing: border-box; }
+      table.cart td.actions .coupon .input-text + .button,
+      table.cart td.actions .coupon .button.alt,
+      #content table.cart td.actions .coupon .input-text + .button,
+      #content table.cart td.actions .coupon .button.alt {
+        float: right; }
+    table.cart td.actions .button,
+    #content table.cart td.actions .button {
+      display: block;
+      width: 100%; } }
 
 .sticky-style-2 #logo {
   padding-top: 1.8125rem;

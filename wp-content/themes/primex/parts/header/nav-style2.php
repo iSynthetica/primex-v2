@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ============================================= -->
 <nav id="primary-menu" class="style-2">
     <div class="container-fullwidth clearfix">
+        <div id="primary-menu-trigger"><i class="icon-hamburger-menu fas fa-bars"></i></div>
+
         <?php snth_main_nav(); ?>
 
         <!-- Top Cart

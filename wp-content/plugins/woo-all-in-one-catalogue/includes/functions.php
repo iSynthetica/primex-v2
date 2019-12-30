@@ -240,7 +240,7 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                 $product_type = $product->get_type();
                 ?>
                 <tr>
-                    <td style="min-width: 100px;">
+                    <td class="product-thumbnail" style="min-width: 100px;">
                         <?php
                         if ( '' !== get_the_post_thumbnail($product_data['id']) ) {
                             ?>
@@ -252,27 +252,31 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                         ?>
                     </td>
 
-                    <td>
+                    <td class="product-name responsive-no-title" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
                         <a href="<?php echo esc_url( get_permalink($product_data['id']) ); ?>">
                             <?php echo $product->get_name() ?>
                         </a>
                     </td>
-                    <td>
+                    <td class="product-short-description responsive-hide">
                         <?php do_action('wooaioc_display_catalogue_item_description', $product); ?>
                     </td>
-                    <td>
+                    <td class="product-price responsive-border" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
                         <?php echo $product->get_price_html(); ?>
                     </td>
-                    <td>
+                    <td class="product-quantity responsive-border" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
                         <?php
                         if ('variable' !== $product_type) {
                             ?>
-                            <input type="number" min="0" class="catalogue-item-qty" style="max-width:60px;">
+                            <div class="quantity clearfix">
+                                <input type="button" value="-" class="minus">
+                                <input type="number" min="0" max=""step="1" size="4" class="catalogue-item-qty input-text qty text" inputmode="numeric">
+                                <input type="button" value="+" class="plus">
+                            </div>
                             <?php
                         }
                         ?>
                     </td>
-                    <td>
+                    <td class="product-catalogue-add-to-cart responsive-no-title responsive-border">
                         <?php
                         if ('variable' !== $product_type) {
                             do_action('wooaioc_display_catalogue_item_add_to_cart', $product);

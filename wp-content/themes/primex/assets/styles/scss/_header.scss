@@ -1331,3 +1331,16 @@ body.top-search-open #top-account { opacity: 0; }
 }
 
 #header.sticky-header:not(.static-sticky) #primary-menu.sub-title ul li span { display: none; }
+
+[class^="icon-"],
+[class*=" icon-"],
+[class^="icon-line-"],
+[class*=" icon-line-"],
+[class^="icon-line2-"],
+[class*=" icon-line2-"],
+.side-header #primary-menu ul > li.sub-menu > a:after {
+    display: inline-block;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
