@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function snth_enqueue_scripts() {
     global $wp_styles;
 
+    $query_args = array(
+        'family' => 'Open+Sans+Condensed:300,700',
+        'subset' => 'cyrillic'
+    );
+    wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+    wp_enqueue_style('google_fonts');
+
     if ( defined( 'WP_PROD_ENV' ) && WP_PROD_ENV ) {
         $site_css = 'style.min.css';
         $site_js = 'scripts.min.js';
