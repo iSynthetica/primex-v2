@@ -18,7 +18,13 @@ while ( have_posts() ) :
     <section id="page-title">
         <div class="container clearfix">
             <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            <span>Page Content on the Left &amp; Sidebar on the Right</span>
+            <?php
+            if (!empty($subtitle)) {
+                ?>
+                <span>Page Content on the Left &amp; Sidebar on the Right</span>
+                <?php
+            }
+            ?>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>

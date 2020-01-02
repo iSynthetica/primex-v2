@@ -100,74 +100,21 @@ class Woo_All_In_One_Service_Public {
 
 	}
 
-	public function register_service_post_type() {
-        $labels = array(
-            'name'                  => _x( 'Repairs', 'Post Type General Name', 'woo-all-in-one-service' ),
-            'singular_name'         => _x( 'Repair', 'Post Type Singular Name', 'woo-all-in-one-service' ),
-            'menu_name'             => __( 'Repairs', 'woo-all-in-one-service' ),
-            'name_admin_bar'        => __( 'Repair', 'woo-all-in-one-service' ),
-            'archives'              => __( 'Repair Archives', 'woo-all-in-one-service' ),
-            'attributes'            => __( 'Repair Attributes', 'woo-all-in-one-service' ),
-            'parent_item_colon'     => __( 'Parent Repair:', 'woo-all-in-one-service' ),
-            'all_items'             => __( 'All Repairs', 'woo-all-in-one-service' ),
-            'add_new_item'          => __( 'Add New Repair', 'woo-all-in-one-service' ),
-            'add_new'               => __( 'Add New', 'woo-all-in-one-service' ),
-            'new_item'              => __( 'New Repair', 'woo-all-in-one-service' ),
-            'edit_item'             => __( 'Edit Repair', 'woo-all-in-one-service' ),
-            'update_item'           => __( 'Update Repair', 'woo-all-in-one-service' ),
-            'view_item'             => __( 'View Repair', 'woo-all-in-one-service' ),
-            'view_items'            => __( 'View Repairs', 'woo-all-in-one-service' ),
-            'search_items'          => __( 'Search Repair', 'woo-all-in-one-service' ),
-            'not_found'             => __( 'Not found', 'woo-all-in-one-service' ),
-            'not_found_in_trash'    => __( 'Not found in Trash', 'woo-all-in-one-service' ),
-            'featured_image'        => __( 'Featured Image', 'woo-all-in-one-service' ),
-            'set_featured_image'    => __( 'Set featured image', 'woo-all-in-one-service' ),
-            'remove_featured_image' => __( 'Remove featured image', 'woo-all-in-one-service' ),
-            'use_featured_image'    => __( 'Use as featured image', 'woo-all-in-one-service' ),
-            'insert_into_item'      => __( 'Insert into Repair', 'woo-all-in-one-service' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Repair', 'woo-all-in-one-service' ),
-            'items_list'            => __( 'Repairs list', 'woo-all-in-one-service' ),
-            'items_list_navigation' => __( 'Repairs list navigation', 'woo-all-in-one-service' ),
-            'filter_items_list'     => __( 'Filter Repairs list', 'woo-all-in-one-service' ),
-        );
-        $rewrite = array(
-            'slug'                  => 'repairs',
-            'with_front'            => true,
-            'pages'                 => true,
-            'feeds'                 => false,
-        );
-        $capabilities = array(
-            'delete_others_posts'   => 'delete_others_repairs',
-            'delete_posts'           => 'delete_repairs',
-            'edit_others_posts'     => 'edit_others_repairs',
-            'edit_posts'            => 'edit_repairs',
-            'publish_posts'         => 'publish_repairs',
-            'read_private_posts'    => 'read_private_repairs',
+	public function custom_endpoints() {
+        $version = get_option( 'wooaioservice_endpoint_version' );
 
-            'edit_post'             => 'edit_repair',
-            'read_post'             => 'read_repair',
-            'delete_post'           => 'delete_repair',
-        );
-        $args = array(
-            'label'                 => __( 'Repair', 'woo-all-in-one-service' ),
-            'description'           => __( 'Post Type Description', 'woo-all-in-one-service' ),
-            'labels'                => $labels,
-            'supports'              => array( 'title' ),
-            'hierarchical'          => true,
-            'public'                => false,
-            'show_ui'               => true,
-            'show_in_menu'          => true,
-            'menu_position'         => 12,
-            'menu_icon'             => 'dashicons-hammer',
-            'show_in_admin_bar'     => false,
-            'show_in_nav_menus'     => false,
-            'can_export'            => false,
-            'has_archive'           => false,
-            'exclude_from_search'   => true,
-            'publicly_queryable'    => false,
-            'rewrite'               => $rewrite,
-            'capabilities'          => $capabilities,
-        );
-        register_post_type( 'repair', $args );
+        //if ( empty($version) || version_compare( $version, WOO_ALL_IN_ONE_SERVICE_VERSION, '<' ) ) {
+            add_rewrite_endpoint( 'wooaioservice-endpoint', EP_ROOT | EP_PAGES );
+            flush_rewrite_rules();
+
+//            delete_option( 'wooaioservice_version' );
+//            add_option( 'wooaioservice_version', WOO_ALL_IN_ONE_SERVICE_VERSION );
+        //}
+    }
+
+	public function custom_endpoints_query_vars() {
+        $vars[] = 'wooaioservice-endpoint';
+
+        return $vars;
     }
 }

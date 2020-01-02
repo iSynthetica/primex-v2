@@ -100,4 +100,52 @@ class Woo_All_In_One_Service_Admin {
 
 	}
 
+	public function init() {
+        $this->check_version();
+    }
+
+    public function check_version() {
+        $version = get_option( 'wooaioservice_version' );
+
+        if ( empty($version) || version_compare( $version, WOO_ALL_IN_ONE_SERVICE_VERSION, '<' ) ) {
+            $this->install();
+            do_action( 'wooaioservice_updated' );
+        }
+    }
+
+    public function install() {
+        Woo_All_In_One_Service_Model::create_repairs_table();
+        Woo_All_In_One_Service_Model::create_repairsmeta_table();
+        $this->update_version();
+    }
+
+    public function update_version() {
+        delete_option( 'wooaioservice_version' );
+        add_option( 'wooaioservice_version', WOO_ALL_IN_ONE_SERVICE_VERSION );
+    }
+
+	public function admin_menu() {
+        add_menu_page(
+            __('Import', 'woo-all-in-one-service'),
+            __('Product Import', 'woo-all-in-one-service'),
+            'manage_options',
+            'wooaioservice',
+            array($this, 'render_settings_page'),
+            'dashicons-hammer',
+            12
+        );
+    }
+
+    public function render_settings_page() {
+	    $allowed_tabs = Woo_All_In_One_Service_Helpers::get_allowed_tabs();
+	    $allowed_tabs_keys = array_keys($allowed_tabs);
+        $default_tab = 'repairs';
+        $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_text_field( $_GET[ 'tab' ] ) : $default_tab;
+
+        if (!in_array($active_tab, $allowed_tabs_keys)) {
+            $active_tab = $default_tab;
+        }
+
+        include(dirname(__FILE__) . '/partials/woo-all-in-one-service-admin-display.php');
+    }
 }

@@ -1791,3 +1791,210 @@
 [02-Jan-2020 12:15:44 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/includes/admin.php:30
 [02-Jan-2020 12:15:44 UTC] PHP   7. wpdb->__get() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-aio-import-export/admin/partials/import_users.php:24
 [02-Jan-2020 12:15:44 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_email = 'zenoviy2001@ukr.net'' at line 1 в ответ на запрос SELECT ID FROM  WHERE user_email = 'zenoviy2001@ukr.net', выполненный do_action('toplevel_page_wooaioie-page'), WP_Hook->do_action, WP_Hook->apply_filters, wooaioie_admin_page, include('/plugins/woo-aio-import-export/admin/partials/import_users.php')
+[02-Jan-2020 13:29:53 UTC] PHP Notice:  Undefined variable: wtsr_is_dev_env in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-tabs.php on line 28
+[02-Jan-2020 13:29:53 UTC] PHP Stack trace:
+[02-Jan-2020 13:29:53 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[02-Jan-2020 13:29:53 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[02-Jan-2020 13:29:53 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 13:29:53 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 13:29:53 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 13:29:53 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:118
+[02-Jan-2020 13:29:53 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php:16
+[02-Jan-2020 13:41:51 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php on line 23
+[02-Jan-2020 13:41:51 UTC] PHP Stack trace:
+[02-Jan-2020 13:41:51 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[02-Jan-2020 13:41:51 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[02-Jan-2020 13:41:51 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 13:41:51 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 13:41:51 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 13:41:51 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:125
+[02-Jan-2020 13:41:51 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php on line 23
+[02-Jan-2020 13:41:51 UTC] PHP Stack trace:
+[02-Jan-2020 13:41:51 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[02-Jan-2020 13:41:51 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[02-Jan-2020 13:41:51 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 13:41:51 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 13:41:51 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 13:41:51 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:125
+[02-Jan-2020 13:45:17 UTC] PHP Fatal error:  Cannot redeclare Woo_All_In_One_Service_Model::$repairs_table_name in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 6
+[02-Jan-2020 13:45:17 UTC] PHP Stack trace:
+[02-Jan-2020 13:45:17 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 13:45:17 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 13:45:17 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 13:45:17 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 13:45:17 UTC] PHP   5. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 13:45:17 UTC] PHP   6. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:82
+[02-Jan-2020 13:45:17 UTC] PHP   7. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:78
+[02-Jan-2020 13:45:17 UTC] PHP   8. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 13:46:18 UTC] PHP Fatal error:  Cannot redeclare Woo_All_In_One_Service_Model::$repairs_table_name in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 6
+[02-Jan-2020 13:46:18 UTC] PHP Stack trace:
+[02-Jan-2020 13:46:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 13:46:18 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 13:46:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 13:46:18 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 13:46:18 UTC] PHP Fatal error:  Cannot redeclare Woo_All_In_One_Service_Model::$repairs_table_name in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 6
+[02-Jan-2020 13:46:18 UTC] PHP   5. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 13:46:18 UTC] PHP Stack trace:
+[02-Jan-2020 13:46:18 UTC] PHP   6. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:82
+[02-Jan-2020 13:46:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 13:46:18 UTC] PHP   7. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:78
+[02-Jan-2020 13:46:18 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 13:46:18 UTC] PHP   8. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 13:46:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 13:46:18 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 13:46:18 UTC] PHP   5. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 13:46:18 UTC] PHP   6. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:82
+[02-Jan-2020 13:46:18 UTC] PHP   7. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:78
+[02-Jan-2020 13:46:18 UTC] PHP   8. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 13:48:18 UTC] PHP Fatal error:  Cannot redeclare Woo_All_In_One_Service_Model::$repairs_table_name in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 6
+[02-Jan-2020 13:48:18 UTC] PHP Stack trace:
+[02-Jan-2020 13:48:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 13:48:18 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 13:48:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 13:48:18 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 13:48:18 UTC] PHP   5. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 13:48:18 UTC] PHP   6. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:82
+[02-Jan-2020 13:48:18 UTC] PHP   7. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:78
+[02-Jan-2020 13:48:18 UTC] PHP   8. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 13:48:18 UTC] PHP Fatal error:  Cannot redeclare Woo_All_In_One_Service_Model::$repairs_table_name in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 6
+[02-Jan-2020 13:48:18 UTC] PHP Stack trace:
+[02-Jan-2020 13:48:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 13:48:18 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 13:48:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 13:48:18 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 13:48:18 UTC] PHP   5. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 13:48:18 UTC] PHP   6. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:82
+[02-Jan-2020 13:48:18 UTC] PHP   7. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:78
+[02-Jan-2020 13:48:18 UTC] PHP   8. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 14:08:45 UTC] База данных WordPress возвратила ошибку Key column 'date' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairs (
+	ID bigint(20) unsigned NOT NULL auto_increment,
+	author bigint(20) unsigned NOT NULL default '0',
+	created datetime NOT NULL default '0000-00-00 00:00:00',
+	content longtext NOT NULL,
+	title text NOT NULL,
+	status varchar(20) NOT NULL default 'publish',
+	modified datetime NOT NULL default '0000-00-00 00:00:00',
+	PRIMARY KEY  (ID),
+	KEY type_status_date (status,date,ID),
+	KEY post_author (author)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairs_table, dbDelta
+[02-Jan-2020 14:08:45 UTC] База данных WordPress возвратила ошибку Key column 'post_id' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairsmeta (
+	meta_id bigint(20) unsigned NOT NULL auto_increment,
+	repair_id bigint(20) unsigned NOT NULL default '0',
+	meta_key varchar(255) default NULL,
+	meta_value longtext,
+	PRIMARY KEY  (meta_id),
+	KEY post_id (post_id),
+	KEY meta_key (meta_key(191))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairsmeta_table, dbDelta
+[02-Jan-2020 14:11:16 UTC] База данных WordPress возвратила ошибку Key column 'date' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairs (
+	ID bigint(20) unsigned NOT NULL auto_increment,
+	author bigint(20) unsigned NOT NULL default '0',
+	created datetime NOT NULL default '0000-00-00 00:00:00',
+	content longtext NOT NULL,
+	title text NOT NULL,
+	status varchar(20) NOT NULL default 'publish',
+	modified datetime NOT NULL default '0000-00-00 00:00:00',
+	PRIMARY KEY  (ID),
+	KEY type_status_date (status,date,ID),
+	KEY post_author (author)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairs_table, dbDelta
+[02-Jan-2020 14:11:16 UTC] База данных WordPress возвратила ошибку Key column 'post_id' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairsmeta (
+	meta_id bigint(20) unsigned NOT NULL auto_increment,
+	repair_id bigint(20) unsigned NOT NULL default '0',
+	meta_key varchar(255) default NULL,
+	meta_value longtext,
+	PRIMARY KEY  (meta_id),
+	KEY post_id (post_id),
+	KEY meta_key (meta_key(191))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairsmeta_table, dbDelta
+[02-Jan-2020 14:12:27 UTC] База данных WordPress возвратила ошибку Key column 'date' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairs (
+	ID bigint(20) unsigned NOT NULL auto_increment,
+	author bigint(20) unsigned NOT NULL default '0',
+	created datetime NOT NULL default '0000-00-00 00:00:00',
+	content longtext NOT NULL,
+	title text NOT NULL,
+	status varchar(20) NOT NULL default 'publish',
+	modified datetime NOT NULL default '0000-00-00 00:00:00',
+	PRIMARY KEY  (ID),
+	KEY type_status_date (status,date,ID),
+	KEY post_author (author)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairs_table, dbDelta
+[02-Jan-2020 14:12:27 UTC] База данных WordPress возвратила ошибку Key column 'post_id' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairsmeta (
+	meta_id bigint(20) unsigned NOT NULL auto_increment,
+	repair_id bigint(20) unsigned NOT NULL default '0',
+	meta_key varchar(255) default NULL,
+	meta_value longtext,
+	PRIMARY KEY  (meta_id),
+	KEY post_id (post_id),
+	KEY meta_key (meta_key(191))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairsmeta_table, dbDelta
+[02-Jan-2020 14:13:08 UTC] База данных WordPress возвратила ошибку Key column 'date' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairs (
+	ID bigint(20) unsigned NOT NULL auto_increment,
+	author bigint(20) unsigned NOT NULL default '0',
+	created datetime NOT NULL default '0000-00-00 00:00:00',
+	content longtext NOT NULL,
+	title text NOT NULL,
+	status varchar(20) NOT NULL default 'publish',
+	modified datetime NOT NULL default '0000-00-00 00:00:00',
+	PRIMARY KEY  (ID),
+	KEY type_status_date (status,date,ID),
+	KEY post_author (author)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairs_table, dbDelta
+[02-Jan-2020 14:13:17 UTC] База данных WordPress возвратила ошибку Key column 'post_id' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairsmeta (
+	meta_id bigint(20) unsigned NOT NULL auto_increment,
+	repair_id bigint(20) unsigned NOT NULL default '0',
+	meta_key varchar(255) default NULL,
+	meta_value longtext,
+	PRIMARY KEY  (meta_id),
+	KEY post_id (post_id),
+	KEY meta_key (meta_key(191))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairsmeta_table, dbDelta
+[02-Jan-2020 14:15:35 UTC] База данных WordPress возвратила ошибку Key column 'date' doesn't exist in table в ответ на запрос CREATE TABLE tsvt_wooaioservice_repairs (
+	ID bigint(20) unsigned NOT NULL auto_increment,
+	author bigint(20) unsigned NOT NULL default '0',
+	created datetime NOT NULL default '0000-00-00 00:00:00',
+	content longtext NOT NULL,
+	title text NOT NULL,
+	status varchar(20) NOT NULL default 'publish',
+	modified datetime NOT NULL default '0000-00-00 00:00:00',
+	PRIMARY KEY  (ID),
+	KEY type_status_date (status,date,ID),
+	KEY post_author (author)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->init, Woo_All_In_One_Service_Admin->check_version, Woo_All_In_One_Service_Admin->install, Woo_All_In_One_Service_Model::create_repairs_table, dbDelta
+[02-Jan-2020 14:26:02 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Woo_All_In_One_Service_Public' does not have a method 'init' in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[02-Jan-2020 14:26:02 UTC] PHP Stack trace:
+[02-Jan-2020 14:26:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-cron.php:0
+[02-Jan-2020 14:26:02 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-cron.php:44
+[02-Jan-2020 14:26:02 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 14:26:02 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 14:26:02 UTC] PHP   5. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:523
+[02-Jan-2020 14:26:02 UTC] PHP   6. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 14:26:02 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 14:26:02 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Woo_All_In_One_Service_Public' does not have a method 'init' in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[02-Jan-2020 14:26:02 UTC] PHP Stack trace:
+[02-Jan-2020 14:26:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 14:26:02 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 14:26:02 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 14:26:02 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 14:26:02 UTC] PHP   5. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:523
+[02-Jan-2020 14:26:02 UTC] PHP   6. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 14:26:02 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 14:26:21 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Woo_All_In_One_Service_Public' does not have a method 'init' in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[02-Jan-2020 14:26:21 UTC] PHP Stack trace:
+[02-Jan-2020 14:26:21 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-cron.php:0
+[02-Jan-2020 14:26:21 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-cron.php:44
+[02-Jan-2020 14:26:21 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 14:26:21 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 14:26:21 UTC] PHP   5. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:523
+[02-Jan-2020 14:26:21 UTC] PHP   6. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 14:26:21 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 14:26:21 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Woo_All_In_One_Service_Public' does not have a method 'init' in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[02-Jan-2020 14:26:21 UTC] PHP Stack trace:
+[02-Jan-2020 14:26:21 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[02-Jan-2020 14:26:21 UTC] PHP   2. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:22
+[02-Jan-2020 14:26:21 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 14:26:21 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 14:26:21 UTC] PHP   5. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:523
+[02-Jan-2020 14:26:21 UTC] PHP   6. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 14:26:21 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312

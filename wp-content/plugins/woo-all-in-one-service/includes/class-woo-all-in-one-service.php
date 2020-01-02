@@ -103,6 +103,14 @@ class Woo_All_In_One_Service {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Helpers.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Model.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Endpoint.php';
+
+		/**
+		 * The class responsible for orchestrating the actions and filters of the
+		 * core plugin.
+		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-service-loader.php';
 
 		/**
@@ -154,8 +162,10 @@ class Woo_All_In_One_Service {
 
 		$plugin_admin = new Woo_All_In_One_Service_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		$this->loader->add_action( 'init', $plugin_admin, 'init' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 
 	}
 
@@ -172,8 +182,8 @@ class Woo_All_In_One_Service {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'init', $plugin_public, 'register_service_post_type' );
-
+//        $this->loader->add_action( 'init', $plugin_public, 'custom_endpoints' );
+//        $this->loader->add_filter( 'query_vars', $plugin_public, 'custom_endpoints_query_vars' );
 	}
 
 	/**
