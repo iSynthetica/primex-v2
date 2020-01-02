@@ -60,8 +60,6 @@ function wooaioie_get_useless_table_titles() {
         'commentmeta',
         'comments',
         'links',
-        'usermeta',
-        'users',
         'layerslider',
     );
 }
