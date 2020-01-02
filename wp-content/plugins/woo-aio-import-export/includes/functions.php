@@ -245,7 +245,9 @@ function wooaioie_create_single_product($product_value) {
             }
 
             if (!empty($product_value['upsell_ids'])) {
-                if (!empty(unserialize($product_value['upsell_ids']))) {
+                $product_upsell_ids = unserialize($product_value['upsell_ids']);
+
+                if (!empty($product_upsell_ids)) {
                     $existed_upsell = get_post_meta($created_id, '_upsell_ids', true);
 
                     if (empty($existed_upsell)) {
@@ -255,7 +257,9 @@ function wooaioie_create_single_product($product_value) {
             }
 
             if (!empty($product_value['cross_sell_ids'])) {
-                if (!empty(unserialize($product_value['cross_sell_ids']))) {
+                $product_cross_sell_ids = unserialize($product_value['cross_sell_ids']);
+
+                if (!empty($product_cross_sell_ids)) {
                     $existed_crosssell = get_post_meta($created_id, '_crosssell_ids', true);
 
                     if (empty($existed_crosssell)) {
@@ -265,7 +269,8 @@ function wooaioie_create_single_product($product_value) {
             }
 
             if (!empty($product_value['attributes_meta'])) {
-                if (!empty(unserialize($product_value['attributes_meta']))) {
+                $product_attributes_meta = unserialize($product_value['attributes_meta']);
+                if (!empty($product_attributes_meta)) {
                     $sql = "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id = '{$created_id}' AND meta_key = '_product_attributes'";
                     $meta_exists = $wpdb->get_row( $sql, ARRAY_A );
 

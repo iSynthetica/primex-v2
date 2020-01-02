@@ -15,7 +15,18 @@ function wooaioie_admin_menu() {
 }
 
 function wooaioie_admin_page() {
-    if (!empty($_GET['subpage']) && in_array($_GET['subpage'], array('import_terms', 'export_terms', 'export_products', 'import_products', 'tables', 'export_attributes', 'import_attributes'))) {
+    if (!empty($_GET['subpage']) && in_array($_GET['subpage'], array(
+            'import_terms',
+            'export_terms',
+            'export_products',
+            'import_products',
+            'export_users',
+            'import_users',
+            'tables',
+            'export_attributes',
+            'import_attributes'
+        ) )
+    ) {
         include WOOAIOIE_PATH . 'admin/partials/'.$_GET['subpage'].'.php';
     } else {
         include WOOAIOIE_PATH . 'admin/partials/start.php';

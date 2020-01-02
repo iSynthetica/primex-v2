@@ -18,6 +18,7 @@
     <li><a href="?page=wooaioie-page&subpage=export_terms">Terms</a></li>
     <li><a href="?page=wooaioie-page&subpage=export_attributes">Attributes</a></li>
     <li><a href="?page=wooaioie-page&subpage=export_products">Products</a></li>
+    <li><a href="?page=wooaioie-page&subpage=export_users">Users</a></li>
 </ul>
 
 <ul class="wooaioio-menu">
@@ -25,6 +26,7 @@
     <li><a href="?page=wooaioie-page&subpage=import_terms">Terms</a></li>
     <li><a href="?page=wooaioie-page&subpage=import_attributes">Attributes</a></li>
     <li><a href="?page=wooaioie-page&subpage=import_products">Products</a></li>
+    <li><a href="?page=wooaioie-page&subpage=import_users">Users</a></li>
 </ul>
 
 <ul class="wooaioio-menu">
