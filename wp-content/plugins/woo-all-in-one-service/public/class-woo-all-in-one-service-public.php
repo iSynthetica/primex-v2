@@ -137,13 +137,16 @@ class Woo_All_In_One_Service_Public {
             'feeds'                 => false,
         );
         $capabilities = array(
+            'delete_others_posts'   => 'delete_others_repairs',
+            'delete_posts'           => 'delete_repairs',
+            'edit_others_posts'     => 'edit_others_repairs',
+            'edit_posts'            => 'edit_repairs',
+            'publish_posts'         => 'publish_repairs',
+            'read_private_posts'    => 'read_private_repairs',
+
             'edit_post'             => 'edit_repair',
             'read_post'             => 'read_repair',
             'delete_post'           => 'delete_repair',
-            'edit_posts'            => 'edit_repairs',
-            'edit_others_posts'     => 'edit_others_repairs',
-            'publish_posts'         => 'publish_repairs',
-            'read_private_posts'    => 'read_private_repairs',
         );
         $args = array(
             'label'                 => __( 'Repair', 'woo-all-in-one-service' ),

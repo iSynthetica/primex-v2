@@ -81,7 +81,20 @@ $usermeta = $wpdb->get_results( $sql, ARRAY_A );
 foreach ($usermeta as $usermeta_i => $usermeta_item) {
     if (!empty($users_by_id[$usermeta_item['user_id']])) {
         if (!in_array($usermeta_item['meta_key'], $forbidden_umeta_array)) {
-            $users_by_id[$usermeta_item['user_id']]['usermeta'][$usermeta_item['meta_key']] = $usermeta_item['meta_value'];
+            $prefix = $wpdb->prefix;
+
+            if (0 === strpos($usermeta_item['meta_key'], $prefix)) {
+                $prefix_length = strlen($prefix);
+                $usermeta_meta_key = substr($usermeta_item['meta_key'], $prefix_length);
+            } else {
+                $usermeta_meta_key = $usermeta_item['meta_key'];
+            }
+
+            if ('capabilities' === $usermeta_meta_key || 'user_level' === $usermeta_meta_key) {
+                $users_by_id[$usermeta_item['user_id']][$usermeta_meta_key] = $usermeta_item['meta_value'];
+            } else {
+                $users_by_id[$usermeta_item['user_id']]['usermeta'][$usermeta_meta_key] = $usermeta_item['meta_value'];
+            }
         }
 
         unset ($usermeta[$usermeta_i]);
@@ -96,11 +109,9 @@ echo "<pre>";
 print_r($users_by_id);
 echo "</pre>";
 
-$users = array();
-
-$users_ser = serialize($users);
+$users_ser = serialize($users_by_id);
 
 ?>
-<textarea id="" rows="10" style="width: 100%;max-width: 1000px;"><?php echo $terms_ser; ?></textarea>
+<textarea id="" rows="10" style="width: 100%;max-width: 1000px;"><?php echo $users_ser; ?></textarea>
 <?php
 
