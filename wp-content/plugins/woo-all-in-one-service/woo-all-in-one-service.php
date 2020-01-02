@@ -36,6 +36,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WOO_ALL_IN_ONE_SERVICE_VERSION', '1.0.0' );
+define( 'WOO_ALL_IN_ONE_SERVICE_PATH', plugin_dir_path(__FILE__) );
 
 /**
  * The code that runs during plugin activation.

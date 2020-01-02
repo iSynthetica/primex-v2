@@ -51,7 +51,7 @@ class Woo_All_In_One_Service_Endpoint {
         $is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
         if ( $is_endpoint && ! is_admin() && is_main_query() && in_the_loop() && is_account_page() ) {
             // New page title.
-            $title = __( 'My Custom Endpoint', 'woocommerce' );
+            $title = __( 'Repairs', 'woo-all-in-one-service' );
             remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
         }
         return $title;
@@ -67,7 +67,7 @@ class Woo_All_In_One_Service_Endpoint {
         $logout = $items['customer-logout'];
         unset( $items['customer-logout'] );
         // Insert your custom endpoint.
-        $items[ self::$endpoint ] = __( 'My Custom Endpoint', 'woocommerce' );
+        $items[ self::$endpoint ] = __( 'Repairs', 'woo-all-in-one-service' );
         // Insert back the logout item.
         $items['customer-logout'] = $logout;
         return $items;
@@ -76,7 +76,7 @@ class Woo_All_In_One_Service_Endpoint {
      * Endpoint HTML content.
      */
     public function endpoint_content() {
-        echo '<p>Hello World!</p>';
+        include (WOO_ALL_IN_ONE_SERVICE_PATH . 'woocommerce/repairs/repairs-list.php');
     }
     /**
      * Plugin install action.

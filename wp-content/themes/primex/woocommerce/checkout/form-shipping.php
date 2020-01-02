@@ -35,7 +35,8 @@ defined( 'ABSPATH' ) || exit;
                 <?php
                 $fields = $checkout->get_checkout_fields( 'shipping' );
 
-                foreach ( $fields as $key => $field ) {$input_class = !empty($field['input_class']) && is_array($field['input_class']) ? $field['input_class'] : array();
+                foreach ( $fields as $key => $field ) {
+                    $input_class = !empty($field['input_class']) && is_array($field['input_class']) ? $field['input_class'] : array();
                     $input_class[] = 'form-control';
                     $field['input_class'] = $input_class;
                     $container_class = !empty($field['class']) && is_array($field['class']) ? $field['class'] : array();

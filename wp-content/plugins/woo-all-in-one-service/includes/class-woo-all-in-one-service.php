@@ -103,7 +103,9 @@ class Woo_All_In_One_Service {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Helpers.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template_functions.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Form.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Form.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Model.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Endpoint.php';
 
@@ -129,6 +131,7 @@ class Woo_All_In_One_Service {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-service-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-service-public-ajax.php';
 
 		$this->loader = new Woo_All_In_One_Service_Loader();
 
@@ -179,11 +182,14 @@ class Woo_All_In_One_Service {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_All_In_One_Service_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public_ajax = new Woo_All_In_One_Service_Public_Ajax( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-//        $this->loader->add_action( 'init', $plugin_public, 'custom_endpoints' );
-//        $this->loader->add_filter( 'query_vars', $plugin_public, 'custom_endpoints_query_vars' );
+		$this->loader->add_action( 'init', $plugin_public, 'template_hooks' );
+
+        $this->loader->add_action('wp_ajax_nopriv_wooaioservice_submit', $plugin_public_ajax, 'wooaioservice_submit');
+        $this->loader->add_action('wp_ajax_wooaioservice_submit', $plugin_public_ajax, 'wooaioservice_submit');
 	}
 
 	/**

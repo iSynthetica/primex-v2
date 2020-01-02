@@ -96,25 +96,17 @@ class Woo_All_In_One_Service_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-service-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-service-public.js', array( 'jquery' ), $this->version, true );
+
+        wp_localize_script( $this->plugin_name, 'wooaioserviceJsObj', array(
+            'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+            'nonce'         => wp_create_nonce( 'snth_nonce' )
+        ) );
 
 	}
 
-	public function custom_endpoints() {
-        $version = get_option( 'wooaioservice_endpoint_version' );
-
-        //if ( empty($version) || version_compare( $version, WOO_ALL_IN_ONE_SERVICE_VERSION, '<' ) ) {
-            add_rewrite_endpoint( 'wooaioservice-endpoint', EP_ROOT | EP_PAGES );
-            flush_rewrite_rules();
-
-//            delete_option( 'wooaioservice_version' );
-//            add_option( 'wooaioservice_version', WOO_ALL_IN_ONE_SERVICE_VERSION );
-        //}
-    }
-
-	public function custom_endpoints_query_vars() {
-        $vars[] = 'wooaioservice-endpoint';
-
-        return $vars;
+	public function template_hooks() {
+	    add_action('wooaioservice_before_fields', 'wooaioservice_before_fields', 10);
+	    add_action('wooaioservice_after_fields', 'wooaioservice_after_fields', 10);
     }
 }

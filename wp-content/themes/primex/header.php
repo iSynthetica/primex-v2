@@ -47,41 +47,59 @@
                 <div class="top-links">
                     <ul>
                         <li><a href="#">USD</a>
-                            <ul>
+                            <ul class="sub-small">
                                 <li><a href="#">EUR</a></li>
                                 <li><a href="#">AUD</a></li>
                                 <li><a href="#">GBP</a></li>
                             </ul>
                         </li>
                         <li><a href="#">EN</a>
-                            <ul>
+                            <ul class="sub-small">
                                 <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/french.png" alt="French"> FR</a></li>
                                 <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/italian.png" alt="Italian"> IT</a></li>
                                 <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/german.png" alt="German"> DE</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Login</a>
-                            <div class="top-link-section">
-                                <form id="top-login" role="form">
-                                    <div class="input-group" id="top-login-username">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="icon-user"></i></div>
+                        <?php
+                        if (is_user_logged_in()) {
+                            ?>
+                            <li><a href="#"><?php _e('My account', 'primex'); ?></a>
+                                <ul>
+                                    <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+                                        <li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+                                            <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
+                            <?php
+                        } else {
+                            ?>
+                            <li><a href="#"><?php _e('Login', 'primex'); ?></a>
+                                <div class="top-link-section">
+                                    <form id="top-login" role="form">
+                                        <div class="input-group" id="top-login-username">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="icon-user"></i></div>
+                                            </div>
+                                            <input type="email" class="form-control" placeholder="Email address" required="">
                                         </div>
-                                        <input type="email" class="form-control" placeholder="Email address" required="">
-                                    </div>
-                                    <div class="input-group" id="top-login-password">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="icon-key"></i></div>
+                                        <div class="input-group" id="top-login-password">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="icon-key"></i></div>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Password" required="">
                                         </div>
-                                        <input type="password" class="form-control" placeholder="Password" required="">
-                                    </div>
-                                    <label class="checkbox">
-                                        <input type="checkbox" value="remember-me"> Remember me
-                                    </label>
-                                    <button class="btn btn-danger btn-block" type="submit">Sign in</button>
-                                </form>
-                            </div>
-                        </li>
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="remember-me"> Remember me
+                                        </label>
+                                        <button class="btn btn-danger btn-block" type="submit">Sign in</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </div><!-- .top-links end -->
 

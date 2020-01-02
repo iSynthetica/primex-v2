@@ -35,6 +35,7 @@
             position: relative;
             height: 44px;
             border-left: 1px solid #EEE;
+            font-family: 'Open Sans Condensed', sans-serif;
         }
     }
 }
@@ -65,7 +66,6 @@
 }
 
 .top-links li:hover { background-color: #EEE; }
-
 .top-links ul ul,
 .top-links ul div.top-link-section {
     display: none;
@@ -76,7 +76,7 @@
     background: #FFF;
     border: 0;
     top: 44px;
-    left: 0;
+    right: 0;
     width: 140px;
     margin: 0;
     border-top: 1px solid #1ABC9C;
@@ -86,12 +86,21 @@
     -webkit-box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
 }
 
+.top-links ul ul {
+    padding-left: 0;
+    &.sub-small {
+        width: 70px;
+        text-align: center;
+    }
+}
+
 .top-links li:hover ul,
 .top-links li:hover div.top-link-section { pointer-events: auto; }
 
 .top-links ul ul li {
     float: none;
-    height: 36px;
+    min-height: 36px;
+    height: auto;
     border-top: 1px solid #F5F5F5;
     border-left: 1px solid #EEE;
 }

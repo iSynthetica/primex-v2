@@ -1998,3 +1998,366 @@
 [02-Jan-2020 14:26:21 UTC] PHP   5. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:523
 [02-Jan-2020 14:26:21 UTC] PHP   6. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
 [02-Jan-2020 14:26:21 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:09:20 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:09:20 UTC] PHP Stack trace:
+[02-Jan-2020 16:09:20 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:09:20 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:09:20 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:09:20 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:09:20 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:09:20 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:09:20 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:09:20 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:09:20 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:09:20 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:09:20 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:09:20 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:09:20 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:09:20 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:09:20 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:09:20 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:09:20 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:09:20 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:09:20 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:09:20 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:09:20 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:09:20 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:09:20 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:09:20 UTC] PHP Stack trace:
+[02-Jan-2020 16:09:20 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:09:20 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:09:20 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:09:20 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:09:20 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:09:20 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:09:20 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:09:20 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:09:20 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:09:20 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:09:20 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:09:20 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:09:20 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:09:20 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:09:20 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:09:20 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:09:20 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:09:20 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:09:20 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:09:20 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:09:20 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:09:20 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:09:20 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:12:24 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:12:24 UTC] PHP Stack trace:
+[02-Jan-2020 16:12:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:12:24 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:12:24 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:12:24 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:12:24 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:12:24 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:12:24 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:12:24 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:12:24 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:12:24 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:12:24 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:12:24 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:12:24 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:12:24 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:12:24 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:12:24 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:12:24 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:12:24 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:12:24 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:12:24 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:12:24 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:12:24 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:12:24 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:12:24 UTC] PHP Stack trace:
+[02-Jan-2020 16:12:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:12:24 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:12:24 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:12:24 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:12:24 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:12:24 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:12:24 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:12:24 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:12:24 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:12:24 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:12:24 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:12:24 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:12:24 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:12:24 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:12:24 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:12:24 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:12:24 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:12:24 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:12:24 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:12:24 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:12:24 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:12:24 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:12:24 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:15:46 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:15:46 UTC] PHP Stack trace:
+[02-Jan-2020 16:15:46 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:15:46 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:15:46 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:15:46 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:15:46 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:15:46 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:15:46 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:15:46 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:15:46 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:15:46 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:15:46 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:15:46 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:15:46 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:15:46 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:15:46 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:15:46 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:15:46 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:15:46 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:15:46 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:15:46 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:15:46 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:15:46 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:15:46 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:15:46 UTC] PHP Stack trace:
+[02-Jan-2020 16:15:46 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:15:46 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:15:46 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:15:46 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:15:46 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:15:46 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:15:46 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:15:46 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:15:46 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:15:46 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:15:46 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:15:46 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:15:46 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:15:46 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:15:46 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:15:46 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:15:46 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:15:46 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:15:46 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:15:46 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:15:46 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:15:46 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:15:46 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:17:18 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:17:18 UTC] PHP Stack trace:
+[02-Jan-2020 16:17:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:17:18 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:17:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:17:18 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:17:18 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:17:18 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:17:18 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:17:18 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:18 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:18 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:17:18 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:17:18 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:17:18 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:17:18 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:17:18 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:17:18 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:17:18 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:18 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:18 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:17:18 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:18 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:18 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:17:18 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:17:18 UTC] PHP Stack trace:
+[02-Jan-2020 16:17:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:17:18 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:17:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:17:18 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:17:18 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:17:18 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:17:18 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:17:18 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:18 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:18 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:17:18 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:17:18 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:17:18 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:17:18 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:17:18 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:17:18 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:17:18 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:18 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:18 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:17:18 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:18 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:18 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:18 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:17:26 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/woocommerce/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:17:26 UTC] PHP Stack trace:
+[02-Jan-2020 16:17:26 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:17:26 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:17:26 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:17:26 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:17:26 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:17:26 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:17:26 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:17:26 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:26 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:26 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:17:26 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:17:26 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:17:26 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:17:26 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:17:26 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:17:26 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:17:26 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:26 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:26 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:17:26 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:26 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:26 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:17:26 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/woocommerce/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:17:26 UTC] PHP Stack trace:
+[02-Jan-2020 16:17:26 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:17:26 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:17:26 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:17:26 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:17:26 UTC] PHP   5. the_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:17:26 UTC] PHP   6. apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:17:26 UTC] PHP   7. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:17:26 UTC] PHP   8. do_shortcode() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP   9. preg_replace_callback() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:26 UTC] PHP  10. do_shortcode_tag() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:17:26 UTC] PHP  11. WC_Shortcodes::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:17:26 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:17:26 UTC] PHP  13. WC_Shortcode_My_Account::output() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:17:26 UTC] PHP  14. WC_Shortcode_My_Account::my_account() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:17:26 UTC] PHP  15. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:17:26 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:17:26 UTC] PHP  17. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:17:26 UTC] PHP  18. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:26 UTC] PHP  19. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:26 UTC] PHP  20. woocommerce_account_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP  21. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:17:26 UTC] PHP  22. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:17:26 UTC] PHP  23. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:17:26 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:17:26 UTC] PHP  25. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:19:10 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/woocommerce/repairs/repairs-list.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:19:10 UTC] PHP Stack trace:
+[02-Jan-2020 16:19:10 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:19:10 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:19:10 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:19:10 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:19:10 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:19:10 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:19:10 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:19:10 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:19:10 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:19:10 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:19:10 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:19:10 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:19:10 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:19:10 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:19:10 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:19:10 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:19:10 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:19:10 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:19:10 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:19:10 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:19:10 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:19:10 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:19:10 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/woocommerce/repairs/repairs-list.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php on line 249
+[02-Jan-2020 16:19:10 UTC] PHP Stack trace:
+[02-Jan-2020 16:19:10 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 16:19:10 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 16:19:10 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[02-Jan-2020 16:19:10 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[02-Jan-2020 16:19:10 UTC] PHP   5. the_content($more_link_text = *uninitialized*, $strip_teaser = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-fullwidth.php:83
+[02-Jan-2020 16:19:10 UTC] PHP   6. apply_filters($tag = *uninitialized*, $value = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/post-template.php:253
+[02-Jan-2020 16:19:10 UTC] PHP   7. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:206
+[02-Jan-2020 16:19:10 UTC] PHP   8. do_shortcode($content = *uninitialized*, $ignore_html = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP   9. preg_replace_callback(*uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:19:10 UTC] PHP  10. do_shortcode_tag($m = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:199
+[02-Jan-2020 16:19:10 UTC] PHP  11. WC_Shortcodes::my_account($atts = *uninitialized*, *uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php:325
+[02-Jan-2020 16:19:10 UTC] PHP  12. WC_Shortcodes::shortcode_wrapper($function = *uninitialized*, $atts = *uninitialized*, $wrapper = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:115
+[02-Jan-2020 16:19:10 UTC] PHP  13. WC_Shortcode_My_Account::output($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shortcodes.php:72
+[02-Jan-2020 16:19:10 UTC] PHP  14. WC_Shortcode_My_Account::my_account($atts = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:72
+[02-Jan-2020 16:19:10 UTC] PHP  15. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-my-account.php:123
+[02-Jan-2020 16:19:10 UTC] PHP  16. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[02-Jan-2020 16:19:10 UTC] PHP  17. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/myaccount/my-account.php:36
+[02-Jan-2020 16:19:10 UTC] PHP  18. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:19:10 UTC] PHP  19. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:19:10 UTC] PHP  20. woocommerce_account_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP  21. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:3014
+[02-Jan-2020 16:19:10 UTC] PHP  22. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[02-Jan-2020 16:19:10 UTC] PHP  23. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[02-Jan-2020 16:19:10 UTC] PHP  24. Woo_All_In_One_Service_Endpoint->endpoint_content(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[02-Jan-2020 16:19:10 UTC] PHP  25. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php:79
+[02-Jan-2020 16:44:00 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:2635
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woocommerce/repairs/repairs-list.php(63): woocommerce_form_field('repair_first_na...', Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php(79): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Endpoint->endpoint_content('')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3014): do_action('woocommerce_acc.. in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php on line 2635
+[02-Jan-2020 18:08:01 UTC] PHP Warning:  require_once(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/template_functions.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 106
+[02-Jan-2020 18:08:01 UTC] PHP Stack trace:
+[02-Jan-2020 18:08:01 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 18:08:01 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 18:08:01 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:13
+[02-Jan-2020 18:08:01 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 18:08:01 UTC] PHP   5. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 18:08:01 UTC] PHP   6. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 18:08:01 UTC] PHP   7. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:83
+[02-Jan-2020 18:08:01 UTC] PHP   8. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:79
+[02-Jan-2020 18:08:01 UTC] PHP   9. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 18:08:01 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/template_functions.php' (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 106
+[02-Jan-2020 18:08:01 UTC] PHP Stack trace:
+[02-Jan-2020 18:08:01 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[02-Jan-2020 18:08:01 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[02-Jan-2020 18:08:01 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:13
+[02-Jan-2020 18:08:01 UTC] PHP   4. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-load.php:37
+[02-Jan-2020 18:08:01 UTC] PHP   5. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-config.php:78
+[02-Jan-2020 18:08:01 UTC] PHP   6. include_once() /var/www/tsvitokha/primex2.0/public_html/wp-settings.php:360
+[02-Jan-2020 18:08:01 UTC] PHP   7. run_woo_all_in_one_service() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:83
+[02-Jan-2020 18:08:01 UTC] PHP   8. Woo_All_In_One_Service->__construct() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php:79
+[02-Jan-2020 18:08:01 UTC] PHP   9. Woo_All_In_One_Service->load_dependencies() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:77
+[02-Jan-2020 18:23:59 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Service_Public_Ajax' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:184
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php(80): Woo_All_In_One_Service->define_public_hooks()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(79): Woo_All_In_One_Service->__construct()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(83): run_woo_all_in_one_service()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(360): include_once('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/p in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 184
