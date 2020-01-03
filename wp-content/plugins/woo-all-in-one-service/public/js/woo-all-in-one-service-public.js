@@ -23,10 +23,10 @@
 				}
 
 				if (decoded) {
-					if (decoded.success) {
+					if (decoded.message) {
 						alert(decoded.message);
-					} else {
-						alert(decoded.message);
+					} else if (decoded.fragments) {
+						updateFragments(decoded.fragments)
 					}
 				} else {
 					alert('Something went wrong');
@@ -34,6 +34,29 @@
 			}
 		});
 	});
+
+	function updateFragments ( fragments ) {
+		if ( fragments ) {
+			$.each( fragments, function( key ) {
+				$( key )
+					.addClass( 'updating' )
+					.fadeTo( '400', '0.6' )
+					.block({
+						message: null,
+						overlayCSS: {
+							opacity: 0.6
+						}
+					});
+			});
+
+			$.each( fragments, function( key, value ) {
+				$( key ).replaceWith( value );
+				$( key ).stop( true ).css( 'opacity', '1' ).unblock();
+			});
+
+			$( document.body ).trigger( 'wc_fragments_loaded' );
+		}
+	};
 
 	$(document).ready(function() {});
 

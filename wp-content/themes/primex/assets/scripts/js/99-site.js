@@ -1,6 +1,7 @@
 (function ($) {
     var productImageOwlCarousel;
     var productThumbOwlCarousel;
+    var datepicker = $( "input[date='date']" );
     $(document.body).on('click', '.product-modal-desc-open', function() {
         var parentQuickView = $(this).parents('.product-quick-view');
         var parentQuickViewContent = parentQuickView.find('.modal-content');
@@ -55,6 +56,14 @@
                 1200:{ items:3 }
             }
         });
+
+        if (datepicker.length) {
+            datepicker.each(function() {
+                $(this).datepicker({
+                    format: 'dd-mm-yyyy'
+                });
+            });
+        }
     });
 
     $(window).on('load', function () {});

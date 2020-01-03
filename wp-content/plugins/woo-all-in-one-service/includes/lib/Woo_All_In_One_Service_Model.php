@@ -118,4 +118,13 @@ class Woo_All_In_One_Service_Model {
 
         return $id;
     }
+
+    public static function get($where = array()) {
+        global $wpdb;
+        $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;
+        $sql = "SELECT * FROM {$repairs_table_name} WHERE 1 = 1";
+        $results = $wpdb->get_results($sql, ARRAY_A);
+
+        return $results;
+    }
 }

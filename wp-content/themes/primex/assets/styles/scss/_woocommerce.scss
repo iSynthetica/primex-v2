@@ -232,3 +232,10 @@ label {
         display: none;
     }
 }
+.woocommerce-error {
+    background: #FFCCCC;
+    color: #740D0A;
+    padding: rem-calc(15 15 15 30);
+    border-left: 3px solid #740D0A;
+    font-size: 14px;
+}

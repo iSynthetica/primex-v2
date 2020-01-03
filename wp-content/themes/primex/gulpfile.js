@@ -30,6 +30,7 @@ const SOURCE = {
 
         // MODULES + '/jquery.easing/jquery.easing.min.js',
         VENDORS + '/jquery.easing.js',
+        VENDORS + '/bootstrap-datepicker.js',
         VENDORS + '/plugins.js',
         VENDORS + '/fitvids.js',
         VENDORS + '/superfish.menu.js',

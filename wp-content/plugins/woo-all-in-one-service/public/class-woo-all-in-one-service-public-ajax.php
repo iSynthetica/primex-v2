@@ -33,7 +33,23 @@ class Woo_All_In_One_Service_Public_Ajax {
         $data = array();
 
         foreach ($_POST['formData'] as $form_data) {
-            $data[sanitize_text_field($form_data['name'])] = sanitize_text_field($form_data['value']);
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        $validation = Woo_All_In_One_Service_Form::validate_form_fields($data);
+
+        if (!empty($validation['error'])) {
+            $response = array(
+                'success' => 0,
+                'error' => 1,
+                'messages' => __('Validation error', 'woo-all-in-one-service'),
+                'fragments' => array(
+                    '#wooaioservice_messages_container' => Woo_All_In_One_Service_Form::get_validation_errors($validation['error'])
+                )
+            );
+
+            echo json_encode($response);
+            wp_die();
         }
 
         $id = Woo_All_In_One_Service_Model::create($data);
