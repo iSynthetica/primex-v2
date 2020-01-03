@@ -105,7 +105,7 @@ class Woo_All_In_One_Service {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template_functions.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Form.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Form.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Helpers.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Model.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Endpoint.php';
 

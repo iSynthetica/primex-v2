@@ -52,7 +52,7 @@ class Woo_All_In_One_Service_Public_Ajax {
             wp_die();
         }
 
-        $id = Woo_All_In_One_Service_Model::create($data);
+        $id = Woo_All_In_One_Service_Model::create($validation['data']);
 
         $response = array('success' => 1, 'error' => 0, 'message' => __('Repair request created with ID ' . $id, 'woo-all-in-one-service'));
 

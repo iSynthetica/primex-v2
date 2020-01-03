@@ -1,7 +1,8 @@
 <?php
 $fields = Woo_All_In_One_Service_Form::get_form_fields();
 $fields_values = Woo_All_In_One_Service_Form::get_form_fields_values();
-$repairs = Woo_All_In_One_Service_Model::get();
+$where = array('author' => get_current_user_id());
+$repairs = Woo_All_In_One_Service_Model::get($where);
 ?>
 
 <div id="wooaioservice_messages_container"></div>

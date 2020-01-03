@@ -29,11 +29,12 @@ class Woo_All_In_One_Service_Form {
     }
 
     public static function get_form_fields() {
-        return apply_filters( 'wooaioservice_fields', array (
+        $fields = apply_filters( 'wooaioservice_fields', array (
             'repair_name'  => array(
                 'label'        => __( 'First name', 'woocommerce' ) . ' ' . __( 'Last name', 'woocommerce' ),
                 'required'     => true,
                 'class'        => array('form-row-first'),
+                'priority'     => 10,
             ),
             'repair_phone' => array(
                 'label'        => __( 'Phone', 'woocommerce' ),
@@ -41,6 +42,7 @@ class Woo_All_In_One_Service_Form {
                 'type'         => 'tel',
                 'class'        => array('form-row-wide'),
                 'validate'     => array('phone'),
+                'priority'     => 20,
             ),
             'repair_email' => array(
                 'label'        => __( 'Email address', 'woocommerce' ),
@@ -48,12 +50,14 @@ class Woo_All_In_One_Service_Form {
                 'type'         => 'email',
                 'class'        => array('form-row-wide'),
                 'validate'     => array('email'),
+                'priority'     => 30,
             ),
             'repair_created_date' => array(
                 'label'             => __( 'Дата приема заявки', 'woo-all-in-one-service' ),
                 'custom_attributes' => array('readonly' => 'true'),
                 'class'             => array('form-row-wide'),
                 'validate'          => array('date'),
+                'priority'     => 40,
             ),
             'repair_order_date' => array(
                 'label'        => __( 'Дата покупки', 'woo-all-in-one-service' ),
@@ -61,6 +65,7 @@ class Woo_All_In_One_Service_Form {
                 'required'     => true,
                 'class'        => array('form-row-wide'),
                 'validate'     => array('date'),
+                'priority'     => 50,
             ),
             'repair_np_ttn' => array(
                 'label'        => __( 'Номер накладной Новой Почты', 'woo-all-in-one-service' ),
@@ -70,29 +75,38 @@ class Woo_All_In_One_Service_Form {
                 'label'        => __( 'Модель или товар', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'class'        => array('form-row-wide'),
+                'priority'     => 60,
             ),
             'repair_serial' => array(
                 'label'        => __( 'Серийный номер', 'woo-all-in-one-service' ),
                 'class'        => array('form-row-wide'),
+                'priority'     => 70,
             ),
             'repair_state' => array(
                 'label'        => __( 'Внешнее состояние', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'class'        => array('form-row-wide'),
+                'priority'     => 80,
             ),
             'repair_set' => array(
                 'label'        => __( 'Комплектация', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'type'         => 'textarea',
                 'class'        => array('form-row-wide'),
+                'priority'     => 90,
             ),
             'repair_fault' => array(
                 'label'        => __( 'Заявленная неисправность', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'type'         => 'textarea',
                 'class'        => array('form-row-wide'),
+                'priority'     => 100,
             )
         ));
+
+        uasort( $fields, 'wc_checkout_fields_uasort_comparison' );
+
+        return $fields;
     }
 
     public static function get_form_user_data($input) {
@@ -175,6 +189,14 @@ class Woo_All_In_One_Service_Form {
                                 } else {
                                     $data[$dk] = $value;
                                 }
+                            } elseif ('date' === $validate) {
+                                $timestamp = strtotime($value);
+
+                                if (!$timestamp) {
+                                    $error_array[$dk] = sprintf( __( '%s is not a valid date format.', 'woo-all-in-one-service' ), '<strong>' . esc_html( $form_field['label'] ) . '</strong>' );
+                                } else {
+                                    $data[$dk] = gmdate( 'Y-m-d H:i:s', $timestamp);
+                                }
                             } else {
                                 $data[$dk] = $value;
                             }
@@ -206,5 +228,16 @@ class Woo_All_In_One_Service_Form {
         </div>
         <?php
         return ob_get_clean();
+    }
+
+    public static function get_repairs_statuses() {
+        return array(
+                'wait' => __('Ожидание', 'woo-all-in-one-service'),
+                'get' => __('Получен из Новой Почты/Принят в офисе', 'woo-all-in-one-service'),
+                'process' => __('В работе', 'woo-all-in-one-service'),
+                'repaired' => __('Получен из сервиса', 'woo-all-in-one-service'),
+                'sent' => __('Отправлен покупателю', 'woo-all-in-one-service'),
+                'closed' => __('Закрыт', 'woo-all-in-one-service'),
+        );
     }
 }

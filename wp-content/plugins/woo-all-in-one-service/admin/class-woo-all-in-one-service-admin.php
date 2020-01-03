@@ -126,8 +126,8 @@ class Woo_All_In_One_Service_Admin {
 
 	public function admin_menu() {
         add_menu_page(
-            __('Import', 'woo-all-in-one-service'),
-            __('Product Import', 'woo-all-in-one-service'),
+            __('Repairs', 'woo-all-in-one-service'),
+            __('Product Repairs', 'woo-all-in-one-service'),
             'manage_options',
             'wooaioservice',
             array($this, 'render_settings_page'),

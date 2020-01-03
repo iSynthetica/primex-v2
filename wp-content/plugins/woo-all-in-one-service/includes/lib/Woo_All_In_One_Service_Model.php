@@ -88,7 +88,6 @@ class Woo_All_In_One_Service_Model {
         global $wpdb;
         $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;
         $now = time();
-        $created = gmdate( 'Y-m-d H:i:s', $now );
 
         $wpdb->insert(
             $repairs_table_name,
@@ -100,9 +99,9 @@ class Woo_All_In_One_Service_Model {
                 'phone' => $data['repair_phone'],
                 'product' => $data['repair_product'],
                 'fault' => $data['repair_fault'],
-                'created' => $created,
+                'created' => $data['repair_created_date'],
                 'status' => 'wait',
-                'modified' => $created,
+                'modified' => $data['repair_created_date'],
             ),
             array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
         );
@@ -116,14 +115,57 @@ class Woo_All_In_One_Service_Model {
             array('%s')
         );
 
+        if (!empty($data['repair_author'])) unset($data['repair_author']);
+        if (!empty($data['repair_name'])) unset($data['repair_name']);
+        if (!empty($data['repair_email'])) unset($data['repair_email']);
+        if (!empty($data['repair_phone'])) unset($data['repair_phone']);
+        if (!empty($data['repair_product'])) unset($data['repair_product']);
+        if (!empty($data['repair_fault'])) unset($data['repair_fault']);
+        if (!empty($data['repair_created_date'])) unset($data['repair_created_date']);
+
+        $repairsmeta_table_name = $wpdb->prefix . self::$repairsmeta_table_name;
+
+        foreach ($data as $dk => $dv) {
+            $prefix_length = strlen('repair_');
+            $meta_key = substr($dk, $prefix_length);
+            $wpdb->insert(
+                $repairsmeta_table_name,
+                array(
+                    'repair_id' => $id,
+                    'meta_key' => $meta_key,
+                    'meta_value' => $dv,
+                ),
+                array( '%d', '%s', '%s' )
+            );
+        }
+
         return $id;
     }
 
-    public static function get($where = array()) {
+    public static function get($where = array(), $meta_where = array()) {
         global $wpdb;
         $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;
+        $repairsmeta_table_name = $wpdb->prefix . self::$repairsmeta_table_name;
+
         $sql = "SELECT * FROM {$repairs_table_name} WHERE 1 = 1";
+        if (!empty($where) && is_array($where)) {
+            foreach ($where as $column => $column_value) {
+                $sql .= " AND `{$column}` = '{$column_value}'";
+            }
+        }
+        $sql .= " ORDER BY `ID` DESC";
         $results = $wpdb->get_results($sql, ARRAY_A);
+
+        foreach ($results as $i => $result) {
+            $sql = "SELECT meta_key, meta_value FROM {$repairsmeta_table_name} WHERE repair_id = {$result['ID']}";
+            $metas = $wpdb->get_results($sql, ARRAY_A);
+
+            if (!empty($metas)) {
+                foreach ($metas as $meta) {
+                    $results[$i][$meta['meta_key']] = $meta['meta_value'];
+                }
+            }
+        }
 
         return $results;
     }
