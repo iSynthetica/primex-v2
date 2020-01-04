@@ -3680,3 +3680,356 @@ Stack trace:
 [03-Jan-2020 12:41:37 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY ID DESC' at line 1 в ответ на запрос  ORDER BY ID DESC, выполненный do_action('toplevel_page_wooaioservice'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->render_settings_page, include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs-list.php'), Woo_All_In_One_Service_Model::get
 [03-Jan-2020 12:41:49 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `ID` DESC' at line 1 в ответ на запрос  ORDER BY `ID` DESC, выполненный do_action('toplevel_page_wooaioservice'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->render_settings_page, include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs-list.php'), Woo_All_In_One_Service_Model::get
 [03-Jan-2020 12:42:01 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDERBY `ID` DESC' at line 1 в ответ на запрос  ORDERBY `ID` DESC, выполненный do_action('toplevel_page_wooaioservice'), WP_Hook->do_action, WP_Hook->apply_filters, Woo_All_In_One_Service_Admin->render_settings_page, include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php'), include('/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs-list.php'), Woo_All_In_One_Service_Model::get
+[04-Jan-2020 13:54:08 UTC] PHP Notice:  Undefined index: result in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php on line 201
+[04-Jan-2020 13:54:08 UTC] PHP Stack trace:
+[04-Jan-2020 13:54:08 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[04-Jan-2020 13:54:08 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[04-Jan-2020 13:54:08 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 13:54:08 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 13:54:08 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 13:54:08 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:149
+[04-Jan-2020 13:54:08 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php:23
+[04-Jan-2020 13:54:08 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php:11
+[04-Jan-2020 13:54:26 UTC] PHP Notice:  Undefined index: result in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php on line 201
+[04-Jan-2020 13:54:26 UTC] PHP Stack trace:
+[04-Jan-2020 13:54:26 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[04-Jan-2020 13:54:26 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[04-Jan-2020 13:54:26 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 13:54:26 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 13:54:26 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 13:54:26 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:149
+[04-Jan-2020 13:54:26 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php:23
+[04-Jan-2020 13:54:26 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-repairs.php:11
+[04-Jan-2020 14:07:58 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Service_Admin_Ajax' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:167
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php(79): Woo_All_In_One_Service->define_admin_hooks()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(79): Woo_All_In_One_Service->__construct()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(83): run_woo_all_in_one_service()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(360): include_once('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/pub in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 167
+[04-Jan-2020 14:09:58 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Service_Admin_Ajax' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:167
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php(79): Woo_All_In_One_Service->define_admin_hooks()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(79): Woo_All_In_One_Service->__construct()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(83): run_woo_all_in_one_service()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(360): include_once('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/pub in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 167
+[04-Jan-2020 14:11:53 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Service_Admin_Ajax' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:167
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php(79): Woo_All_In_One_Service->define_admin_hooks()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(79): Woo_All_In_One_Service->__construct()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(83): run_woo_all_in_one_service()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(360): include_once('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/pub in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 167
+[04-Jan-2020 14:11:55 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Service_Admin_Ajax' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php:167
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php(79): Woo_All_In_One_Service->define_admin_hooks()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(79): Woo_All_In_One_Service->__construct()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woo-all-in-one-service.php(83): run_woo_all_in_one_service()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(360): include_once('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/pub in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/class-woo-all-in-one-service.php on line 167
+[04-Jan-2020 14:39:34 UTC] PHP Notice:  Undefined index: repair_id in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 159
+[04-Jan-2020 14:39:34 UTC] PHP Stack trace:
+[04-Jan-2020 14:39:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:39:34 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:39:34 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:39:34 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:39:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:39:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:71
+[04-Jan-2020 14:39:34 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 159
+[04-Jan-2020 14:39:34 UTC] PHP Stack trace:
+[04-Jan-2020 14:39:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:39:34 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:39:34 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:39:34 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:39:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:39:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:71
+[04-Jan-2020 14:39:34 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 159
+[04-Jan-2020 14:39:34 UTC] PHP Stack trace:
+[04-Jan-2020 14:39:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:39:34 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:39:34 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:39:34 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:39:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:39:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:71
+[04-Jan-2020 14:39:34 UTC] PHP Notice:  Undefined index: repair_result in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 159
+[04-Jan-2020 14:39:34 UTC] PHP Stack trace:
+[04-Jan-2020 14:39:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:39:34 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:39:34 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:39:34 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:39:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:39:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:71
+[04-Jan-2020 14:59:24 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 14:59:24 UTC] PHP Stack trace:
+[04-Jan-2020 14:59:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:59:24 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:59:24 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:59:24 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:59:24 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:59:24 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 14:59:24 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 14:59:24 UTC] PHP Stack trace:
+[04-Jan-2020 14:59:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 14:59:24 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 14:59:24 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 14:59:24 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 14:59:24 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 14:59:24 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:04:05 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:04:05 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:05 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:05 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:05 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:05 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:05 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:05 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:04:05 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:04:05 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:05 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:05 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:05 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:05 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:05 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:05 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:04:13 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 96
+[04-Jan-2020 15:04:13 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:13 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:13 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:13 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:13 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:13 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:13 UTC] PHP   6. Woo_All_In_One_Service_Model::update($id = *uninitialized*, $data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:89
+[04-Jan-2020 15:04:13 UTC] PHP Notice:  Undefined index: repair_created_date in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 102
+[04-Jan-2020 15:04:13 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:13 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:13 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:13 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:13 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:13 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:13 UTC] PHP   6. Woo_All_In_One_Service_Model::update($id = *uninitialized*, $data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:89
+[04-Jan-2020 15:04:43 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:04:43 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:43 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:43 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:43 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:43 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:43 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:43 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:04:43 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:04:43 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:43 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:43 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:43 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:43 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:43 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:43 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:04:45 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 96
+[04-Jan-2020 15:04:45 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:45 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:45 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:45 UTC] PHP   6. Woo_All_In_One_Service_Model::update($id = *uninitialized*, $data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:89
+[04-Jan-2020 15:04:45 UTC] PHP Notice:  Undefined index: repair_created_date in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Model.php on line 102
+[04-Jan-2020 15:04:45 UTC] PHP Stack trace:
+[04-Jan-2020 15:04:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:04:45 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:04:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:04:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:04:45 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:04:45 UTC] PHP   6. Woo_All_In_One_Service_Model::update($id = *uninitialized*, $data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:89
+[04-Jan-2020 15:09:25 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:09:25 UTC] PHP Stack trace:
+[04-Jan-2020 15:09:25 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:09:25 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:09:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:09:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:09:25 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:09:25 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:09:25 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:09:25 UTC] PHP Stack trace:
+[04-Jan-2020 15:09:25 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:09:25 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:09:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:09:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:09:25 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:09:25 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:09:25 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:09:25 UTC] PHP Stack trace:
+[04-Jan-2020 15:09:25 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:09:25 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:09:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:09:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:09:25 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:09:25 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:11:40 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:11:40 UTC] PHP Stack trace:
+[04-Jan-2020 15:11:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:11:40 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:11:40 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:11:40 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:11:40 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:11:40 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:11:40 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:11:40 UTC] PHP Stack trace:
+[04-Jan-2020 15:11:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:11:40 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:11:40 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:11:40 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:11:40 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:11:40 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:12:42 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:12:42 UTC] PHP Stack trace:
+[04-Jan-2020 15:12:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:12:42 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:12:42 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:12:42 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:12:42 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:12:42 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:12:42 UTC] PHP Notice:  Undefined index: repair_created in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:12:42 UTC] PHP Stack trace:
+[04-Jan-2020 15:12:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:12:42 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:12:42 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:12:42 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:12:42 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:12:42 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:13:31 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:13:31 UTC] PHP Stack trace:
+[04-Jan-2020 15:13:31 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:13:31 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:13:31 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:13:31 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:13:31 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:13:31 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:13:39 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:13:39 UTC] PHP Stack trace:
+[04-Jan-2020 15:13:39 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:13:39 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:13:39 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:13:39 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:13:39 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:13:39 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields($data = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:22:34 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:22:34 UTC] PHP Stack trace:
+[04-Jan-2020 15:22:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:22:34 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:22:34 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:22:34 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:22:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:22:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:22:34 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:22:34 UTC] PHP Stack trace:
+[04-Jan-2020 15:22:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:22:34 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:22:34 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:22:34 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:22:34 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:22:34 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:23:10 UTC] PHP Notice:  Undefined index: repair_title in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:23:10 UTC] PHP Stack trace:
+[04-Jan-2020 15:23:10 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:23:10 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:23:10 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:23:10 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:23:10 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:23:10 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 15:23:10 UTC] PHP Notice:  Undefined index: repair_status in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 164
+[04-Jan-2020 15:23:10 UTC] PHP Stack trace:
+[04-Jan-2020 15:23:10 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 15:23:10 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 15:23:10 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 15:23:10 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 15:23:10 UTC] PHP   5. Woo_All_In_One_Service_Admin_Ajax->service_edit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 15:23:10 UTC] PHP   6. Woo_All_In_One_Service_Form::validate_form_fields() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin-ajax.php:81
+[04-Jan-2020 16:14:42 UTC] PHP Notice:  Undefined index: Wtsr_WC_Email_Review_Request in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php on line 115
+[04-Jan-2020 16:14:42 UTC] PHP Stack trace:
+[04-Jan-2020 16:14:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:14:42 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:14:42 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:14:42 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:14:42 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:14:42 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:57
+[04-Jan-2020 16:14:42 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:14:42 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:14:42 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:14:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function trigger() on null in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:116
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Public->send_email(8)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php(57): do_action('wooaioservice_c...', 8)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit('')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#6 /var/www/tsvitokha/primex2.0/public_html in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php on line 116
+[04-Jan-2020 16:16:26 UTC] PHP Notice:  Undefined index: Wtsr_WC_Email_Review_Request in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php on line 115
+[04-Jan-2020 16:16:26 UTC] PHP Stack trace:
+[04-Jan-2020 16:16:26 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:16:26 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:16:26 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:16:26 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:16:26 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:16:26 UTC] PHP   6. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:57
+[04-Jan-2020 16:16:26 UTC] PHP   7. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:16:26 UTC] PHP   8. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:16:26 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email($id = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:16:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function trigger() on null in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:116
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Public->send_email(9)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php(57): do_action('wooaioservice_c...', 9)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit('')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#6 /var/www/tsvitokha/primex2.0/public_html in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php on line 116
+[04-Jan-2020 16:17:37 UTC] PHP Notice:  Undefined variable: order in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 15
+[04-Jan-2020 16:17:37 UTC] PHP Stack trace:
+[04-Jan-2020 16:17:37 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:17:37 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:17:37 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:17:37 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:17:37 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:17:37 UTC] PHP   6. do_action($tag = *uninitialized*, ...$arg = variadic(*uninitialized*)) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:57
+[04-Jan-2020 16:17:37 UTC] PHP   7. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:17:37 UTC] PHP   8. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:17:37 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email($id = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[04-Jan-2020 16:17:37 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger($repair_id = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:116
+[04-Jan-2020 16:17:37 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[04-Jan-2020 16:17:37 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[04-Jan-2020 16:17:37 UTC] PHP  13. wc_get_template_html($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[04-Jan-2020 16:17:37 UTC] PHP  14. wc_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*, $default_path = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[04-Jan-2020 16:17:37 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[04-Jan-2020 16:17:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_order_number() on null in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php:15
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(249): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(268): wc_get_template('emails/wc-custo...', Array, '', '/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php(55): wc_get_template_html('emails/wc-custo...', Array, '', '/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php(534): Woo_All_In_One_Service_Email_Customer->get_content_html()
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_A in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 15
+[04-Jan-2020 16:20:47 UTC] [Loco.error] "Invalid PO file" in lib/compiled/gettext.php:13
+[04-Jan-2020 16:20:53 UTC] [Loco.error] "Invalid PO file" in lib/compiled/gettext.php:13
+[04-Jan-2020 16:20:59 UTC] [Loco.error] "Invalid PO file" in lib/compiled/gettext.php:13
+[04-Jan-2020 16:21:08 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[04-Jan-2020 16:21:08 UTC] PHP Stack trace:
+[04-Jan-2020 16:21:08 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:21:08 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:21:08 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:21:08 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:21:08 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[04-Jan-2020 16:21:08 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[04-Jan-2020 16:21:08 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[04-Jan-2020 16:21:08 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[04-Jan-2020 16:21:08 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[04-Jan-2020 16:21:08 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[04-Jan-2020 16:21:08 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[04-Jan-2020 16:21:08 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168

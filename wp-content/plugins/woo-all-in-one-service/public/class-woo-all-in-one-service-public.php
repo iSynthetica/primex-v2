@@ -109,4 +109,10 @@ class Woo_All_In_One_Service_Public {
 	    add_action('wooaioservice_before_fields', 'wooaioservice_before_fields', 10);
 	    add_action('wooaioservice_after_fields', 'wooaioservice_after_fields', 10);
     }
+
+    public function send_email($id) {
+        $mailer = WC()->mailer();
+        $email = $mailer->emails['Woo_All_In_One_Service_Email_Customer'];
+        $email->trigger( $id );
+    }
 }

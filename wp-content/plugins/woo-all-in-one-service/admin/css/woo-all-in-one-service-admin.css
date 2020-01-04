@@ -2,3 +2,69 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.repair-item,
+.repair-item-full {
+    padding: 5px 0;
+}
+.repair-item:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+.repair-item > div {
+    float: left;
+    width: 48%;
+}
+.repair-item > div:last-child {
+    float: right;
+}
+.repair-item input,
+.repair-item-full input,
+.repair-item textarea,
+.repair-item-full textarea,
+.repair-item select,
+.repair-item-full select {
+    width: 100%;
+}
+.repair-item-title {
+    font-weight: 900;
+}
+
+#service-container:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+#service-container #primary-content {
+    float: left;
+    width: 74%;
+}
+#service-container #primary-content > div {
+    float: left;
+    width: 49%;
+}
+#service-container #primary-content > div:last-child {
+    float: right;
+}
+#service-container #aside-content {
+    float: right;
+    width: 25%;
+}
+#service-container #primary-content:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 781px) {
+
+}
+
+@media (max-width: 599px) {
+
+}

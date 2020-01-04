@@ -109,6 +109,8 @@ class Woo_All_In_One_Service {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Model.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Service_Endpoint.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wtsr-wc-custom-email.php';
+
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -125,6 +127,7 @@ class Woo_All_In_One_Service {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-service-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-service-admin-ajax.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -164,11 +167,14 @@ class Woo_All_In_One_Service {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_All_In_One_Service_Admin( $this->get_plugin_name(), $this->get_version() );
+        $ajax_handler = new Woo_All_In_One_Service_Admin_Ajax( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_admin, 'init' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+
+        $this->loader->add_action('wp_ajax_wooaioservice_edit', $ajax_handler, 'service_edit');
 
 	}
 
@@ -187,6 +193,8 @@ class Woo_All_In_One_Service {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_public, 'template_hooks' );
+
+		$this->loader->add_action( 'wooaioservice_created', $plugin_public, 'send_email' );
 
         $this->loader->add_action('wp_ajax_nopriv_wooaioservice_submit', $plugin_public_ajax, 'wooaioservice_submit');
         $this->loader->add_action('wp_ajax_wooaioservice_submit', $plugin_public_ajax, 'wooaioservice_submit');

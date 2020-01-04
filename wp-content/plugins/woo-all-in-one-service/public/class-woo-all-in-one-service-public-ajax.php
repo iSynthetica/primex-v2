@@ -54,6 +54,8 @@ class Woo_All_In_One_Service_Public_Ajax {
 
         $id = Woo_All_In_One_Service_Model::create($validation['data']);
 
+        do_action( 'wooaioservice_created', $id );
+
         $response = array('success' => 1, 'error' => 0, 'message' => __('Repair request created with ID ' . $id, 'woo-all-in-one-service'));
 
         echo json_encode($response);

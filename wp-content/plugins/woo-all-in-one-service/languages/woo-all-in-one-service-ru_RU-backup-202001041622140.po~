@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Language: ru_RU\n"
+"POT-Creation-Date: 2020-01-04 16:21+0000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"PO-Revision-Date: 2020-01-04 16:21+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Project-Id-Version: Woo All In One Service\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Synthetica <syntheticafreon@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: admin/class-woo-all-in-one-service-admin.php:129
+#: includes/lib/Woo_All_In_One_Service_Helpers.php:8
+#: includes/lib/Woo_All_In_One_Service_Endpoint.php:54
+#: includes/lib/Woo_All_In_One_Service_Endpoint.php:70
+msgid "Repairs"
+msgstr ""
+
+#: admin/class-woo-all-in-one-service-admin.php:130
+msgid "Product Repairs"
+msgstr ""
+
+#: admin/class-woo-all-in-one-service-admin-ajax.php:59
+#: admin/class-woo-all-in-one-service-admin-ajax.php:72
+#: admin/class-woo-all-in-one-service-admin-ajax.php:92
+#: public/class-woo-all-in-one-service-public-ajax.php:27
+msgid "Cheating, huh!!!"
+msgstr ""
+
+#: admin/class-woo-all-in-one-service-admin-ajax.php:102
+msgid "Repair updated"
+msgstr ""
+
+#: public/class-woo-all-in-one-service-public-ajax.php:45
+msgid "Validation error"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-display.php:19
+msgid "Woocommerce Repairs"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:11
+msgid "Repairs List"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:30
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:92
+msgid "#"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:35
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:76
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:97
+msgid "Status"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:14
+msgid "No Repair with ID"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:23
+msgid "Repair #"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:37
+msgid "Customer Info"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:76
+#: includes/lib/Woo_All_In_One_Service_Form.php:56
+msgid "Дата приема заявки"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:99
+#: includes/lib/Woo_All_In_One_Service_Form.php:63
+msgid "Дата покупки"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:122
+#: includes/lib/Woo_All_In_One_Service_Form.php:71
+msgid "Номер накладной Новой Почты"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:136
+msgid "Product Info"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:143
+#: includes/lib/Woo_All_In_One_Service_Form.php:75
+msgid "Модель или товар"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:154
+#: includes/lib/Woo_All_In_One_Service_Form.php:81
+msgid "Серийный номер"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:165
+#: includes/lib/Woo_All_In_One_Service_Form.php:86
+msgid "Внешнее состояние"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:176
+#: includes/lib/Woo_All_In_One_Service_Form.php:92
+msgid "Комплектация"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:189
+#: includes/lib/Woo_All_In_One_Service_Form.php:99
+msgid "Заявленная неисправность"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:207
+msgid "Repair Info"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:213
+msgid "Repair status"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:234
+msgid "Repair result"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:248
+msgid "Update"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:201
+#, php-format
+msgid "%s is not a valid date format."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:240
+msgid "Ожидание"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:241
+msgid "Получен из Новой Почты/Принят в офисе"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:242
+msgid "В работе"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:243
+msgid "Получен из сервиса"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:244
+msgid "Отправлен покупателю"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:245
+msgid "Закрыт"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:13
+msgid "Repair Request to Customer"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:14
+msgid "An email sent to the customer for Repair Request."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:16
+msgid "Repair Request!"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:17
+#, php-format
+msgctxt "default email subject for cancelled emails sent to the customer"
+msgid "[%s] - Repair Request"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woo All In One Service"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://synthetica.com.ua"
+msgstr ""
+
+#. Author of the plugin
+msgid "Synthetica"
+msgstr ""

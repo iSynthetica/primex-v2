@@ -84,6 +84,73 @@ class Woo_All_In_One_Service_Model {
         dbDelta( $schema );
     }
 
+    public static function update($id, $data) {
+        global $wpdb;
+        $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;
+        $now = time();
+
+        $wpdb->update(
+            $repairs_table_name,
+            array(
+                'author' => $data['repair_author'],
+                'title' => $data['repair_title'],
+                'name' => $data['repair_name'],
+                'email' => $data['repair_email'],
+                'phone' => $data['repair_phone'],
+                'product' => $data['repair_product'],
+                'fault' => $data['repair_fault'],
+                'created' => $data['repair_created_date'],
+                'status' => $data['repair_status'],
+                'modified' => gmdate( 'Y-m-d H:i:s', $now),
+            ),
+            array('ID' => $id),
+            array( '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' )
+        );
+
+        if (!empty($data['repair_author'])) unset($data['repair_author']);
+        if (!empty($data['repair_title'])) unset($data['repair_title']);
+        if (!empty($data['repair_name'])) unset($data['repair_name']);
+        if (!empty($data['repair_email'])) unset($data['repair_email']);
+        if (!empty($data['repair_phone'])) unset($data['repair_phone']);
+        if (!empty($data['repair_product'])) unset($data['repair_product']);
+        if (!empty($data['repair_fault'])) unset($data['repair_fault']);
+        if (!empty($data['repair_status'])) unset($data['repair_status']);
+        if (!empty($data['repair_created_date'])) unset($data['repair_created_date']);
+
+        $repairsmeta_table_name = $wpdb->prefix . self::$repairsmeta_table_name;
+
+        foreach ($data as $dk => $dv) {
+            $prefix_length = strlen('repair_');
+            $meta_key = substr($dk, $prefix_length);
+            $sql = "SELECT meta_id FROM {$repairsmeta_table_name} WHERE repair_id = '{$id}' AND meta_key = '{$meta_key}'";
+            $meta_item = $wpdb->get_row( $sql, ARRAY_A );
+
+            if (!empty($meta_item)) {
+                $wpdb->update(
+                    $repairsmeta_table_name,
+                    array(
+                        'meta_key' => $meta_key,
+                        'meta_value' => $dv,
+                    ),
+                    array('meta_id' => $meta_item['meta_id']),
+                    array( '%s', '%s' )
+                );
+            } else {
+                $wpdb->insert(
+                    $repairsmeta_table_name,
+                    array(
+                        'repair_id' => $id,
+                        'meta_key' => $meta_key,
+                        'meta_value' => $dv,
+                    ),
+                    array( '%d', '%s', '%s' )
+                );
+            }
+        }
+
+        return $id;
+    }
+
     public static function create($data) {
         global $wpdb;
         $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;

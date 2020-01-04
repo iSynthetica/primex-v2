@@ -155,6 +155,11 @@ class Woo_All_In_One_Service_Form {
                         'data' => $data,
                     );
                 }
+                $value = sanitize_text_field($dv);
+                $data[$dk] = $value;
+            } elseif ('repair_result' === $dk) {
+                $value = sanitize_textarea_field($dv);
+                $data[$dk] = $value;
             } else {
                 $form_field = $form_fields[$dk];
 
@@ -165,7 +170,7 @@ class Woo_All_In_One_Service_Form {
                         $value = sanitize_textarea_field($dv);
                         break;
                     default:
-                        $value = sanitize_textarea_field($dv);
+                        $value = sanitize_text_field($dv);
                 }
 
                 if (!empty($form_field['required']) && empty($value)) {
