@@ -115,4 +115,12 @@ class Woo_All_In_One_Service_Public {
         $email = $mailer->emails['Woo_All_In_One_Service_Email_Customer'];
         $email->trigger( $id );
     }
+
+    public function shortcodes() {
+        add_shortcode( 'wooaioservice_customer_form', array($this, 'customer_form') );
+    }
+
+    public function customer_form() {
+	    return '';
+    }
 }

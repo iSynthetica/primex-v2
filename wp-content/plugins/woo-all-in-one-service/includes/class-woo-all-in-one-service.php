@@ -193,6 +193,7 @@ class Woo_All_In_One_Service {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_action( 'init', $plugin_public, 'template_hooks' );
+		$this->loader->add_action( 'init', $plugin_public, 'shortcodes' );
 
 		$this->loader->add_action( 'wooaioservice_created', $plugin_public, 'send_email' );
 
