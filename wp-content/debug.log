@@ -4033,3 +4033,32 @@ Stack trace:
 [04-Jan-2020 16:21:08 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
 [04-Jan-2020 16:21:08 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
 [04-Jan-2020 16:21:08 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[04-Jan-2020 16:43:23 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[04-Jan-2020 16:43:23 UTC] PHP Stack trace:
+[04-Jan-2020 16:43:23 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:43:23 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:43:23 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:43:23 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:43:23 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[04-Jan-2020 16:43:23 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[04-Jan-2020 16:43:23 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[04-Jan-2020 16:43:23 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[04-Jan-2020 16:43:23 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[04-Jan-2020 16:43:23 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[04-Jan-2020 16:43:23 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[04-Jan-2020 16:43:23 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[04-Jan-2020 16:43:32 UTC] [Loco.debug] "Translations don't match template. Run sync to update from woo-all-in-one-service.pot" in src/error/AdminNotices.php:109
+[04-Jan-2020 16:50:45 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[04-Jan-2020 16:50:45 UTC] PHP Stack trace:
+[04-Jan-2020 16:50:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[04-Jan-2020 16:50:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[04-Jan-2020 16:50:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[04-Jan-2020 16:50:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[04-Jan-2020 16:50:45 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[04-Jan-2020 16:50:45 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[04-Jan-2020 16:50:45 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[04-Jan-2020 16:50:45 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[04-Jan-2020 16:50:45 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[04-Jan-2020 16:50:45 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[04-Jan-2020 16:50:45 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[04-Jan-2020 16:50:45 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168

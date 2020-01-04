@@ -73,7 +73,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Дата приема заявки', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Date of request', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -96,7 +96,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Дата покупки', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Order date', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -119,7 +119,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Номер накладной Новой Почты', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'NP waybill number', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -140,7 +140,7 @@ if (empty($repairs)) {
                             <div class="repair-items">
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Модель или товар', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Product or model', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -151,7 +151,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Серийный номер', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Serial number', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -162,7 +162,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Внешнее состояние', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Condition', 'woo-all-in-one-service' ); ?>
                                     </div>
 
                                     <div class="repair-item-value">
@@ -173,7 +173,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item-full">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Комплектация', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Set included', 'woo-all-in-one-service' ); ?>
                                     </div>
                                 </div>
 
@@ -186,7 +186,7 @@ if (empty($repairs)) {
 
                                 <div class="repair-item-full">
                                     <div class="repair-item-title">
-                                        <?php _e( 'Заявленная неисправность', 'woo-all-in-one-service' ); ?>
+                                        <?php _e( 'Declared malfunction', 'woo-all-in-one-service' ); ?>
                                     </div>
                                 </div>
 

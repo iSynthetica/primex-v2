@@ -53,14 +53,14 @@ class Woo_All_In_One_Service_Form {
                 'priority'     => 30,
             ),
             'repair_created_date' => array(
-                'label'             => __( 'Дата приема заявки', 'woo-all-in-one-service' ),
+                'label'             => __( 'Date of request', 'woo-all-in-one-service' ),
                 'custom_attributes' => array('readonly' => 'true'),
                 'class'             => array('form-row-wide'),
                 'validate'          => array('date'),
                 'priority'     => 40,
             ),
             'repair_order_date' => array(
-                'label'        => __( 'Дата покупки', 'woo-all-in-one-service' ),
+                'label'        => __( 'Order date', 'woo-all-in-one-service' ),
                 'custom_attributes' => array('readonly' => 'true', 'date' => 'date'),
                 'required'     => true,
                 'class'        => array('form-row-wide'),
@@ -68,35 +68,35 @@ class Woo_All_In_One_Service_Form {
                 'priority'     => 50,
             ),
             'repair_np_ttn' => array(
-                'label'        => __( 'Номер накладной Новой Почты', 'woo-all-in-one-service' ),
+                'label'        => __( 'NP waybill number', 'woo-all-in-one-service' ),
                 'class'        => array('form-row-wide'),
             ),
             'repair_product' => array(
-                'label'        => __( 'Модель или товар', 'woo-all-in-one-service' ),
+                'label'        => __( 'Product or model', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'class'        => array('form-row-wide'),
                 'priority'     => 60,
             ),
             'repair_serial' => array(
-                'label'        => __( 'Серийный номер', 'woo-all-in-one-service' ),
+                'label'        => __( 'Serial number', 'woo-all-in-one-service' ),
                 'class'        => array('form-row-wide'),
                 'priority'     => 70,
             ),
             'repair_state' => array(
-                'label'        => __( 'Внешнее состояние', 'woo-all-in-one-service' ),
+                'label'        => __( 'Condition', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'class'        => array('form-row-wide'),
                 'priority'     => 80,
             ),
             'repair_set' => array(
-                'label'        => __( 'Комплектация', 'woo-all-in-one-service' ),
+                'label'        => __( 'Set included', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'type'         => 'textarea',
                 'class'        => array('form-row-wide'),
                 'priority'     => 90,
             ),
             'repair_fault' => array(
-                'label'        => __( 'Заявленная неисправность', 'woo-all-in-one-service' ),
+                'label'        => __( 'Declared malfunction', 'woo-all-in-one-service' ),
                 'required'     => true,
                 'type'         => 'textarea',
                 'class'        => array('form-row-wide'),
@@ -237,12 +237,12 @@ class Woo_All_In_One_Service_Form {
 
     public static function get_repairs_statuses() {
         return array(
-                'wait' => __('Ожидание', 'woo-all-in-one-service'),
-                'get' => __('Получен из Новой Почты/Принят в офисе', 'woo-all-in-one-service'),
-                'process' => __('В работе', 'woo-all-in-one-service'),
-                'repaired' => __('Получен из сервиса', 'woo-all-in-one-service'),
-                'sent' => __('Отправлен покупателю', 'woo-all-in-one-service'),
-                'closed' => __('Закрыт', 'woo-all-in-one-service'),
+                'wait' => __('Wait', 'woo-all-in-one-service'),
+                'get' => __('Got on NP/Accepted in the office', 'woo-all-in-one-service'),
+                'process' => __('In Progress', 'woo-all-in-one-service'),
+                'repaired' => __('Got from Service', 'woo-all-in-one-service'),
+                'sent' => __('Sent to customer', 'woo-all-in-one-service'),
+                'closed' => __('Closed', 'woo-all-in-one-service'),
         );
     }
 }
