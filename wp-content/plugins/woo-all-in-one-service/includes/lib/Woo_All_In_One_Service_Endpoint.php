@@ -76,7 +76,7 @@ class Woo_All_In_One_Service_Endpoint {
      * Endpoint HTML content.
      */
     public function endpoint_content() {
-        include (WOO_ALL_IN_ONE_SERVICE_PATH . 'woocommerce/repairs/repairs-list.php');
+        do_action('wooaioservice_repairs_content');
     }
     /**
      * Plugin install action.

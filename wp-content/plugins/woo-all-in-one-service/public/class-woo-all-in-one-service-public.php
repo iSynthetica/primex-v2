@@ -60,21 +60,7 @@ class Woo_All_In_One_Service_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Woo_All_In_One_Service_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Woo_All_In_One_Service_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-service-public.css', array(), $this->version, 'all' );
-
 	}
 
 	/**
@@ -83,19 +69,6 @@ class Woo_All_In_One_Service_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Woo_All_In_One_Service_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Woo_All_In_One_Service_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-service-public.js', array( 'jquery' ), $this->version, true );
 
         wp_localize_script( $this->plugin_name, 'wooaioserviceJsObj', array(
@@ -106,6 +79,7 @@ class Woo_All_In_One_Service_Public {
 	}
 
 	public function template_hooks() {
+	    add_action('wooaioservice_repairs_content', 'wooaioservice_repairs_content', 10);
 	    add_action('wooaioservice_before_fields', 'wooaioservice_before_fields', 10);
 	    add_action('wooaioservice_after_fields', 'wooaioservice_after_fields', 10);
     }
@@ -121,6 +95,9 @@ class Woo_All_In_One_Service_Public {
     }
 
     public function customer_form() {
-	    return '';
+	    ob_start();
+        include (WOO_ALL_IN_ONE_SERVICE_PATH . 'woocommerce/repairs/repairs-form.php');
+	    ob_get_clean();
+	    return ob_get_clean();
     }
 }

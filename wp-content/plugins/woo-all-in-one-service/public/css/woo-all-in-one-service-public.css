@@ -2,3 +2,25 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+#wooaioservice_form_container_control {
+    margin-bottom: 15px;
+    text-align: right;
+}
+.wooaioservice-form-closed #wooaioservice_form{
+    display: none;
+}
+.wooaioservice-form-closed #wooaioservice_cancel{
+    display: none;
+}
+.wooaioservice-form-closed #wooaioservice_create{
+    display: inline-block;
+}
+.wooaioservice-form-opened #wooaioservice_form{
+    display: block;
+}
+.wooaioservice-form-opened #wooaioservice_cancel{
+    display: inline-block;
+}
+.wooaioservice-form-opened #wooaioservice_create{
+    display: none;
+}

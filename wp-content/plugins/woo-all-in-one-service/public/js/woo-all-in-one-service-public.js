@@ -1,6 +1,22 @@
 (function( $ ) {
 	'use strict';
 
+	$(document.body).on('click', "#wooaioservice_create", function(e) {
+		var actionContainer = $('#wooaioservice_form_container_control');
+		var formContainer = $('#wooaioservice_form_container');
+
+		actionContainer.removeClass('wooaioservice-form-closed').removeClass('wooaioservice-form-opened').addClass('wooaioservice-form-opened');
+		formContainer.removeClass('wooaioservice-form-closed').removeClass('wooaioservice-form-opened').addClass('wooaioservice-form-opened');
+	});
+
+	$(document.body).on('click', "#wooaioservice_cancel", function(e) {
+		var actionContainer = $('#wooaioservice_form_container_control');
+		var formContainer = $('#wooaioservice_form_container');
+
+		actionContainer.removeClass('wooaioservice-form-closed').removeClass('wooaioservice-form-opened').addClass('wooaioservice-form-closed');
+		formContainer.removeClass('wooaioservice-form-closed').removeClass('wooaioservice-form-opened').addClass('wooaioservice-form-closed');
+	});
+
 	$(document.body).on('click', "#wooaioservice_submit", function(e) {
 		var btn = $(this);
 		var formData = $("#wooaioservice_form").serializeArray();
