@@ -125,10 +125,44 @@ class Woo_All_In_One_Service_Admin {
     }
 
 	public function admin_menu() {
+        $user = wp_get_current_user();
+
+        if (!$user) {
+            return;
+        }
+
+        $user_roles = $user->roles;
+
+        if (!in_array('administrator', $user_roles)) {
+            $access_settings = get_option('wooaioservice_access_settings', false);
+
+            if (empty($access_settings)) {
+                return;
+            }
+
+            $access_settings_roles = array_keys($access_settings);
+
+            $has_access = false;
+
+            foreach ($access_settings_roles as $access_settings_role) {
+                if (in_array($access_settings_role, $user_roles)) {
+                    $has_access = true;
+
+                    break;
+                }
+            }
+
+            if (!$has_access) {
+                return;
+            }
+        }
+
+
+
         add_menu_page(
             __('Repairs', 'woo-all-in-one-service'),
             __('Product Repairs', 'woo-all-in-one-service'),
-            'manage_options',
+            'read',
             'wooaioservice',
             array($this, 'render_settings_page'),
             'dashicons-hammer',

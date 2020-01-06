@@ -6,6 +6,18 @@
  */
 
 $repairs = Woo_All_In_One_Service_Model::get();
+$user_access_levels = Woo_All_In_One_Service_Helpers::get_user_access_levels();
+$can_edit = false;
+$can_delete = false;
+
+if (in_array('edit', $user_access_levels)) {
+    $can_edit = true;
+}
+
+if (in_array('delete', $user_access_levels)) {
+    $can_edit = true;
+    $can_delete = true;
+}
 ?>
 <h3 class="wp-heading-inline">
     <?php _e('Repairs List', 'woo-all-in-one-service'); ?>
@@ -33,6 +45,13 @@ if (empty($repairs)) {
             <th><?php _e( 'Phone', 'woocommerce' ); ?></th>
             <th><?php _e( 'Email address', 'woocommerce' ); ?></th>
             <th><?php _e('Status', 'woo-all-in-one-service'); ?></th>
+            <?php
+            if ($can_delete) {
+                ?>
+                <th><?php _e('Action', 'woo-all-in-one-service'); ?></th>
+                <?php
+            }
+            ?>
         </tr>
         </thead>
 
@@ -49,11 +68,6 @@ if (empty($repairs)) {
                     <a href="?page=wooaioservice&tab=repairs&repair_id=<?php echo $repair['ID']; ?>">
                         <?php echo $repair['title'] ?>
                     </a>
-                    <?php
-//                    echo "<pre>";
-//                    print_r($repair);
-//                    echo "</pre>";
-                    ?>
                     <button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button>
                 </td>
 
@@ -76,6 +90,17 @@ if (empty($repairs)) {
                 <td data-colname="<?php _e('Status', 'woo-all-in-one-service'); ?>">
                     <?php echo Woo_All_In_One_Service_Form::get_repairs_statuses()[$repair['status']] ?>
                 </td>
+                <?php
+                if ($can_delete) {
+                    ?>
+                    <td data-colname="<?php _e('Action', 'woo-all-in-one-service'); ?>">
+                        <button class="button repair_delete_submit" type="button" data-id="<?php echo $repair['ID']; ?>" data-single="no">
+                            <?php _e( 'Delete', 'woo-all-in-one-service' ); ?>
+                        </button>
+                    </td>
+                    <?php
+                }
+                ?>
             </tr>
             <?php
         }
@@ -95,6 +120,13 @@ if (empty($repairs)) {
             <th><?php _e( 'Phone', 'woocommerce' ); ?></th>
             <th><?php _e( 'Email address', 'woocommerce' ); ?></th>
             <th><?php _e('Status', 'woo-all-in-one-service'); ?></th>
+            <?php
+            if ($can_delete) {
+                ?>
+                <th><?php _e('Action', 'woo-all-in-one-service'); ?></th>
+                <?php
+            }
+            ?>
         </tr>
         </tfoot>
     </table>

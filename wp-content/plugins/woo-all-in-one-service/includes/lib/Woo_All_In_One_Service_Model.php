@@ -151,6 +151,17 @@ class Woo_All_In_One_Service_Model {
         return $id;
     }
 
+    public static function delete($id) {
+        global $wpdb;
+        $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;
+        $repairsmeta_table_name = $wpdb->prefix . self::$repairsmeta_table_name;
+
+        $wpdb->delete( $repairsmeta_table_name, array( 'repair_id' => $id ) );
+        $wpdb->delete( $repairs_table_name, array( 'ID' => $id ) );
+
+        return $id;
+    }
+
     public static function create($data) {
         global $wpdb;
         $repairs_table_name = $wpdb->prefix . self::$repairs_table_name;

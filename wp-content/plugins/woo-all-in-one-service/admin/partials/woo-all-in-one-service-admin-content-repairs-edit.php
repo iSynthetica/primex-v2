@@ -8,6 +8,18 @@
 $where = array('ID' => $repair_id);
 $repairs = Woo_All_In_One_Service_Model::get($where);
 $repair_statuses = Woo_All_In_One_Service_Form::get_repairs_statuses();
+$user_access_levels = Woo_All_In_One_Service_Helpers::get_user_access_levels();
+$can_edit = false;
+$can_delete = false;
+
+if (in_array('edit', $user_access_levels)) {
+    $can_edit = true;
+}
+
+if (in_array('delete', $user_access_levels)) {
+    $can_edit = true;
+    $can_delete = true;
+}
 if (empty($repairs)) {
     ?>
     <h3 class="wp-heading-inline">
@@ -145,7 +157,7 @@ if (empty($repairs)) {
 
                                     <div class="repair-item-value">
                                         <?php $product_title = !empty($repair['product']) ? $repair['product'] : ''; ?>
-                                        <input type="text" value="<?php echo $product_title ?>" name="repair_product" readonly>
+                                        <input type="text" value="<?php echo $product_title ?>" name="repair_product"<?php echo !$can_edit ? ' readonly' : ''; ?>>
                                     </div>
                                 </div>
 
@@ -156,7 +168,7 @@ if (empty($repairs)) {
 
                                     <div class="repair-item-value">
                                         <?php $serial = !empty($repair['serial']) ? $repair['serial'] : ''; ?>
-                                        <input type="text" value="<?php echo $serial ?>" name="repair_serial" readonly>
+                                        <input type="text" value="<?php echo $serial ?>" name="repair_serial"<?php echo !$can_edit ? ' readonly' : ''; ?>>
                                     </div>
                                 </div>
 
@@ -167,7 +179,7 @@ if (empty($repairs)) {
 
                                     <div class="repair-item-value">
                                         <?php $state = !empty($repair['state']) ? $repair['state'] : ''; ?>
-                                        <input type="text" value="<?php echo $state ?>" name="repair_state" readonly>
+                                        <input type="text" value="<?php echo $state ?>" name="repair_state"<?php echo !$can_edit ? ' readonly' : ''; ?>>
                                     </div>
                                 </div>
 
@@ -180,7 +192,7 @@ if (empty($repairs)) {
                                 <div class="repair-item-full">
                                     <div class="repair-item-value">
                                         <?php $set = !empty($repair['set']) ? $repair['set'] : ''; ?>
-                                        <textarea name="repair_set" readonly><?php echo $set ?></textarea>
+                                        <textarea name="repair_set"<?php echo !$can_edit ? ' readonly' : ''; ?>><?php echo $set ?></textarea>
                                     </div>
                                 </div>
 
@@ -193,7 +205,7 @@ if (empty($repairs)) {
                                 <div class="repair-item-full">
                                     <div class="repair-item-value">
                                         <?php $fault = !empty($repair['fault']) ? $repair['fault'] : ''; ?>
-                                        <textarea name="repair_fault" readonly><?php echo $fault ?></textarea>
+                                        <textarea name="repair_fault"<?php echo !$can_edit ? ' readonly' : ''; ?>><?php echo $fault ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -216,16 +228,28 @@ if (empty($repairs)) {
 
                                 <div class="repair-item-full">
                                     <div class="repair-item-value">
-                                        <select name="repair_status">
-                                            <?php
-                                            $status = ! empty( $repair['status'] ) ? $repair['status'] : '';
-                                            foreach ($repair_statuses as $repair_status_key => $repair_status) {
-                                                ?>
-                                                <option value="<?php echo $repair_status_key ?>"<?php echo $repair_status_key === $status ? ' selected' : '' ?>><?php echo $repair_status ?></option>
-                                                <?php
-                                            }
+                                        <?php
+                                        if ($can_edit) {
                                             ?>
-                                        </select>
+                                            <select name="repair_status">
+                                                <?php
+                                                $status = ! empty( $repair['status'] ) ? $repair['status'] : '';
+                                                foreach ($repair_statuses as $repair_status_key => $repair_status) {
+                                                    ?>
+                                                    <option value="<?php echo $repair_status_key ?>"<?php echo $repair_status_key === $status ? ' selected' : '' ?>><?php echo $repair_status ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <?php
+                                        } else {
+                                            $status = ! empty( $repair['status'] ) ? $repair['status'] : '';
+                                            ?>
+                                            <input type="hidden" name="repair_status" value="<?php echo $status ?>">
+                                            <input type="text" name="repair_status" value="<?php echo $repair_statuses[$status] ?>" readonly>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
 
@@ -238,17 +262,32 @@ if (empty($repairs)) {
                                 <div class="repair-item-full">
                                     <div class="repair-item-value">
                                         <?php $result = !empty($repair['result']) ? $repair['result'] : ''; ?>
-                                        <textarea name="repair_result" rows="6"><?php echo $result ?></textarea>
+                                        <textarea name="repair_result" rows="6"<?php echo !$can_edit ? ' readonly' : ''; ?>><?php echo $result ?></textarea>
                                     </div>
                                 </div>
 
-                                <div class="repair-item-full">
-                                    <div class="repair-item-action">
-                                        <button id="repair_edit_submit" class="button" type="button">
-                                            <?php _e( 'Update', 'woo-all-in-one-service' ); ?>
-                                        </button>
+                                <?php
+                                if ($can_edit) {
+                                    ?>
+                                    <div class="repair-item-full">
+                                        <div class="repair-item-action">
+                                            <button id="repair_edit_submit" class="button button-primary" type="button">
+                                                <?php _e( 'Update', 'woo-all-in-one-service' ); ?>
+                                            </button>
+                                            <?php
+                                            if ($can_delete) {
+                                                ?>
+                                                <button class="button repair_delete_submit" type="button" data-id="<?php echo $repair_id; ?>" data-single="yes">
+                                                    <?php _e( 'Delete', 'woo-all-in-one-service' ); ?>
+                                                </button>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
                                     </div>
-                                </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

@@ -172,6 +172,32 @@ class Woo_All_In_One_Service_Admin_Ajax {
         wp_die();
     }
 
+	public function service_delete() {
+        $id = !empty($_POST['repairId']) ? sanitize_text_field($_POST['repairId']) : false;
+        $single = !empty($_POST['single']) ? sanitize_text_field($_POST['single']) : false;
+
+        if (empty($id)) {
+            $response = array('success' => 0, 'error' => 1, 'message' => __('Select repair to delete', 'woo-all-in-one-service'));
+
+            echo json_encode($response);
+            wp_die();
+        }
+
+        Woo_All_In_One_Service_Model::delete($id);
+
+        if (!empty($single)) {
+            $response = array('success' => 1, 'error' => 0, 'message' => __('Repair deleted', 'woo-all-in-one-service'), 'url' => get_admin_url(null, 'admin.php?page=wooaioservice&tab=repairs'));
+
+            echo json_encode($response);
+            wp_die();
+        } else {
+            $response = array('success' => 1, 'error' => 0, 'message' => __('Repair deleted', 'woo-all-in-one-service'));
+
+            echo json_encode($response);
+            wp_die();
+        }
+    }
+
 	public function service_edit() {
         if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
             $response = array('success' => 0, 'error' => 1, 'message' => __('Cheating, huh!!!', 'woo-all-in-one-service'));

@@ -119,6 +119,52 @@
 		});
 	});
 
+	$(document.body).on('click', ".repair_delete_submit", function(e) {
+		var btn = $(this);
+		var repairId = btn.data('id');
+		var single = btn.data('single');
+		var data = {
+			action: 'wooaioservice_delete',
+			repairId: repairId
+		};
+
+		if ('yes' == single) {
+			data.single = 'yes';
+		}
+
+		$.ajax({
+			url: ajaxurl,
+			method: 'POST',
+			data: data,
+			success: function(response) {
+				var decoded;
+
+				try {
+					decoded = $.parseJSON(response);
+				} catch(err) {
+					console.log(err);
+					decoded = false;
+				}
+
+				if (decoded) {
+					if (decoded.success) {
+						alert(decoded.message);
+
+						if (decoded.url) {
+							window.location.replace(decoded.url);
+						} else {
+							window.location.reload();
+						}
+					} else  {
+						alert(decoded.message);
+					}
+				} else {
+					alert('Something went wrong');
+				}
+			}
+		});
+	});
+
 	$(document.body).on('click', "#repair_edit_submit", function(e) {
 		var btn = $(this);
 		var formData = $("#repair_edit_form").serializeArray();

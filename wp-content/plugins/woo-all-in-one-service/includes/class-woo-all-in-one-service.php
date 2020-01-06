@@ -175,6 +175,7 @@ class Woo_All_In_One_Service {
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 
         $this->loader->add_action('wp_ajax_wooaioservice_edit', $ajax_handler, 'service_edit');
+        $this->loader->add_action('wp_ajax_wooaioservice_delete', $ajax_handler, 'service_delete');
         $this->loader->add_action('wp_ajax_wooaioservice_create_access_rule', $ajax_handler, 'create_access_rule');
         $this->loader->add_action('wp_ajax_wooaioservice_edit_access_rule', $ajax_handler, 'edit_access_rule');
         $this->loader->add_action('wp_ajax_wooaioservice_delete_access_rule', $ajax_handler, 'delete_access_rule');
