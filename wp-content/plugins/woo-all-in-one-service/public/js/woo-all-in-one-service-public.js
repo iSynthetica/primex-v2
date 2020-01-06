@@ -41,6 +41,14 @@
 				if (decoded) {
 					if (decoded.fragments) {
 						updateFragments(decoded.fragments)
+
+						setTimeout(function() {
+							if (decoded.success) {
+								$(document.body).trigger( "wooaioservice:success" );
+							} else {
+								$(document.body).trigger( "wooaioservice:error" );
+							}
+						},500)
 					} else if (decoded.message) {
 						alert(decoded.message);
 					}

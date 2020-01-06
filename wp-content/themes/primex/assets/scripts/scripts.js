@@ -13301,6 +13301,16 @@ var SEMICOLON = SEMICOLON || {};
 
     });
 
+    $(document.body).on('wooaioservice:success', function(e) {
+        if ($( "input[date='date']" ).length) {
+            $( "input[date='date']" ).each(function() {
+                $(this).datepicker({
+                    format: 'dd-mm-yyyy'
+                });
+            });
+        }
+    });
+
     $(document).ready(function() {
         productImageOwlCarousel = $('#woocommerce-product-gallery__images');
 

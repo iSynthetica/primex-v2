@@ -13,7 +13,7 @@ class Woo_All_In_One_Service_Email_Customer extends WC_Email {
         $this->title = __( 'Repair Request to Customer', 'woo-all-in-one-service' );
         $this->description = __( 'An email sent to the customer for Repair Request.', 'woo-all-in-one-service' );
         $this->customer_email = true;
-        $this->heading     = __( 'Repair Request!', 'woo-all-in-one-service' );
+        $this->heading     = __( 'Repair request #', 'woo-all-in-one-service' );
         $this->subject     = sprintf( _x( '[%s] - Repair Request', 'default email subject for cancelled emails sent to the customer', 'woo-all-in-one-service' ), '{blogname}' );
 
         $this->email_type = $this->get_option( 'email_type', 'multipart' );
@@ -33,6 +33,7 @@ class Woo_All_In_One_Service_Email_Customer extends WC_Email {
         $where = array('ID' => $repair_id);
         $repairs = Woo_All_In_One_Service_Model::get($where);
         $this->object = $repairs[0];
+        $this->heading = $this->heading . ' ' . $this->object['title'];
 
         $this->recipient = $this->object['email'];
 

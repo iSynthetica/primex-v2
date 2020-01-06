@@ -4062,3 +4062,589 @@ Stack trace:
 [04-Jan-2020 16:50:45 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
 [04-Jan-2020 16:50:45 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
 [04-Jan-2020 16:50:45 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[06-Jan-2020 08:12:16 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[06-Jan-2020 08:12:16 UTC] PHP Stack trace:
+[06-Jan-2020 08:12:16 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 08:12:16 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 08:12:16 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 08:12:16 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 08:12:16 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[06-Jan-2020 08:12:16 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[06-Jan-2020 08:12:16 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[06-Jan-2020 08:12:16 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[06-Jan-2020 08:12:16 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[06-Jan-2020 08:12:16 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[06-Jan-2020 08:12:16 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[06-Jan-2020 08:12:16 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[06-Jan-2020 08:12:22 UTC] [Loco.debug] "Translations don't match template. Run sync to update from woo-all-in-one-service.pot" in src/error/AdminNotices.php:109
+[06-Jan-2020 08:53:40 UTC] PHP Notice:  Undefined variable: order_date in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 61
+[06-Jan-2020 08:53:40 UTC] PHP Stack trace:
+[06-Jan-2020 08:53:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 08:53:40 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 08:53:40 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 08:53:40 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 08:53:40 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 08:53:40 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 08:53:40 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 08:53:40 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 08:53:40 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 08:53:40 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 08:53:40 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 08:53:40 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 08:53:40 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 08:53:40 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 08:53:40 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 09:01:17 UTC] PHP Parse error:  syntax error, unexpected '}', expecting '(' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Form.php on line 262
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'label' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 22
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 24
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 30
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: label in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 22
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 24
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 30
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'label' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'value' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: label in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: value in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'label' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'value' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: label in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: value in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'label' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'value' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Warning:  Illegal string offset 'type' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: label in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 45
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 47
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: value in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 51
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:06:45 UTC] PHP Notice:  Undefined index: type in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/templates/emails/wc-customer-repair-request.php on line 57
+[06-Jan-2020 10:06:45 UTC] PHP Stack trace:
+[06-Jan-2020 10:06:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:06:45 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:06:45 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   5. Woo_All_In_One_Service_Public_Ajax->wooaioservice_submit() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP   6. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public-ajax.php:58
+[06-Jan-2020 10:06:45 UTC] PHP   7. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:06:45 UTC] PHP   8. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:06:45 UTC] PHP   9. Woo_All_In_One_Service_Public->send_email() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 10:06:45 UTC] PHP  10. Woo_All_In_One_Service_Email_Customer->trigger() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/public/class-woo-all-in-one-service-public.php:90
+[06-Jan-2020 10:06:45 UTC] PHP  11. Woo_All_In_One_Service_Email_Customer->get_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:39
+[06-Jan-2020 10:06:45 UTC] PHP  12. Woo_All_In_One_Service_Email_Customer->get_content_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/emails/class-wc-email.php:534
+[06-Jan-2020 10:06:45 UTC] PHP  13. wc_get_template_html() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Email_Customer.php:55
+[06-Jan-2020 10:06:45 UTC] PHP  14. wc_get_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:268
+[06-Jan-2020 10:06:45 UTC] PHP  15. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php:249
+[06-Jan-2020 10:44:38 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[06-Jan-2020 10:44:38 UTC] PHP Stack trace:
+[06-Jan-2020 10:44:38 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:44:38 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:44:38 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:44:38 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:44:38 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[06-Jan-2020 10:44:38 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[06-Jan-2020 10:44:38 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[06-Jan-2020 10:44:38 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[06-Jan-2020 10:44:38 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[06-Jan-2020 10:44:38 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[06-Jan-2020 10:44:38 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[06-Jan-2020 10:44:38 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[06-Jan-2020 10:44:41 UTC] [Loco.debug] "Translations don't match template. Run sync to update from woo-all-in-one-service.pot" in src/error/AdminNotices.php:109
+[06-Jan-2020 10:45:55 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[06-Jan-2020 10:45:55 UTC] PHP Stack trace:
+[06-Jan-2020 10:45:55 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:45:55 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:45:55 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:45:55 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:45:55 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[06-Jan-2020 10:45:55 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[06-Jan-2020 10:45:55 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[06-Jan-2020 10:45:55 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[06-Jan-2020 10:45:55 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[06-Jan-2020 10:45:55 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[06-Jan-2020 10:45:55 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[06-Jan-2020 10:45:55 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[06-Jan-2020 10:46:47 UTC] PHP Warning:  chmod(): Operation not permitted in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php on line 168
+[06-Jan-2020 10:46:47 UTC] PHP Stack trace:
+[06-Jan-2020 10:46:47 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[06-Jan-2020 10:46:47 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[06-Jan-2020 10:46:47 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 10:46:47 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 10:46:47 UTC] PHP   5. Loco_mvc_AjaxRouter->on_wp_ajax_loco_json() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:286
+[06-Jan-2020 10:46:47 UTC] PHP   6. Loco_mvc_AjaxRouter->renderAjax() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:90
+[06-Jan-2020 10:46:47 UTC] PHP   7. Loco_ajax_SaveController->render() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/mvc/AjaxRouter.php:175
+[06-Jan-2020 10:46:47 UTC] PHP   8. Loco_fs_LocaleFile->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/ajax/SaveController.php:79
+[06-Jan-2020 10:46:47 UTC] PHP   9. Loco_fs_FileWriter->putContents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/File.php:609
+[06-Jan-2020 10:46:47 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
+[06-Jan-2020 10:46:47 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
+[06-Jan-2020 10:46:47 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2020-01-04 16:43+0000\n"
+"POT-Creation-Date: 2020-01-06 10:45+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
@@ -33,23 +33,57 @@ msgstr ""
 msgid "Validation error"
 msgstr ""
 
+#: woocommerce/repairs/repairs-form.php:11
+msgid "Create New"
+msgstr ""
+
+#: woocommerce/repairs/repairs-form.php:15
+msgid "Cancel"
+msgstr ""
+
+#: woocommerce/repairs/repairs-form.php:41
+msgid "Submit"
+msgstr ""
+
+#: woocommerce/repairs/repairs-table.php:20
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:30
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:92
+msgid "#"
+msgstr ""
+
+#: woocommerce/repairs/repairs-table.php:22
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:76
+#: includes/lib/Woo_All_In_One_Service_Form.php:56
+#: includes/lib/Woo_All_In_One_Service_Form.php:304
+msgid "Date of request"
+msgstr ""
+
+#: woocommerce/repairs/repairs-table.php:23
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:189
+#: includes/lib/Woo_All_In_One_Service_Form.php:99
+#: includes/lib/Woo_All_In_One_Service_Form.php:381
+msgid "Declared malfunction"
+msgstr ""
+
+#: woocommerce/repairs/repairs-table.php:24
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:234
+#: includes/lib/Woo_All_In_One_Service_Form.php:397
+msgid "Repair result"
+msgstr ""
+
+#: woocommerce/repairs/repairs-table.php:25
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:35
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:76
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:97
+msgid "Status"
+msgstr ""
+
 #: admin/partials/woo-all-in-one-service-admin-display.php:19
 msgid "Woocommerce Repairs"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:11
 msgid "Repairs List"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:30
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:92
-msgid "#"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:35
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:76
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:97
-msgid "Status"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:14
@@ -61,63 +95,59 @@ msgid "Repair #"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:37
+#: includes/lib/Woo_All_In_One_Service_Form.php:437
 msgid "Customer Info"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:76
-#: includes/lib/Woo_All_In_One_Service_Form.php:56
-msgid "Date of request"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:99
 #: includes/lib/Woo_All_In_One_Service_Form.php:63
+#: includes/lib/Woo_All_In_One_Service_Form.php:333
 msgid "Order date"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:122
 #: includes/lib/Woo_All_In_One_Service_Form.php:71
+#: includes/lib/Woo_All_In_One_Service_Form.php:341
 msgid "NP waybill number"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:136
+#: includes/lib/Woo_All_In_One_Service_Form.php:441
 msgid "Product Info"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:143
 #: includes/lib/Woo_All_In_One_Service_Form.php:75
+#: includes/lib/Woo_All_In_One_Service_Form.php:349
 msgid "Product or model"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:154
 #: includes/lib/Woo_All_In_One_Service_Form.php:81
+#: includes/lib/Woo_All_In_One_Service_Form.php:357
 msgid "Serial number"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:165
 #: includes/lib/Woo_All_In_One_Service_Form.php:86
+#: includes/lib/Woo_All_In_One_Service_Form.php:365
 msgid "Condition"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:176
 #: includes/lib/Woo_All_In_One_Service_Form.php:92
+#: includes/lib/Woo_All_In_One_Service_Form.php:373
 msgid "Set included"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:189
-#: includes/lib/Woo_All_In_One_Service_Form.php:99
-msgid "Declared malfunction"
-msgstr ""
-
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:207
+#: includes/lib/Woo_All_In_One_Service_Form.php:445
 msgid "Repair Info"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:213
+#: includes/lib/Woo_All_In_One_Service_Form.php:389
 msgid "Repair status"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:234
-msgid "Repair result"
 msgstr ""
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:248
@@ -129,28 +159,44 @@ msgstr ""
 msgid "%s is not a valid date format."
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:240
-msgid "Ожидание"
-msgstr ""
-
-#: includes/lib/Woo_All_In_One_Service_Form.php:241
-msgid "Получен из Новой Почты/Принят в офисе"
-msgstr ""
-
-#: includes/lib/Woo_All_In_One_Service_Form.php:242
-msgid "В работе"
-msgstr ""
-
 #: includes/lib/Woo_All_In_One_Service_Form.php:243
-msgid "Получен из сервиса"
+msgid "Repaire request created successfully with number"
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:244
-msgid "Отправлен покупателю"
+#: includes/lib/Woo_All_In_One_Service_Form.php:252
+msgid "Wait"
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:245
-msgid "Закрыт"
+#: includes/lib/Woo_All_In_One_Service_Form.php:253
+msgid "Got on NP/Accepted in the office"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:254
+msgid "In Progress"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:255
+msgid "Got from Service"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:256
+msgid "Sent to customer"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:257
+msgid "Closed"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:266
+msgid "Repair request  #"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:318
+msgid "Date of status changed"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:433
+msgid "Service Info"
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_Service_Email_Customer.php:13
@@ -162,7 +208,7 @@ msgid "An email sent to the customer for Repair Request."
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_Service_Email_Customer.php:16
-msgid "Repair Request!"
+msgid "Repair request #"
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_Service_Email_Customer.php:17

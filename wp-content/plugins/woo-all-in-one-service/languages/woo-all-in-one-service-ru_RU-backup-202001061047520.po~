@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Language: ru_RU\n"
-"POT-Creation-Date: 2020-01-04 16:50+0000\n"
+"POT-Creation-Date: 2020-01-06 10:46+0000\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
-"PO-Revision-Date: 2020-01-04 16:50+0000\n"
+"PO-Revision-Date: 2020-01-06 10:46+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: Woo All In One Service\n"
 "Report-Msgid-Bugs-To: \n"
@@ -41,6 +41,51 @@ msgstr "Ремонт обновлен"
 msgid "Validation error"
 msgstr "Ошибка валидации"
 
+#: woocommerce/repairs/repairs-form.php:11
+msgid "Create New"
+msgstr "Создать новый"
+
+#: woocommerce/repairs/repairs-form.php:15
+msgid "Cancel"
+msgstr "Отменить"
+
+#: woocommerce/repairs/repairs-form.php:41
+msgid "Submit"
+msgstr "Отправить"
+
+#: woocommerce/repairs/repairs-table.php:20
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:30
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:92
+msgid "#"
+msgstr "№"
+
+#: woocommerce/repairs/repairs-table.php:22
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:76
+#: includes/lib/Woo_All_In_One_Service_Form.php:56
+#: includes/lib/Woo_All_In_One_Service_Form.php:304
+msgid "Date of request"
+msgstr "Дата создания заявки"
+
+#: woocommerce/repairs/repairs-table.php:23
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:189
+#: includes/lib/Woo_All_In_One_Service_Form.php:99
+#: includes/lib/Woo_All_In_One_Service_Form.php:381
+msgid "Declared malfunction"
+msgstr "Заявленная неисправность"
+
+#: woocommerce/repairs/repairs-table.php:24
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:234
+#: includes/lib/Woo_All_In_One_Service_Form.php:397
+msgid "Repair result"
+msgstr "Результат ремонта"
+
+#: woocommerce/repairs/repairs-table.php:25
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:35
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:76
+#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:97
+msgid "Status"
+msgstr "Статус"
+
 #: admin/partials/woo-all-in-one-service-admin-display.php:19
 msgid "Woocommerce Repairs"
 msgstr "Ремонты Woocommerce"
@@ -48,17 +93,6 @@ msgstr "Ремонты Woocommerce"
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:11
 msgid "Repairs List"
 msgstr "Список ремонтов"
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:30
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:92
-msgid "#"
-msgstr "№"
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:35
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:76
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-list.php:97
-msgid "Status"
-msgstr "Статус"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:14
 msgid "No Repair with ID"
@@ -69,64 +103,60 @@ msgid "Repair #"
 msgstr "№ ремонта"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:37
+#: includes/lib/Woo_All_In_One_Service_Form.php:437
 msgid "Customer Info"
 msgstr "Информация о покупателе"
 
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:76
-#: includes/lib/Woo_All_In_One_Service_Form.php:56
-msgid "Date of request"
-msgstr "Дата создания заявки"
-
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:99
 #: includes/lib/Woo_All_In_One_Service_Form.php:63
+#: includes/lib/Woo_All_In_One_Service_Form.php:333
 msgid "Order date"
 msgstr "Дата покупки"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:122
 #: includes/lib/Woo_All_In_One_Service_Form.php:71
+#: includes/lib/Woo_All_In_One_Service_Form.php:341
 msgid "NP waybill number"
 msgstr "Номер накладной Новой Почты"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:136
+#: includes/lib/Woo_All_In_One_Service_Form.php:441
 msgid "Product Info"
 msgstr "Информация о товаре"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:143
 #: includes/lib/Woo_All_In_One_Service_Form.php:75
+#: includes/lib/Woo_All_In_One_Service_Form.php:349
 msgid "Product or model"
 msgstr "Модель или товар"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:154
 #: includes/lib/Woo_All_In_One_Service_Form.php:81
+#: includes/lib/Woo_All_In_One_Service_Form.php:357
 msgid "Serial number"
 msgstr "Серийный номер"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:165
 #: includes/lib/Woo_All_In_One_Service_Form.php:86
+#: includes/lib/Woo_All_In_One_Service_Form.php:365
 msgid "Condition"
 msgstr "Внешнее состояние"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:176
 #: includes/lib/Woo_All_In_One_Service_Form.php:92
+#: includes/lib/Woo_All_In_One_Service_Form.php:373
 msgid "Set included"
 msgstr "Комплектация"
 
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:189
-#: includes/lib/Woo_All_In_One_Service_Form.php:99
-msgid "Declared malfunction"
-msgstr "Заявленная неисправность"
-
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:207
+#: includes/lib/Woo_All_In_One_Service_Form.php:445
 msgid "Repair Info"
 msgstr "Информация о ремонте"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:213
+#: includes/lib/Woo_All_In_One_Service_Form.php:389
 msgid "Repair status"
 msgstr "Статус ремонта"
-
-#: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:234
-msgid "Repair result"
-msgstr "Результат ремонта"
 
 #: admin/partials/woo-all-in-one-service-admin-content-repairs-edit.php:248
 msgid "Update"
@@ -137,28 +167,45 @@ msgstr "Обновить"
 msgid "%s is not a valid date format."
 msgstr "%s не правильный формат."
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:240
-msgid "Wait"
-msgstr ""
-
-#: includes/lib/Woo_All_In_One_Service_Form.php:241
-msgid "Got on NP/Accepted in the office"
-msgstr ""
-
-#: includes/lib/Woo_All_In_One_Service_Form.php:242
-msgid "In Progress"
-msgstr ""
-
 #: includes/lib/Woo_All_In_One_Service_Form.php:243
+msgid "Repaire request created successfully with number"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:252
+msgid "Wait"
+msgstr "Ожидание"
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:253
+msgid "Got on NP/Accepted in the office"
+msgstr "Получен на Новой Почте/Принят в оффисе"
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:254
+msgid "In Progress"
+msgstr "В работе"
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:255
 msgid "Got from Service"
-msgstr ""
+msgstr "Получен из сервиса"
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:244
+#: includes/lib/Woo_All_In_One_Service_Form.php:256
 msgid "Sent to customer"
+msgstr "Отправлен клиенту"
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:257
+msgid "Closed"
+msgstr "Закрыт"
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:266
+#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:16
+msgid "Repair request #"
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_Service_Form.php:245
-msgid "Closed"
+#: includes/lib/Woo_All_In_One_Service_Form.php:318
+msgid "Date of status changed"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Service_Form.php:433
+msgid "Service Info"
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_Service_Email_Customer.php:13
@@ -169,15 +216,11 @@ msgstr "Заявка на ремонт клиенту"
 msgid "An email sent to the customer for Repair Request."
 msgstr "Email об Заявке на ремонт отправленный клиенту"
 
-#: includes/lib/Woo_All_In_One_Service_Email_Customer.php:16
-msgid "Repair Request!"
-msgstr "Заявка на ремонт"
-
 #: includes/lib/Woo_All_In_One_Service_Email_Customer.php:17
 #, php-format
 msgctxt "default email subject for cancelled emails sent to the customer"
 msgid "[%s] - Repair Request"
-msgstr ""
+msgstr "[%s] - Заявка на ремонт"
 
 #. Name of the plugin
 msgid "Woo All In One Service"
@@ -192,8 +235,8 @@ msgstr ""
 #. URI of the plugin
 #. Author URI of the plugin
 msgid "http://synthetica.com.ua"
-msgstr ""
+msgstr "http://synthetica.com.ua"
 
 #. Author of the plugin
 msgid "Synthetica"
-msgstr ""
+msgstr "Synthetica"

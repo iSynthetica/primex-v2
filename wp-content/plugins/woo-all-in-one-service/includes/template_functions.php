@@ -18,3 +18,28 @@ function wooaioservice_after_fields() {
     </div>
     <?php
 }
+
+function wooaioservice_email_data_show($data_id, $data_info) {
+    $repair_statuses = Woo_All_In_One_Service_Form::get_repairs_statuses();
+    ?>
+    <p>
+        <strong><?php echo $data_info['label'] ?>:</strong>
+        <?php
+        if ('textarea' !== $data_info['type']) {
+            if ('status' === $data_id) {
+                echo $repair_statuses[$data_info['value']];
+            } else {
+                echo $data_info['value'];
+            }
+        }
+        ?>
+    </p>
+    <?php
+    if ('textarea' === $data_info['type']) {
+        ?>
+        <p>
+            <?php echo wpautop($data_info['value']); ?>
+        </p>
+        <?php
+    }
+}

@@ -257,4 +257,194 @@ class Woo_All_In_One_Service_Form {
                 'closed' => __('Closed', 'woo-all-in-one-service'),
         );
     }
+
+    public static function get_email_repair_data($repair) {
+        $data_array = array();
+        $title = !empty($repair['title']) ? $repair['title'] : '';
+
+        $data_array['title'] = array(
+            'label' => __( 'Repair request #', 'woo-all-in-one-service' ),
+            'value' => $title,
+            'type' => 'text',
+        );
+
+        $name = !empty($repair['name']) ? $repair['name'] : '';
+
+        $data_array['name'] = array(
+            'label' => __( 'Name', 'woocommerce' ),
+            'value' => $name,
+            'type' => 'text',
+        );
+
+        $phone = !empty($repair['phone']) ? $repair['phone'] : '';
+
+        $data_array['phone'] = array(
+            'label' => __( 'Phone', 'woocommerce' ),
+            'value' => $phone,
+            'type' => 'text',
+        );
+
+        $email = !empty($repair['email']) ? $repair['email'] : '';
+
+        $data_array['email'] = array(
+            'label' => __( 'Email address', 'woocommerce' ),
+            'value' => $email,
+            'type' => 'text',
+        );
+
+        $created = !empty($repair['created']) ? $repair['created'] : '';
+        $timestamp = strtotime($created);
+        if (!$timestamp) {
+            $created = '';
+        } else {
+            $created = gmdate( 'd-m-Y', $timestamp);
+        }
+
+        $data_array['created'] = array(
+            'label' => __( 'Date of request', 'woo-all-in-one-service' ),
+            'value' => $created,
+            'type' => 'text',
+        );
+
+        $modified = !empty($repair['modified']) ? $repair['modified'] : '';
+        $timestamp = strtotime($modified);
+        if (!$timestamp) {
+            $modified = '';
+        } else {
+            $modified = gmdate( 'd-m-Y', $timestamp);
+        }
+
+        $data_array['modified'] = array(
+            'label' => __( 'Date of status changed', 'woo-all-in-one-service' ),
+            'value' => $modified,
+            'type' => 'text',
+        );
+
+        $order_date = !empty($repair['order_date']) ? $repair['order_date'] : '';
+        $timestamp = strtotime($order_date);
+
+        if (!$timestamp) {
+            $order_date = '';
+        } else {
+            $order_date = gmdate( 'd-m-Y', $timestamp);
+        }
+
+        $data_array['order_date'] = array(
+            'label' => __( 'Order date', 'woo-all-in-one-service' ),
+            'value' => $order_date,
+            'type' => 'text',
+        );
+
+        $np_ttn = !empty($repair['np_ttn']) ? $repair['np_ttn'] : '';
+
+        $data_array['np_ttn'] = array(
+            'label' => __( 'NP waybill number', 'woo-all-in-one-service' ),
+            'value' => $np_ttn,
+            'type' => 'text',
+        );
+
+        $product_title = !empty($repair['product']) ? $repair['product'] : '';
+
+        $data_array['product_title'] = array(
+            'label' => __( 'Product or model', 'woo-all-in-one-service' ),
+            'value' => $product_title,
+            'type' => 'text',
+        );
+
+        $serial = !empty($repair['serial']) ? $repair['serial'] : '';
+
+        $data_array['serial'] = array(
+            'label' => __( 'Serial number', 'woo-all-in-one-service' ),
+            'value' => $serial,
+            'type' => 'text',
+        );
+
+        $state = !empty($repair['state']) ? $repair['state'] : '';
+
+        $data_array['state'] = array(
+            'label' => __( 'Condition', 'woo-all-in-one-service' ),
+            'value' => $state,
+            'type' => 'text',
+        );
+
+        $set = !empty($repair['set']) ? $repair['set'] : '';
+
+        $data_array['set'] = array(
+            'label' => __( 'Set included', 'woo-all-in-one-service' ),
+            'value' => $set,
+            'type' => 'textarea',
+        );
+
+        $fault = !empty($repair['fault']) ? $repair['fault'] : '';
+
+        $data_array['fault'] = array(
+            'label' => __( 'Declared malfunction', 'woo-all-in-one-service' ),
+            'value' => $fault,
+            'type' => 'textarea',
+        );
+
+        $status = ! empty( $repair['status'] ) ? $repair['status'] : '';
+
+        $data_array['status'] = array(
+            'label' => __( 'Repair status', 'woo-all-in-one-service' ),
+            'value' => $status,
+            'type' => 'text',
+        );
+
+        $result = !empty($repair['result']) ? $repair['result'] : '';
+
+        $data_array['result'] = array(
+            'label' => __( 'Repair result', 'woo-all-in-one-service' ),
+            'value' => $result,
+            'type' => 'textarea',
+        );
+
+        return $data_array;
+    }
+
+    public static function get_email_repair_data_by_sections($repair) {
+        $email_array = Woo_All_In_One_Service_Form::get_email_repair_data($repair);
+
+        $service_info = array();
+        $service_info['title'] = $email_array['title'];
+        $service_info['modified'] = $email_array['modified'];
+
+        $customer_info = array();
+        $customer_info['name'] = $email_array['name'];
+        $customer_info['phone'] = $email_array['phone'];
+        $customer_info['email'] = $email_array['email'];
+        $customer_info['created'] = $email_array['created'];
+        $customer_info['order_date'] = $email_array['order_date'];
+        $customer_info['np_ttn'] = $email_array['np_ttn'];
+
+        $product_info = array();
+        $product_info['product_title'] = $email_array['product_title'];
+        $product_info['serial'] = $email_array['serial'];
+        $product_info['state'] = $email_array['state'];
+        $product_info['set'] = $email_array['set'];
+        $product_info['fault'] = $email_array['fault'];
+
+        $repair_info = array();
+        $repair_info['status'] = $email_array['status'];
+        $repair_info['result'] = $email_array['result'];
+
+        return array(
+            'service-info' => array(
+                'label' => __('Service Info', 'woo-all-in-one-service'),
+                'data' => $service_info,
+            ),
+            'customer-info' => array(
+                'label' => __('Customer Info', 'woo-all-in-one-service'),
+                'data' => $customer_info,
+            ),
+            'product-info' => array(
+                'label' => __('Product Info', 'woo-all-in-one-service'),
+                'data' => $product_info,
+            ),
+            'repair-info' => array(
+                'label' => __('Repair Info', 'woo-all-in-one-service'),
+                'data' => $repair_info,
+            ),
+        );
+    }
 }

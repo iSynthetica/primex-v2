@@ -1,20 +1,32 @@
 <?php
 /**
  * @var $repair
+ * @var $email_heading
+ * @var $email
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$repair_id = $repair['ID'];
-?>
-<?php do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
+$email_array = Woo_All_In_One_Service_Form::get_email_repair_data_by_sections($repair);
+$repair_statuses = Woo_All_In_One_Service_Form::get_repairs_statuses();
 
-<p>
-    <?php printf( __( 'Review request for order #%d.', 'more-better-reviews-for-woocommerce' ), $repair_id ); ?>
-</p>
+do_action( 'woocommerce_email_header', $email_heading, $email );
 
-<?php echo $repair_id; ?>
+foreach ($email_array as $section_id => $section_data) {
+    if ('service-info' === $section_id) {
+        continue;
+    } else {
+        ?>
+        <p style="font-size: 19px;"><strong><?php echo $section_data['label'] ?></strong></p>
+        <?php
+        foreach ($section_data['data'] as $data_id => $data_info) {
+            if (!empty($data_info['value'])) {
+                wooaioservice_email_data_show($data_id, $data_info);
+            }
+        }
+    }
+}
 
-<?php do_action( 'woocommerce_email_footer', $email ); ?>
+do_action( 'woocommerce_email_footer', $email );
