@@ -39,10 +39,17 @@
 				}
 
 				if (decoded) {
-					if (decoded.message) {
-						alert(decoded.message);
-					} else if (decoded.fragments) {
+					if (decoded.fragments) {
 						updateFragments(decoded.fragments)
+					} else if (decoded.message) {
+						alert(decoded.message);
+					}
+
+					if (decoded.scrollToFragment) {
+						var scrollPosition = $(decoded.scrollToFragment).offset().top - 80;
+                        $('html, body').animate({
+                            scrollTop: scrollPosition
+                        }, 1000)
 					}
 				} else {
 					alert('Something went wrong');

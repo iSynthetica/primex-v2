@@ -45,7 +45,8 @@ class Woo_All_In_One_Service_Public_Ajax {
                 'messages' => __('Validation error', 'woo-all-in-one-service'),
                 'fragments' => array(
                     '#wooaioservice_messages_container' => Woo_All_In_One_Service_Form::get_validation_errors($validation['error'])
-                )
+                ),
+                'scrollToFragment' => '.woocommerce-MyAccount-content',
             );
 
             echo json_encode($response);
@@ -55,8 +56,35 @@ class Woo_All_In_One_Service_Public_Ajax {
         $id = Woo_All_In_One_Service_Model::create($validation['data']);
 
         do_action( 'wooaioservice_created', $id );
+        $fields = Woo_All_In_One_Service_Form::get_form_fields();
+        $fields_values = Woo_All_In_One_Service_Form::get_form_fields_values();
+        $where = array('author' => get_current_user_id());
+        $repairs = Woo_All_In_One_Service_Model::get($where);
 
-        $response = array('success' => 1, 'error' => 0, 'message' => __('Repair request created with ID ' . $id, 'woo-all-in-one-service'));
+        ob_start();
+        include (WOO_ALL_IN_ONE_SERVICE_PATH . 'woocommerce/repairs/repairs-form.php');
+        $repair_form = ob_get_clean();
+
+        ob_start();
+        include (WOO_ALL_IN_ONE_SERVICE_PATH . 'woocommerce/repairs/repairs-table.php');
+        $repair_table = ob_get_clean();
+
+        $where = array('ID' => $id);
+        $repairs = Woo_All_In_One_Service_Model::get($where);
+
+        $fragments = array(
+            '#wooaioservice_container' => $repair_form,
+            '#wooaioservice_list_container' => $repair_table,
+            '#wooaioservice_messages_container' => Woo_All_In_One_Service_Form::get_success_message($repairs[0]['title']),
+        );
+
+        $response = array(
+            'success' => 1,
+            'error' => 0,
+            'message' => __('Repair request created with ID ' . $id, 'woo-all-in-one-service'),
+            'fragments' => $fragments,
+            'scrollToFragment' => '.woocommerce-MyAccount-content',
+        );
 
         echo json_encode($response);
         wp_die();

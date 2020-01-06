@@ -32556,6 +32556,13 @@ label span.optional {
   border-left: 3px solid #740D0A;
   font-size: 14px; }
 
+.woocommerce-success {
+  background: #C5EBD4;
+  color: #184B21;
+  padding: 0.9375rem 0.9375rem 0.9375rem 1.875rem;
+  border-left: 3px solid #184B21;
+  font-size: 14px; }
+
 .sticky-style-2 #logo {
   padding-top: 1.8125rem;
   padding-bottom: 1.8125rem; }

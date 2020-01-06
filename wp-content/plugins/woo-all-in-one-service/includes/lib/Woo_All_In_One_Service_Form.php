@@ -235,6 +235,18 @@ class Woo_All_In_One_Service_Form {
         return ob_get_clean();
     }
 
+    public static function get_success_message($title) {
+        ob_start();
+        ?>
+        <div id="wooaioservice_messages_container">
+            <ul class="woocommerce-success" role="alert">
+                <li><?php echo __('Repaire request created successfully with number', 'woo-all-in-one-service'); ?> <strong><?php echo $title; ?></strong></li>
+            </ul>
+        </div>
+        <?php
+        return ob_get_clean();
+    }
+
     public static function get_repairs_statuses() {
         return array(
                 'wait' => __('Wait', 'woo-all-in-one-service'),
