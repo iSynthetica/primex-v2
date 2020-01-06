@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <!-- Primary Navigation
 ============================================= -->
 <nav id="primary-menu" class="style-2">
-    <div class="container-fullwidth clearfix">
+    <div class="container clearfix">
         <div id="primary-menu-trigger"><i class="icon-hamburger-menu fas fa-bars"></i></div>
 
         <?php snth_main_nav(); ?>
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <!-- Top Search
         ============================================= -->
         <?php
-        if (false) {
+        if (true) {
             ?>
             <div id="top-search">
                 <a href="#" id="top-search-trigger"><i class="fas fa-search"></i><i class="fas fa-times"></i></a>

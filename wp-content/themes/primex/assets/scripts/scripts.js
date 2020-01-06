@@ -13301,6 +13301,10 @@ var SEMICOLON = SEMICOLON || {};
 
     });
 
+    $(document.body).on('click', '#ajax-search-field', function(e) {
+        //TODO:Add ajax search
+    });
+
     $(document.body).on('wooaioservice:success', function(e) {
         if ($( "input[date='date']" ).length) {
             $( "input[date='date']" ).each(function() {
