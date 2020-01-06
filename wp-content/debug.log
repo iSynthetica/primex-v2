@@ -4648,3 +4648,12 @@ Stack trace:
 [06-Jan-2020 10:46:47 UTC] PHP  10. WP_Filesystem_Direct->put_contents() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/loco-translate/src/fs/FileWriter.php:235
 [06-Jan-2020 10:46:47 UTC] PHP  11. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:85
 [06-Jan-2020 10:46:47 UTC] PHP  12. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
+[06-Jan-2020 11:14:24 UTC] PHP Notice:  Undefined variable: repair_id in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-content-access.php on line 12
+[06-Jan-2020 11:14:24 UTC] PHP Stack trace:
+[06-Jan-2020 11:14:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[06-Jan-2020 11:14:24 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[06-Jan-2020 11:14:24 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[06-Jan-2020 11:14:24 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[06-Jan-2020 11:14:24 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[06-Jan-2020 11:14:24 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:149
+[06-Jan-2020 11:14:24 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/partials/woo-all-in-one-service-admin-display.php:23

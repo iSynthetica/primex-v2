@@ -43,7 +43,7 @@ if (empty($repairs)) {
             <tr>
                 <th class="check-column">
                     <input id="cb-select-<?php echo $repair['ID']; ?>" type="checkbox" value="<?php echo $repair['ID']; ?>">
-                </td>
+                </th>
 
                 <td class="column-primary has-row-actions">
                     <a href="?page=wooaioservice&tab=repairs&repair_id=<?php echo $repair['ID']; ?>">
@@ -83,7 +83,7 @@ if (empty($repairs)) {
 
         </tbody>
 
-        <thead>
+        <tfoot>
         <tr>
             <td class="manage-column column-cb check-column">
                 <label class="screen-reader-text" for="cb-select-all-1"><?php echo __( 'Select All' ) ?></label>
@@ -96,7 +96,7 @@ if (empty($repairs)) {
             <th><?php _e( 'Email address', 'woocommerce' ); ?></th>
             <th><?php _e('Status', 'woo-all-in-one-service'); ?></th>
         </tr>
-        </thead>
+        </tfoot>
     </table>
     <?php
 }

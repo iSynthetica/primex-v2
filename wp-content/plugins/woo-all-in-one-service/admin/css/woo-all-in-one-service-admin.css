@@ -68,3 +68,34 @@
 @media (max-width: 599px) {
 
 }
+#wooaioservice-access-create-action {
+    margin-bottom: 15px;
+}
+
+#wooaioservice-access-rules {
+    margin-top: 15px;
+}
+
+.wooaioservice-access-create-closed #open-create-access-rule {
+    display: inline-block;
+}
+
+.wooaioservice-access-create-closed #close-create-access-rule {
+    display: none;
+}
+
+.wooaioservice-access-create-closed #wooaioservice-access-create-form {
+    display: none;
+}
+
+.wooaioservice-access-create-opened #open-create-access-rule {
+    display: none;
+}
+
+.wooaioservice-access-create-opened #close-create-access-rule {
+    display: inline-block;
+}
+
+.wooaioservice-access-create-opened #wooaioservice-access-create-form {
+    display: block;
+}

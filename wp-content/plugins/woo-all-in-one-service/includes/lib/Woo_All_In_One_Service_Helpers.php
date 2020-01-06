@@ -6,7 +6,10 @@ class Woo_All_In_One_Service_Helpers {
         return array(
             'repairs' => array(
                 'title' => __('Repairs', 'woo-all-in-one-service')
-            )
+            ),
+            'access' => array(
+                'title' => __('Access Settings', 'woo-all-in-one-service')
+            ),
         );
     }
 }

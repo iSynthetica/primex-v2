@@ -9,7 +9,7 @@
     <?php
     foreach ($allowed_tabs as $allowed_tab_key => $allowed_tab) {
         ?>
-        <a href="?page=wooaioservice&tab=repairs"
+        <a href="?page=wooaioservice&tab=<?php echo $allowed_tab_key ?>"
            class="nav-tab <?php echo $active_tab == $allowed_tab_key ? 'nav-tab-active' : ''; ?>"
         ><?php echo $allowed_tab['title'] ?></a>
         <?php
