@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 if (!function_exists('wooaiodiscount_discount_setting_item')) {
-    function wooaiodiscount_discount_setting_item( $id, $i, $discount_rule = array() ) {
+    function wooaiodiscount_discount_setting_item( $id, $i, $categories, $discount_rule = array() ) {
         $discount_rule_amount = !empty($discount_rule['amount']) ? $discount_rule['amount'] : '';
         $discount_rule_apply = !empty($discount_rule['apply']) ? $discount_rule['apply'] : '';
         ?>
@@ -63,8 +63,54 @@ if (!function_exists('wooaiodiscount_discount_setting_item')) {
                     }
                     ?>
                 </div>
+
+                <div id="by_categories_container" class="multiselect-container">
+                    <div>
+                        <?php
+                        if (!empty($categories)) {
+                            ?>
+                            <ul>
+                                <?php
+                                foreach ($categories as $cat_id => $category) {
+                                    wooaiodiscount_categories_tree( $i, $category, $discount_rule = array() );
+                                }
+                                ?>
+                            </ul>
+                            <?php
+                            //var_dump($categories);
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div id="separate_products_container" class="multiselect-container">
+
+                </div>
             </div>
         </div>
         <?php
     }
+}
+
+function wooaiodiscount_categories_tree( $i, $category, $discount_rule = array() ) {
+    ?>
+    <li>
+    <fieldset>
+        <input type="checkbox">
+        <?php echo $category['category']->name; ?>
+    </fieldset>
+
+    <?php
+    if (!empty($category['children'])) {
+        ?>
+        <ul>
+            <?php
+            foreach ($category['children'] as $children_item) {
+                wooaiodiscount_categories_tree($i, $children_item, $discount_rule = array());
+            }
+            ?>
+        </ul>
+        <?php
+    }
+    ?></li><?php
 }

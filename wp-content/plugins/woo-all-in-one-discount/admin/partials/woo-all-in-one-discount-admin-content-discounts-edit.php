@@ -3,6 +3,7 @@
  * @var $discount_rules
  */
 $discount_rule = false;
+$categories = Woo_All_In_One_Discount_Helpers::get_product_categories_tree();
 
 if (!empty($discount_rules[$discount_id])) {
     $discount_rule = $discount_rules[$discount_id];
@@ -81,12 +82,10 @@ if (!$discount_rule) {
                     $i = 0;
                     if (!empty($discount_rule['discounts'])) {
                         foreach ($discount_rule['discounts'] as $discount_rule) {
-                            wooaiodiscount_discount_setting_item( $discount_id, $i, $discount_rule );
+                            wooaiodiscount_discount_setting_item( $discount_id, $i, $categories, $discount_rule );
                             $i++;
                         }
                     }
-
-                    // wooaiodiscount_discount_setting_item( $i );
                     ?>
                 </div>
                 <div id="price_product_discount_set_action">

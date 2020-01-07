@@ -222,10 +222,11 @@ class Woo_All_In_One_Discount_Admin_Ajax {
     }
 
     public function add_discount_amount_item() {
+        $categories = Woo_All_In_One_Discount_Helpers::get_product_categories_tree();
         $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : false;
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 	    ob_start();
-        wooaiodiscount_discount_setting_item( $id, $index );
+        wooaiodiscount_discount_setting_item( $id, $index, $categories );
 	    $template = ob_get_clean();
 
         $response = array(

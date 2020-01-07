@@ -54,3 +54,28 @@
 .wooaio-discount-item select {
     width: 100%;
 }
+.multiselect-container {
+    padding: 10px;
+}
+.multiselect-container > div {
+    max-height: 250px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+
+    background-color: #ddd;
+}
+.multiselect-container > div ul {
+    margin: 0;
+}
+.multiselect-container > div ul li {
+    margin: 0;
+    padding: 0;
+}
+.multiselect-container > div ul li fieldset {
+    margin: 1px;
+    padding: 2px;
+    background-color: #fff;
+}
+.multiselect-container > div ul li ul fieldset {
+    padding-left: 15px;
+}
