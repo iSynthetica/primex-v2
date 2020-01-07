@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 register_nav_menus(
     array(
-        'main-nav'      => __( 'Main Menu Navigation', 'snthwp' ),
-        'footer-nav'    => __( 'Footer Navigation', 'snthwp' )
+        'main-nav'      => __( 'Main Menu Navigation', 'primex' ),
+        'footer-nav'    => __( 'Footer Navigation', 'primex' )
     )
 );
 

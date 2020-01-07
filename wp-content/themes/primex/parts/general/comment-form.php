@@ -5,11 +5,11 @@
 
 echo 'Comment form';
 /* == Options - Start == */
-$text['home'] = __('Home', 'snthwp');
-$text['blog'] = __('Blog', 'snthwp');
+$text['home'] = __('Home', 'primex');
+$text['blog'] = __('Blog', 'primex');
 $text['category'] = '%s';
-$text['tag'] = __('Posts tagged with "%s"', 'snthwp');
-$text['page'] = __('Page %s', 'snthwp');
+$text['tag'] = __('Posts tagged with "%s"', 'primex');
+$text['page'] = __('Page %s', 'primex');
 
 $show_home_link = 1;
 $show_blog_link = 1;

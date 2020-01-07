@@ -1,16 +1,29 @@
 <?php
-add_action( 'admin_menu', 'wooaioie_admin_menu' );
+add_action( 'admin_menu', 'wooaioie_admin_menu', 100 );
 
 function wooaioie_admin_menu() {
-    add_menu_page(
-        __('Import', 'woo-all-in-one-ie'),
-        __('Product Import', 'woo-all-in-one-ie'),
-        'manage_options',
-        'wooaioie-page',
-        'wooaioie_admin_page',
-        'dashicons-tickets-alt',
-        6
-    );
+    if (function_exists('run_woo_all_in_one') && current_user_can( 'manage_options' )) {
+        add_submenu_page(
+            'wooaio',
+            __('Import', 'woo-all-in-one-ie'),
+            __('Product Import', 'woo-all-in-one-ie'),
+            'manage_options',
+            'wooaioie-page',
+            'wooaioie_admin_page',
+            10
+        );
+
+    } else {
+        add_menu_page(
+            __('Import', 'woo-all-in-one-ie'),
+            __('Product Import', 'woo-all-in-one-ie'),
+            'manage_options',
+            'wooaioie-page',
+            'wooaioie_admin_page',
+            'dashicons-tickets-alt',
+            6
+        );
+    }
 
 }
 

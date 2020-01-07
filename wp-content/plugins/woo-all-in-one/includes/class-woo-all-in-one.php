@@ -9,8 +9,8 @@
  * @link       http://synthetica.com.ua
  * @since      1.0.0
  *
- * @package    Woo_All_In_One_Discount
- * @subpackage Woo_All_In_One_Discount/includes
+ * @package    Woo_All_In_One
+ * @subpackage Woo_All_In_One/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Woo_All_In_One_Discount
- * @subpackage Woo_All_In_One_Discount/includes
+ * @package    Woo_All_In_One
+ * @subpackage Woo_All_In_One/includes
  * @author     Synthetica <i.synthetica@gmail.com>
  */
-class Woo_All_In_One_Discount {
+class Woo_All_In_One {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Woo_All_In_One_Discount {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Woo_All_In_One_Discount_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Woo_All_In_One_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Woo_All_In_One_Discount {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'WOO_ALL_IN_ONE_DISCOUNT_VERSION' ) ) {
-			$this->version = WOO_ALL_IN_ONE_DISCOUNT_VERSION;
+		if ( defined( 'WOO_ALL_IN_ONE_VERSION' ) ) {
+			$this->version = WOO_ALL_IN_ONE_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'woo-all-in-one-discount';
+		$this->plugin_name = 'woo-all-in-one';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Woo_All_In_One_Discount {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Woo_All_In_One_Discount_Loader. Orchestrates the hooks of the plugin.
-	 * - Woo_All_In_One_Discount_i18n. Defines internationalization functionality.
-	 * - Woo_All_In_One_Discount_Admin. Defines all hooks for the admin area.
-	 * - Woo_All_In_One_Discount_Public. Defines all hooks for the public side of the site.
+	 * - Woo_All_In_One_Loader. Orchestrates the hooks of the plugin.
+	 * - Woo_All_In_One_i18n. Defines internationalization functionality.
+	 * - Woo_All_In_One_Admin. Defines all hooks for the admin area.
+	 * - Woo_All_In_One_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -99,44 +99,37 @@ class Woo_All_In_One_Discount {
 	 */
 	private function load_dependencies() {
 
-        /**
-         * Include libs classes
-         */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Discount_Helpers.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Discount_Rules.php';
-
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-discount-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-discount-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-discount-admin.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-discount-admin-ajax.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-discount-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-public.php';
 
-		$this->loader = new Woo_All_In_One_Discount_Loader();
+		$this->loader = new Woo_All_In_One_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Woo_All_In_One_Discount_i18n class in order to set the domain and to register the hook
+	 * Uses the Woo_All_In_One_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -144,7 +137,7 @@ class Woo_All_In_One_Discount {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Woo_All_In_One_Discount_i18n();
+		$plugin_i18n = new Woo_All_In_One_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -159,15 +152,11 @@ class Woo_All_In_One_Discount {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Woo_All_In_One_Discount_Admin( $this->get_plugin_name(), $this->get_version() );
-		$plugin_admin_ajax = new Woo_All_In_One_Discount_Admin_Ajax( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Woo_All_In_One_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu', 40 );
-
-        $this->loader->add_action( 'wp_ajax_wooaiodiscount_create_product_discount_rule', $plugin_admin_ajax, 'create_product_discount_rule' );
-        $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_product_discount_rule', $plugin_admin_ajax, 'delete_product_discount_rule' );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 
 	}
 
@@ -180,12 +169,10 @@ class Woo_All_In_One_Discount {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Woo_All_In_One_Discount_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Woo_All_In_One_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
-		$this->loader->add_filter( 'woocommerce_product_get_price', $plugin_public, 'raw_woocommerce_price', 100, 2 );
 
 	}
 
@@ -213,7 +200,7 @@ class Woo_All_In_One_Discount {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Woo_All_In_One_Discount_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Woo_All_In_One_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

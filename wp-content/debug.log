@@ -4674,3 +4674,143 @@ Stack trace:
 [06-Jan-2020 12:59:46 UTC] PHP   5. Woo_All_In_One_Service_Admin->render_settings_page(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
 [06-Jan-2020 12:59:46 UTC] PHP   6. Woo_All_In_One_Service_Helpers::get_allowed_tabs() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/admin/class-woo-all-in-one-service-admin.php:140
 [06-Jan-2020 13:02:47 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Helpers.php on line 14
+[07-Jan-2020 11:25:23 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, class 'Woo_All_In_One_Discount_Admin' does not have a method 'render_settings_page' in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 288
+[07-Jan-2020 11:25:23 UTC] PHP Stack trace:
+[07-Jan-2020 11:25:23 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:25:23 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:25:23 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:25:23 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:26:17 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//admin/partials/class-woo-all-in-one-discount-admin.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:26:17 UTC] PHP Stack trace:
+[07-Jan-2020 11:26:17 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:26:17 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:26:17 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:26:17 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:26:17 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:26:17 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//admin/partials/class-woo-all-in-one-discount-admin.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:26:17 UTC] PHP Stack trace:
+[07-Jan-2020 11:26:17 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:26:17 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:26:17 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:26:17 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:26:17 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:26:30 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/class-woo-all-in-one-discount-admin.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:26:30 UTC] PHP Stack trace:
+[07-Jan-2020 11:26:30 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:26:30 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:26:30 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:26:30 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:26:30 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:26:30 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/class-woo-all-in-one-discount-admin.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:26:30 UTC] PHP Stack trace:
+[07-Jan-2020 11:26:30 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:26:30 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:26:30 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:26:30 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:26:30 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:02 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:02 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:02 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:02 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:02 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:02 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:02 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:02 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:02 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:02 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:02 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:02 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:24 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:24 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:24 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:24 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:24 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:24 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:24 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:24 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:24 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:24 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:24 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:24 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:24 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:43 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:43 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:43 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:43 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:43 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:43 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:27:43 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount//adminpartials/woo-all-in-one-discount-admin-display.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:27:43 UTC] PHP Stack trace:
+[07-Jan-2020 11:27:43 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:27:43 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:27:43 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:27:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:27:43 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:28:01 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/adminpartials/woo-all-in-one-discount-admin-display.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:28:01 UTC] PHP Stack trace:
+[07-Jan-2020 11:28:01 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:28:01 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:28:01 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:28:01 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:28:01 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:28:01 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/adminpartials/woo-all-in-one-discount-admin-display.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php on line 100
+[07-Jan-2020 11:28:01 UTC] PHP Stack trace:
+[07-Jan-2020 11:28:01 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:28:01 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:28:01 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:28:01 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:28:01 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:34:28 UTC] PHP Warning:  include(/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php): failed to open stream: No such file or directory in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php on line 25
+[07-Jan-2020 11:34:28 UTC] PHP Stack trace:
+[07-Jan-2020 11:34:28 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:34:28 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:34:28 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:34:28 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:34:28 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:34:28 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php:109
+[07-Jan-2020 11:34:28 UTC] PHP Warning:  include(): Failed opening '/var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php' for inclusion (include_path='.:/usr/share/php') in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php on line 25
+[07-Jan-2020 11:34:28 UTC] PHP Stack trace:
+[07-Jan-2020 11:34:28 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 11:34:28 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 11:34:28 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 11:34:28 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 11:34:28 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 11:34:28 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php:109
+[07-Jan-2020 13:21:06 UTC] PHP Fatal error:  Uncaught Error: Class 'Woo_All_In_One_Discount_Rules' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php:75
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Admin_Ajax->create_product_discount_rule('')
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_wooaiod...')
+#4 {main}
+  thrown in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 75
+[07-Jan-2020 13:29:03 UTC] PHP Notice:  Undefined variable: can_delete in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-list.php on line 68
+[07-Jan-2020 13:29:03 UTC] PHP Stack trace:
+[07-Jan-2020 13:29:03 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 13:29:03 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 13:29:03 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 13:29:03 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 13:29:03 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 13:29:03 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php:109
+[07-Jan-2020 13:29:03 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php:23
+[07-Jan-2020 13:29:03 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php:12
+[07-Jan-2020 13:29:03 UTC] PHP Notice:  Undefined variable: can_delete in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-list.php on line 90
+[07-Jan-2020 13:29:03 UTC] PHP Stack trace:
+[07-Jan-2020 13:29:03 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:0
+[07-Jan-2020 13:29:03 UTC] PHP   2. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin.php:254
+[07-Jan-2020 13:29:03 UTC] PHP   3. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 13:29:03 UTC] PHP   4. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 13:29:03 UTC] PHP   5. Woo_All_In_One_Discount_Admin->render_settings_page() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 13:29:03 UTC] PHP   6. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php:109
+[07-Jan-2020 13:29:03 UTC] PHP   7. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php:23
+[07-Jan-2020 13:29:03 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php:12
+[07-Jan-2020 13:51:18 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 13:52:02 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 13:53:18 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 13:54:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 13:55:18 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 13:56:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69

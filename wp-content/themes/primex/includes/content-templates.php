@@ -23,11 +23,11 @@ function snth_the_social_share() {
  */
 function snth_the_breadcrumbs() {
     /* == Options - Start == */
-    $text['home'] = __('Home', 'snthwp');
-    $text['blog'] = __('Blog', 'snthwp');
+    $text['home'] = __('Home', 'primex');
+    $text['blog'] = __('Blog', 'primex');
     $text['category'] = '%s';
-    $text['tag'] = __('Posts tagged with "%s"', 'snthwp');
-    $text['page'] = __('Page %s', 'snthwp');
+    $text['tag'] = __('Posts tagged with "%s"', 'primex');
+    $text['page'] = __('Page %s', 'primex');
 
     $show_home_link = 1;
     $show_blog_link = 1;
@@ -281,8 +281,8 @@ function snth_pagination($args = array()) {
         'end_size' => 1,
         'mid_size' => 2,
         'prev_next' => true,
-        'prev_text' => __( '<i class="fas fa-angle-left"></i>', 'snthwp' ),
-        'next_text' => __( '<i class="fas fa-angle-right"></i>', 'snthwp' ),
+        'prev_text' => __( '<i class="fas fa-angle-left"></i>', 'primex' ),
+        'next_text' => __( '<i class="fas fa-angle-right"></i>', 'primex' ),
         'type' => 'array',
     ) );
 

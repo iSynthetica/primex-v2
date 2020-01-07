@@ -3,8 +3,8 @@ function snth_settings_sidebars($sidebars) {
     return array(
         array(
             'id' => 'footer1',
-            'name' => __('Footer 1', 'snthwp'),
-            'description' => __('The first footer sidebar.', 'snthwp'),
+            'name' => __('Footer 1', 'primex'),
+            'description' => __('The first footer sidebar.', 'primex'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -12,8 +12,8 @@ function snth_settings_sidebars($sidebars) {
         ),
         array(
             'id' => 'footer2',
-            'name' => __('Footer 2', 'snthwp'),
-            'description' => __('The second footer sidebar.', 'snthwp'),
+            'name' => __('Footer 2', 'primex'),
+            'description' => __('The second footer sidebar.', 'primex'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -21,8 +21,8 @@ function snth_settings_sidebars($sidebars) {
         ),
         array(
             'id' => 'footer3',
-            'name' => __('Footer 3', 'snthwp'),
-            'description' => __('The third footer sidebar.', 'snthwp'),
+            'name' => __('Footer 3', 'primex'),
+            'description' => __('The third footer sidebar.', 'primex'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -30,8 +30,8 @@ function snth_settings_sidebars($sidebars) {
         ),
         array(
             'id' => 'footer4',
-            'name' => __('Footer 4', 'snthwp'),
-            'description' => __('The fourth footer sidebar.', 'snthwp'),
+            'name' => __('Footer 4', 'primex'),
+            'description' => __('The fourth footer sidebar.', 'primex'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -39,8 +39,8 @@ function snth_settings_sidebars($sidebars) {
         ),
         array(
             'id' => 'footer5',
-            'name' => __('Footer 5', 'snthwp'),
-            'description' => __('The fifth footer sidebar.', 'snthwp'),
+            'name' => __('Footer 5', 'primex'),
+            'description' => __('The fifth footer sidebar.', 'primex'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -48,8 +48,8 @@ function snth_settings_sidebars($sidebars) {
         ),
         array(
             'id' => 'blog-sidebar',
-            'name' => __('Blog Sidebar', 'snthwp'),
-            'description' => __('Blog sidebar.', 'snthwp'),
+            'name' => __('Blog Sidebar', 'primex'),
+            'description' => __('Blog sidebar.', 'primex'),
             'before_widget' => '<hr><div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',

@@ -157,17 +157,29 @@ class Woo_All_In_One_Service_Admin {
             }
         }
 
+        if (function_exists('run_woo_all_in_one') && current_user_can( 'manage_options' )) {
+            add_submenu_page(
+                'wooaio',
+                __('Repairs', 'woo-all-in-one-service'),
+                __('Product Repairs', 'woo-all-in-one-service'),
+                'read',
+                'wooaioservice',
+                array($this, 'render_settings_page'),
+                10
+            );
+        } else {
+            add_menu_page(
+                __('Repairs', 'woo-all-in-one-service'),
+                __('Product Repairs', 'woo-all-in-one-service'),
+                'read',
+                'wooaioservice',
+                array($this, 'render_settings_page'),
+                'dashicons-hammer',
+                12
+            );
+        }
 
 
-        add_menu_page(
-            __('Repairs', 'woo-all-in-one-service'),
-            __('Product Repairs', 'woo-all-in-one-service'),
-            'read',
-            'wooaioservice',
-            array($this, 'render_settings_page'),
-            'dashicons-hammer',
-            12
-        );
     }
 
     public function render_settings_page() {

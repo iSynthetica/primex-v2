@@ -35,8 +35,8 @@ $paginate_links = paginate_links( array( // WPCS: XSS ok.
     'end_size' => 1,
     'mid_size' => 2,
     'prev_next' => true,
-    'prev_text' => __( '<i class="fas fa-angle-left"></i>', 'snthwp' ),
-    'next_text' => __( '<i class="fas fa-angle-right"></i>', 'snthwp' ),
+    'prev_text' => __( '<i class="fas fa-angle-left"></i>', 'primex' ),
+    'next_text' => __( '<i class="fas fa-angle-right"></i>', 'primex' ),
     'type'         => 'array',
 ) );
 

@@ -2,3 +2,54 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+
+#wooaio-discount-create-action {
+    margin-bottom: 15px;
+}
+
+.wooaio-discount-create-closed #open-create-discount-rule {
+    display: inline-block;
+}
+
+.wooaio-discount-create-closed #close-create-discount-rule {
+    display: none;
+}
+
+.wooaio-discount-create-closed #wooaio-discount-create-form {
+    display: none;
+}
+
+.wooaio-discount-create-opened #open-create-discount-rule {
+    display: none;
+}
+
+.wooaio-discount-create-opened #close-create-discount-rule {
+    display: inline-block;
+}
+
+.wooaio-discount-create-opened #wooaio-discount-create-form {
+    display: block;
+}
+
+.wooaio-discount-item {
+    margin-bottom: 10px;
+}
+.wooaio-discount-item:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+.wooaio-discount-item > div {
+    float: left;
+    width: 28%;
+}
+.wooaio-discount-item > div:last-child {
+    float: right;
+    width: 68%;
+}
+.wooaio-discount-item input,
+.wooaio-discount-item textarea,
+.wooaio-discount-item select {
+    width: 100%;
+}

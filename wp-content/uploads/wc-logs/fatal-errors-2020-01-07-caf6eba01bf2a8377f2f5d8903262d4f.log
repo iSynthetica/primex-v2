@@ -1,0 +1,9 @@
+2020-01-07T13:21:06+00:00 CRITICAL Uncaught Error: Class 'Woo_All_In_One_Discount_Rules' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php:75
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Admin_Ajax->create_product_discount_rule('')
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_wooaiod...')
+#4 {main}
+  thrown в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php на строке 75
+

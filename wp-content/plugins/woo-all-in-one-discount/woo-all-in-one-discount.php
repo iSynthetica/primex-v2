@@ -36,12 +36,15 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'WOO_ALL_IN_ONE_DISCOUNT_VERSION', '1.0.0' );
+define( 'WOO_ALL_IN_ONE_DISCOUNT_FILE', __FILE__ );
+define( 'WOO_ALL_IN_ONE_DISCOUNT_PATH', plugin_dir_path(__FILE__) );
+define( 'WOO_ALL_IN_ONE_DISCOUNT_INC', WOO_ALL_IN_ONE_DISCOUNT_PATH . 'includes' );
+define( 'WOO_ALL_IN_ONE_DISCOUNT_PUBLIC', WOO_ALL_IN_ONE_DISCOUNT_PATH . 'public' );
+define( 'WOO_ALL_IN_ONE_DISCOUNT_ADMIN', WOO_ALL_IN_ONE_DISCOUNT_PATH . 'admin' );
 
-//define('WOO_ALL_IN_ONE_DISCOUNT_URL', plugins_url() . '/woo-all-in-one-discount');
-//define('WOO_ALL_IN_ONE_DISCOUNT_CSS_URL', WOO_ALL_IN_ONE_DISCOUNT_URL . '/public/css');
-//define('WOO_ALL_IN_ONE_DISCOUNT_JS_URL', WOO_ALL_IN_ONE_DISCOUNT_URL . '/public/js');
-//define('WOO_ALL_IN_ONE_DISCOUNT_ADMIN_CSS_URL', WOO_ALL_IN_ONE_DISCOUNT_URL . '/admin/css');
-//define('WOO_ALL_IN_ONE_DISCOUNT_ADMIN_JS_URL', WOO_ALL_IN_ONE_DISCOUNT_URL . '/admin/js');
+if (!function_exists('run_woo_all_in_one')) {
+    require_once( WOO_ALL_IN_ONE_DISCOUNT_INC . '/wooaio-functions.php' );
+}
 
 /**
  * The code that runs during plugin activation.
