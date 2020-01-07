@@ -7,3 +7,12 @@ Stack trace:
 #4 {main}
   thrown в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php на строке 75
 
+2020-01-07T15:43:14+00:00 CRITICAL Uncaught Error: Call to undefined function wooaiodiscount_discount_setting_item() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php:88
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php(10): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php(23): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php(109): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Admin->render_settings_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php на строке 88
+

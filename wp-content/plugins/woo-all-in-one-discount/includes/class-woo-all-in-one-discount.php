@@ -105,6 +105,8 @@ class Woo_All_In_One_Discount {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Discount_Helpers.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Discount_Rules.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template-functions.php';
+
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -167,7 +169,11 @@ class Woo_All_In_One_Discount {
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu', 40 );
 
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_create_product_discount_rule', $plugin_admin_ajax, 'create_product_discount_rule' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_update_product_discount_rule', $plugin_admin_ajax, 'update_product_discount_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_product_discount_rule', $plugin_admin_ajax, 'delete_product_discount_rule' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_add_discount_amount_item', $plugin_admin_ajax, 'add_discount_amount_item' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_create_discount_amount_item', $plugin_admin_ajax, 'create_discount_amount_item' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_discount_amount_item', $plugin_admin_ajax, 'delete_discount_amount_item' );
 
 	}
 

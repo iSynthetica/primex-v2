@@ -90,6 +90,45 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         }
     }
 
+	public function update_product_discount_rule() {
+        $setting = !empty($_POST['setting']) ? sanitize_text_field($_POST['setting']) : false;
+
+        if (empty($setting) || empty($_POST['formData']) || !is_array($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($id)) {
+            $response = array('message' => __('Select Product discount to update', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $data = array();
+
+        foreach ($_POST['formData'] as $form_data) {
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, $setting, $data);
+
+        if (!empty($update['error'])) {
+            $response = array('message' => $update['error']);
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $response = array(
+            'message' => __('Product discount rule updated', 'woo-all-in-one-discount'),
+            'reload' => 1,
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
 	public function create_product_discount_rule() {
         if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
             $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
@@ -121,6 +160,76 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         $response = array(
             'message' => __('New product discount rule created', 'woo-all-in-one-discount'),
             'url' => get_admin_url(null, 'admin.php?page=wooaiodiscount&tab=discounts&discount_id=' . $id),
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function create_discount_amount_item() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        parse_str($_POST['formData'], $form_data);
+        $data = array();
+
+        foreach ($form_data as $form_data_field => $form_data_values) {
+            foreach ($form_data_values as $index => $value) {
+                $data[$index][$form_data_field] = $value;
+            }
+        }
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
+
+        $response = array(
+            'message' => __('Discount amount added', 'woo-all-in-one-discount') . ' ' . $id,
+            'reload' => 1,
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function delete_discount_amount_item() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        parse_str($_POST['formData'], $form_data);
+        $data = array();
+
+        foreach ($form_data as $form_data_field => $form_data_values) {
+            foreach ($form_data_values as $index => $value) {
+                $data[$index][$form_data_field] = $value;
+            }
+        }
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
+
+        $response = array(
+            'message' => __('Discount amount deleted', 'woo-all-in-one-discount') . ' ' . $id,
+            'reload' => 1,
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function add_discount_amount_item() {
+        $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : false;
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+	    ob_start();
+        wooaiodiscount_discount_setting_item( $id, $index );
+	    $template = ob_get_clean();
+
+        $response = array(
+            'template' => $template,
         );
 
         wooaio_ajax_response('success', $response);

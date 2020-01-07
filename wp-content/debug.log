@@ -4814,3 +4814,27 @@ Stack trace:
 [07-Jan-2020 13:54:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
 [07-Jan-2020 13:55:18 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
 [07-Jan-2020 13:56:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 69
+[07-Jan-2020 15:43:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wooaiodiscount_discount_setting_item() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php:88
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts.php(10): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-display.php(23): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin.php(109): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Admin->render_settings_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+ in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php on line 88
+[07-Jan-2020 16:36:16 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 170
+[07-Jan-2020 16:36:16 UTC] PHP Stack trace:
+[07-Jan-2020 16:36:16 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[07-Jan-2020 16:36:16 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[07-Jan-2020 16:36:16 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 16:36:16 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 16:36:16 UTC] PHP   5. Woo_All_In_One_Discount_Admin_Ajax->create_discount_amount_item(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 16:36:16 UTC] PHP   6. json_decode(*uninitialized*, *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php:170
+[07-Jan-2020 16:42:27 UTC] PHP Deprecated:  parse_str(): Calling parse_str() without the result argument is deprecated in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php on line 170
+[07-Jan-2020 16:42:27 UTC] PHP Stack trace:
+[07-Jan-2020 16:42:27 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:0
+[07-Jan-2020 16:42:27 UTC] PHP   2. do_action($tag = *uninitialized*, ...$arg = variadic()) /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-ajax.php:175
+[07-Jan-2020 16:42:27 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[07-Jan-2020 16:42:27 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[07-Jan-2020 16:42:27 UTC] PHP   5. Woo_All_In_One_Discount_Admin_Ajax->create_discount_amount_item(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[07-Jan-2020 16:42:27 UTC] PHP   6. parse_str(*uninitialized*) /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/admin/class-woo-all-in-one-discount-admin-ajax.php:170

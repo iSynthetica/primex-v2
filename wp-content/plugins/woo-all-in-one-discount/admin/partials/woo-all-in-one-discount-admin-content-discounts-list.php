@@ -75,7 +75,7 @@
                     </th>
 
                     <td class="column-primary has-row-actions">
-                        <a href="?page=wooaioservice&tab=repairs&repair_id=<?php echo $discount_rule_id; ?>">
+                        <a href="?page=wooaiodiscount&tab=discounts&discount_id=<?php echo $discount_rule_id; ?>">
                             <?php echo $discount_rule['title'] ?>
                         </a>
                         <button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button>
@@ -86,7 +86,7 @@
                     </td>
 
                     <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
-                        <?php echo 'draft' ?>
+                        <?php echo Woo_All_In_One_Discount_Rules::get_product_discounts_statuses()[$discount_rule['status']] ?>
                     </td>
 
                     <td data-colname="<?php _e('Action', 'woo-all-in-one-discount'); ?>">

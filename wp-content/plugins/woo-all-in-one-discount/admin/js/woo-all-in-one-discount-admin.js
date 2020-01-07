@@ -41,6 +41,81 @@
 		}
 	});
 
+	$(document.body).on('click', ".update-discount-submit", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var form = btn.data('form');
+		var setting = btn.data('setting');
+		var formData = $("#" + form).serializeArray();
+
+		var data = {
+			id: id,
+			formData: formData,
+			setting: setting,
+			action: 'wooaiodiscount_update_product_discount_rule'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', "#add-discount-amount", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var index = $('.wooaio-discount-amount-item').length;
+
+		var data = {
+			id: id,
+			index: index,
+			action: 'wooaiodiscount_add_discount_amount_item'
+		};
+
+		ajaxRequest(data, function(decoded) {
+			if (decoded.template) {
+				var template = $(decoded.template);
+				$('#price_product_discount_set_action').hide();
+
+				$('#price_product_discount_set').append(template);
+			}
+		});
+	});
+
+	$(document.body).on('click', ".create-discount-amount", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var formData = btn.parents('form').serialize();
+
+		var data = {
+			id: id,
+			formData: formData,
+			action: 'wooaiodiscount_create_discount_amount_item'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".delete-discount-amount", function(e) {
+		var btn = $(this);
+		var item = btn.parents('.wooaio-discount-amount-item');
+		item.remove();
+		var id = btn.data('id');
+		var formData = $('#price_product_discount_settings').serialize();
+
+		var data = {
+			id: id,
+			formData: formData,
+			action: 'wooaiodiscount_delete_discount_amount_item'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".cancel-discount-amount", function(e) {
+		var btn = $(this);
+		var item = btn.parents('.wooaio-discount-amount-item');
+		item.remove();
+		$('#price_product_discount_set_action').show();
+	});
+
 	$(document).ready(function() {});
 
 	$(window).on('load', function () {});
@@ -75,11 +150,11 @@
 
 					if (decoded.success) {
 						if (typeof cb === 'function') {
-							cb();
+							cb(decoded);
 						}
 					} else {
 						if (typeof cbError === 'function') {
-							cbError();
+							cbError(decoded);
 						}
 					}
 
