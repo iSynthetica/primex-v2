@@ -28,17 +28,19 @@ if ( ! class_exists( 'FlycartWooDiscountRulesPurchase' ) ) {
         public function init()
         {
 
-            $force_update = false;
+            $force_update = 0;
             // If a plugin has both a valid license and is using a CORE version then force update
             if ( $this->isPro() === false && $this->validateLicenseKey() ) {
                 // can upgrade to PRO
-                $force_update = true;
+                $force_update = 1;
             }
-
-            $option_exists = (get_option($this->slug.'-force-update-pro', null) !== null);
+            $existing_force_update_value = get_option($this->slug.'-force-update-pro', null);
+            $option_exists = ($existing_force_update_value !== null);
 
             if($option_exists){
-                update_option($this->slug.'-force-update-pro', $force_update);
+                if($existing_force_update_value != $force_update){
+                    update_option($this->slug.'-force-update-pro', $force_update);
+                }
             }
             else {
                 add_option($this->slug.'-force-update-pro', $force_update);

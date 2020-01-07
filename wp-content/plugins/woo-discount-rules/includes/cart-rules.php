@@ -179,6 +179,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                         $request['dynamic_coupons_to_apply'] = $result['create_dynamic_coupon'] = $validate_dynamic_coupon['coupon'];
                         if($validate_dynamic_coupon['status'] === true){
                             $request['discount_rule'][$index][$coupon_key] = $value[$coupon_key] = $validate_dynamic_coupon['coupon'];
+                            $coupons_used[] = $request['dynamic_coupons_to_apply'];
                         } else {
                             $result['status'] = 0;
                             $result['message'] = esc_html__('Failed to save', 'woo-discount-rules');
@@ -2144,8 +2145,14 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
          * @return integer/float
          * */
         public static function getSubTotalOfCartItem($cart_item){
+            $subtotal = 0;
             if(get_option('woocommerce_tax_display_cart', 'incl') == 'incl'){
-                $subtotal = $cart_item['line_subtotal']+$cart_item['line_subtotal_tax'];
+                if(isset($cart_item['line_subtotal'])){
+                    $subtotal = $cart_item['line_subtotal'];
+                }
+                if(isset($cart_item['line_subtotal_tax'])){
+                    $subtotal += $cart_item['line_subtotal_tax'];
+                }
             } else {
                 $quantity = (isset($cart_item['quantity']) && $cart_item['quantity']) ? $cart_item['quantity'] : 1;
                 $subtotal = ((float)FlycartWoocommerceProduct::get_price($cart_item['data'], true)) * $quantity;
@@ -2299,7 +2306,11 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                         }
                         $discounted_price = ($discount_quantity * $added_products[$discounted_product_id]['item_price']);
                         $coupon_msg = self::formatBOGOCouponCode($added_products[$discounted_product_id]['item_name'], $discount_quantity, $added_products[$discounted_product_id]['product'], $rule_text);
-                        $discounted_price = $discounted_price/$added_products[$discounted_product_id]['item_quantity'];
+                        if(isset($added_products[$discounted_product_id]) && isset($added_products[$discounted_product_id]['item_quantity'])){
+                            if(!empty($added_products[$discounted_product_id]['item_quantity']) && ((int)$added_products[$discounted_product_id]['item_quantity']) > 0){
+                                $discounted_price = $discounted_price/$added_products[$discounted_product_id]['item_quantity'];
+                            }
+                        }
                         $this->bogo_coupon_codes[$coupon_msg] = array('product_id' => $discounted_product_id, 'amount' => $discounted_price);
                     } else {
                         //If product not in cart,then add to cart
@@ -2320,7 +2331,11 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                 do_action('woo_discount_rules_cart_rules_after_adding_free_product_to_cart');
                                 $discounted_price = ($discount_quantity * FlycartWoocommerceProduct::get_price($product, true));
                                 $coupon_msg = self::formatBOGOCouponCode(FlycartWoocommerceProduct::get_name($product), $discount_quantity, $product, $rule_text);
-                                $discounted_price = $discounted_price/$added_products[$discounted_product_id]['item_quantity'];
+                                if(isset($added_products[$discounted_product_id]) && isset($added_products[$discounted_product_id]['item_quantity'])){
+                                    if(!empty($added_products[$discounted_product_id]['item_quantity']) && ((int)$added_products[$discounted_product_id]['item_quantity']) > 0){
+                                        $discounted_price = $discounted_price/$added_products[$discounted_product_id]['item_quantity'];
+                                    }
+                                }
                                 $this->bogo_coupon_codes[$coupon_msg] = array('product_id' => $discounted_product_id, 'amount' => $discounted_price);
                             }
                         }
@@ -2328,6 +2343,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                     $this->product_discount_total += $discounted_price;
                 }
             }
+
             return true;
         }
 

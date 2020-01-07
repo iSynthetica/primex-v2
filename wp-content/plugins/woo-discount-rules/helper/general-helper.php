@@ -483,6 +483,9 @@ if ( ! class_exists( 'FlycartWooDiscountRulesGeneralHelper' ) ) {
                     $used_coupons = self::getUsedCouponsInRules();
                     $used_coupons[] = $coupon_code;
                     $used_coupons = apply_filters('woo_discount_rules_coupons_to_skip_while_apply_third_party_coupon_and_disable_rules', $used_coupons);
+                    if(!empty($used_coupons)){
+                        $used_coupons = array_map('strtolower', $used_coupons);
+                    }
                     foreach ($appliedCoupons as $appliedCoupon){
                         if(!in_array($appliedCoupon, $used_coupons)){
                             $result = true;

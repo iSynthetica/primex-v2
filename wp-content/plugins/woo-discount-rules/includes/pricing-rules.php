@@ -3566,6 +3566,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                         if($product_page){
                             if(get_option('woocommerce_prices_include_tax', 'no') == 'no'){
                                 if(get_option('woocommerce_tax_display_shop', 'incl') == 'incl'){
+                                    $discount = (FlycartWoocommerceProduct::get_price_excluding_tax($product, 1)) - $fixed_discount_price;
                                     $discount = FlycartWoocommerceProduct::get_price_including_tax($product, 1, $discount);
                                 }
                             }
@@ -3609,6 +3610,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                         if($product_page){
                             if(get_option('woocommerce_prices_include_tax', 'no') == 'no'){
                                 if(get_option('woocommerce_tax_display_shop', 'incl') == 'incl'){
+                                    $discount = (FlycartWoocommerceProduct::get_price_excluding_tax($product, 1)) - $fixed_discount_price;
                                     $discount = FlycartWoocommerceProduct::get_price_including_tax($product, 1, $discount);
                                 }
                             }
@@ -3658,6 +3660,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                             if($product_page){
                                 if(get_option('woocommerce_prices_include_tax', 'no') == 'no'){
                                     if(get_option('woocommerce_tax_display_shop', 'incl') == 'incl'){
+                                        $amount = (FlycartWoocommerceProduct::get_price_excluding_tax($product, 1)) - $discount_item['amount'][$amount_type];
                                         $amount = FlycartWoocommerceProduct::get_price_including_tax($product, 1, $amount);
                                     }
                                 }

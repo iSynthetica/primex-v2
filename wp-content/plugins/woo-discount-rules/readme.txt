@@ -4,7 +4,7 @@ Donate link: https://flycart.org/
 Tags: woocommerce, coupons, discounts, dynamic pricing, Buy One Get One Free, pricing deals, bulk discount, discount
 Requires at least: 4.4.1
 Tested up to: 5.3
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -335,6 +335,13 @@ Discount - Enter minimum & Maximum quantity -> Adjustment Type -> Product Discou
 * Dutch Translation - [@mvdburg1971](https://profiles.wordpress.org/mvdburg1971) - Michael van der Burg
 
 == Changelog ==
+
+= 1.9.2 - 07/01/20 =
+* Fix - Disable discount rules coupon will work option doesn't works for cart rules.
+* Fix - Division by zero in cart rule BOGO.
+* Fix - Notice: Undefined index: line_subtotal_tax.
+* Fix - Wrong strikeout on product page for fixed price and set discount rules while having the tax settings as enter price excluding and display as including tax.
+* Improvement - Slow query while checking for force update.
 
 = 1.9.1 - 24/12/19 =
 * Fix - Wrong discount calculation for the Cart free product discount.
