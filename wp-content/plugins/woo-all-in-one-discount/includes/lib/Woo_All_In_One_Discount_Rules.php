@@ -8,12 +8,14 @@ class Woo_All_In_One_Discount_Rules {
             'published' => __('Published', 'woo-all-in-one-discount'),
         );
     }
+
     public static function get_product_discounts_types() {
         return array(
             'discount' => __('Discount', 'woo-all-in-one-discount'),
             'extra_charge' => __('Extra charge', 'woo-all-in-one-discount'),
         );
     }
+
     public static function get_product_discounts() {
         return get_option('wooaio_product_discount_rules', array());
     }
@@ -209,6 +211,15 @@ class Woo_All_In_One_Discount_Rules {
         return $result;
     }
 
+    public static function get_user_discounts_types() {
+        return array(
+            'all_users' => __('All Users', 'woo-all-in-one-discount'),
+            'unregistered_users' => __('Unregistered Users', 'woo-all-in-one-discount'),
+            'registered_users' => __('Registered Users', 'woo-all-in-one-discount'),
+            'user_roles' => __('User Roles', 'woo-all-in-one-discount'),
+        );
+    }
+
     public static function get_user_discounts() {
         return get_option('wooaio_user_discount_rules', array());
     }
@@ -224,11 +235,97 @@ class Woo_All_In_One_Discount_Rules {
 
         $new_rule = array(
             'title' => sanitize_text_field($data['discount_title']),
+            'type' => sanitize_text_field($data['discount_type']),
             'description' => sanitize_textarea_field($data['discount_description']),
             'status' => 'draft',
         );
 
         $product_discount_rules[$id] = $new_rule;
+
+        update_option('wooaio_user_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_user_discount($id, $setting, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+
+        if (!isset($product_discount_rules[$id])) {
+            $result = array(
+                'error' => sprintf( __('There is no discount rule with ID %s', 'woo-all-in-one-discount'), $id),
+                'id' => $id
+            );
+
+            return $result;
+        }
+
+        switch ($setting) {
+            case 'general':
+                return self::update_general_user_discount($id, $data);
+            case 'extra_charge':
+                return self::update_extra_charge_user_discount($id, $data);
+            case 'base_discount':
+                return self::update_base_discount_user_discount($id, $data);
+        }
+
+        $result = array(
+            'error' => __('Something went wrong', 'woo-all-in-one-discount'),
+            'id' => $id
+        );
+
+        return $result;
+    }
+
+    public static function update_general_user_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array( 'error' => '', 'id' => $id );
+
+        $product_discount_rule['title'] = sanitize_text_field($data['discount_title']);
+        $product_discount_rule['type'] = sanitize_text_field($data['discount_type']);
+        $product_discount_rule['description'] = sanitize_text_field($data['discount_description']);
+
+        if ($data['discount_type'] === 'user_roles') {
+            $discount_role = !empty($data["discount_role"]) ? sanitize_text_field($data["discount_role"]) : '';
+            $product_discount_rule['role'] = $discount_role;
+        } else {
+            if (!empty($product_discount_rule['role'])) {
+                unset($product_discount_rule['role']);
+            }
+        }
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_user_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_extra_charge_user_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array( 'error' => '', 'id' => $id );
+
+        $product_discount_rule['extra_charge'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_user_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_base_discount_user_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array( 'error' => '', 'id' => $id );
+
+        $product_discount_rule['base_discount'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
 
         update_option('wooaio_user_discount_rules', $product_discount_rules);
 

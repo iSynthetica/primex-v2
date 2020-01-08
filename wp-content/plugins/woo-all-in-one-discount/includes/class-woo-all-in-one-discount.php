@@ -176,6 +176,7 @@ class Woo_All_In_One_Discount {
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_discount_amount_item', $plugin_admin_ajax, 'delete_discount_amount_item' );
 
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_create_user_discount_rule', $plugin_admin_ajax, 'create_user_discount_rule' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_update_user_discount_rule', $plugin_admin_ajax, 'update_user_discount_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_user_discount_rule', $plugin_admin_ajax, 'delete_user_discount_rule' );
 
 	}
@@ -190,6 +191,8 @@ class Woo_All_In_One_Discount {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_All_In_One_Discount_Public( $this->get_plugin_name(), $this->get_version() );
+
+		$this->loader->add_action( 'init', $plugin_public, 'set_global_discount_for_user' );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );

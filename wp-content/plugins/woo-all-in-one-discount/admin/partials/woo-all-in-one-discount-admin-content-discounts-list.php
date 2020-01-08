@@ -79,6 +79,7 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_product_discounts_types();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>
@@ -102,6 +103,10 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_product_discounts_types();
 
                     <td data-colname="<?php _e('Description', 'woo-all-in-one-discount'); ?>">
                         <?php echo wpautop($discount_rule['description']) ?>
+                    </td>
+
+                    <td data-colname="<?php _e('Type', 'woo-all-in-one-discount'); ?>">
+                        <?php echo Woo_All_In_One_Discount_Rules::get_product_discounts_types()[$discount_rule['type']] ?>
                     </td>
 
                     <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
@@ -132,6 +137,7 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_product_discounts_types();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>

@@ -1,6 +1,6 @@
 <?php
+$discount_types = Woo_All_In_One_Discount_Rules::get_user_discounts_types();
 ?>
-
 
 <h3 class="wp-heading-inline">
     <?php _e('User Roles Discount Rules List', 'woo-all-in-one-discount'); ?>
@@ -33,6 +33,23 @@
         </div>
 
         <div class="wooaio-discount-item">
+            <div>
+                <label for="discount_type"><?php _e('Type', 'woo-all-in-one-discount'); ?></label>
+            </div>
+            <div>
+                <select name="discount_type" id="discount_type">
+                    <?php
+                    foreach ($discount_types as $discount_type_slug => $discount_type_label) {
+                        ?>
+                        <option value="<?php echo $discount_type_slug; ?>"><?php echo $discount_type_label; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="wooaio-discount-item">
             <div></div>
             <div>
                 <button id="create-user-submit" class="button" type="button"><?php _e('Create', 'woo-all-in-one-discount'); ?></button>
@@ -58,6 +75,7 @@
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>
@@ -81,6 +99,10 @@
 
                     <td data-colname="<?php _e('Description', 'woo-all-in-one-discount'); ?>">
                         <?php echo wpautop($discount_rule['description']) ?>
+                    </td>
+
+                    <td data-colname="<?php _e('Type', 'woo-all-in-one-discount'); ?>">
+                        <?php echo Woo_All_In_One_Discount_Rules::get_user_discounts_types()[$discount_rule['type']] ?>
                     </td>
 
                     <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
@@ -111,6 +133,7 @@
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>

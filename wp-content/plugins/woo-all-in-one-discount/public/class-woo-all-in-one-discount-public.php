@@ -100,20 +100,91 @@ class Woo_All_In_One_Discount_Public {
 
 	}
 
+	public function set_global_discount_for_user() {
+        global $wooaiodiscount_product_rules;
+        global $wooaiodiscount_user_rules;
+        global $wooaiodiscount_current_user_rule;
+
+        $wooaiodiscount_product_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $wooaiodiscount_user_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+
+        $user = null;
+
+        if (is_user_logged_in()) {
+            $user = wp_get_current_user();
+        }
+
+        if (!$user) {
+            $all_users_rule = false;
+            $unregistered_user_rule = false;
+
+            foreach ($wooaiodiscount_user_rules as $user_rule_id => $user_rule) {
+                $user_rule['id'] = $user_rule_id;
+                $extra_charge = '';
+                $base_discount = '';
+
+                if (!empty($user_rule["extra_charge"]["extra_charge"]) && !empty($wooaiodiscount_product_rules[$user_rule["extra_charge"]["extra_charge"]])) {
+                    $extra_charge = $wooaiodiscount_product_rules[$user_rule["extra_charge"]["extra_charge"]]['discounts'];
+                }
+
+                if (!empty($user_rule["base_discount"]["base_discount"]) && !empty($wooaiodiscount_product_rules[$user_rule["base_discount"]["base_discount"]])) {
+                    $base_discount = $wooaiodiscount_product_rules[$user_rule["base_discount"]["base_discount"]]['discounts'];
+                }
+
+                $user_rule['extra_charge']["extra_charge"] = $extra_charge;
+                $user_rule['base_discount']["base_discount"] = $base_discount;
+
+                if ($user_rule['type'] === 'unregistered_users') {
+                    $unregistered_user_rule = $user_rule;
+                } elseif ($user_rule['type'] === 'all_users') {
+                    $all_users_rule = $user_rule;
+                }
+            }
+
+            if (!empty($all_users_rule)) {
+                $wooaiodiscount_current_user_rule = $all_users_rule;
+            }
+
+            if (!empty($unregistered_user_rule)) {
+                $wooaiodiscount_current_user_rule = $unregistered_user_rule;
+            }
+        }
+    }
+
 	public function raw_woocommerce_price($price, $product) {
 	    return $price;
     }
 
     public function woocommerce_get_price_html($price, $product) {
-	    if (is_admin()) {
+        if (is_admin()) {
             return $price;
         }
+
+        global $wooaiodiscount_product_rules;
+        global $wooaiodiscount_user_rules;
+        global $wooaiodiscount_current_user_rule;
+
 	    $product_type = $product->get_type();
 	    $product_price = $product->get_price();
-	    $discount_product_price = $product_price * 0.80;
 
 	    if ('simple' === $product_type) {
+            $extra_charge_percent = 0;
+
+	        if (!empty($wooaiodiscount_current_user_rule["extra_charge"]["extra_charge"])) {
+	            $all_products_extra = 0;
+
+	            foreach ($wooaiodiscount_current_user_rule["extra_charge"]["extra_charge"] as $extra_charge) {
+	                if ($extra_charge['apply'] === 'all_products' && $all_products_extra < (int)$extra_charge['amount']) {
+                        $all_products_extra = (int)$extra_charge['amount'];
+                    }
+                }
+
+	            $extra_charge_percent = $all_products_extra;
+            }
             $price = '';
+
+            $discount_product_price = $product_price;
+            $product_price = $product_price + ($product_price * ($extra_charge_percent / 100));
 
             $price .= wc_price( $product_price ) . $product->get_price_suffix();
             $price .= '<br>';

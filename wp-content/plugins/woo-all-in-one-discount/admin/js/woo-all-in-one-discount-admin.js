@@ -205,6 +205,23 @@
 		}
 	});
 
+	$(document.body).on('click', ".update-user-submit", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var form = btn.data('form');
+		var setting = btn.data('setting');
+		var formData = $("#" + form).serializeArray();
+
+		var data = {
+			id: id,
+			formData: formData,
+			setting: setting,
+			action: 'wooaiodiscount_update_user_discount_rule'
+		};
+
+		ajaxRequest(data);
+	});
+
 	$(document).ready(function() {});
 
 	$(window).on('load', function () {});

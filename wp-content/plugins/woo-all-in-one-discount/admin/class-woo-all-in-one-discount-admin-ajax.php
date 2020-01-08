@@ -332,6 +332,45 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
+    public function update_user_discount_rule() {
+        $setting = !empty($_POST['setting']) ? sanitize_text_field($_POST['setting']) : false;
+
+        if (empty($setting) || empty($_POST['formData']) || !is_array($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($id)) {
+            $response = array('message' => __('Select User discount to update', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $data = array();
+
+        foreach ($_POST['formData'] as $form_data) {
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        $update = Woo_All_In_One_Discount_Rules::update_user_discount($id, $setting, $data);
+
+        if (!empty($update['error'])) {
+            $response = array('message' => $update['error']);
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $response = array(
+            'message' => __('User discount rule updated', 'woo-all-in-one-discount'),
+            'reload' => 1,
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
     public function delete_user_discount_rule() {
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 
