@@ -295,4 +295,76 @@ class Woo_All_In_One_Discount_Admin_Ajax {
 
         wooaio_ajax_response('success', $response);
     }
+
+    public function create_user_discount_rule() {
+        if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $data = array();
+
+        foreach ($_POST['formData'] as $form_data) {
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        if (empty($data['discount_title'])) {
+            $response = array('message' => __('Field "Title" is required', 'woo-all-in-one-service'));
+            wooaio_ajax_response('error', $response);
+        }
+
+        $create = Woo_All_In_One_Discount_Rules::create_user_discount($data);
+
+        if (!empty($delete['error'])) {
+            $response = array('message' => $delete['error']);
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $id = $create['id'];
+
+        $response = array(
+            'message' => __('New product discount rule created', 'woo-all-in-one-discount'),
+            'url' => get_admin_url(null, 'admin.php?page=wooaiodiscount&tab=users&discount_id=' . $id),
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function delete_user_discount_rule() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($id)) {
+            $response = array('message' => __('Select User discount to delete', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $single = !empty($_POST['single']) ? sanitize_text_field($_POST['single']) : 'yes';
+
+        $delete = Woo_All_In_One_Discount_Rules::delete_user_discount($id);
+
+        if (!empty($delete['error'])) {
+            $response = array('message' => $delete['error']);
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        if ('yes' === $single) {
+            $response = array(
+                'message' => __('User discount rule deleted', 'woo-all-in-one-discount'),
+                'url' => get_admin_url(null, 'admin.php?page=wooaiodiscount&tab=users'),
+            );
+
+            wooaio_ajax_response('success', $response);
+        } else {
+            $response = array(
+                'message' => __('User discount rule deleted', 'woo-all-in-one-discount'),
+                'reload' => 1,
+            );
+
+            wooaio_ajax_response('success', $response);
+        }
+    }
 }

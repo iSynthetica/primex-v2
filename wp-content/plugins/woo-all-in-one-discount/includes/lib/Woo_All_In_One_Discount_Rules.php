@@ -208,4 +208,55 @@ class Woo_All_In_One_Discount_Rules {
 
         return $result;
     }
+
+    public static function get_user_discounts() {
+        return get_option('wooaio_user_discount_rules', array());
+    }
+
+    public static function create_user_discount($data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+        $id = wp_generate_uuid4();
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        $new_rule = array(
+            'title' => sanitize_text_field($data['discount_title']),
+            'description' => sanitize_textarea_field($data['discount_description']),
+            'status' => 'draft',
+        );
+
+        $product_discount_rules[$id] = $new_rule;
+
+        update_option('wooaio_user_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function delete_user_discount($id) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        if (!isset($product_discount_rules[$id])) {
+            $result['error'] = sprintf( __('There is no user rule with ID %s', 'woo-all-in-one-discount'), $id);
+
+            return $result;
+        }
+
+        unset ($product_discount_rules[$id]);
+
+        if (empty(count($product_discount_rules))) {
+            delete_option('wooaio_user_discount_rules');
+        } else {
+            update_option('wooaio_user_discount_rules', $product_discount_rules);
+        }
+
+        return $result;
+    }
 }

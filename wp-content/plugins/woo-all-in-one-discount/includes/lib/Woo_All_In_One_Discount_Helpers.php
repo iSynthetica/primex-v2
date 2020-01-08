@@ -7,8 +7,8 @@ class Woo_All_In_One_Discount_Helpers {
             'discounts' => array(
                 'title' => __('Product Discounts', 'woo-all-in-one-discount')
             ),
-            'access' => array(
-                'title' => __('Settings', 'woo-all-in-one-discount')
+            'users' => array(
+                'title' => __('User Roles Settings', 'woo-all-in-one-discount')
             ),
         );
     }

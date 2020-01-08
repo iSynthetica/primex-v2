@@ -176,6 +176,35 @@
         // console.log(selected);
 	});
 
+
+	$(document.body).on('click', "#create-user-submit", function(e) {
+		var formData = $("#wooaio-discount-create-form").serializeArray();
+		var data = {
+			formData: formData,
+			action: 'wooaiodiscount_create_user_discount_rule'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".delete-user-rule", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var single = btn.data('single');
+		var data = {
+			id: id,
+			single: single,
+			action: 'wooaiodiscount_delete_user_discount_rule'
+		};
+
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			ajaxRequest(data);
+		}
+	});
+
 	$(document).ready(function() {});
 
 	$(window).on('load', function () {});
