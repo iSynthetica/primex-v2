@@ -8,11 +8,11 @@ if (!function_exists('wooaiodiscount_discount_setting_item')) {
         $discount_settings_categories = array();
 
         if (!empty($discount_settings['products'])) {
-            $discount_settings_products = $discount_settings['products'];
+            $discount_settings_products = array_keys($discount_settings['products']);
         }
 
         if (!empty($discount_settings['categories'])) {
-            $discount_settings_categories = $discount_settings['categories'];
+            $discount_settings_categories = array_keys($discount_settings['categories']);
         }
 
         $discount_rule_amount = !empty($discount_rule['amount']) ? $discount_rule['amount'] : '';
@@ -30,7 +30,7 @@ if (!function_exists('wooaiodiscount_discount_setting_item')) {
             $discount_rule_apply_class = ' apply_separate_products';
         }
 
-        if ($i === 0) {
+        if ((int)$i === 0) {
             ?>
             <div class="wooaio-discount-item">
                 <div style="margin-bottom: 10px;">
@@ -157,32 +157,32 @@ function wooaiodiscount_categories_tree( $i, $category, $discount_settings_categ
             if ($discount_rule["apply"] !== 'by_categories') {
                 if (in_array($category_id, $discount_settings_categories)) {
                     ?>
-                    <input type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" disabled>
+                    <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" disabled>
                     <?php
                 } else {
                     ?>
-                    <input type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>">
+                    <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>">
                     <?php
                 }
             } else {
                 if (in_array($category_id, $discount_settings_categories)) {
                     if (in_array($category_id, $discount_rule['categories'])) {
                         ?>
-                        <input type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" checked>
+                        <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" checked>
                         <?php
                     } else {
                         ?>
-                        <input type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" disabled>
+                        <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" disabled>
                         <?php
                     }
                 } else {
                     ?>
-                    <input type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>">
+                    <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>">
                     <?php
                 }
             }
             ?>
-            <?php echo $category['category']->name; ?>
+            <label for="category_<?php echo $i ?>_<?php echo $category_id; ?>"><?php echo $category['category']->name; ?></label>
         </fieldset>
 
         <?php

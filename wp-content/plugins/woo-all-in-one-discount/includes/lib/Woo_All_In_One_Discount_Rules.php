@@ -8,6 +8,12 @@ class Woo_All_In_One_Discount_Rules {
             'published' => __('Published', 'woo-all-in-one-discount'),
         );
     }
+    public static function get_product_discounts_types() {
+        return array(
+            'discount' => __('Discount', 'woo-all-in-one-discount'),
+            'extra_charge' => __('Extra charge', 'woo-all-in-one-discount'),
+        );
+    }
     public static function get_product_discounts() {
         return get_option('wooaio_product_discount_rules', array());
     }
@@ -33,6 +39,7 @@ class Woo_All_In_One_Discount_Rules {
 
         $new_rule = array(
             'title' => sanitize_text_field($data['discount_title']),
+            'type' => sanitize_text_field($data['discount_type']),
             'description' => sanitize_textarea_field($data['discount_description']),
             'status' => 'draft',
         );
@@ -85,6 +92,7 @@ class Woo_All_In_One_Discount_Rules {
         );
 
         $product_discount_rule['title'] = sanitize_text_field($data['discount_title']);
+        $product_discount_rule['type'] = sanitize_text_field($data['discount_type']);
         $product_discount_rule['description'] = sanitize_text_field($data['discount_description']);
 
         $product_discount_rules[$id] = $product_discount_rule;
@@ -104,6 +112,34 @@ class Woo_All_In_One_Discount_Rules {
         );
 
         $product_discount_rule['discounts'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_product_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function delete_product_discount_amount($id) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        if (!empty($product_discount_rule['discounts'])) {
+            unset($product_discount_rule['discounts']);
+        }
+
+        if (!empty($product_discount_rule['categories'])) {
+            unset($product_discount_rule['categories']);
+        }
+
+        if (!empty($product_discount_rule['products'])) {
+            unset($product_discount_rule['products']);
+        }
 
         $product_discount_rules[$id] = $product_discount_rule;
 

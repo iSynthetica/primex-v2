@@ -54,6 +54,42 @@ class Woo_All_In_One_Discount_Admin_Ajax {
 
 	}
 
+    public function create_product_discount_rule() {
+        if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $data = array();
+
+        foreach ($_POST['formData'] as $form_data) {
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        if (empty($data['discount_title'])) {
+            $response = array('message' => __('Field "Title" is required', 'woo-all-in-one-service'));
+            wooaio_ajax_response('error', $response);
+        }
+
+        $create = Woo_All_In_One_Discount_Rules::create_product_discount($data);
+
+        if (!empty($delete['error'])) {
+            $response = array('message' => $delete['error']);
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $id = $create['id'];
+
+        $response = array(
+            'message' => __('New product discount rule created', 'woo-all-in-one-discount'),
+            'url' => get_admin_url(null, 'admin.php?page=wooaiodiscount&tab=discounts&discount_id=' . $id),
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
 	public function delete_product_discount_rule() {
 	    $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 
@@ -129,42 +165,6 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
-	public function create_product_discount_rule() {
-        if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
-            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
-
-            wooaio_ajax_response('error', $response);
-        }
-
-        $data = array();
-
-        foreach ($_POST['formData'] as $form_data) {
-            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
-        }
-
-        if (empty($data['discount_title'])) {
-            $response = array('message' => __('Field "Title" is required', 'woo-all-in-one-service'));
-            wooaio_ajax_response('error', $response);
-        }
-
-        $create = Woo_All_In_One_Discount_Rules::create_product_discount($data);
-
-        if (!empty($delete['error'])) {
-            $response = array('message' => $delete['error']);
-
-            wooaio_ajax_response('error', $response);
-        }
-
-        $id = $create['id'];
-
-        $response = array(
-            'message' => __('New product discount rule created', 'woo-all-in-one-discount'),
-            'url' => get_admin_url(null, 'admin.php?page=wooaiodiscount&tab=discounts&discount_id=' . $id),
-        );
-
-        wooaio_ajax_response('success', $response);
-    }
-
     public function create_discount_amount_item() {
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 
@@ -189,7 +189,9 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         foreach ($data as $data_i => $data_values) {
             if (!empty($data_values['products']) && is_array($data_values['products'])) {
                 if ($data_values['apply'] === 'separate_products') {
-                    $products = array_merge($products, $data_values['products']);
+                    foreach ($data_values['products'] as $product_id) {
+                        $products[$product_id] = $data_values["amount"];
+                    }
                 } else {
                     unset($data[$data_i]['products']);
                 }
@@ -197,7 +199,9 @@ class Woo_All_In_One_Discount_Admin_Ajax {
 
             if (!empty($data_values['categories']) && is_array($data_values['categories'])) {
                 if ($data_values['apply'] === 'by_categories') {
-                    $categories = array_merge($categories, $data_values['categories']);
+                    foreach ($data_values['categories'] as $category_id) {
+                        $categories[$category_id] = $data_values["amount"];
+                    }
                 } else {
                     unset($data[$data_i]['categories']);
                 }
@@ -205,8 +209,8 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         }
 
         $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
-        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'products', array_unique($products));
-        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'categories', array_unique($categories));
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'products', $products);
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'categories', $categories);
 
         $response = array(
             'message' => __('Product discount updated', 'woo-all-in-one-discount') . ' ' . $id,
@@ -220,28 +224,60 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 
         if (empty($_POST['formData'])) {
-            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+            $update = Woo_All_In_One_Discount_Rules::delete_product_discount_amount($id);
 
-            wooaio_ajax_response('error', $response);
-        }
+            $response = array(
+                'message' => __('Discount amount deleted', 'woo-all-in-one-discount') . ' ' . $id,
+                'reload' => 1,
+            );
 
-        parse_str($_POST['formData'], $form_data);
-        $data = array();
+            wooaio_ajax_response('success', $response);
+        } else {
+            parse_str($_POST['formData'], $form_data);
+            $data = array();
 
-        foreach ($form_data as $form_data_field => $form_data_values) {
-            foreach ($form_data_values as $index => $value) {
-                $data[$index][$form_data_field] = $value;
+            foreach ($form_data as $form_data_field => $form_data_values) {
+                foreach ($form_data_values as $index => $value) {
+                    $data[$index][$form_data_field] = $value;
+                }
             }
+
+            $products = array();
+            $categories = array();
+
+            foreach ($data as $data_i => $data_values) {
+                if (!empty($data_values['products']) && is_array($data_values['products'])) {
+                    if ($data_values['apply'] === 'separate_products') {
+                        foreach ($data_values['products'] as $product_id) {
+                            $products[$product_id] = $data_values["amount"];
+                        }
+                    } else {
+                        unset($data[$data_i]['products']);
+                    }
+                }
+
+                if (!empty($data_values['categories']) && is_array($data_values['categories'])) {
+                    if ($data_values['apply'] === 'by_categories') {
+                        foreach ($data_values['categories'] as $category_id) {
+                            $categories[$category_id] = $data_values["amount"];
+                        }
+                    } else {
+                        unset($data[$data_i]['categories']);
+                    }
+                }
+            }
+
+            $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
+            $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'products', $products);
+            $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'categories', $categories);
+
+            $response = array(
+                'message' => __('Discount amount deleted', 'woo-all-in-one-discount') . ' ' . $id,
+                'reload' => 1,
+            );
+
+            wooaio_ajax_response('success', $response);
         }
-
-        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
-
-        $response = array(
-            'message' => __('Discount amount deleted', 'woo-all-in-one-discount') . ' ' . $id,
-            'reload' => 1,
-        );
-
-        wooaio_ajax_response('success', $response);
     }
 
     public function add_discount_amount_item() {

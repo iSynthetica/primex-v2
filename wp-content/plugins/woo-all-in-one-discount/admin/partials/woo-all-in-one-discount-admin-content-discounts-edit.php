@@ -5,6 +5,7 @@
 $discount_rule = false;
 $categories = Woo_All_In_One_Discount_Helpers::get_product_categories_tree();
 $products = Woo_All_In_One_Discount_Helpers::get_products_tree();
+$discount_types = Woo_All_In_One_Discount_Rules::get_product_discounts_types();
 
 if (!empty($discount_rules[$discount_id])) {
     $discount_rule = $discount_rules[$discount_id];
@@ -50,6 +51,24 @@ if (!$discount_rule) {
 
                     <div>
                         <textarea name="discount_description" id="discount_description" rows="5"><?php echo $discount_rule['description'] ?></textarea>
+                    </div>
+                </div>
+
+                <div class="wooaio-discount-item">
+                    <div>
+                        <label for="discount_type"><?php _e('Type', 'woo-all-in-one-discount'); ?></label>
+                    </div>
+
+                    <div>
+                        <select name="discount_type" id="discount_type">
+                            <?php
+                            foreach ($discount_types as $discount_type_slug => $discount_type_label) {
+                                ?>
+                                <option value="<?php echo $discount_type_slug; ?>"<?php echo ($discount_type_slug === $discount_rule['type']) ? ' selected' : ''; ?>><?php echo $discount_type_label; ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
 

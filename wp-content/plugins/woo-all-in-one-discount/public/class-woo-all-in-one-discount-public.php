@@ -104,4 +104,23 @@ class Woo_All_In_One_Discount_Public {
 	    return $price;
     }
 
+    public function woocommerce_get_price_html($price, $product) {
+	    if (is_admin()) {
+            return $price;
+        }
+	    $product_type = $product->get_type();
+	    $product_price = $product->get_price();
+	    $discount_product_price = $product_price * 0.80;
+
+	    if ('simple' === $product_type) {
+            $price = '';
+
+            $price .= wc_price( $product_price ) . $product->get_price_suffix();
+            $price .= '<br>';
+            $price .= '<small><b class="woocommerce-Price-label label">' . __('Wholesale price', 'woo-all-in-one-discount') . ':</b> ' . wc_price( $discount_product_price ) . $product->get_price_suffix() . '</small>';
+        }
+
+	    return $price;
+    }
+
 }

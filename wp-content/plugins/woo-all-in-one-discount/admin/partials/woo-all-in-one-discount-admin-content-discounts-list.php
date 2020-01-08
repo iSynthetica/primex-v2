@@ -2,6 +2,8 @@
 /**
  * @var $discount_rules
  */
+
+$discount_types = Woo_All_In_One_Discount_Rules::get_product_discounts_types();
 ?>
 
 <h3 class="wp-heading-inline">
@@ -31,6 +33,23 @@
             </div>
             <div>
                 <textarea name="discount_description" id="discount_description" rows="5"></textarea>
+            </div>
+        </div>
+
+        <div class="wooaio-discount-item">
+            <div>
+                <label for="discount_type"><?php _e('Type', 'woo-all-in-one-discount'); ?></label>
+            </div>
+            <div>
+                <select name="discount_type" id="discount_type">
+                    <?php
+                    foreach ($discount_types as $discount_type_slug => $discount_type_label) {
+                        ?>
+                        <option value="<?php echo $discount_type_slug; ?>"><?php echo $discount_type_label; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
             </div>
         </div>
 
