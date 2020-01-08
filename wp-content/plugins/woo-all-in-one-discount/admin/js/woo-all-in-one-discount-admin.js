@@ -2,6 +2,7 @@
 	'use strict';
 	var actionContainer = $('#wooaio-discount-create-action');
 	var formContainer = $('#wooaio-discount-create-container');
+	var editedHtml = '';
 
 	$(document.body).on('click', "#open-create-discount-rule", function(e) {
 		actionContainer.removeClass('wooaio-discount-create-closed').removeClass('wooaio-discount-create-opened').addClass('wooaio-discount-create-opened');
@@ -74,12 +75,19 @@
 				var template = $(decoded.template);
 				$('#price_product_discount_set_action').hide();
 
+				$('.change-discount-amount').each(function() {
+					$(this).attr('disabled', true);
+				});
+				$('.delete-discount-amount').each(function() {
+					$(this).attr('disabled', true);
+				});
+
 				$('#price_product_discount_set').append(template);
 			}
 		});
 	});
 
-	$(document.body).on('click', ".create-discount-amount", function(e) {
+	$(document.body).on('click', ".create-discount-amount, .update-discount-amount", function(e) {
 		var btn = $(this);
 		var id = btn.data('id');
 		var formData = btn.parents('form').serialize();
@@ -109,11 +117,63 @@
 		ajaxRequest(data);
 	});
 
+	$(document.body).on('click', ".change-discount-amount", function(e) {
+		var btn = $(this);
+		var item = btn.parents('.wooaio-discount-amount-item');
+		item.removeClass('wooaio-discount-summary-amount-item').addClass('wooaio-discount-edit-amount-item');
+		editedHtml = item.html();
+		$('#price_product_discount_set_action').hide();
+		$('.change-discount-amount').each(function() {
+			$(this).attr('disabled', true);
+		});
+		$('.delete-discount-amount').each(function() {
+			$(this).attr('disabled', true);
+		});
+	});
+
+	$(document.body).on('click', ".cancel-update-discount-amount", function(e) {
+		var btn = $(this);
+		var item = btn.parents('.wooaio-discount-amount-item');
+		item.removeClass('wooaio-discount-edit-amount-item').addClass('wooaio-discount-summary-amount-item');
+		item.html(editedHtml);
+		editedHtml = '';
+		$('#price_product_discount_set_action').show();
+		$('.change-discount-amount').each(function() {
+			$(this).attr('disabled', false);
+		});
+		$('.delete-discount-amount').each(function() {
+			$(this).attr('disabled', false);
+		});
+	});
+
 	$(document.body).on('click', ".cancel-discount-amount", function(e) {
 		var btn = $(this);
 		var item = btn.parents('.wooaio-discount-amount-item');
 		item.remove();
 		$('#price_product_discount_set_action').show();
+
+		$('.change-discount-amount').each(function() {
+			$(this).attr('disabled', false);
+		});
+		$('.delete-discount-amount').each(function() {
+			$(this).attr('disabled', false);
+		});
+	});
+
+	$(document.body).on('change', ".apply_for_radio", function(e) {
+		var radio = $(this);
+        var item = radio.parents('.wooaio-discount-amount-item');
+        var selected = item.find('.apply_for_radio:checked').val();
+        var applyByContainer = item.find('.apply_by_container');
+		applyByContainer.removeClass('apply_by_categories').removeClass('apply_separate_products');
+
+		if (selected == 'by_categories') {
+			applyByContainer.addClass('apply_by_categories');
+		} else if(selected == 'separate_products') {
+			applyByContainer.addClass('apply_separate_products');
+		}
+
+        // console.log(selected);
 	});
 
 	$(document).ready(function() {});

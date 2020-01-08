@@ -183,10 +183,33 @@ class Woo_All_In_One_Discount_Admin_Ajax {
             }
         }
 
+        $products = array();
+        $categories = array();
+
+        foreach ($data as $data_i => $data_values) {
+            if (!empty($data_values['products']) && is_array($data_values['products'])) {
+                if ($data_values['apply'] === 'separate_products') {
+                    $products = array_merge($products, $data_values['products']);
+                } else {
+                    unset($data[$data_i]['products']);
+                }
+            }
+
+            if (!empty($data_values['categories']) && is_array($data_values['categories'])) {
+                if ($data_values['apply'] === 'by_categories') {
+                    $categories = array_merge($categories, $data_values['categories']);
+                } else {
+                    unset($data[$data_i]['categories']);
+                }
+            }
+        }
+
         $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'discounts', $data);
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'products', array_unique($products));
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'categories', array_unique($categories));
 
         $response = array(
-            'message' => __('Discount amount added', 'woo-all-in-one-discount') . ' ' . $id,
+            'message' => __('Product discount updated', 'woo-all-in-one-discount') . ' ' . $id,
             'reload' => 1,
         );
 
@@ -223,10 +246,11 @@ class Woo_All_In_One_Discount_Admin_Ajax {
 
     public function add_discount_amount_item() {
         $categories = Woo_All_In_One_Discount_Helpers::get_product_categories_tree();
+        $products = Woo_All_In_One_Discount_Helpers::get_products_tree();
         $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : false;
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
 	    ob_start();
-        wooaiodiscount_discount_setting_item( $id, $index, $categories );
+        wooaiodiscount_discount_setting_item( $id, $index, $categories, $products );
 	    $template = ob_get_clean();
 
         $response = array(

@@ -13,7 +13,13 @@ class Woo_All_In_One_Discount_Rules {
     }
 
     public static function get_product_discount($id) {
+        $rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
 
+        if (empty($rules[$id])) {
+            return false;
+        }
+
+        return $rules[$id];
     }
 
     public static function create_product_discount($data) {
@@ -55,6 +61,10 @@ class Woo_All_In_One_Discount_Rules {
                 return self::update_general_product_discount($id, $data);
             case 'discounts':
                 return self::update_amount_product_discount($id, $data);
+            case 'products':
+                return self::update_product_set_discount($id, $data);
+            case 'categories':
+                return self::update_category_set_discount($id, $data);
         }
 
         $result = array(
@@ -94,6 +104,42 @@ class Woo_All_In_One_Discount_Rules {
         );
 
         $product_discount_rule['discounts'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_product_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_product_set_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        $product_discount_rule['products'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_product_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_category_set_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        $product_discount_rule['categories'] = $data;
 
         $product_discount_rules[$id] = $product_discount_rule;
 

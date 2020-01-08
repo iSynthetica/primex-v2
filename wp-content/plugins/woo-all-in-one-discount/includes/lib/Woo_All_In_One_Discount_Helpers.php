@@ -32,4 +32,18 @@ class Woo_All_In_One_Discount_Helpers {
 
         return $tree;
     }
+
+    public static function get_products_tree() {
+        $products_args = array(
+            'numberposts' => '-1',
+            'orderby'     => 'title',
+            'order'       => 'ASC',
+            'post_type'   => 'product',
+            'suppress_filters' => false,
+        );
+
+        $products = wc_get_products($products_args);
+
+        return $products;
+    }
 }
