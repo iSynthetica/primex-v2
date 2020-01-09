@@ -200,6 +200,8 @@ class Woo_All_In_One_Discount {
 		$this->loader->add_filter( 'woocommerce_product_get_price', $plugin_public, 'raw_woocommerce_price', 100, 2 );
 		$this->loader->add_filter( 'woocommerce_get_price_html', $plugin_public, 'woocommerce_get_price_html', 1000, 2 );
 
+		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'recalculate_totals', 1000 );
+
 	}
 
 	/**

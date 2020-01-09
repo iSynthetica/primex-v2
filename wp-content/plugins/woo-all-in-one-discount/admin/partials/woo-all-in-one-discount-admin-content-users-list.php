@@ -1,5 +1,8 @@
 <?php
 $discount_types = Woo_All_In_One_Discount_Rules::get_user_discounts_types();
+
+global $wp_roles;
+$roles_names = $wp_roles->role_names;
 ?>
 
 <h3 class="wp-heading-inline">
@@ -75,7 +78,8 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_user_discounts_types();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
-                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('User', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Priority', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>
@@ -102,7 +106,26 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_user_discounts_types();
                     </td>
 
                     <td data-colname="<?php _e('Type', 'woo-all-in-one-discount'); ?>">
-                        <?php echo Woo_All_In_One_Discount_Rules::get_user_discounts_types()[$discount_rule['type']] ?>
+                        <?php
+                        if ($discount_rule['type'] === 'user_roles') {
+                            $label = __('Role', 'woo-all-in-one-discount') . ': ';
+                            if (!empty($discount_rule['role']) && !empty($roles_names[$discount_rule['role']])) {
+                                $label .= $roles_names[$discount_rule['role']];
+                            } else {
+                                $label .= __('Not selected', 'woo-all-in-one-discount');
+                            }
+                        } else {
+                            $label = Woo_All_In_One_Discount_Rules::get_user_discounts_types()[$discount_rule['type']];
+                        }
+                        ?>
+                        <?php echo $label; ?>
+                    </td>
+
+                    <td data-colname="<?php _e('Priority', 'woo-all-in-one-discount'); ?>">
+                        <?php
+                        $priority = !empty($discount_rule['priority']) ? $discount_rule['priority'] : '10';
+                        echo $priority;
+                        ?>
                     </td>
 
                     <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
@@ -133,7 +156,8 @@ $discount_types = Woo_All_In_One_Discount_Rules::get_user_discounts_types();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Description', 'woo-all-in-one-discount'); ?></th>
-                <th><?php _e('Type', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('User', 'woo-all-in-one-discount'); ?></th>
+                <th><?php _e('Priority', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-discount'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-discount'); ?></th>
             </tr>

@@ -41,7 +41,6 @@ if (!$discount_rule) {
                     <div>
                         <input type="text" id="discount_title" name="discount_title" value="<?php echo $discount_rule['title'] ?>">
                     </div>
-
                 </div>
 
                 <div class="wooaio-discount-item">
@@ -69,6 +68,16 @@ if (!$discount_rule) {
                             }
                             ?>
                         </select>
+                    </div>
+                </div>
+
+                <div class="wooaio-discount-item">
+                    <div>
+                        <label for="discount_priority"><?php _e('Priority', 'woo-all-in-one-discount'); ?></label>
+                    </div>
+                    <div>
+                        <?php $priority = !empty($discount_rule['priority']) ? $discount_rule['priority'] : '10'; ?>
+                        <input type="number" id="discount_priority" name="discount_priority" value="<?php echo $priority ?>">
                     </div>
                 </div>
 

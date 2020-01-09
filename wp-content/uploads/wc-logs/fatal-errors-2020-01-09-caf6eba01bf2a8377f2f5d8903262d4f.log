@@ -1,0 +1,31 @@
+2020-01-09T10:12:56+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php:122
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Public->set_global_discount_for_user('')
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(523): do_action('init')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php(13): require_once('/var/www/tsvito...')
+#7 /var/www/tsvitokha/primex2.0/public_html/index.php(17): require('/var в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php на строке 122
+
+2020-01-09T10:15:26+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_User as array in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php:122
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Public->set_global_discount_for_user('')
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-settings.php(523): do_action('init')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-config.php(78): require_once('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-load.php(37): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php(13): require_once('/var/www/tsvito...')
+#7 /var/www/tsvitokha/primex2.0/public_html/index.php(17): require('/var в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php на строке 122
+
+2020-01-09T13:53:19+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_product() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php:237
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Discount_Public->recalculate_totals(Object(WC_Cart))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-discount-rules/includes/cart-rules.php(2125): do_action('woocommerce_bef...', Object(WC_Cart))
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-discount-rules/includes/cart-rules.php(96): FlycartWooDiscountRulesCartRules->calculateCartSubtotal()
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-discount-rules/includes/discount-base.p в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/public/class-woo-all-in-one-discount-public.php на строке 237
+

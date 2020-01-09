@@ -33,6 +33,7 @@ class Woo_All_In_One_Discount_Rules {
     public static function create_product_discount($data) {
         $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
         $id = wp_generate_uuid4();
+        $priority = !empty($data['discount_priority']) ? sanitize_text_field($data['discount_priority']) : 10;
 
         $result = array(
             'error' => '',
@@ -42,6 +43,7 @@ class Woo_All_In_One_Discount_Rules {
         $new_rule = array(
             'title' => sanitize_text_field($data['discount_title']),
             'type' => sanitize_text_field($data['discount_type']),
+            'priority' => $priority,
             'description' => sanitize_textarea_field($data['discount_description']),
             'status' => 'draft',
         );
@@ -87,6 +89,7 @@ class Woo_All_In_One_Discount_Rules {
     public static function update_general_product_discount($id, $data) {
         $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
         $product_discount_rule = $product_discount_rules[$id];
+        $priority = !empty($data['discount_priority']) ? sanitize_text_field($data['discount_priority']) : 10;
 
         $result = array(
             'error' => '',
@@ -95,6 +98,7 @@ class Woo_All_In_One_Discount_Rules {
 
         $product_discount_rule['title'] = sanitize_text_field($data['discount_title']);
         $product_discount_rule['type'] = sanitize_text_field($data['discount_type']);
+        $product_discount_rule['priority'] = $priority;
         $product_discount_rule['description'] = sanitize_text_field($data['discount_description']);
 
         $product_discount_rules[$id] = $product_discount_rule;
@@ -227,6 +231,7 @@ class Woo_All_In_One_Discount_Rules {
     public static function create_user_discount($data) {
         $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
         $id = wp_generate_uuid4();
+        $priority = !empty($data['discount_priority']) ? sanitize_text_field($data['discount_priority']) : 10;
 
         $result = array(
             'error' => '',
@@ -236,6 +241,7 @@ class Woo_All_In_One_Discount_Rules {
         $new_rule = array(
             'title' => sanitize_text_field($data['discount_title']),
             'type' => sanitize_text_field($data['discount_type']),
+            'priority' => $priority,
             'description' => sanitize_textarea_field($data['discount_description']),
             'status' => 'draft',
         );
@@ -262,8 +268,6 @@ class Woo_All_In_One_Discount_Rules {
         switch ($setting) {
             case 'general':
                 return self::update_general_user_discount($id, $data);
-            case 'extra_charge':
-                return self::update_extra_charge_user_discount($id, $data);
             case 'base_discount':
                 return self::update_base_discount_user_discount($id, $data);
         }
@@ -279,11 +283,12 @@ class Woo_All_In_One_Discount_Rules {
     public static function update_general_user_discount($id, $data) {
         $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
         $product_discount_rule = $product_discount_rules[$id];
-
+        $priority = !empty($data['discount_priority']) ? sanitize_text_field($data['discount_priority']) : 10;
         $result = array( 'error' => '', 'id' => $id );
 
         $product_discount_rule['title'] = sanitize_text_field($data['discount_title']);
         $product_discount_rule['type'] = sanitize_text_field($data['discount_type']);
+        $product_discount_rule['priority'] = $priority;
         $product_discount_rule['description'] = sanitize_text_field($data['discount_description']);
 
         if ($data['discount_type'] === 'user_roles') {
@@ -294,21 +299,6 @@ class Woo_All_In_One_Discount_Rules {
                 unset($product_discount_rule['role']);
             }
         }
-
-        $product_discount_rules[$id] = $product_discount_rule;
-
-        update_option('wooaio_user_discount_rules', $product_discount_rules);
-
-        return $result;
-    }
-
-    public static function update_extra_charge_user_discount($id, $data) {
-        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
-        $product_discount_rule = $product_discount_rules[$id];
-
-        $result = array( 'error' => '', 'id' => $id );
-
-        $product_discount_rule['extra_charge'] = $data;
 
         $product_discount_rules[$id] = $product_discount_rule;
 
@@ -355,5 +345,102 @@ class Woo_All_In_One_Discount_Rules {
         }
 
         return $result;
+    }
+
+    public static function get_price($product_price, $product) {
+        global $wooaiodiscount_current_user_rule;
+        $discount = 0;
+        $all_products_discount = 0;
+        $category_discount = 0;
+        $product_discount = 0;
+        $discount_type = 'extra_charge';
+        $product_type = $product->get_type();
+
+        if ('variation' === $product_type) {
+            $_product = wc_get_product( $product->get_parent_id() );
+            $product_id = $_product->get_id();
+        } else {
+            $product_id = $product->get_id();
+        }
+
+
+        $rule = $wooaiodiscount_current_user_rule;
+        $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
+
+        if (!empty($rule['base_discount']['discount'])) {
+            $discount_type = $rule["base_discount"]["type"];
+            foreach ($rule['base_discount']['discount'] as $discount_rule) {
+                if ($discount_rule['apply'] === 'all_products') {
+                    $all_products_discount = $discount_rule['amount'];
+                } elseif ($discount_rule['apply'] === 'by_categories') {
+
+                } elseif ($discount_rule['apply'] === 'separate_products') {
+                    if (in_array($product_id, $discount_rule['products'])) {
+                        $product_discount = $discount_rule['amount'];
+                    }
+                }
+            }
+        }
+
+        if (!empty($all_products_discount)) {
+            $discount = $all_products_discount;
+        }
+
+        if (!empty($category_discount)) {
+            $discount = $category_discount;
+        }
+
+        if (!empty($product_discount)) {
+            $discount = $product_discount;
+        }
+
+        if ('extra_charge' === $discount_type) {
+            $product_price = $product_price + ($product_price * ($discount / 100));
+        } else {
+            $product_price = $product_price - ($product_price * ($discount / 100));
+        }
+
+        return $product_price;
+    }
+
+    public static function get_discount_amount($product) {
+        global $wooaiodiscount_current_user_rule;
+        $discount = 0;
+        $all_products_discount = 0;
+        $category_discount = 0;
+        $product_discount = 0;
+        $discount_type = 'extra_charge';
+        $product_id = $product->get_id();
+        $rule = $wooaiodiscount_current_user_rule;
+        $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
+
+        if (!empty($rule['base_discount']['discount'])) {
+            $discount_type = $rule["base_discount"]["type"];
+            foreach ($rule['base_discount']['discount'] as $discount_rule) {
+                if ($discount_rule['apply'] === 'all_products') {
+                    $all_products_discount = $discount_rule['amount'];
+                } elseif ($discount_rule['apply'] === 'by_categories') {
+
+                } elseif ($discount_rule['apply'] === 'separate_products') {
+                    if (in_array($product_id, $discount_rule['products'])) {
+                        $product_discount = $discount_rule['amount'];
+                    }
+                }
+            }
+        }
+
+        if (!empty($all_products_discount)) {
+            $discount = $all_products_discount;
+        }
+
+        if (!empty($category_discount)) {
+            $discount = $category_discount;
+        }
+
+        if (!empty($product_discount)) {
+            $discount = $product_discount;
+        }
+
+        return $discount;
     }
 }
