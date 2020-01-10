@@ -106,6 +106,7 @@ class Woo_All_In_One_Discount {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Discount_Rules.php';
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template-functions.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/woo-functions.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -192,13 +193,13 @@ class Woo_All_In_One_Discount {
 
 		$plugin_public = new Woo_All_In_One_Discount_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'init', $plugin_public, 'set_global_discount_for_user' );
+		$this->loader->add_action( 'init', $plugin_public, 'set_global_discount_for_user', 10 );
+		$this->loader->add_action( 'init', $plugin_public, 'set_woocommerce_filters', 15 );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_filter( 'woocommerce_product_get_price', $plugin_public, 'raw_woocommerce_price', 100, 2 );
-		$this->loader->add_filter( 'woocommerce_get_price_html', $plugin_public, 'woocommerce_get_price_html', 1000, 2 );
+//		$this->loader->add_filter( 'woocommerce_product_get_price', $plugin_public, 'raw_woocommerce_price', 100, 2 );
 
 		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'recalculate_totals', 1000 );
 
