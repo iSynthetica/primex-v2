@@ -36,7 +36,19 @@
 
             <div class="col_half nobottommargin d-none d-md-block">
 
-                <p class="nobottommargin"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
+                <!-- Top Links
+					============================================= -->
+                <div class="top-links">
+                    <ul>
+                        <li><a href="index.html">О нас</a></li>
+                        <li><a href="index.html">Оплата и доставка</a></li>
+                        <li><a href="index.html">Гарантия</a></li>
+                        <li><a href="index.html">Ремонты</a></li>
+                        <li><a href="index.html">Контакты</a></li>
+                        <li><a href="/autostores/">Автосалонам</a></li>
+                        <li><a href="index.html">Интернет-магазинам</a></li>
+                    </ul>
+                </div><!-- .top-links end -->
 
             </div>
 

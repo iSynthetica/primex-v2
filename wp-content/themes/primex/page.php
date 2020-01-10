@@ -1,5 +1,6 @@
 <?php
 $layout = 'right-sidebar';
+$subtitle = !empty($subtitle) ? $subtitle : '';
 ?>
 
 <?php get_header();?>
@@ -9,19 +10,43 @@ $layout = 'right-sidebar';
 while ( have_posts() ) :
     the_post();
 
+    if (get_post_thumbnail_id()) {
+        $bg_image = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
+        // var_dump(wp_get_attachment_image_src(get_post_thumbnail_id(), 'full'));
+        ?>
+        <!-- Page Title
+                ============================================= -->
+        <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 200px 0; background-image: url('<?php echo $bg_image[0] ?>'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
+
+            <div class="container clearfix">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                <?php
+                if (!empty($subtitle)) {
+                    ?><span>Page Content on the Left &amp; Sidebar on the Right</span><?php
+                }
+                ?>
+                <?php snth_the_breadcrumbs(); ?>
+            </div>
+
+        </section><!-- #page-title end -->
+        <?php
+    } else {
+        ?>
+        <!-- Page Title ============================================= -->
+        <section id="page-title">
+            <div class="container clearfix">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                <?php
+                if (!empty($subtitle)) {
+                    ?><span>Page Content on the Left &amp; Sidebar on the Right</span><?php
+                }
+                ?>
+                <?php snth_the_breadcrumbs(); ?>
+            </div>
+        </section><!-- #page-title end -->
+        <?php
+    }
     ?>
-    <!-- Page Title ============================================= -->
-    <section id="page-title">
-        <div class="container clearfix">
-            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            <span>Page Content on the Left &amp; Sidebar on the Right</span>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Right Sidebar</li>
-            </ol>
-        </div>
-    </section><!-- #page-title end -->
 
     <!-- Content ============================================= -->
     <section id="content">
