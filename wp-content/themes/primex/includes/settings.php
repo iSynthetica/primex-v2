@@ -73,6 +73,10 @@ function snth_settings_shortcodes($shortcodes) {
             'id' => 'snth_cart_icon',
             'callback' => 'snth_cart_icon',
         ),
+        array(
+            'id' => 'snth_social',
+            'callback' => 'snth_social',
+        ),
     );
 }
 add_filter('snth_shortcodes', 'snth_settings_shortcodes', 999);

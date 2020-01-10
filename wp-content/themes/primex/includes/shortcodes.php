@@ -113,3 +113,21 @@ function snth_cart_icon() {
     <?php
     return ob_get_clean();
 }
+
+function snth_social() {
+    $social = get_field('social', 'options');
+
+    foreach ($social as $item) {
+        ?>
+        <a
+            href="<?php echo $item['link'] ?>"
+            class="social-icon si-small si-rounded topmargin-sm si-<?php echo $item['icon'] ?> display-on-<?php echo $item['use_on'] ?>"
+            target="_blank"
+            rel="nofollow"
+        >
+            <i class="icon-<?php echo $item['icon'] ?> fab fa-<?php echo $item['icon'] ?>"></i>
+            <i class="icon-<?php echo $item['icon'] ?> fab fa-<?php echo $item['icon'] ?>"></i>
+        </a>
+        <?php
+    }
+}

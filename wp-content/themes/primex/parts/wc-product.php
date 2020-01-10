@@ -1,10 +1,16 @@
 <?php
 $layout = 'right-sidebar';
+$subtitle = !empty($subtitle) ? $subtitle : '';
 ?>
 <section id="page-title">
     <div class="container clearfix">
         <h1><?php echo get_the_title(); ?></h1>
-        <span>Page Content on the Left &amp; Sidebar on the Right</span>
+        <?php
+        if (!empty($subtitle)) {
+            ?><span>Page Content on the Left &amp; Sidebar on the Right</span><?php
+        }
+        ?>
+
         <?php snth_the_breadcrumbs(); ?>
     </div>
 </section><!-- #page-title end -->
@@ -20,7 +26,7 @@ $layout = 'right-sidebar';
                 </div>
 
                 <div class="sidebar nobottommargin col_last clearfix">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('woocommerce'); ?>
                 </div>
                 <?php
             } elseif ('left-sidebar' === $layout) {
@@ -30,7 +36,7 @@ $layout = 'right-sidebar';
                 </div>
 
                 <div class="sidebar nobottommargin clearfix">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('woocommerce'); ?>
                 </div>
                 <?php
             } else {

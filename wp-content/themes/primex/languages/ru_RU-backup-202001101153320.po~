@@ -67,7 +67,7 @@ msgstr "Поиск &hellip;"
 
 #: search.php:15
 msgid "Search Page"
-msgstr "Результаты поиска"
+msgstr ""
 
 #: index.php:15 archive.php:23 includes/content-templates.php:27
 #: parts/general/comment-form.php:9

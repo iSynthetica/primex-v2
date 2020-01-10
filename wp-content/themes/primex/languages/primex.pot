@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Prime-X\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 09:41+0000\n"
+"POT-Creation-Date: 2020-01-10 11:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,29 +15,23 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.1; wp-5.3.2"
 
-#: includes/content-templates.php:284 woocommerce/loop/pagination.php:38
-msgid "<i class=\"fas fa-angle-left\"></i>"
+#: single.php:50
+msgid "Pages:"
 msgstr ""
 
-#: includes/content-templates.php:285 woocommerce/loop/pagination.php:39
-msgid "<i class=\"fas fa-angle-right\"></i>"
+#: single.php:65
+msgid "Previous Post"
 msgstr ""
 
-#: index.php:15 archive.php:23 includes/content-templates.php:27
-#: parts/general/comment-form.php:9
-msgid "Blog"
+#: single.php:66
+msgid "Next Post"
 msgstr ""
 
-#: includes/settings.php:51
-msgid "Blog Sidebar"
-msgstr ""
-
-#: includes/settings.php:52
-msgid "Blog sidebar."
-msgstr ""
-
-#: comments.php:80
-msgid "Comments are closed."
+#. %s: post title
+#: comments.php:35
+#, php-format
+msgctxt "comments title"
+msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr ""
 
 #. 1: number of comments, 2: post title
@@ -49,72 +43,20 @@ msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#. %s: post title
-#: comments.php:35
-#, php-format
-msgctxt "comments title"
-msgid "One Reply to &ldquo;%s&rdquo;"
+#: comments.php:60
+msgid "Reply"
 msgstr ""
 
-#: includes/settings.php:6
-msgid "Footer 1"
-msgstr ""
-
-#: includes/settings.php:15
-msgid "Footer 2"
-msgstr ""
-
-#: includes/settings.php:24
-msgid "Footer 3"
-msgstr ""
-
-#: includes/settings.php:33
-msgid "Footer 4"
-msgstr ""
-
-#: includes/settings.php:42
-msgid "Footer 5"
-msgstr ""
-
-#: includes/menu.php:16
-msgid "Footer Navigation"
-msgstr ""
-
-#. Name of the template
-msgid "Fullwidth Page"
-msgstr ""
-
-#: includes/content-templates.php:26 parts/general/comment-form.php:8
-msgid "Home"
-msgstr ""
-
-#: header.php:78
-msgid "Login"
-msgstr ""
-
-#: includes/menu.php:15
-msgid "Main Menu Navigation"
-msgstr ""
-
-#: header.php:66
-msgid "My account"
+#: comments.php:70
+msgid "Previous"
 msgstr ""
 
 #: comments.php:71
 msgid "Next"
 msgstr ""
 
-#: single.php:66
-msgid "Next Post"
-msgstr ""
-
-#: includes/content-templates.php:30 parts/general/comment-form.php:12
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: single.php:50
-msgid "Pages:"
+#: comments.php:80
+msgid "Comments are closed."
 msgstr ""
 
 #: searchform.php:14
@@ -122,58 +64,21 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: includes/content-templates.php:29 parts/general/comment-form.php:11
-#, php-format
-msgid "Posts tagged with \"%s\""
+#: search.php:15
+msgid "Search Page"
 msgstr ""
 
-#: comments.php:70
-msgid "Previous"
+#: index.php:15 archive.php:23 includes/content-templates.php:27
+#: parts/general/comment-form.php:9
+msgid "Blog"
 msgstr ""
 
-#: single.php:65
-msgid "Previous Post"
+#: header.php:66
+msgid "My account"
 msgstr ""
 
-#. Name of the theme
-msgid "Prime-X"
-msgstr ""
-
-#: includes/wc-template-functions.php:133
-#: includes/wc-template-functions.php:296
-msgid "Quick view"
-msgstr ""
-
-#: comments.php:60
-msgid "Reply"
-msgstr ""
-
-#: includes/shortcodes.php:77
-msgid "Shopping Cart"
-msgstr ""
-
-#. Author of the theme
-msgid "SyntheticaText Domain: primex"
-msgstr ""
-
-#: includes/settings.php:43
-msgid "The fifth footer sidebar."
-msgstr ""
-
-#: includes/settings.php:7
-msgid "The first footer sidebar."
-msgstr ""
-
-#: includes/settings.php:34
-msgid "The fourth footer sidebar."
-msgstr ""
-
-#: includes/settings.php:16
-msgid "The second footer sidebar."
-msgstr ""
-
-#: includes/settings.php:25
-msgid "The third footer sidebar."
+#: header.php:78
+msgid "Login"
 msgstr ""
 
 #: includes/theme-support.php:65
@@ -184,6 +89,105 @@ msgstr ""
 msgid "Theme settings"
 msgstr ""
 
+#: includes/shortcodes.php:77
+msgid "Shopping Cart"
+msgstr ""
+
 #: includes/shortcodes.php:108
 msgid "View Cart"
+msgstr ""
+
+#: includes/content-templates.php:26 parts/general/comment-form.php:8
+msgid "Home"
+msgstr ""
+
+#: includes/content-templates.php:29 parts/general/comment-form.php:11
+#, php-format
+msgid "Posts tagged with \"%s\""
+msgstr ""
+
+#: includes/content-templates.php:30 parts/general/comment-form.php:12
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: includes/content-templates.php:284 woocommerce/loop/pagination.php:38
+msgid "<i class=\"fas fa-angle-left\"></i>"
+msgstr ""
+
+#: includes/content-templates.php:285 woocommerce/loop/pagination.php:39
+msgid "<i class=\"fas fa-angle-right\"></i>"
+msgstr ""
+
+#: includes/menu.php:15
+msgid "Main Menu Navigation"
+msgstr ""
+
+#: includes/menu.php:16
+msgid "Footer Navigation"
+msgstr ""
+
+#: includes/wc-template-functions.php:133
+#: includes/wc-template-functions.php:296
+msgid "Quick view"
+msgstr ""
+
+#: includes/settings.php:6
+msgid "Footer 1"
+msgstr ""
+
+#: includes/settings.php:7
+msgid "The first footer sidebar."
+msgstr ""
+
+#: includes/settings.php:15
+msgid "Footer 2"
+msgstr ""
+
+#: includes/settings.php:16
+msgid "The second footer sidebar."
+msgstr ""
+
+#: includes/settings.php:24
+msgid "Footer 3"
+msgstr ""
+
+#: includes/settings.php:25
+msgid "The third footer sidebar."
+msgstr ""
+
+#: includes/settings.php:33
+msgid "Footer 4"
+msgstr ""
+
+#: includes/settings.php:34
+msgid "The fourth footer sidebar."
+msgstr ""
+
+#: includes/settings.php:42
+msgid "Footer 5"
+msgstr ""
+
+#: includes/settings.php:43
+msgid "The fifth footer sidebar."
+msgstr ""
+
+#: includes/settings.php:51
+msgid "Blog Sidebar"
+msgstr ""
+
+#: includes/settings.php:52
+msgid "Blog sidebar."
+msgstr ""
+
+#. Name of the template
+msgid "Fullwidth Page"
+msgstr ""
+
+#. Name of the theme
+msgid "Prime-X"
+msgstr ""
+
+#. Author of the theme
+msgid "SyntheticaText Domain: primex"
 msgstr ""

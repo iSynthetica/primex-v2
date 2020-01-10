@@ -6030,14 +6030,14 @@ body:not(.device-touch) .social-icon i {
     font-size: 15px;
 }
 
-.si-facebook:hover,
-.si-colored.si-facebook { background-color: #3B5998 !important; }
+.si-facebook:hover,.si-facebook-f:hover,
+.si-colored.si-facebook, .si-colored.si-facebook-f { background-color: #3B5998 !important; }
 .si-delicious:hover,
 .si-colored.si-delicious { background-color: #205CC0 !important; }
 .si-paypal:hover,
 .si-colored.si-paypal { background-color: #00588B !important; }
-.si-flattr:hover,
-.si-colored.si-flattr { background-color: #F67C1A !important; }
+.si-flattr:hover, .si-odnoklassniki:hover,
+.si-colored.si-flattr, .si-colored.si-odnoklassniki { background-color: #F67C1A !important; }
 .si-android:hover,
 .si-colored.si-android { background-color: #A4C639 !important; }
 .si-smashmag:hover,
