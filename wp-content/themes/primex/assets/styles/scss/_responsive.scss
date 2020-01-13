@@ -1,10 +1,7 @@
 /* ----------------------------------------------------------------
 	Responsive CSS
 -----------------------------------------------------------------*/
-
-
 @media (max-width: 1199.98px) {
-
     canvas {
         max-width: 100%;
         height: auto !important;
@@ -21,7 +18,6 @@
     .promo-uppercase > .container > span { font-size: 14px; }
 
 }
-
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
 
@@ -150,7 +146,6 @@
 
 }
 
-
 @media (max-width: 991.98px) {
 
     #wrapper {
@@ -263,17 +258,7 @@
     #header-trigger,
     .top-advert { display: none; }
 
-    .header-extras {
-        // display: none;
-        margin-top: 0!important;
-        text-align: center;
-        li {
-            margin-left: rem-calc(5)!important;
-            margin-right: rem-calc(5)!important;
-            display: inline-block;
-            float: none;
-        }
-    }
+    .header-extras {display: none;}
 
     #logo {
         display: block;
@@ -1011,7 +996,6 @@
 
 }
 
-
 @media (min-width: 768px) and (max-width: 991.98px) {
 
     .swiper_wrapper:not(.full-screen):not(.canvas-slider-grid),
@@ -1041,7 +1025,6 @@
     }
 
 }
-
 
 @media (max-width: 767.98px) {
 

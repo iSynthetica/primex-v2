@@ -132,12 +132,14 @@
 
 .header-phones.header-extras {
     float: right;
-    margin: 30px 0 0;
+    margin: 0;
+    padding-top: 15px;
 
     li {
-        float: left;
-        margin-left: 20px;
-        height: 40px;
+        display: block;
+        float: none;
+        margin-left: 0!important;
+        height: rem-calc(25);
         overflow: hidden;
         list-style: none;
 
@@ -150,16 +152,31 @@
 
         .he-text {
             float: left;
-            padding-left: 10px;
+            padding-left: 0;
             font-weight: bold;
-            font-size: 14px;
-            line-height: rem-calc(40);
+            font-size: 16px;
+            line-height: rem-calc(25);
 
             span {
                 display: block;
                 font-weight: 400;
                 color: #1ABC9C;
             }
+        }
+    }
+}
+
+#top-bar {
+    .container-fullwidth {
+        padding: 0!important;
+    }
+}
+
+#my-account {
+    & > a {
+        i {
+            display: none;
+            vertical-align: baseline;
         }
     }
 }

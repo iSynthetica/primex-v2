@@ -16403,7 +16403,8 @@ small {
   float: left; }
   .top-links ul {
     margin: 0;
-    list-style: none; }
+    list-style: none;
+    padding-left: 0 !important; }
     .top-links ul li {
       float: left;
       position: relative;
@@ -22400,48 +22401,44 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
 
 .quantity {
   float: left;
-  margin-right: 30px; }
-
-.quantity input[type=number]::-webkit-inner-spin-button,
-.quantity input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0; }
-
-.quantity .qty {
-  float: left;
-  width: 50px;
-  height: 40px;
-  line-height: 40px;
-  border: 0;
-  border-left: 1px solid #DDD;
-  border-right: 1px solid #DDD;
-  background-color: #EEE;
-  text-align: center;
-  margin-bottom: 0; }
-
-.quantity .plus,
-.quantity .minus {
-  display: block;
-  float: left;
-  cursor: pointer;
-  border: 0px transparent;
-  padding: 0;
-  width: 36px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  background-color: #EEE;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color .2s linear;
-  -webkit-transition: background-color .2s linear;
-  -o-transition: background-color .2s linear; }
-
-.quantity .plus:hover,
-.quantity .minus:hover {
-  background-color: #DDD; }
+  margin-right: 0.625rem; }
+  .quantity input[type=number]::-webkit-inner-spin-button,
+  .quantity input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; }
+  .quantity .qty {
+    float: left;
+    width: 50px;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border: 1px solid #DDD;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 0; }
+  .quantity .plus,
+  .quantity .minus {
+    color: #fff;
+    display: block;
+    float: left;
+    cursor: pointer;
+    padding: 0;
+    width: 1.625rem;
+    height: 2.5rem;
+    line-height: 2.375rem;
+    border: 1px solid #1ABC9C;
+    text-align: center;
+    background-color: #1ABC9C;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear; }
+    .quantity .plus:hover,
+    .quantity .minus:hover {
+      border: 1px solid #117964;
+      background-color: #117964; }
 
 .quantity .qty:focus,
 .quantity .plus:focus,
@@ -31144,11 +31141,13 @@ body #side-panel.dark #side-panel-trigger-close a {
 
 .header-phones.header-extras {
   float: right;
-  margin: 30px 0 0; }
+  margin: 0;
+  padding-top: 15px; }
   .header-phones.header-extras li {
-    float: left;
-    margin-left: 20px;
-    height: 40px;
+    display: block;
+    float: none;
+    margin-left: 0 !important;
+    height: 1.5625rem;
     overflow: hidden;
     list-style: none; }
     .header-phones.header-extras li i {
@@ -31158,14 +31157,21 @@ body #side-panel.dark #side-panel-trigger-close a {
       margin-left: 0; }
     .header-phones.header-extras li .he-text {
       float: left;
-      padding-left: 10px;
+      padding-left: 0;
       font-weight: bold;
-      font-size: 14px;
-      line-height: 2.5rem; }
+      font-size: 16px;
+      line-height: 1.5625rem; }
       .header-phones.header-extras li .he-text span {
         display: block;
         font-weight: 400;
         color: #1ABC9C; }
+
+#top-bar .container-fullwidth {
+  padding: 0 !important; }
+
+#my-account > a i {
+  display: none;
+  vertical-align: baseline; }
 
 /* ----------------------------------------------------------------
 	Responsive CSS
@@ -31370,13 +31376,7 @@ body #side-panel.dark #side-panel-trigger-close a {
   .top-advert {
     display: none; }
   .header-extras {
-    margin-top: 0 !important;
-    text-align: center; }
-    .header-extras li {
-      margin-left: 0.3125rem !important;
-      margin-right: 0.3125rem !important;
-      display: inline-block;
-      float: none; }
+    display: none; }
   #logo {
     display: block;
     height: auto;
@@ -32542,14 +32542,35 @@ body #side-panel.dark #side-panel-trigger-close a {
   #logo a.retina-logo {
     display: inline-block; } }
 
-.header-extras {
-  margin-top: 0 !important;
-  text-align: center; }
-  .header-extras li {
-    margin-left: 0.3125rem !important;
-    margin-right: 0.3125rem !important;
-    display: inline-block;
-    float: none; }
+@media (max-width: 991.98px) {
+  .header-phones.header-extras {
+    float: none;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center; }
+    .header-phones.header-extras li {
+      margin-left: 0.3125rem !important;
+      margin-right: 0.3125rem !important;
+      display: inline-block;
+      float: none; }
+  #top-bar .container-fullwidth {
+    width: 100% !important; }
+  #header.sticky-style-2 .container-fullwidth {
+    width: 100% !important; } }
+
+@media (max-width: 767.98px) {
+  #top-bar #additional-nav {
+    margin-right: 0 !important;
+    float: right !important;
+    clear: right !important;
+    width: auto;
+    display: block;
+    position: relative; }
+  #my-account > a i {
+    display: inline-block; }
+  #my-account > a span {
+    display: none; } }
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);

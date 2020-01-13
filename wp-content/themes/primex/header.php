@@ -34,7 +34,7 @@
 
         <div class="container-fullwidth clearfix">
 
-            <div class="col_half nobottommargin d-none d-md-block">
+            <div id="secondary-nav" class="col_half nobottommargin d-none d-md-block">
 
                 <!-- Top Links
 					============================================= -->
@@ -42,7 +42,7 @@
 
             </div>
 
-            <div class="col_half col_last fright nobottommargin">
+            <div id="additional-nav" class="col_half col_last fright nobottommargin">
 
                 <!-- Top Links
                 ============================================= -->
@@ -65,7 +65,9 @@
                         <?php
                         if (is_user_logged_in()) {
                             ?>
-                            <li><a href="#"><?php _e('My account', 'primex'); ?></a>
+                            <li id="my-account"><a href="#">
+                                    <i class="far fa-user-circle"></i><span><?php _e('My account', 'primex'); ?></span>
+                                </a>
                                 <ul>
                                     <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
                                         <li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
@@ -77,7 +79,7 @@
                             <?php
                         } else {
                             ?>
-                            <li><a href="#"><?php _e('Login', 'primex'); ?></a>
+                            <li id="my-account"><a href="#"><i class="fas fa-sign-in-alt"></i><span><?php _e('Login', 'primex'); ?></span></a>
                                 <div class="top-link-section">
                                     <form id="top-login" role="form">
                                         <div class="input-group" id="top-login-username">

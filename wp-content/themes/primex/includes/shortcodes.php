@@ -141,7 +141,6 @@ function snth_phones_header() {
     foreach ($social as $item) {
         ?>
         <li>
-            <i class="i-medium i-circled i-bordered fas fa-<?php echo $item['icon'] ?> nomargin"></i>
             <div class="he-text">
                 <?php echo $item['label'] ?>
             </div>

@@ -1,11 +1,51 @@
-.header-extras {
-    // display: none;
-    margin-top: 0!important;
-    text-align: center;
-    li {
-        margin-left: rem-calc(5)!important;
-        margin-right: rem-calc(5)!important;
-        display: inline-block;
+@media (max-width: 991.98px) {
+    .header-phones.header-extras {
         float: none;
+        display: block;
+        margin: 0!important;
+        padding: 0!important;
+        text-align: center;
+        li {
+            margin-left: rem-calc(5)!important;
+            margin-right: rem-calc(5)!important;
+            display: inline-block;
+            float: none;
+        }
+    }
+
+    #top-bar {
+        .container-fullwidth {
+            width: 100%!important;
+        }
+    }
+
+    #header.sticky-style-2 {
+        .container-fullwidth {
+            width: 100%!important;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    #top-bar {
+        #additional-nav {
+            margin-right: 0 !important;
+            float: right!important;
+            clear: right!important;
+            width: auto;
+            display: block;
+            position: relative;
+        }
+    }
+
+    #my-account {
+        & > a {
+            i {
+                display: inline-block;
+            }
+            span {
+                display: none;
+            }
+        }
     }
 }
