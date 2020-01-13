@@ -77,6 +77,10 @@ function snth_settings_shortcodes($shortcodes) {
             'id' => 'snth_social',
             'callback' => 'snth_social',
         ),
+        array(
+            'id' => 'snth_phones_header',
+            'callback' => 'snth_phones_header',
+        ),
     );
 }
 add_filter('snth_shortcodes', 'snth_settings_shortcodes', 999);

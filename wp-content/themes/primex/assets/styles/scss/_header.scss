@@ -338,32 +338,32 @@ body.stretched #header.full-header .container {
 .header-extras {
     float: right;
     margin: 30px 0 0;
-}
 
-.header-extras li {
-    float: left;
-    margin-left: 20px;
-    height: 40px;
-    overflow: hidden;
-    list-style: none;
-}
+    li {
+        float: left;
+        margin-left: 20px;
+        height: 40px;
+        overflow: hidden;
+        list-style: none;
 
-.header-extras li i { margin-top: 3px !important; }
+        i { margin-top: 3px !important; }
 
-.header-extras li:first-child { margin-left: 0; }
+        &:first-child { margin-left: 0; }
 
-.header-extras li .he-text {
-    float: left;
-    padding-left: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.43;
-}
+        .he-text {
+            float: left;
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.43;
 
-.header-extras li .he-text span {
-    display: block;
-    font-weight: 400;
-    color: #1ABC9C;
+            span {
+                display: block;
+                font-weight: 400;
+                color: #1ABC9C;
+            }
+        }
+    }
 }
 
 

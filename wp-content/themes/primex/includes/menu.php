@@ -15,7 +15,7 @@ register_nav_menus(
         'main-nav'      => __( 'Main Menu Navigation', 'primex' ),
         'top-bar-nav'      => __( 'Top Bar Menu Navigation', 'primex' ),
         'footer-nav'    => __( 'Footer Navigation', 'primex' )
-    ),
+    )
 );
 
 /**

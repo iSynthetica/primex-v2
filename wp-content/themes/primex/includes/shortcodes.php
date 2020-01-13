@@ -131,3 +131,24 @@ function snth_social() {
         <?php
     }
 }
+
+function snth_phones_header() {
+    $social = get_field('phones', 'options');
+
+    ?>
+    <ul class="header-extras header-phones">
+    <?php
+    foreach ($social as $item) {
+        ?>
+        <li>
+            <i class="i-medium i-circled i-bordered fas fa-<?php echo $item['icon'] ?> nomargin"></i>
+            <div class="he-text">
+                <?php echo $item['label'] ?>
+            </div>
+        </li>
+        <?php
+    }
+    ?>
+    </ul>
+    <?php
+}

@@ -124,29 +124,7 @@
                 <a href="<?php echo get_home_url() ?>" class="retina-logo" data-dark-logo="<?php echo SNTH_IMAGES_URL ?>/logo.png"><img src="<?php echo SNTH_IMAGES_URL ?>/logo.png" alt="Primex Logo"></a>
             </div><!-- #logo end -->
 
-            <ul class="header-extras">
-                <li>
-                    <i class="i-medium i-circled i-bordered icon-thumbs-up2 nomargin"></i>
-                    <div class="he-text">
-                        Original Brands
-                        <span>100% Guaranteed</span>
-                    </div>
-                </li>
-                <li>
-                    <i class="i-medium i-circled i-bordered icon-truck2 nomargin"></i>
-                    <div class="he-text">
-                        Free Shipping
-                        <span>for $20 or more</span>
-                    </div>
-                </li>
-                <li>
-                    <i class="i-medium i-circled i-bordered icon-undo nomargin"></i>
-                    <div class="he-text">
-                        30-Day Returns
-                        <span>Completely Free</span>
-                    </div>
-                </li>
-            </ul>
+            <?php echo do_shortcode('[snth_phones_header]') ?>
 
         </div>
 
