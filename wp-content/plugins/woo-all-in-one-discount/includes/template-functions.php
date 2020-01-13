@@ -204,40 +204,42 @@ function wooaiodiscount_categories_tree( $i, $category, $discount_settings_categ
 
 function wooaiodiscount_products_tree( $i, $product, $discount_settings_products, $discount_rule ) {
     $product_id = $product->get_id();
+    $product_type = $product->get_type();
 
-    if ($discount_rule["apply"] !== 'separate_products') {
-
-        if (!in_array($product_id, $discount_settings_products)) {
-            ?>
-            <li>
-                <fieldset>
-                    <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>">
-                    <label for="product_<?php echo $i ?>_<?php echo $product_id; ?>"><?php echo $product->get_name(); ?></label>
-                </fieldset>
-            </li>
-            <?php
-        }
-    } else {
-        if (in_array($product_id, $discount_settings_products)) {
-            if (in_array($product_id, $discount_rule['products'])) {
+    if ('grouped' !== $product_type) {
+        if ($discount_rule["apply"] !== 'separate_products') {
+            if (!in_array($product_id, $discount_settings_products)) {
                 ?>
                 <li>
                     <fieldset>
-                        <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>" checked>
+                        <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>">
                         <label for="product_<?php echo $i ?>_<?php echo $product_id; ?>"><?php echo $product->get_name(); ?></label>
                     </fieldset>
                 </li>
                 <?php
             }
         } else {
-            ?>
-            <li>
-                <fieldset>
-                    <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>">
-                    <label for="product_<?php echo $i ?>_<?php echo $product_id; ?>"><?php echo $product->get_name(); ?></label>
-                </fieldset>
-            </li>
-            <?php
+            if (in_array($product_id, $discount_settings_products)) {
+                if (in_array($product_id, $discount_rule['products'])) {
+                    ?>
+                    <li>
+                        <fieldset>
+                            <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>" checked>
+                            <label for="product_<?php echo $i ?>_<?php echo $product_id; ?>"><?php echo $product->get_name(); ?></label>
+                        </fieldset>
+                    </li>
+                    <?php
+                }
+            } else {
+                ?>
+                <li>
+                    <fieldset>
+                        <input id="product_<?php echo $i ?>_<?php echo $product_id; ?>" type="checkbox" name="products[<?php echo $i ?>][]" value="<?php echo $product_id; ?>">
+                        <label for="product_<?php echo $i ?>_<?php echo $product_id; ?>"><?php echo $product->get_name(); ?></label>
+                    </fieldset>
+                </li>
+                <?php
+            }
         }
     }
 }

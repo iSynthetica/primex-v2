@@ -350,9 +350,9 @@ class Woo_All_In_One_Discount_Rules {
     public static function get_price($product_price, $product) {
         global $wooaiodiscount_current_user_rule;
         $discount = 0;
-        $all_products_discount = 0;
-        $category_discount = 0;
-        $product_discount = 0;
+        $all_products_discount = null;
+        $category_discount = null;
+        $product_discount = null;
         $discount_type = 'extra_charge';
         $product_type = $product->get_type();
 
@@ -382,15 +382,15 @@ class Woo_All_In_One_Discount_Rules {
             }
         }
 
-        if (!empty($all_products_discount)) {
+        if (null !==  $all_products_discount) {
             $discount = $all_products_discount;
         }
 
-        if (!empty($category_discount)) {
+        if (null !==  $category_discount) {
             $discount = $category_discount;
         }
 
-        if (!empty($product_discount)) {
+        if (null !==  $product_discount) {
             $discount = $product_discount;
         }
 
@@ -406,16 +406,14 @@ class Woo_All_In_One_Discount_Rules {
     public static function get_discount_amount($product) {
         global $wooaiodiscount_current_user_rule;
         $discount = 0;
-        $all_products_discount = 0;
-        $category_discount = 0;
-        $product_discount = 0;
-        $discount_type = 'extra_charge';
+        $all_products_discount = null;
+        $category_discount = null;
+        $product_discount = null;
         $product_id = $product->get_id();
         $rule = $wooaiodiscount_current_user_rule;
         $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
 
         if (!empty($rule['base_discount']['discount'])) {
-            $discount_type = $rule["base_discount"]["type"];
             foreach ($rule['base_discount']['discount'] as $discount_rule) {
                 if ($discount_rule['apply'] === 'all_products') {
                     $all_products_discount = $discount_rule['amount'];
@@ -429,18 +427,18 @@ class Woo_All_In_One_Discount_Rules {
             }
         }
 
-        if (!empty($all_products_discount)) {
+        if (null !==  $all_products_discount) {
             $discount = $all_products_discount;
         }
 
-        if (!empty($category_discount)) {
+        if (null !==  $category_discount) {
             $discount = $category_discount;
         }
 
-        if (!empty($product_discount)) {
+        if (null !==  $product_discount) {
             $discount = $product_discount;
         }
 
-        return $discount;
+        return (int) $discount;
     }
 }

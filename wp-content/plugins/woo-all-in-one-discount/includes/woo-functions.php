@@ -81,11 +81,19 @@ function wooaiodiscount_get_simple_price_html($price, $product) {
 }
 
 function wooaiodiscount_get_variable_price_html($price, $product) {
+    global $wooaiodiscount_current_user_rule;
     $prices = $product->get_variation_prices( true );
 
     if ( empty( $prices['price'] ) ) {
         $price = apply_filters( 'woocommerce_variable_empty_price_html', '', $product );
     } else {
+
+        $before_base_price = '';
+
+        if (!empty($wooaiodiscount_current_user_rule["base_discount"]["price_label"])) {
+            $before_base_price = '<b class="woocommerce-Price-label label">' . $wooaiodiscount_current_user_rule["base_discount"]["price_label"] . '</b> ';
+        }
+
         $min_base_price     = current( $prices['price'] );
         $max_base_price     = end( $prices['price'] );
         $min_reg_base_price = current( $prices['regular_price'] );
@@ -106,6 +114,11 @@ function wooaiodiscount_get_variable_price_html($price, $product) {
                 }
             } elseif ( $product->is_on_sale() && $min_reg_base_price === $max_reg_base_price ) {
                 $price = wc_format_sale_price( wc_price( $max_reg_base_price ), wc_price( $min_base_price ) );
+
+                if (!empty($before_base_price)) {
+                    $price .= '<br>';
+                    $price .= '<small>' . $before_base_price . wc_format_price_range( $min_base_price, $max_base_price ) . '</small>';
+                }
             } else {
                 $price = wc_price( $min_base_price );
             }
@@ -127,11 +140,67 @@ function wooaiodiscount_get_variable_price_html($price, $product) {
 }
 
 function wooaiodiscount_get_grouped_price_html($price, $product) {
+    global $wooaiodiscount_current_user_rule;
+    $tax_display_mode = get_option( 'woocommerce_tax_display_shop' );
+    $child_prices     = array();
+    $children         = array_filter( array_map( 'wc_get_product', $product->get_children() ), 'wc_products_array_filter_visible_grouped' );
+
+    foreach ( $children as $child ) {
+        if ( '' !== $child->get_price() ) {
+            $child_prices[] = 'incl' === $tax_display_mode ? wc_get_price_including_tax( $child ) : wc_get_price_excluding_tax( $child );
+        }
+    }
+
+    if ( ! empty( $child_prices ) ) {
+        $min_price = min( $child_prices );
+        $max_price = max( $child_prices );
+        $min_rule_price     = Woo_All_In_One_Discount_Rules::get_price($min_price, $product);
+        $max_rule_price     = Woo_All_In_One_Discount_Rules::get_price($max_price, $product);
+    } else {
+        $min_price = '';
+        $max_price = '';
+    }
+
+    if ( '' !== $min_price ) {
+
+        $before_base_price = '';
+
+        if ( $min_rule_price !== $max_rule_price ) {
+            $price = wc_format_price_range( $min_rule_price, $max_rule_price );
+        } else {
+            $price = wc_price( $min_rule_price );
+        }
+
+        if (!empty($wooaiodiscount_current_user_rule["base_discount"]["price_label"])) {
+            if ( $min_rule_price !== $max_rule_price ) {
+                $before_base_price = wc_format_price_range( $min_price, $max_price );
+            } else {
+                $before_base_price = wc_price( $min_rule_price );
+            }
+        }
+
+        $is_free = 0 === $min_price && 0 === $max_price;
+
+        if ( $is_free ) {
+            $price = apply_filters( 'woocommerce_grouped_free_price_html', __( 'Free!', 'woocommerce' ), $product );
+        } else {
+            $price = apply_filters( 'woocommerce_grouped_price_html', $price . $product->get_price_suffix(), $product, $child_prices );
+
+            if (!empty($before_base_price)) {
+                $price .= '<br>';
+                $price .= '<small>' . '<b class="woocommerce-Price-label label">' . $wooaiodiscount_current_user_rule["base_discount"]["price_label"] . '</b> ';
+                $price .= $before_base_price . $product->get_price_suffix() . '</small>';
+            }
+        }
+    } else {
+        $price = apply_filters( 'woocommerce_grouped_empty_price_html', '', $product );
+    }
     return $price;
 }
 
 function wooaiodiscount_get_discount_amount_html($price, $product) {
     global $wooaiodiscount_current_user_rule;
+    $product_type = $product->get_type();
 
     if (empty($wooaiodiscount_current_user_rule)) {
         return $price;
@@ -141,7 +210,41 @@ function wooaiodiscount_get_discount_amount_html($price, $product) {
 
     if (!empty($wooaiodiscount_current_user_rule["base_discount"]["discount_amount_label"])) {
         $discount_amount_label = $wooaiodiscount_current_user_rule["base_discount"]["discount_amount_label"];
-        $discount_amount = '<br><small><b class="woocommerce-Price-label label">' . $discount_amount_label . '</b> '. Woo_All_In_One_Discount_Rules::get_discount_amount($product) .'%</small> ';
+
+        if ('grouped' !== $product_type) {
+            $amount = Woo_All_In_One_Discount_Rules::get_discount_amount($product);
+            if (!empty($amount)) {
+                $discount_amount = '<br><small><b class="woocommerce-Price-label label">' . $discount_amount_label . '</b> '. $amount .'%</small> ';
+            }
+        } else {
+            $children         = array_filter( array_map( 'wc_get_product', $product->get_children() ), 'wc_products_array_filter_visible_grouped' );
+            $child_discount_amounts = array();
+
+            foreach ( $children as $child ) {
+                $amount = Woo_All_In_One_Discount_Rules::get_discount_amount($child);
+
+                if (!empty($amount)) {
+                    $child_discount_amounts[] = $amount;
+                }
+            }
+
+            asort( $child_discount_amounts );
+
+            if (!empty($child_discount_amounts)) {
+                if (1 === count($child_discount_amounts)) {
+                    $discount_amount = '<br><small><b class="woocommerce-Price-label label">' . $discount_amount_label . '</b> '. $child_discount_amounts[0] .'%</small> ';
+                } else {
+                    $min_discount_amount     = current( $child_discount_amounts );
+                    $max_discount_amount     = end( $child_discount_amounts );
+
+                    if ($min_discount_amount === $max_discount_amount) {
+                        $discount_amount = '<br><small><b class="woocommerce-Price-label label">' . $discount_amount_label . '</b> '. $min_discount_amount .'%</small> ';
+                    } else {
+                        $discount_amount = '<br><small><b class="woocommerce-Price-label label">' . $discount_amount_label . '</b> '. $min_discount_amount . ' – ' . $max_discount_amount .'%</small> ';
+                    }
+                }
+            }
+        }
     }
 
     return $price . $discount_amount;
