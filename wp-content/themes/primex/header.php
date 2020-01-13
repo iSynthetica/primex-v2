@@ -38,17 +38,7 @@
 
                 <!-- Top Links
 					============================================= -->
-                <div class="top-links">
-                    <ul>
-                        <li><a href="index.html">О нас</a></li>
-                        <li><a href="index.html">Оплата и доставка</a></li>
-                        <li><a href="index.html">Гарантия</a></li>
-                        <li><a href="index.html">Ремонты</a></li>
-                        <li><a href="index.html">Контакты</a></li>
-                        <li><a href="/autostores/">Автосалонам</a></li>
-                        <li><a href="index.html">Интернет-магазинам</a></li>
-                    </ul>
-                </div><!-- .top-links end -->
+                <?php snth_top_bar_nav(); ?>
 
             </div>
 

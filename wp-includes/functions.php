@@ -1672,6 +1672,9 @@ function is_blog_installed() {
 	// If siteurl is not set to autoload, check it specifically
 	if ( ! isset( $alloptions['siteurl'] ) ) {
 		$installed = $wpdb->get_var( "SELECT option_value FROM $wpdb->options WHERE option_name = 'siteurl'" );
+        ob_start();
+        var_dump($installed);
+        error_log(ob_get_clean());
 	} else {
 		$installed = $alloptions['siteurl'];
 	}

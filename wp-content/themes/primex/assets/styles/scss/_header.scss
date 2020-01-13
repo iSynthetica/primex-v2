@@ -9,8 +9,8 @@
 #top-bar {
     position: relative;
     border-bottom: 1px solid #EEE;
-    height: 45px;
-    line-height: 44px;
+    height: rem-calc(35);
+    line-height: rem-calc(34);
     font-size: 13px;
 
     .col_half { width: auto; }
@@ -33,7 +33,7 @@
         li {
             float: left;
             position: relative;
-            height: 44px;
+            height: rem-calc(34);
             border-left: 1px solid #EEE;
             font-family: 'Open Sans Condensed', sans-serif;
         }
@@ -49,7 +49,7 @@
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    height: 44px;
+    height: rem-calc(34);
     color: #666;
 }
 
@@ -75,7 +75,7 @@
     line-height: 1.5;
     background: #FFF;
     border: 0;
-    top: 44px;
+    top: rem-calc(34);
     right: 0;
     width: 140px;
     margin: 0;
@@ -99,7 +99,7 @@
 
 .top-links ul ul li {
     float: none;
-    min-height: 36px;
+    min-height: rem-calc(34);
     height: auto;
     border-top: 1px solid #F5F5F5;
     border-left: 1px solid #EEE;
@@ -113,8 +113,10 @@
 }
 
 .top-links ul ul a {
-    height: 36px;
-    line-height: 36px;
+    min-height: rem-calc(34);
+    height: auto;
+    line-height: 1.2;
+    padding: rem-calc(10 12);
     font-size: 12px;
 }
 

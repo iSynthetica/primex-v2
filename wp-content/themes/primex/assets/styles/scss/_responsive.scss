@@ -261,18 +261,29 @@
     }
 
     #header-trigger,
-    .top-advert,
-    .header-extras { display: none; }
+    .top-advert { display: none; }
+
+    .header-extras {
+        // display: none;
+        margin-top: 0!important;
+        text-align: center;
+        li {
+            margin-left: rem-calc(5)!important;
+            margin-right: rem-calc(5)!important;
+            display: inline-block;
+            float: none;
+        }
+    }
 
     #logo {
         display: block;
-        height: 100px;
+        height: auto;
         float: none;
         margin: 0 auto 0 !important;
-        max-width: none;
+        max-width: rem-calc(220);
         text-align: center;
         border: 0 !important;
-        padding: 0 !important;
+        padding: rem-calc(15 0) !important;
     }
 
     #logo a.standard-logo { display: inline-block; }

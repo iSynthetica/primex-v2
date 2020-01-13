@@ -16390,8 +16390,8 @@ small {
 #top-bar {
   position: relative;
   border-bottom: 1px solid #EEE;
-  height: 45px;
-  line-height: 44px;
+  height: 2.1875rem;
+  line-height: 2.125rem;
   font-size: 13px; }
   #top-bar .col_half {
     width: auto; }
@@ -16407,7 +16407,7 @@ small {
     .top-links ul li {
       float: left;
       position: relative;
-      height: 44px;
+      height: 2.125rem;
       border-left: 1px solid #EEE;
       font-family: 'Open Sans Condensed', sans-serif; }
 
@@ -16421,7 +16421,7 @@ small {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  height: 44px;
+  height: 2.125rem;
   color: #666; }
 
 .top-links li i {
@@ -16450,7 +16450,7 @@ small {
   line-height: 1.5;
   background: #FFF;
   border: 0;
-  top: 44px;
+  top: 2.125rem;
   right: 0;
   width: 140px;
   margin: 0;
@@ -16472,7 +16472,7 @@ small {
 
 .top-links ul ul li {
   float: none;
-  min-height: 36px;
+  min-height: 2.125rem;
   height: auto;
   border-top: 1px solid #F5F5F5;
   border-left: 1px solid #EEE; }
@@ -16485,8 +16485,10 @@ small {
   border-left: 1px solid #EEE; }
 
 .top-links ul ul a {
-  height: 36px;
-  line-height: 36px;
+  min-height: 2.125rem;
+  height: auto;
+  line-height: 1.2;
+  padding: 0.625rem 0.75rem;
   font-size: 12px; }
 
 .top-links ul ul img {
@@ -31254,18 +31256,25 @@ body #side-panel.dark #side-panel-trigger-close a {
     top: -101px;
     margin-bottom: -101px; }
   #header-trigger,
-  .top-advert,
-  .header-extras {
+  .top-advert {
     display: none; }
+  .header-extras {
+    margin-top: 0 !important;
+    text-align: center; }
+    .header-extras li {
+      margin-left: 0.3125rem !important;
+      margin-right: 0.3125rem !important;
+      display: inline-block;
+      float: none; }
   #logo {
     display: block;
-    height: 100px;
+    height: auto;
     float: none;
     margin: 0 auto 0 !important;
-    max-width: none;
+    max-width: 13.75rem;
     text-align: center;
     border: 0 !important;
-    padding: 0 !important; }
+    padding: 0.9375rem 0 !important; }
   #logo a.standard-logo {
     display: inline-block; }
   #primary-menu {
