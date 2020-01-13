@@ -32542,6 +32542,15 @@ body #side-panel.dark #side-panel-trigger-close a {
   #logo a.retina-logo {
     display: inline-block; } }
 
+.header-extras {
+  margin-top: 0 !important;
+  text-align: center; }
+  .header-extras li {
+    margin-left: 0.3125rem !important;
+    margin-right: 0.3125rem !important;
+    display: inline-block;
+    float: none; }
+
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
