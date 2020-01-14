@@ -35,7 +35,13 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
+
 define( 'WOO_ALL_IN_ONE_CURRENCY_VERSION', '1.0.0' );
+define( 'WOO_ALL_IN_ONE_CURRENCY_FILE', __FILE__ );
+define( 'WOO_ALL_IN_ONE_CURRENCY_PATH', plugin_dir_path(__FILE__) );
+define( 'WOO_ALL_IN_ONE_CURRENCY_INC', WOO_ALL_IN_ONE_CURRENCY_PATH . 'includes' );
+define( 'WOO_ALL_IN_ONE_CURRENCY_PUBLIC', WOO_ALL_IN_ONE_CURRENCY_PATH . 'public' );
+define( 'WOO_ALL_IN_ONE_CURRENCY_ADMIN', WOO_ALL_IN_ONE_CURRENCY_PATH . 'admin' );
 
 //define('WOO_ALL_IN_ONE_CURRENCY_URL', plugins_url() . '/woo-all-in-one-currency');
 //define('WOO_ALL_IN_ONE_CURRENCY_CSS_URL', WOO_ALL_IN_ONE_CURRENCY_URL . '/public/css');

@@ -1509,7 +1509,6 @@
 }
 
 @media (max-width: 575.98px) {
-
     .container,
     #header.full-header .container,
     .container-fullwidth {
@@ -1520,7 +1519,9 @@
 
     #primary-menu-trigger { left: 20px; }
 
-    #top-cart { display: none; }
+    #top-cart {
+        // display: none;
+    }
 
     #top-search a { right: 40px; }
 
@@ -1668,15 +1669,12 @@
     }
 
     .button.button-desc span { font-size: 11px; }
-
 }
 
 
 /* ----------------------------------------------------------------
 	Retina CSS
 -----------------------------------------------------------------*/
-
-
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (   min--moz-device-pixel-ratio: 2),

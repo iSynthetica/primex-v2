@@ -103,6 +103,13 @@ class Woo_All_In_One_Currency {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Currency_Helpers.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Currency_Rules.php';
+
+		/**
+		 * The class responsible for orchestrating the actions and filters of the
+		 * core plugin.
+		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-woo-all-in-one-currency-loader.php';
 
 		/**
@@ -115,6 +122,7 @@ class Woo_All_In_One_Currency {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-currency-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-currency-admin-ajax.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -153,9 +161,14 @@ class Woo_All_In_One_Currency {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_All_In_One_Currency_Admin( $this->get_plugin_name(), $this->get_version() );
+        $plugin_admin_ajax = new Woo_All_In_One_Currency_Admin_Ajax( $this->get_plugin_name(), $this->get_version() );
+
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu', 40 );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+        $this->loader->add_action( 'wp_ajax_wooaiocurrency_add_currency_rule', $plugin_admin_ajax, 'add_currency_rule' );
 
 	}
 

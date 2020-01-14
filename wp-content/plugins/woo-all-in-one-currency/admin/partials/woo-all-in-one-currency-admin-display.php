@@ -10,7 +10,15 @@
  *
  * @package    Woo_All_In_One_Currency
  * @subpackage Woo_All_In_One_Currency/admin/partials
+ *
+ * @var $active_tab
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<div class="wrap">
+    <h1><?php _e('Woocommerce Multicurrency', 'woo-all-in-one-currency') ?></h1>
+
+    <?php include(dirname(__FILE__) . '/woo-all-in-one-currency-admin-tabs.php'); ?>
+
+    <?php include(dirname(__FILE__) . '/woo-all-in-one-currency-admin-content-'.$active_tab.'.php'); ?>
+</div>

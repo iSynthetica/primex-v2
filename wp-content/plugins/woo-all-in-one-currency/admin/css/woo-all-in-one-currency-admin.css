@@ -2,3 +2,35 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+#wooaio-currency-create-action {
+    margin-bottom: 15px;
+}
+
+.wooaio-currency-create-closed #open-create-currency-rule {
+    display: inline-block;
+}
+
+.wooaio-currency-create-closed #close-create-currency-rule {
+    display: none;
+}
+
+.wooaio-currency-create-closed #wooaio-currency-create-form {
+    display: none;
+}
+
+.wooaio-currency-create-opened #open-create-currency-rule {
+    display: none;
+}
+
+.wooaio-currency-create-opened #close-create-currency-rule {
+    display: inline-block;
+}
+
+.wooaio-currency-create-opened #wooaio-currency-create-form {
+    display: block;
+}
+
+.wooaio-currency-item > div {
+    padding: 5px 0;
+}

@@ -32367,8 +32367,6 @@ body #side-panel.dark #side-panel-trigger-close a {
     padding-right: 0.9375rem !important; }
   #primary-menu-trigger {
     left: 20px; }
-  #top-cart {
-    display: none; }
   #top-search a {
     right: 40px; }
   #top-search form input {
@@ -32556,6 +32554,8 @@ body #side-panel.dark #side-panel-trigger-close a {
       float: none; }
   #top-bar .container-fullwidth {
     width: 100% !important; }
+  .owl-item .product {
+    width: 100%; }
   #header.sticky-style-2 .container-fullwidth {
     width: 100% !important; } }
 
