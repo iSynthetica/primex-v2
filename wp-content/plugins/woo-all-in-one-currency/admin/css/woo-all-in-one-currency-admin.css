@@ -34,3 +34,46 @@
 .wooaio-currency-item > div {
     padding: 5px 0;
 }
+
+.wooaio-currency-item {
+    margin-bottom: 5px;
+}
+
+/** Multiselect Container **/
+.apply_by_container .multiselect-container {
+    display: none;
+}
+.apply_by_container.apply_for_specified_categories .specified_categories_container {
+    display: block;
+}
+.apply_by_container.apply_for_specified_products .specified_products_container {
+    display: block;
+}
+/** Multiselect Container **/
+.multiselect-container {
+    padding: 10px;
+}
+.multiselect-container {
+    padding: 10px;
+}
+.multiselect-container > div {
+    max-height: 250px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+}
+.multiselect-container > div ul {
+    margin: 0;
+}
+.multiselect-container > div ul li {
+    margin: 0;
+    padding: 0;
+}
+.multiselect-container > div ul li fieldset {
+    margin: 1px;
+    padding: 2px;
+    background-color: #fff;
+}
+.multiselect-container > div ul li ul fieldset {
+    padding-left: 25px;
+}

@@ -60,7 +60,9 @@ class Woo_All_In_One_Discount_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-discount-admin.css', array(), $this->version, 'all' );
+	    if (!empty($_GET['page']) && 'wooaiodiscount' === $_GET['page']) {
+            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-discount-admin.css', array(), $this->version, 'all' );
+        }
 	}
 
 	/**
@@ -69,7 +71,9 @@ class Woo_All_In_One_Discount_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-discount-admin.js', array( 'jquery' ), $this->version, true );
+        if (!empty($_GET['page']) && 'wooaiodiscount' === $_GET['page']) {
+            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-discount-admin.js', array( 'jquery' ), $this->version, true );
+        }
 	}
 
 	public function admin_menu() {

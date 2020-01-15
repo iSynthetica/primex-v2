@@ -61,7 +61,6 @@
     max-height: 250px;
     overflow-y: scroll;
     border: 1px solid #ccc;
-
     background-color: #ddd;
 }
 .multiselect-container > div ul {

@@ -133,6 +133,7 @@ class Woo_All_In_One_Currency_Admin_Ajax {
 
     public function add_currency_rate() {
         $currency_code = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+        $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : false;
 
         if (empty($currency_code)) {
             $response = array('message' => __('Select Currency to add currency rate', 'woo-all-in-one-currency'));
@@ -140,9 +141,15 @@ class Woo_All_In_One_Currency_Admin_Ajax {
             wooaio_ajax_response('error', $response);
         }
 
+        $categories = Woo_All_In_One_Currency_Helpers::get_product_categories_tree();
+        $products = Woo_All_In_One_Currency_Helpers::get_products_tree();
+
+        ob_start();
+        wooaiocurrency_currency_rate_item( $currency_code, $index, $categories, $products );
+        $template = ob_get_clean();
+
         $response = array(
-            'message' => __('Currency rate set up', 'woo-all-in-one-currency'),
-            // 'url' => get_admin_url(null, 'admin.php?page=wooaiocurrency&tab=currency'),
+            'template' => $template,
         );
 
         wooaio_ajax_response('success', $response);

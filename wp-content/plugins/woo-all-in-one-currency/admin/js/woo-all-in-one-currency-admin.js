@@ -61,12 +61,29 @@
 	$(document.body).on('click', "#add-currency-rate", function(e) {
 		var btn = $(this);
 		var id = btn.data('id');
+		var index = $('.wooaio-discount-amount-item').length;
 		var data = {
 			id: id,
+			index: index,
 			action: 'wooaiocurrency_add_currency_rate'
 		};
 
-		ajaxRequest(data);
+		ajaxRequest(data, function(decoded) {
+			if (decoded.template) {
+				console.log(decoded.template);
+				var template = $(decoded.template);
+
+				$('#currency_rate_set_action').hide();
+				$('#currency_rate_set').append(template);
+			}
+		});
+	});
+
+	$(document.body).on('click', ".currency-rate-item-cancel", function(e) {
+		var btn = $(this);
+		var parent = btn.parents('.wooaio-currency-item');
+		parent.remove();
+		$('#currency_rate_set_action').show();
 	});
 
 	function ajaxRequest(data, cb, cbError) {

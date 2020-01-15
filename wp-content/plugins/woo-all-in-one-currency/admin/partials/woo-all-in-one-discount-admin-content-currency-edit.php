@@ -1,6 +1,8 @@
 <?php
 $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
 $current_currency_rule = isset($currency_rules[$currency_id]) ? $currency_rules[$currency_id] : false;
+$categories = Woo_All_In_One_Currency_Helpers::get_product_categories_tree();
+$products = Woo_All_In_One_Currency_Helpers::get_products_tree();
 
 if (empty($current_currency_rule)) {
     ?>
@@ -37,15 +39,15 @@ if (empty($current_currency_rule)) {
                 <?php
                 $i = 0;
                 ?>
-                <div id="price_product_discount_set">
+                <div id="currency_rate_set">
                     <?php
                     if (!empty($current_currency_rule['rates'])) {
-
+                        $i++;
                     }
                     ?>
                 </div>
 
-                <div id="price_product_discount_set_action">
+                <div id="currency_rate_set_action">
                     <div class="wooaio-row">
                         <div class="wooaio-col-xs-12">
                             <button
