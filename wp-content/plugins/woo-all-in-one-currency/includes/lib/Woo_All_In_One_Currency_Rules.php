@@ -9,13 +9,13 @@ class Woo_All_In_One_Currency_Rules {
         $currency = get_woocommerce_currency();
         $currency_rules = get_option('wooaio_currency_rules', array());
 
-        if (empty($currency_rules[$currency])) {
+        if (!isset($currency_rules[$currency])) {
             $currency_rules[$currency] = array();
             update_option('wooaio_currency_rules', $currency_rules);
         }
 
         foreach ($currency_rules as $currency_code => $currency_rule) {
-            $currency_rules[$currency_code] = $woocommerce_currencies[$currency_code];
+            $currency_rules[$currency_code] = array_merge($currency_rules[$currency_code], $woocommerce_currencies[$currency_code]);
         }
 
         return $currency_rules;
@@ -41,8 +41,23 @@ class Woo_All_In_One_Currency_Rules {
         );
     }
 
-    public static function update($id, $data) {
+    public static function update($currency_code, $data) {
+        $currency_rules = get_option('wooaio_currency_rules', array());
 
+        if (!isset($currency_rules[$currency_code])) {
+            $currency_rules[$currency_code] = array();
+        }
+
+        foreach ($data as $field => $value) {
+            $currency_rules[$currency_code][$field] = $value;
+        }
+
+        update_option('wooaio_currency_rules', $currency_rules);
+
+        return array(
+            'error' => '',
+            'currency_code' => $currency_code
+        );
     }
 
     public static function delete($code) {

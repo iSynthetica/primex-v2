@@ -35,13 +35,15 @@ if (empty($current_currency_rule)) {
         <h2 class="hndle ui-sortable-handle"><span><?php _e('Currency Rate Settings', 'woo-all-in-one-currency'); ?></span></h2>
 
         <div class="inside">
-            <form id="currency_rate_settings">
+            <form id="wooaio-currency-rate-settings">
+                <input type="text" name="currency_code" value="<?php echo $currency_id ?>">
                 <?php
                 $i = 0;
                 ?>
                 <div id="currency_rate_set">
                     <?php
                     if (!empty($current_currency_rule['rates'])) {
+                        wooaiocurrency_currency_rate_item( $currency_id, $i, $categories, $products );
                         $i++;
                     }
                     ?>

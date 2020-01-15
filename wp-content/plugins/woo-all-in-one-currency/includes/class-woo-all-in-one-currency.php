@@ -174,6 +174,7 @@ class Woo_All_In_One_Currency {
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_delete_currency_rule', $plugin_admin_ajax, 'delete_currency_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_make_base', $plugin_admin_ajax, 'make_base' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_add_currency_rate', $plugin_admin_ajax, 'add_currency_rate' );
+        $this->loader->add_action( 'wp_ajax_wooaiocurrency_create_currency_rate', $plugin_admin_ajax, 'create_currency_rate' );
 
 	}
 

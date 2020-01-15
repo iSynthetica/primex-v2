@@ -61,7 +61,7 @@
 	$(document.body).on('click', "#add-currency-rate", function(e) {
 		var btn = $(this);
 		var id = btn.data('id');
-		var index = $('.wooaio-discount-amount-item').length;
+		var index = $('.wooaio-currency-rate-item').length;
 		var data = {
 			id: id,
 			index: index,
@@ -84,6 +84,30 @@
 		var parent = btn.parents('.wooaio-currency-item');
 		parent.remove();
 		$('#currency_rate_set_action').show();
+	});
+
+	$(document.body).on('click', ".currency-rate-item-create", function(e) {
+		var formData = $("#wooaio-currency-rate-settings").serialize();
+		var data = {
+			formData: formData,
+			action: 'wooaiocurrency_create_currency_rate'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('change', ".apply_for_radio", function(e) {
+		var radio = $(this);
+		var item = radio.parents('.wooaio-currency-item');
+		var selected = item.find('.apply_for_radio:checked').val();
+		var applyByContainer = item.find('.apply_by_container');
+		applyByContainer.removeClass('apply_for_specified_categories').removeClass('apply_for_specified_products');
+
+		if (selected == 'specified_categories') {
+			applyByContainer.addClass('apply_for_specified_categories');
+		} else if(selected == 'specified_products') {
+			applyByContainer.addClass('apply_for_specified_products');
+		}
 	});
 
 	function ajaxRequest(data, cb, cbError) {

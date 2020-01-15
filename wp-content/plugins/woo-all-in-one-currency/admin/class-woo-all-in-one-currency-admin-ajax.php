@@ -133,7 +133,7 @@ class Woo_All_In_One_Currency_Admin_Ajax {
 
     public function add_currency_rate() {
         $currency_code = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
-        $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : false;
+        $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : 0;
 
         if (empty($currency_code)) {
             $response = array('message' => __('Select Currency to add currency rate', 'woo-all-in-one-currency'));
@@ -152,6 +152,78 @@ class Woo_All_In_One_Currency_Admin_Ajax {
             'template' => $template,
         );
 
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function create_currency_rate() {
+        if (empty($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-currency'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        parse_str($_POST['formData'], $form_data);
+
+        if (empty($form_data['currency_code'])) {
+            $response = array('message' => __('Select currency, please!', 'woo-all-in-one-currency'));
+            wooaio_ajax_response('error', $response);
+        }
+
+        $currency_code = $form_data['currency_code'];
+        unset($form_data['currency_code']);
+
+        $data = array();
+        $products = array();
+        $categories = array();
+
+        foreach ($form_data as $form_data_field => $form_data_values) {
+            foreach ($form_data_values as $index => $value) {
+                $data[$index][$form_data_field] = $value;
+            }
+        }
+
+        foreach ($data as $data_settings) {
+            if (empty($data_settings['rate'])) {
+                $response = array('message' => __('Set currency rate amount!', 'woo-all-in-one-currency'));
+                wooaio_ajax_response('error', $response);
+            }
+
+            if ('specified_categories' === $data_settings["apply"]) {
+                if (empty($data_settings["categories"])) {
+                    $response = array('message' => __('Select at least one category!', 'woo-all-in-one-currency'));
+                    wooaio_ajax_response('error', $response);
+                }
+
+                $categories = array_merge($categories, $data_settings["categories"]);
+            }
+
+            if ('specified_products' === $data_settings["apply"]) {
+                if (empty($data_settings["products"])) {
+                    $response = array('message' => __('Select at least one product!', 'woo-all-in-one-currency'));
+                    wooaio_ajax_response('error', $response);
+                }
+
+                $products = array_merge($products, $data_settings["products"]);
+            }
+        }
+
+        $update_data = array(
+            'rates' => $data,
+            'categories' => array_unique($categories),
+            'products' => array_unique($products),
+        );
+
+        $update = Woo_All_In_One_Currency_Rules::update($currency_code, $update_data);
+
+        if (!empty($update['error'])) {
+            $response = array('message' => $update['error']);
+            wooaio_ajax_response('error', $response);
+        }
+
+        $response = array(
+            'message' => __('Created!', 'woo-all-in-one-currency'),
+            'reload' => 1,
+        );
         wooaio_ajax_response('success', $response);
     }
 }
