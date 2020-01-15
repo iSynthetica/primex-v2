@@ -26,6 +26,49 @@
 		ajaxRequest(data);
 	});
 
+	$(document.body).on('click', ".delete-currency-rule", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var data = {
+			id: id,
+			action: 'wooaiocurrency_delete_currency_rule'
+		};
+
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			ajaxRequest(data);
+		}
+	});
+
+	$(document.body).on('click', ".make-base-currency-rule", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var data = {
+			id: id,
+			action: 'wooaiocurrency_make_base'
+		};
+
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			ajaxRequest(data);
+		}
+	});
+
+	$(document.body).on('click', "#add-currency-rate", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var data = {
+			id: id,
+			action: 'wooaiocurrency_add_currency_rate'
+		};
+
+		ajaxRequest(data);
+	});
+
 	function ajaxRequest(data, cb, cbError) {
 		$.ajax({
 			type: 'post',

@@ -2,6 +2,7 @@
 $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
 $currency_rules_codes = array_keys($currency_rules);
 $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currencies();
+$base_currency = get_woocommerce_currency();
 ?>
 <h3 class="wp-heading-inline">
     <?php _e('Currencies List', 'woo-all-in-one-currency'); ?>
@@ -66,7 +67,6 @@ $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currenc
                     <input id="cb-select-all-1" type="checkbox" />
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-currency'); ?></th>
-                <th><?php _e('Description', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Type', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Priority', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-currency'); ?></th>
@@ -79,6 +79,11 @@ $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currenc
             </tbody>
             <?php
             foreach ($currency_rules as $currency_code => $currency_rule) {
+                $is_base = false;
+
+                if ($currency_code === $base_currency) {
+                    $is_base = true;
+                }
                 ?>
                 <tr>
                     <th class="check-column">
@@ -89,15 +94,29 @@ $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currenc
                         <a href="?page=wooaiodiscount&tab=discounts&discount_id=<?php echo $currency_code; ?>">
                             <?php echo $currency_rule['title'] ?>
                         </a>
+
                         <button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button>
                     </td>
 
-                    <td data-colname="<?php _e('Description', 'woo-all-in-one-discount'); ?>">
-                        <?php  ?>
-                    </td>
-
                     <td data-colname="<?php _e('Type', 'woo-all-in-one-discount'); ?>">
-                        <?php  ?>
+                        <?php
+                        if (!$is_base) {
+                            ?>
+                            <button
+                                    id="make-base-currency-<?php echo $currency_code; ?>"
+                                    class="button button-primary button-small make-base-currency-rule"
+                                    type="button"
+                                    data-id="<?php echo $currency_code; ?>"
+                                    data-single="no"
+                                    data-confirm="<?php _e('Are you sure you want to set this currency as base currency for this site?', 'woo-all-in-one-currency'); ?>"
+                            ><?php _e('Make base', 'woo-all-in-one-currency'); ?></button>
+                            <?php
+                        } else {
+                            ?>
+                            <?php _e('Base currency', 'woo-all-in-one-currency'); ?>
+                            <?php
+                        }
+                        ?>
                     </td>
 
                     <td data-colname="<?php _e('Priority', 'woo-all-in-one-discount'); ?>">
@@ -109,14 +128,20 @@ $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currenc
                     </td>
 
                     <td data-colname="<?php _e('Action', 'woo-all-in-one-discount'); ?>">
-                        <button
-                            id="delete-discount-<?php echo $currency_code; ?>"
-                            class="button button-small delete-discount-rule"
-                            type="button"
-                            data-id="<?php echo $currency_code; ?>"
-                            data-single="no"
-                            data-confirm="<?php _e('Are you sure you want to delete this discount rule?', 'woo-all-in-one-currency'); ?>"
-                        ><?php _e('Delete', 'woo-all-in-one-currency'); ?></button>
+                        <?php
+                        if (!$is_base) {
+                            ?>
+                            <button
+                                    id="delete-currency-<?php echo $currency_code; ?>"
+                                    class="button button-small delete-currency-rule"
+                                    type="button"
+                                    data-id="<?php echo $currency_code; ?>"
+                                    data-single="no"
+                                    data-confirm="<?php _e('Are you sure you want to delete this discount rule?', 'woo-all-in-one-currency'); ?>"
+                            ><?php _e('Delete', 'woo-all-in-one-currency'); ?></button>
+                            <?php
+                        }
+                        ?>
                     </td>
                 </tr>
                 <?php
@@ -129,7 +154,6 @@ $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currenc
                     <input id="cb-select-all-1" type="checkbox" />
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-currency'); ?></th>
-                <th><?php _e('Description', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Type', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Priority', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-currency'); ?></th>

@@ -10,8 +10,12 @@ class Woo_All_In_One_Currency_Rules {
         $currency_rules = get_option('wooaio_currency_rules', array());
 
         if (empty($currency_rules[$currency])) {
-            $woocommerce_currencies[$currency]['base'] = true;
-            $currency_rules[$currency] = $woocommerce_currencies[$currency];
+            $currency_rules[$currency] = array();
+            update_option('wooaio_currency_rules', $currency_rules);
+        }
+
+        foreach ($currency_rules as $currency_code => $currency_rule) {
+            $currency_rules[$currency_code] = $woocommerce_currencies[$currency_code];
         }
 
         return $currency_rules;
@@ -27,6 +31,14 @@ class Woo_All_In_One_Currency_Rules {
                 'currency_code' => $currency_code
             );
         }
+
+        $currency_rules[$currency_code] = array();
+        update_option('wooaio_currency_rules', $currency_rules);
+
+        return array(
+            'error' => '',
+            'currency_code' => $currency_code
+        );
     }
 
     public static function update($id, $data) {
@@ -36,7 +48,7 @@ class Woo_All_In_One_Currency_Rules {
     public static function delete($code) {
         $currency_rules = get_option('wooaio_currency_rules', array());
 
-        if (!empty($currency_rules[$code])) {
+        if (isset($currency_rules[$code])) {
             unset($currency_rules[$code]);
         }
 
