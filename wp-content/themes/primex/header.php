@@ -48,13 +48,9 @@
                 ============================================= -->
                 <div class="top-links">
                     <ul>
-                        <li><a href="#">USD</a>
-                            <ul class="sub-small">
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">AUD</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
+                        <?php
+                        wooaiocurrency_currency_switcher();
+                        ?>
                         <li><a href="#">EN</a>
                             <ul class="sub-small">
                                 <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/french.png" alt="French"> FR</a></li>

@@ -4,28 +4,42 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if (!function_exists('wooaiocurrency_currency_rate_item')) {
     function wooaiocurrency_currency_rate_item( $currency_code, $i, $categories, $products, $rule = array() ) {
         $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
-        $currency = get_woocommerce_currency();
-        $currency_settings_products = array();
-        $currency_settings_categories = array();
+        $current_currency_rules = $currency_rules[$currency_code];
+        $currency = get_option( 'woocommerce_currency' );
+        $rule_products = !empty($current_currency_rules['products']) ? $current_currency_rules['products'] : array();
+        $rule_categories = !empty($current_currency_rules['categories']) ? $current_currency_rules['categories'] : array();
         $rule_apply = !empty($rule['apply']) ? $rule['apply'] : 'all_products';
-        // $rule_apply = 'specified_categories';
-        // $rule_apply = 'specified_products';
-
         $rule_apply_class = '';
+        $rule_container_class = 'summary-view-item';
+        $rule_rate = !empty($rule['rate']) ? $rule['rate'] : '';
+
+        if (empty($rule)) {
+            $rule_container_class = 'edit-view-item';
+        }
+
         if ('specified_categories' === $rule_apply) {
             $rule_apply_class = ' apply_for_specified_categories';
         } elseif ('specified_products' === $rule_apply) {
             $rule_apply_class = ' apply_for_specified_products';
         }
         ?>
-        <div class="wooaio-currency-item wooaio-currency-rate-item">
+        <div class="wooaio-currency-item wooaio-currency-rate-item <?php echo $rule_container_class; ?>">
             <div class="wooaio-row">
                 <div class="wooaio-col-xs-12 wooaio-col-sm-5 wooaio-col-md-3">
-                    <label for="">
-                        <input type="number" step="0.01" name="rate[<?php echo $i ?>]" style="max-width: 80px;">
+                    <div class="summary-container">
+                        <label style="font-weight: bold;font-size: 15px;">
+                            <?php echo $rule_rate;?>
+                            <?php _e('For 1 ', 'woo-all-in-one-currency'); ?> <?php echo $currency_rules[$currency]['title']; ?>
+                        </label>
+                    </div>
 
-                        <?php _e('For 1 ', 'woo-all-in-one-currency'); ?> <?php echo $currency_rules[$currency]['title']; ?>
-                    </label>
+                    <div class="edited-container">
+                        <label for="">
+                            <input type="number" step="0.01" name="rate[<?php echo $i ?>]" style="max-width: 80px;" value="<?php echo $rule_rate;?>">
+
+                            <?php _e('For 1 ', 'woo-all-in-one-currency'); ?> <?php echo $currency_rules[$currency]['title']; ?>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="wooaio-col-xs-12 wooaio-col-sm-7 wooaio-col-md-6">
@@ -49,10 +63,6 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                             <input id="separate_products_<?php echo $i ?>" type="radio" class="apply_for_radio" name="apply[<?php echo $i ?>]" value="specified_products"<?php echo 'specified_products' === $rule_apply ? ' checked' : ''; ?>>
                         </label>
                     </div>
-                    <?php
-                    var_dump($currency_rules);
-                    var_dump($currency);
-                    ?>
 
                     <div class="apply_by_container edited-container<?php echo $rule_apply_class ?>">
                         <div class="specified_categories_container multiselect-container">
@@ -63,7 +73,7 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                                     <ul>
                                         <?php
                                         foreach ($categories as $cat_id => $category) {
-                                            wooaiodiscount_categories_tree( $i, $category, $currency_settings_categories, $rule );
+                                            wooaiocurrency_categories_tree( $i, $category, $rule_categories, $rule );
                                         }
                                         ?>
                                     </ul>
@@ -81,7 +91,7 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                                     <ul>
                                         <?php
                                         foreach ($products as $product) {
-                                            wooaiodiscount_products_tree( $i, $product, $currency_settings_products, $rule );
+                                            wooaiocurrency_products_tree( $i, $product, $rule_products, $rule );
                                         }
                                         ?>
                                     </ul>
@@ -107,27 +117,37 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                         <?php
                     } else {
                         ?>
+                        <button type="button" class="currency-rate-item-edit button button-primary button-small">
+                            <?php _e('Edit', 'woo-all-in-one-currency'); ?>
+                        </button>
+
+                        <button type="button" class="currency-rate-item-update button button-primary button-small">
+                            <?php _e('Update', 'woo-all-in-one-currency'); ?>
+                        </button>
+
+                        <button type="button" class="currency-rate-item-change-cancel button button-small">
+                            <?php _e('Cancel', 'woo-all-in-one-currency'); ?>
+                        </button>
 
                         <?php
                     }
                     ?>
                 </div>
             </div>
-
         </div>
         <?php
     }
 }
 
 
-function wooaiocurrency_categories_tree( $i, $category, $discount_settings_categories, $rule ) {
+function wooaiocurrency_categories_tree( $i, $category, $rule_categories, $rule ) {
     $category_id = $category['category']->term_id;
     ?>
     <li>
         <fieldset>
             <?php
-            if (!empty($rule["apply"]) && $rule["apply"] !== 'by_categories') {
-                if (in_array($category_id, $discount_settings_categories)) {
+            if (!empty($rule["apply"]) && $rule["apply"] !== 'specified_categories') {
+                if (in_array($category_id, $rule_categories)) {
                     ?>
                     <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" disabled>
                     <?php
@@ -137,7 +157,7 @@ function wooaiocurrency_categories_tree( $i, $category, $discount_settings_categ
                     <?php
                 }
             } else {
-                if (in_array($category_id, $discount_settings_categories)) {
+                if (in_array($category_id, $rule_categories)) {
                     if (in_array($category_id, $rule['categories'])) {
                         ?>
                         <input id="category_<?php echo $i ?>_<?php echo $category_id; ?>" type="checkbox" name="categories[<?php echo $i ?>][]" value="<?php echo $category_id; ?>" checked>
@@ -163,7 +183,7 @@ function wooaiocurrency_categories_tree( $i, $category, $discount_settings_categ
             <ul>
                 <?php
                 foreach ($category['children'] as $children_item) {
-                    wooaiodiscount_categories_tree($i, $children_item, $discount_settings_categories, $rule);
+                    wooaiocurrency_categories_tree($i, $children_item, $rule_categories, $rule);
                 }
                 ?>
             </ul>
@@ -174,13 +194,13 @@ function wooaiocurrency_categories_tree( $i, $category, $discount_settings_categ
     <?php
 }
 
-function wooaiocurrency_products_tree( $i, $product, $discount_settings_products, $rule ) {
+function wooaiocurrency_products_tree( $i, $product, $rule_products, $rule ) {
     $product_id = $product->get_id();
     $product_type = $product->get_type();
 
     if ('grouped' !== $product_type) {
         if (!empty($rule["apply"]) && $rule["apply"] !== 'separate_products') {
-            if (!in_array($product_id, $discount_settings_products)) {
+            if (!in_array($product_id, $rule_products)) {
                 ?>
                 <li>
                     <fieldset>
@@ -191,7 +211,7 @@ function wooaiocurrency_products_tree( $i, $product, $discount_settings_products
                 <?php
             }
         } else {
-            if (in_array($product_id, $discount_settings_products)) {
+            if (in_array($product_id, $rule_products)) {
                 if (in_array($product_id, $rule['products'])) {
                     ?>
                     <li>
@@ -214,4 +234,51 @@ function wooaiocurrency_products_tree( $i, $product, $discount_settings_products
             }
         }
     }
+}
+
+function wooaiocurrency_get_current_currency() {
+    if (!empty($_COOKIE['wooaiocurrency'])) {
+        return $_COOKIE['wooaiocurrency'];
+    }
+
+    return get_option( 'woocommerce_currency' );
+}
+
+function wooaiodiscount_currency_symbol($currency_symbol, $currency) {
+    $currency = wooaiocurrency_get_current_currency();
+}
+
+function wooaiocurrency_currency_switcher($args = array()) {
+    $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+    $currency = wooaiocurrency_get_current_currency();
+    $base_currency = get_option( 'woocommerce_currency' );
+
+    if (!empty($currency_rules)) {
+        ?>
+        <li><a href="#"><?php echo $currency; ?></a>
+            <ul id="currency-switcher" class="sub-small">
+                <?php
+                foreach ($currency_rules as $currency_code => $rule) {
+                    if (empty($rule['rates']) && $currency_code !== $base_currency) {
+                        continue;
+                    }
+                    ?><li><a class="change-currency" data-currency="<?php echo $currency_code ?>" href="#"><?php echo $currency_code ?></a></li><?php
+                }
+                ?>
+            </ul>
+        </li>
+        <?php
+    }
+}
+
+function wooaiodiscount_currency($currency) {
+    if (is_admin()) {
+        return $currency;
+    }
+
+    if (!empty($_COOKIE['wooaiocurrency'])) {
+        return $_COOKIE['wooaiocurrency'];
+    }
+
+    return get_option( 'woocommerce_currency' );
 }

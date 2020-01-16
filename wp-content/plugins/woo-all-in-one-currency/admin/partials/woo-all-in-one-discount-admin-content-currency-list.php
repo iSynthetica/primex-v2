@@ -2,7 +2,10 @@
 $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
 $currency_rules_codes = array_keys($currency_rules);
 $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currencies();
-$base_currency = get_woocommerce_currency();
+$base_currency = get_option( 'woocommerce_currency' );
+//echo "<pre>";
+//print_r($currency_rules);
+//echo "</pre>";
 ?>
 <h3 class="wp-heading-inline">
     <?php _e('Currencies List', 'woo-all-in-one-currency'); ?>
@@ -68,8 +71,8 @@ $base_currency = get_woocommerce_currency();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Type', 'woo-all-in-one-currency'); ?></th>
-                <th><?php _e('Priority', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-currency'); ?></th>
+                <th><?php _e('Currency rate', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-currency'); ?></th>
             </tr>
             </thead>
@@ -80,10 +83,26 @@ $base_currency = get_woocommerce_currency();
             <?php
             foreach ($currency_rules as $currency_code => $currency_rule) {
                 $is_base = false;
+                $is_main = false;
+                $rates = '';
 
                 if ($currency_code === $base_currency) {
                     $is_base = true;
+                    $rates = '1.00';
+                } else {
+                    if (!empty($currency_rule['rates'])) {
+                        foreach ($currency_rule['rates'] as $rate) {
+                            if ('all_products' === $rate['apply']) {
+                                $rates = $rate['rate'];
+                            }
+                        }
+                    }
                 }
+
+                if (!empty($currency_rule['main'])) {
+                    $is_main = true;
+                }
+
                 ?>
                 <tr>
                     <th class="check-column">
@@ -91,7 +110,7 @@ $base_currency = get_woocommerce_currency();
                     </th>
 
                     <td class="column-primary has-row-actions">
-                        <a href="?page=wooaiodiscount&tab=discounts&discount_id=<?php echo $currency_code; ?>">
+                        <a href="?page=wooaiocurrency&tab=currency&currency_code=<?php echo $currency_code; ?>">
                             <?php echo $currency_rule['title'] ?>
                         </a>
 
@@ -109,7 +128,7 @@ $base_currency = get_woocommerce_currency();
                                     data-id="<?php echo $currency_code; ?>"
                                     data-single="no"
                                     data-confirm="<?php _e('Are you sure you want to set this currency as base currency for this site?', 'woo-all-in-one-currency'); ?>"
-                            ><?php _e('Make base', 'woo-all-in-one-currency'); ?></button>
+                            ><?php _e('Make base currency', 'woo-all-in-one-currency'); ?></button>
                             <?php
                         } else {
                             ?>
@@ -119,12 +138,35 @@ $base_currency = get_woocommerce_currency();
                         ?>
                     </td>
 
-                    <td data-colname="<?php _e('Priority', 'woo-all-in-one-discount'); ?>">
-                        <?php ?>
+                    <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
+                        <?php
+                        if (!$is_main) {
+                            ?>
+                            <button
+                                    id="make-base-currency-<?php echo $currency_code; ?>"
+                                    class="button button-primary button-small make-base-currency-rule"
+                                    type="button"
+                                    data-id="<?php echo $currency_code; ?>"
+                                    data-single="no"
+                                    data-confirm="<?php _e('Are you sure you want to set this currency as main currency for this site?', 'woo-all-in-one-currency'); ?>"
+                            ><?php _e('Make main currency', 'woo-all-in-one-currency'); ?></button>
+                            <?php
+                        } else {
+                            ?>
+                            <?php _e('Main site currency', 'woo-all-in-one-currency'); ?>
+                            <?php
+                        }
+                        ?>
                     </td>
 
-                    <td data-colname="<?php _e('Status', 'woo-all-in-one-discount'); ?>">
-                        <?php  ?>
+                    <td data-colname="<?php _e('Currency rate', 'woo-all-in-one-discount'); ?>">
+                        <?php
+                        if (empty($rates)) {
+                            _e('Rate not set', 'woo-all-in-one-currency');
+                        } else {
+                            echo $rates;
+                        }
+                        ?>
                     </td>
 
                     <td data-colname="<?php _e('Action', 'woo-all-in-one-discount'); ?>">
@@ -155,8 +197,8 @@ $base_currency = get_woocommerce_currency();
                 </td>
                 <th class="column-primary"><?php _e('ID', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Type', 'woo-all-in-one-currency'); ?></th>
-                <th><?php _e('Priority', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Status', 'woo-all-in-one-currency'); ?></th>
+                <th><?php _e('Currency rate', 'woo-all-in-one-currency'); ?></th>
                 <th><?php _e('Action', 'woo-all-in-one-currency'); ?></th>
             </tr>
             </tfoot>

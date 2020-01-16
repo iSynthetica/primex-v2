@@ -6,7 +6,7 @@
 class Woo_All_In_One_Currency_Rules {
     public static function get_all() {
         $woocommerce_currencies = Woo_All_In_One_Currency_Rules::get_woocommerce_currencies();
-        $currency = get_woocommerce_currency();
+        $currency = get_option( 'woocommerce_currency' );
         $currency_rules = get_option('wooaio_currency_rules', array());
 
         if (!isset($currency_rules[$currency])) {
@@ -14,8 +14,19 @@ class Woo_All_In_One_Currency_Rules {
             update_option('wooaio_currency_rules', $currency_rules);
         }
 
+        $is_main_set = false;
+
         foreach ($currency_rules as $currency_code => $currency_rule) {
             $currency_rules[$currency_code] = array_merge($currency_rules[$currency_code], $woocommerce_currencies[$currency_code]);
+
+            if (!empty($currency_rules[$currency_code]['main'])) {
+                $is_main_set = true;
+            }
+        }
+
+        if (empty($is_main_set)) {
+            $currency_rules[$currency]['main'] = 1;
+            update_option('wooaio_currency_rules', $currency_rules);
         }
 
         return $currency_rules;

@@ -70,7 +70,6 @@
 
 		ajaxRequest(data, function(decoded) {
 			if (decoded.template) {
-				console.log(decoded.template);
 				var template = $(decoded.template);
 
 				$('#currency_rate_set_action').hide();
@@ -86,7 +85,41 @@
 		$('#currency_rate_set_action').show();
 	});
 
-	$(document.body).on('click', ".currency-rate-item-create", function(e) {
+	$(document.body).on('click', ".currency-rate-item-edit", function(e) {
+		var btn = $(this);
+		var editBtns = $('.currency-rate-item-edit');
+		var setAction = $('#currency_rate_set_action');
+
+		if (editBtns.length) {
+			editBtns.each(function () {
+				$(this).attr('disabled', true);
+			});
+		}
+		var parent_item = btn.parents('.wooaio-currency-item');
+		editedHtml = parent_item.html();
+		parent_item.removeClass('summary-view-item').removeClass('edit-view-item').addClass('edit-view-item');
+		setAction.hide();
+	});
+
+	$(document.body).on('click', ".currency-rate-item-change-cancel", function(e) {
+		var btn = $(this);
+		var setAction = $('#currency_rate_set_action');
+
+		var parent_item = btn.parents('.wooaio-currency-item');
+		parent_item.removeClass('summary-view-item').removeClass('edit-view-item').addClass('summary-view-item');
+		parent_item.html(editedHtml);
+
+		var editBtns = $('.currency-rate-item-edit');
+
+		if (editBtns.length) {
+			editBtns.each(function () {
+				$(this).attr('disabled', false);
+			});
+		}
+		setAction.show();
+	});
+
+	$(document.body).on('click', ".currency-rate-item-create, .currency-rate-item-update", function(e) {
 		var formData = $("#wooaio-currency-rate-settings").serialize();
 		var data = {
 			formData: formData,

@@ -16411,25 +16411,24 @@ small {
       height: 2.125rem;
       border-left: 1px solid #EEE;
       font-family: 'Open Sans Condensed', sans-serif; }
+      .top-links ul li:first-child {
+        border-left: 0 !important; }
+      .top-links ul li > a {
+        display: block;
+        padding: 0 12px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        height: 2.125rem;
+        color: #666; }
+      .top-links ul li i {
+        vertical-align: top; }
+        .top-links ul li i.fa-caret-down {
+          vertical-align: middle;
+          margin: 0 0 0 5px !important; }
 
-.top-links ul li:first-child,
 .top-links ul ul li {
   border-left: 0 !important; }
-
-.top-links li > a {
-  display: block;
-  padding: 0 12px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  height: 2.125rem;
-  color: #666; }
-
-.top-links li i {
-  vertical-align: top; }
-
-.top-links li i.icon-angle-down {
-  margin: 0 0 0 5px !important; }
 
 .top-links li i:first-child {
   margin-right: 3px; }
@@ -31172,6 +31171,10 @@ body #side-panel.dark #side-panel-trigger-close a {
 #my-account > a i {
   display: none;
   vertical-align: baseline; }
+  #my-account > a i.fa-caret-down {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 5px !important; }
 
 /* ----------------------------------------------------------------
 	Responsive CSS

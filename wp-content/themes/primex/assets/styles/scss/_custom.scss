@@ -177,6 +177,12 @@
         i {
             display: none;
             vertical-align: baseline;
+
+            &.fa-caret-down {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 0 0 5px !important;
+            }
         }
     }
 }

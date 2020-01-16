@@ -77,3 +77,28 @@
 .multiselect-container > div ul li ul fieldset {
     padding-left: 25px;
 }
+
+.summary-container,
+.edited-container,
+.wp-core-ui .currency-rate-item-edit,
+.wp-core-ui .currency-rate-item-update,
+.wp-core-ui .currency-rate-item-change-cancel {
+    display: none;
+}
+
+.summary-view-item .summary-container{
+    display: block;
+}
+
+.summary-view-item .currency-rate-item-edit {
+    display: inline-block;
+}
+
+.edit-view-item .edited-container {
+    display: block;
+}
+
+.edit-view-item .currency-rate-item-update,
+.edit-view-item .currency-rate-item-change-cancel {
+    display: inline-block;
+}

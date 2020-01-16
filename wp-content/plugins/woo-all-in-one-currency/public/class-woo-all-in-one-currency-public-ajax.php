@@ -20,7 +20,7 @@
  * @subpackage Woo_All_In_One_Currency/public
  * @author     Synthetica <i.synthetica@gmail.com>
  */
-class Woo_All_In_One_Currency_Public {
+class Woo_All_In_One_Currency_Public_Ajax {
 
 	/**
 	 * The ID of this plugin.
@@ -54,27 +54,5 @@ class Woo_All_In_One_Currency_Public {
 
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-currency-public.css', array(), $this->version, 'all' );
-	}
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name . '-cookie', plugin_dir_url( __FILE__ ) . 'js/jquery.cookie.js', array( 'jquery' ), '1.4.1', true );
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-currency-public.js', array( 'jquery' ), $this->version, true );
-	}
-
-	public function set_woocommerce_filters() {
-        add_filter('woocommerce_currency', 'wooaiodiscount_currency', 1000, 2);
-        // add_filter('woocommerce_currency_symbol', 'wooaiodiscount_currency_symbol', 1000, 2);
-    }
 }

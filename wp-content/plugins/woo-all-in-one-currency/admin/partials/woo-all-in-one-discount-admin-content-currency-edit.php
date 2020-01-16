@@ -4,6 +4,8 @@ $current_currency_rule = isset($currency_rules[$currency_id]) ? $currency_rules[
 $categories = Woo_All_In_One_Currency_Helpers::get_product_categories_tree();
 $products = Woo_All_In_One_Currency_Helpers::get_products_tree();
 
+wooaiocurrency_get_current_currency();
+
 if (empty($current_currency_rule)) {
     ?>
     <h3 class="wp-heading-inline">
@@ -20,7 +22,7 @@ if (empty($current_currency_rule)) {
 
 <hr class="wp-header-end">
 
-<?php var_dump($current_currency_rule); ?>
+<?php var_dump($currency_rules); ?>
 
 <div id="poststuff">
     <div id="general-settings-container" class="postbox">
@@ -36,15 +38,17 @@ if (empty($current_currency_rule)) {
 
         <div class="inside">
             <form id="wooaio-currency-rate-settings">
-                <input type="text" name="currency_code" value="<?php echo $currency_id ?>">
+                <input type="hidden" name="currency_code" value="<?php echo $currency_id ?>">
                 <?php
                 $i = 0;
                 ?>
                 <div id="currency_rate_set">
                     <?php
                     if (!empty($current_currency_rule['rates'])) {
-                        wooaiocurrency_currency_rate_item( $currency_id, $i, $categories, $products );
-                        $i++;
+                        foreach ($current_currency_rule['rates'] as $currency_code => $currency_rule) {
+                            wooaiocurrency_currency_rate_item( $currency_id, $i, $categories, $products, $currency_rule );
+                            $i++;
+                        }
                     }
                     ?>
                 </div>

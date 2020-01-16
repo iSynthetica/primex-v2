@@ -37,26 +37,33 @@
             height: rem-calc(34);
             border-left: 1px solid #EEE;
             font-family: 'Open Sans Condensed', sans-serif;
+
+            &:first-child {
+                border-left: 0 !important;
+            }
+
+            & > a {
+                display: block;
+                padding: 0 12px;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                height: rem-calc(34);
+                color: #666;
+            }
+
+            i {
+                vertical-align: top;
+                &.fa-caret-down {
+                    vertical-align: middle;
+                    margin: 0 0 0 5px !important;
+                }
+            }
         }
     }
 }
 
-.top-links ul li:first-child,
 .top-links ul ul li { border-left: 0 !important; }
-
-.top-links li > a {
-    display: block;
-    padding: 0 12px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    height: rem-calc(34);
-    color: #666;
-}
-
-.top-links li i { vertical-align: top; }
-
-.top-links li i.icon-angle-down { margin: 0 0 0 5px !important; }
 
 .top-links li i:first-child { margin-right: 3px; }
 
