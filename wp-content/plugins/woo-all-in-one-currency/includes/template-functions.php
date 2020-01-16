@@ -244,10 +244,6 @@ function wooaiocurrency_get_current_currency() {
     return get_option( 'woocommerce_currency' );
 }
 
-function wooaiodiscount_currency_symbol($currency_symbol, $currency) {
-    $currency = wooaiocurrency_get_current_currency();
-}
-
 function wooaiocurrency_currency_switcher($args = array()) {
     $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
     $currency = wooaiocurrency_get_current_currency();
@@ -271,7 +267,7 @@ function wooaiocurrency_currency_switcher($args = array()) {
     }
 }
 
-function wooaiodiscount_currency($currency) {
+function wooaiocurrency_currency($currency) {
     if (is_admin()) {
         return $currency;
     }
@@ -281,4 +277,20 @@ function wooaiodiscount_currency($currency) {
     }
 
     return get_option( 'woocommerce_currency' );
+}
+
+function wooaiocurrency_cart_product_price($product_price_html, $product) {
+    $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+    $currency = wooaiocurrency_get_current_currency();
+    $base_currency = get_option( 'woocommerce_currency' );
+
+    return $product_price_html;
+}
+
+function wooaiocurrency_before_calculate_totals($cart_object) {
+    $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+    $currency = wooaiocurrency_get_current_currency();
+    $base_currency = get_option( 'woocommerce_currency' );
+
+    return $cart_object;
 }

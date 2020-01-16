@@ -74,7 +74,9 @@ class Woo_All_In_One_Currency_Public {
 	}
 
 	public function set_woocommerce_filters() {
-        add_filter('woocommerce_currency', 'wooaiodiscount_currency', 1000, 2);
-        // add_filter('woocommerce_currency_symbol', 'wooaiodiscount_currency_symbol', 1000, 2);
+        add_filter('woocommerce_currency', 'wooaiocurrency_currency', 1000, 2);
+        add_filter('woocommerce_before_calculate_totals', 'wooaiocurrency_before_calculate_totals', 1000, 2);
+        add_filter('woocommerce_cart_product_price', 'wooaiocurrency_cart_product_price', 10, 2 );
+
     }
 }
