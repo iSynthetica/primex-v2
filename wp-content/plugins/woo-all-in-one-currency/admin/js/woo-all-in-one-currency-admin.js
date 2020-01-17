@@ -58,6 +58,22 @@
 		}
 	});
 
+	$(document.body).on('click', ".make-main-currency-rule", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var data = {
+			id: id,
+			action: 'wooaiocurrency_make_main'
+		};
+
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			ajaxRequest(data);
+		}
+	});
+
 	$(document.body).on('click', "#add-currency-rate", function(e) {
 		var btn = $(this);
 		var id = btn.data('id');

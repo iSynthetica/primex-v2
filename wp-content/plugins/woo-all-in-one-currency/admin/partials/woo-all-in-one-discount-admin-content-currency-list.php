@@ -128,6 +128,7 @@ $base_currency = get_option( 'woocommerce_currency' );
                                     data-id="<?php echo $currency_code; ?>"
                                     data-single="no"
                                     data-confirm="<?php _e('Are you sure you want to set this currency as base currency for this site?', 'woo-all-in-one-currency'); ?>"
+                                    <?php echo empty($rates) ? ' disabled' : ''; ?>
                             ><?php _e('Make base currency', 'woo-all-in-one-currency'); ?></button>
                             <?php
                         } else {
@@ -143,12 +144,13 @@ $base_currency = get_option( 'woocommerce_currency' );
                         if (!$is_main) {
                             ?>
                             <button
-                                    id="make-base-currency-<?php echo $currency_code; ?>"
-                                    class="button button-primary button-small make-base-currency-rule"
+                                    id="make-main-currency-<?php echo $currency_code; ?>"
+                                    class="button button-primary button-small make-main-currency-rule"
                                     type="button"
                                     data-id="<?php echo $currency_code; ?>"
                                     data-single="no"
                                     data-confirm="<?php _e('Are you sure you want to set this currency as main currency for this site?', 'woo-all-in-one-currency'); ?>"
+                                <?php echo empty($rates) ? ' disabled' : ''; ?>
                             ><?php _e('Make main currency', 'woo-all-in-one-currency'); ?></button>
                             <?php
                         } else {

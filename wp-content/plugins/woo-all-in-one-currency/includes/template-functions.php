@@ -237,25 +237,32 @@ function wooaiocurrency_products_tree( $i, $product, $rule_products, $rule ) {
 }
 
 function wooaiocurrency_get_current_currency() {
-    if (!empty($_COOKIE['wooaiocurrency'])) {
-        return $_COOKIE['wooaiocurrency'];
+    global $wooaiocurrency_rules;
+
+    if (!empty($wooaiocurrency_rules['current_currency_code'])) {
+        return $wooaiocurrency_rules['current_currency_code'];
     }
 
     return get_option( 'woocommerce_currency' );
 }
 
 function wooaiocurrency_currency_switcher($args = array()) {
-    $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+    global $wooaiocurrency_rules;
+
+    if (empty($wooaiocurrency_rules["switcher"])) {
+        return;
+    }
+
     $currency = wooaiocurrency_get_current_currency();
     $base_currency = get_option( 'woocommerce_currency' );
 
-    if (!empty($currency_rules)) {
+    if (!empty($wooaiocurrency_rules["switcher"])) {
         ?>
         <li><a href="#"><?php echo $currency; ?></a>
             <ul id="currency-switcher" class="sub-small">
                 <?php
-                foreach ($currency_rules as $currency_code => $rule) {
-                    if (empty($rule['rates']) && $currency_code !== $base_currency) {
+                foreach ($wooaiocurrency_rules["switcher"] as $currency_code => $rule) {
+                    if ((empty($rule['rates']) && $currency_code !== $base_currency) || $currency === $currency_code) {
                         continue;
                     }
                     ?><li><a class="change-currency" data-currency="<?php echo $currency_code ?>" href="#"><?php echo $currency_code ?></a></li><?php
@@ -265,18 +272,6 @@ function wooaiocurrency_currency_switcher($args = array()) {
         </li>
         <?php
     }
-}
-
-function wooaiocurrency_currency($currency) {
-    if (is_admin()) {
-        return $currency;
-    }
-
-    if (!empty($_COOKIE['wooaiocurrency'])) {
-        return $_COOKIE['wooaiocurrency'];
-    }
-
-    return get_option( 'woocommerce_currency' );
 }
 
 function wooaiocurrency_cart_product_price($product_price_html, $product) {
@@ -293,4 +288,20 @@ function wooaiocurrency_before_calculate_totals($cart_object) {
     $base_currency = get_option( 'woocommerce_currency' );
 
     return $cart_object;
+}
+
+function wooaiocurrency_set_currency_symbol() {
+    add_filter('woocommerce_currency', 'wooaiocurrency_cart_currency', 1200);
+}
+
+function wooaiocurrency_reset_currency_symbol() {
+    remove_filter('woocommerce_currency', 'wooaiocurrency_cart_currency', 1200);
+}
+
+function wooaiocurrency_cart_currency($currency) {
+    return get_option( 'woocommerce_currency' );
+}
+
+function wooaiocurrency_before_mini_cart() {
+    WC()->cart->calculate_totals();
 }

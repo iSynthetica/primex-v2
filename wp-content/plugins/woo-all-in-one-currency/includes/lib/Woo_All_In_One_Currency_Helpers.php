@@ -26,7 +26,7 @@ class Woo_All_In_One_Currency_Helpers {
             foreach ($next as $cat) {
                 $tree[$cat->term_id] = array(
                     'category' => $cat,
-                    'children' => Woo_All_In_One_Discount_Helpers::get_product_categories_tree($cat->term_id)
+                    'children' => Woo_All_In_One_Currency_Helpers::get_product_categories_tree($cat->term_id)
                 );
             }
         }

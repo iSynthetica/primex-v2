@@ -17,8 +17,6 @@ class Woo_All_In_One_Currency_Rules {
         $is_main_set = false;
 
         foreach ($currency_rules as $currency_code => $currency_rule) {
-            $currency_rules[$currency_code] = array_merge($currency_rules[$currency_code], $woocommerce_currencies[$currency_code]);
-
             if (!empty($currency_rules[$currency_code]['main'])) {
                 $is_main_set = true;
             }
@@ -27,6 +25,10 @@ class Woo_All_In_One_Currency_Rules {
         if (empty($is_main_set)) {
             $currency_rules[$currency]['main'] = 1;
             update_option('wooaio_currency_rules', $currency_rules);
+        }
+
+        foreach ($currency_rules as $currency_code => $currency_rule) {
+            $currency_rules[$currency_code] = array_merge($currency_rules[$currency_code], $woocommerce_currencies[$currency_code]);
         }
 
         return $currency_rules;

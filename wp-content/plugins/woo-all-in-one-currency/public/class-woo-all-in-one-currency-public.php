@@ -78,5 +78,84 @@ class Woo_All_In_One_Currency_Public {
         add_filter('woocommerce_before_calculate_totals', 'wooaiocurrency_before_calculate_totals', 1000, 2);
         add_filter('woocommerce_cart_product_price', 'wooaiocurrency_cart_product_price', 10, 2 );
 
+
+        add_filter('woocommerce_product_get_regular_price', 'wooaiocurrency_product_get_regular_price', 1000, 2 );
+        add_filter('woocommerce_product_get_sale_price', 'wooaiocurrency_product_get_sale_price', 1000, 2 );
+        add_filter('woocommerce_product_get_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+        add_filter('woocommerce_product_variation_get_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+        add_filter('woocommerce_product_variation_get_regular_price', 'wooaiocurrency_product_variation_get_regular_price', 1000, 2 );
+        add_filter('woocommerce_product_variation_get_sale_price', 'wooaiocurrency_product_variation_get_sale_price', 1000, 2 );
+        add_filter('woocommerce_variation_prices', 'wooaiocurrency_variation_prices', 1000 );
+
+
+        add_action( 'woocommerce_cart_loaded_from_session', 'wooaiocurrency_before_mini_cart', 1000 );
+
+//        add_filter('woocommerce_before_calculate_totals', 'wooaiocurrency_set_currency_symbol', 100);
+//        add_filter('woocommerce_after_calculate_totals', 'wooaiocurrency_reset_currency_symbol', 1000);
+
+//        add_action('woocommerce_before_cart_contents', 'wooaiocurrency_set_currency_symbol', 1000);
+//        add_action('woocommerce_after_cart_contents', 'wooaiocurrency_reset_currency_symbol', 1000);
+//
+//        add_action('woocommerce_before_mini_cart', 'wooaiocurrency_set_currency_symbol', 1000);
+//        add_action('woocommerce_after_mini_cart', 'wooaiocurrency_reset_currency_symbol', 1000);
+
+    }
+
+    public function set_global_currency_rule() {
+        if (is_admin()) {
+            return;
+        }
+
+        global $wooaiocurrency_rules;
+
+        $wooaiocurrency_rules = array();
+
+        $base_currency = get_option( 'woocommerce_currency' );
+
+        $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+
+        foreach ($currency_rules as $currency_code => $currency_rule) {
+            if ($currency_code !== $base_currency && empty($currency_rule['rates'])) {
+                unset($currency_rules[$currency_code]);
+            }
+        }
+
+        if (count($currency_rules) < 2) {
+            $wooaiocurrency_rules['current_currency_code'] = $base_currency;
+            $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$base_currency];
+            $wooaiocurrency_rules['switcher'] = array();
+        } else {
+            if (!empty($_COOKIE['wooaiocurrency'])) {
+                $current_currency = $_COOKIE['wooaiocurrency'];
+
+                if (empty($currency_rules[$current_currency])) {
+                    $current_currency = false;
+
+                    setcookie('wooaiocurrency_update_minicart', 1, time() + (86400 * 360), '/');
+                    unset($_COOKIE['wooaiocurrency']);
+                    $res = setcookie('wooaiocurrency', '', time() - 3600);
+                }
+            }
+
+            if (empty($current_currency)) {
+                foreach ($currency_rules as $currency_code => $currency_rule) {
+                    if (!empty($currency_rule['main'])) {
+                        $current_currency =  $currency_code;
+                    }
+                }
+            }
+
+            if (empty($current_currency)) {
+                $current_currency =  $base_currency;
+            }
+
+            $wooaiocurrency_rules['current_currency_code'] = $current_currency;
+            $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$current_currency];
+            $switcher_rules = $currency_rules;
+
+            unset($switcher_rules[$current_currency]);
+
+            $wooaiocurrency_rules['switcher'] = $switcher_rules;
+        }
     }
 }

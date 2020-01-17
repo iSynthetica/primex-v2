@@ -93,7 +93,7 @@ function snth_cart_icon() {
                             </a>
                         </div>
                         <div class="top-cart-item-desc">
-                            <a href="#"><?php echo $product->get_name(); ?></a>
+                            <a href="<?php echo get_permalink( $product->get_id() ); ?>"><?php echo $product->get_name(); ?></a>
                             <span class="top-cart-item-price"><?php echo wc_price($cart_item['line_total']); ?></span>
                             <span class="top-cart-item-quantity">x <?php echo $cart_item['quantity']; ?></span>
                         </div>

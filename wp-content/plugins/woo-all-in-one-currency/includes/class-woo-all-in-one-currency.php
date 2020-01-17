@@ -106,7 +106,12 @@ class Woo_All_In_One_Currency {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Currency_Helpers.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Currency_Rules.php';
 
+		if (!function_exists('run_woo_all_in_one')) {
+            require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/wooaio-functions.php';
+        }
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template-functions.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/wc-functions.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -174,6 +179,7 @@ class Woo_All_In_One_Currency {
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_add_currency_rule', $plugin_admin_ajax, 'add_currency_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_delete_currency_rule', $plugin_admin_ajax, 'delete_currency_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_make_base', $plugin_admin_ajax, 'make_base' );
+        $this->loader->add_action( 'wp_ajax_wooaiocurrency_make_main', $plugin_admin_ajax, 'make_main' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_add_currency_rate', $plugin_admin_ajax, 'add_currency_rate' );
         $this->loader->add_action( 'wp_ajax_wooaiocurrency_create_currency_rate', $plugin_admin_ajax, 'create_currency_rate' );
 
@@ -189,6 +195,8 @@ class Woo_All_In_One_Currency {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_All_In_One_Currency_Public( $this->get_plugin_name(), $this->get_version() );
+
+        $this->loader->add_action( 'init', $plugin_public, 'set_global_currency_rule', 10 );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );

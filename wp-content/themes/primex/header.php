@@ -49,7 +49,9 @@
                 <div class="top-links">
                     <ul>
                         <?php
-                        wooaiocurrency_currency_switcher();
+                        if (function_exists('wooaiocurrency_currency_switcher')) {
+                            wooaiocurrency_currency_switcher();
+                        }
                         ?>
                         <li><a href="#">EN</a>
                             <ul class="sub-small">

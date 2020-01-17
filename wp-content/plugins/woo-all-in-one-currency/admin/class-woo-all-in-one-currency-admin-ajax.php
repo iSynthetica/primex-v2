@@ -131,6 +131,41 @@ class Woo_All_In_One_Currency_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
+    public function make_main() {
+        $currency_code = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+
+        if (empty($currency_code)) {
+            $response = array('message' => __('Select Currency to make base', 'woo-all-in-one-currency'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $currency_rules = get_option('wooaio_currency_rules', array());
+
+        if (!isset($currency_rules[$currency_code])) {
+            $response = array('message' => __('Currency not exists', 'woo-all-in-one-currency'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        foreach ($currency_rules as $curr_code => $rules) {
+            if (!empty($rules['main'])) {
+                unset ($currency_rules[$curr_code]['main']);
+            }
+        }
+
+        $currency_rules[$currency_code]['main'] = 1;
+
+        update_option('wooaio_currency_rules', $currency_rules);
+
+        $response = array(
+            'message' => __('Main site currency changed', 'woo-all-in-one-currency'),
+            'reload' => 1,
+        );
+
+        wooaio_ajax_response('success', $response);
+    }
+
     public function add_currency_rate() {
         $currency_code = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
         $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : 0;
