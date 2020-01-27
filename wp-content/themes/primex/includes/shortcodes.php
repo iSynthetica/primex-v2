@@ -138,14 +138,17 @@ function snth_phones_header() {
     ?>
     <ul class="header-extras header-phones">
     <?php
-    foreach ($social as $item) {
-        ?>
-        <li>
-            <div class="he-text">
-                <?php echo $item['label'] ?>
-            </div>
-        </li>
-        <?php
+
+    if (!empty($social)) {
+        foreach ($social as $item) {
+            ?>
+            <li>
+                <div class="he-text">
+                    <?php echo $item['label'] ?>
+                </div>
+            </li>
+            <?php
+        }
     }
     ?>
     </ul>

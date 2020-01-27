@@ -1,0 +1,105 @@
+[24-Jan-2020 16:19:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/shortcodes.php on line 141
+[24-Jan-2020 16:19:26 UTC] PHP Stack trace:
+[24-Jan-2020 16:19:26 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/index.php:0
+[24-Jan-2020 16:19:26 UTC] PHP   2. require() /Users/user/Sites/primex/public_html/index.php:17
+[24-Jan-2020 16:19:26 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-blog-header.php:19
+[24-Jan-2020 16:19:26 UTC] PHP   4. include() /Users/user/Sites/primex/public_html/wp-includes/template-loader.php:98
+[24-Jan-2020 16:19:26 UTC] PHP   5. get_header() /Users/user/Sites/primex/public_html/wp-content/themes/primex/front-page.php:1
+[24-Jan-2020 16:19:26 UTC] PHP   6. locate_template() /Users/user/Sites/primex/public_html/wp-includes/general-template.php:41
+[24-Jan-2020 16:19:26 UTC] PHP   7. load_template() /Users/user/Sites/primex/public_html/wp-includes/template.php:671
+[24-Jan-2020 16:19:26 UTC] PHP   8. require_once() /Users/user/Sites/primex/public_html/wp-includes/template.php:722
+[24-Jan-2020 16:19:26 UTC] PHP   9. do_shortcode() /Users/user/Sites/primex/public_html/wp-content/themes/primex/header.php:127
+[24-Jan-2020 16:19:26 UTC] PHP  10. preg_replace_callback() /Users/user/Sites/primex/public_html/wp-includes/shortcodes.php:199
+[24-Jan-2020 16:19:26 UTC] PHP  11. do_shortcode_tag() /Users/user/Sites/primex/public_html/wp-includes/shortcodes.php:199
+[24-Jan-2020 16:19:26 UTC] PHP  12. snth_phones_header() /Users/user/Sites/primex/public_html/wp-includes/shortcodes.php:325
+[26-Jan-2020 09:17:58 UTC] База данных WordPress возвратила ошибку Server shutdown in progress в ответ на запрос SELECT option_value FROM tsvt_options WHERE option_name = 'woocommerce_thumbnail_cropping' LIMIT 1, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, WooCommerce->add_image_sizes, wc_get_image_size, get_option
+[26-Jan-2020 09:17:58 UTC] PHP Warning:  Error while sending QUERY packet. PID=3719 in /Users/user/Sites/primex/public_html/wp-includes/wp-db.php on line 2030
+[26-Jan-2020 09:17:58 UTC] PHP Stack trace:
+[26-Jan-2020 09:17:58 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:0
+[26-Jan-2020 09:17:58 UTC] PHP   2. require_once() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:22
+[26-Jan-2020 09:17:58 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-load.php:37
+[26-Jan-2020 09:17:58 UTC] PHP   4. require_once() /Users/user/Sites/primex/public_html/wp-config.php:81
+[26-Jan-2020 09:17:58 UTC] PHP   5. do_action() /Users/user/Sites/primex/public_html/wp-settings.php:523
+[26-Jan-2020 09:17:58 UTC] PHP   6. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 09:17:58 UTC] PHP   7. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 09:17:58 UTC] PHP   8. Automattic\WooCommerce\Admin\Loader::load_features() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 09:17:58 UTC] PHP   9. Automattic\WooCommerce\Admin\Features\Onboarding->__construct() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Loader.php:229
+[26-Jan-2020 09:17:58 UTC] PHP  10. Automattic\WooCommerce\Admin\Loader::is_onboarding_enabled() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Features/Onboarding.php:56
+[26-Jan-2020 09:17:58 UTC] PHP  11. get_option() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Loader.php:175
+[26-Jan-2020 09:17:58 UTC] PHP  12. wpdb->get_row() /Users/user/Sites/primex/public_html/wp-includes/option.php:100
+[26-Jan-2020 09:17:58 UTC] PHP  13. wpdb->query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2569
+[26-Jan-2020 09:17:58 UTC] PHP  14. wpdb->_do_query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1918
+[26-Jan-2020 09:17:58 UTC] PHP  15. mysqli_query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2030
+[26-Jan-2020 09:17:58 UTC] База данных WordPress возвратила ошибку Server shutdown in progress в ответ на запрос SELECT option_value FROM tsvt_options WHERE option_name = 'can_compress_scripts' LIMIT 1, выполненный require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, wp_widgets_init, do_action('widgets_init'), WP_Hook->do_action, WP_Hook->apply_filters, wc_register_widgets, register_widget, WP_Widget_Factory->register, WC_Widget_Price_Filter->__construct, wp_register_script, wp_scripts, WP_Scripts->__construct, WP_Scripts->init, do_action_ref_array('wp_default_scripts'), WP_Hook->do_action, WP_Hook->apply_filters, wp_default_packages, wp_register_tinymce_scripts, script_concat_settings, get_site_option, get_network_option, get_option
+[26-Jan-2020 09:17:58 UTC] PHP Warning:  Error while sending QUERY packet. PID=3846 in /Users/user/Sites/primex/public_html/wp-includes/wp-db.php on line 2030
+[26-Jan-2020 09:17:58 UTC] PHP Stack trace:
+[26-Jan-2020 09:17:58 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-cron.php:0
+[26-Jan-2020 09:17:58 UTC] PHP   2. require_once() /Users/user/Sites/primex/public_html/wp-cron.php:44
+[26-Jan-2020 09:17:58 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-load.php:37
+[26-Jan-2020 09:17:58 UTC] PHP   4. require_once() /Users/user/Sites/primex/public_html/wp-config.php:81
+[26-Jan-2020 09:17:58 UTC] PHP   5. do_action() /Users/user/Sites/primex/public_html/wp-settings.php:523
+[26-Jan-2020 09:17:58 UTC] PHP   6. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 09:17:58 UTC] PHP   7. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 09:17:58 UTC] PHP   8. WC_Post_Types::register_post_types() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 09:17:58 UTC] PHP   9. get_post() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-post-types.php:294
+[26-Jan-2020 09:17:58 UTC] PHP  10. WP_Post::get_instance() /Users/user/Sites/primex/public_html/wp-includes/post.php:770
+[26-Jan-2020 09:17:58 UTC] PHP  11. wpdb->get_row() /Users/user/Sites/primex/public_html/wp-includes/class-wp-post.php:242
+[26-Jan-2020 09:17:58 UTC] PHP  12. wpdb->query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2569
+[26-Jan-2020 09:17:58 UTC] PHP  13. wpdb->_do_query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1918
+[26-Jan-2020 09:17:58 UTC] PHP  14. mysqli_query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2030
+[26-Jan-2020 09:18:02 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /Users/user/Sites/primex/public_html/wp-includes/wp-db.php on line 1633
+[26-Jan-2020 09:18:02 UTC] PHP Stack trace:
+[26-Jan-2020 09:18:02 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:0
+[26-Jan-2020 09:18:02 UTC] PHP   2. require_once() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:22
+[26-Jan-2020 09:18:02 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-load.php:37
+[26-Jan-2020 09:18:02 UTC] PHP   4. require_once() /Users/user/Sites/primex/public_html/wp-config.php:81
+[26-Jan-2020 09:18:02 UTC] PHP   5. do_action() /Users/user/Sites/primex/public_html/wp-settings.php:523
+[26-Jan-2020 09:18:02 UTC] PHP   6. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 09:18:02 UTC] PHP   7. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 09:18:02 UTC] PHP   8. Automattic\WooCommerce\Admin\Loader::load_features() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 09:18:02 UTC] PHP   9. Automattic\WooCommerce\Admin\Features\Onboarding->__construct() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Loader.php:229
+[26-Jan-2020 09:18:02 UTC] PHP  10. Automattic\WooCommerce\Admin\Loader::is_onboarding_enabled() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Features/Onboarding.php:56
+[26-Jan-2020 09:18:02 UTC] PHP  11. get_option() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce-admin/src/Loader.php:175
+[26-Jan-2020 09:18:02 UTC] PHP  12. wpdb->get_row() /Users/user/Sites/primex/public_html/wp-includes/option.php:100
+[26-Jan-2020 09:18:02 UTC] PHP  13. wpdb->query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2569
+[26-Jan-2020 09:18:02 UTC] PHP  14. wpdb->check_connection() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1941
+[26-Jan-2020 09:18:02 UTC] PHP  15. wpdb->db_connect() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1818
+[26-Jan-2020 09:18:02 UTC] PHP  16. mysqli_real_connect() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1633
+[26-Jan-2020 09:18:02 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /Users/user/Sites/primex/public_html/wp-includes/wp-db.php on line 1633
+[26-Jan-2020 09:18:02 UTC] PHP Stack trace:
+[26-Jan-2020 09:18:02 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-cron.php:0
+[26-Jan-2020 09:18:02 UTC] PHP   2. require_once() /Users/user/Sites/primex/public_html/wp-cron.php:44
+[26-Jan-2020 09:18:02 UTC] PHP   3. require_once() /Users/user/Sites/primex/public_html/wp-load.php:37
+[26-Jan-2020 09:18:02 UTC] PHP   4. require_once() /Users/user/Sites/primex/public_html/wp-config.php:81
+[26-Jan-2020 09:18:02 UTC] PHP   5. do_action() /Users/user/Sites/primex/public_html/wp-settings.php:523
+[26-Jan-2020 09:18:02 UTC] PHP   6. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 09:18:02 UTC] PHP   7. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 09:18:02 UTC] PHP   8. WC_Post_Types::register_post_types() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 09:18:02 UTC] PHP   9. get_post() /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-post-types.php:294
+[26-Jan-2020 09:18:02 UTC] PHP  10. WP_Post::get_instance() /Users/user/Sites/primex/public_html/wp-includes/post.php:770
+[26-Jan-2020 09:18:02 UTC] PHP  11. wpdb->get_row() /Users/user/Sites/primex/public_html/wp-includes/class-wp-post.php:242
+[26-Jan-2020 09:18:02 UTC] PHP  12. wpdb->query() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:2569
+[26-Jan-2020 09:18:02 UTC] PHP  13. wpdb->check_connection() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1941
+[26-Jan-2020 09:18:02 UTC] PHP  14. wpdb->db_connect() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1818
+[26-Jan-2020 09:18:02 UTC] PHP  15. mysqli_real_connect() /Users/user/Sites/primex/public_html/wp-includes/wp-db.php:1633
+[26-Jan-2020 11:07:30 UTC] PHP Notice:  Undefined variable: message in /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/ajax-search.php on line 16
+[26-Jan-2020 11:07:30 UTC] PHP Stack trace:
+[26-Jan-2020 11:07:30 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:0
+[26-Jan-2020 11:07:30 UTC] PHP   2. do_action() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:190
+[26-Jan-2020 11:07:30 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 11:07:30 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 11:07:30 UTC] PHP   5. snth_ajax_search() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 11:08:22 UTC] PHP Notice:  Undefined variable: message in /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/ajax-search.php on line 16
+[26-Jan-2020 11:08:22 UTC] PHP Stack trace:
+[26-Jan-2020 11:08:22 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:0
+[26-Jan-2020 11:08:22 UTC] PHP   2. do_action() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:190
+[26-Jan-2020 11:08:22 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 11:08:22 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 11:08:22 UTC] PHP   5. snth_ajax_search() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[26-Jan-2020 11:08:36 UTC] PHP Notice:  Undefined variable: message in /Users/user/Sites/primex/public_html/wp-content/themes/primex/includes/ajax-search.php on line 16
+[26-Jan-2020 11:08:37 UTC] PHP Stack trace:
+[26-Jan-2020 11:08:37 UTC] PHP   1. {main}() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:0
+[26-Jan-2020 11:08:37 UTC] PHP   2. do_action() /Users/user/Sites/primex/public_html/wp-admin/admin-ajax.php:190
+[26-Jan-2020 11:08:37 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
+[26-Jan-2020 11:08:37 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
+[26-Jan-2020 11:08:37 UTC] PHP   5. snth_ajax_search() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288

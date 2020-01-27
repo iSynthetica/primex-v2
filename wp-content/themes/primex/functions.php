@@ -58,3 +58,9 @@ require_once(SNTH_INCLUDES.'/menu.php');
 require_once(SNTH_INCLUDES.'/content-templates.php');
 // Templates
 require_once(SNTH_INCLUDES.'/wc.php');
+
+
+// Templates
+if (file_exists(SNTH_INCLUDES.'/ajax-search.php')) {
+    require_once(SNTH_INCLUDES.'/ajax-search.php');
+}
