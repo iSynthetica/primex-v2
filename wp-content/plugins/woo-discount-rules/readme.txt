@@ -4,7 +4,7 @@ Donate link: https://flycart.org/
 Tags: woocommerce, coupons, discounts, dynamic pricing, Buy One Get One Free, pricing deals, bulk discount, discount
 Requires at least: 4.4.1
 Tested up to: 5.3
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -335,6 +335,17 @@ Discount - Enter minimum & Maximum quantity -> Adjustment Type -> Product Discou
 * Dutch Translation - [@mvdburg1971](https://profiles.wordpress.org/mvdburg1971) - Michael van der Burg
 
 == Changelog ==
+
+= 1.9.3 - 29/01/20 =
+* Fix - Disabled default free shipping even when the rule is disabled.
+* Fix - Wrong strikeout on quantity update in product page.
+* Fix - Dynamic coupon name with different language (Arabic) is not saved correctly in cart rule.
+* Fix - Calculating wrong discount for category based rule in cart while having tax settings(displays incl tax in cart).
+* Improvement - Refresh the cart on coupon applied when force refresh option is enabled.
+* Improvement - Apply biggest discount when an item has BOGO rule.
+* Improvement - Increased the free limit to 6.
+* Improvement - Sample rules while activate the plugin.
+* Improvement - Hints for user friendly.
 
 = 1.9.2 - 07/01/20 =
 * Fix - Disable discount rules coupon will work option doesn't works for cart rules.

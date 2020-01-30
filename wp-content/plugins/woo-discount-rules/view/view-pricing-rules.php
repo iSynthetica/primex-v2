@@ -190,7 +190,10 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                     <div class="qty_based_condition_cont price_discount_condition_con">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label> <?php esc_html_e('Apply To', 'woo-discount-rules'); ?> </label></div>
+                                <div class="col-md-3"><label> <?php esc_html_e('Apply To', 'woo-discount-rules'); ?> </label>
+                                    <div class="wdr_desc_text_con apply_to_hint">
+                                    </div>
+                                </div>
                                 <?php $opt = (isset($data->apply_to) ? $data->apply_to : ''); ?>
                                 <div class="col-md-9"><select class="selectpicker"
                                                               name="apply_to" id="apply_to">
@@ -267,7 +270,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         <div class="form-group" id="product_exclude_list">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-3"><label><?php esc_html_e('Exclude products', 'woo-discount-rules'); ?></label></div>
+                                    <div class="col-md-3"><label><?php esc_html_e('Exclude products', 'woo-discount-rules'); ?></label>
+                                        <div class="wdr_desc_text_con">
+                                            <span class="wdr_desc_text">
+                                                <?php echo sprintf(__('Use this option to exclude selected products from getting a discount. <a href="%s">Read docs</a>.', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/3357868-how-to-exclude-products-from-the-discount', 'exclude_products')); ?>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div class="col-md-9">
                                         <?php
                                         if(isset($data->product_to_exclude)){
@@ -286,7 +295,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-3"><label for="exclude_sale_items"><?php esc_html_e('Exclude sale items', 'woo-discount-rules'); ?></label></div>
+                                    <div class="col-md-3"><label for="exclude_sale_items"><?php esc_html_e('Exclude sale items', 'woo-discount-rules'); ?></label>
+                                        <div class="wdr_desc_text_con">
+                                            <span class="wdr_desc_text">
+                                                <?php echo __('Tick this checkbox if you wish to exclude products that already have a sale price set via WooCommerce.', 'woo-discount-rules'); ?>
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div class="col-md-9">
                                         <?php
                                         if($pro){
@@ -310,7 +325,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label> <?php esc_html_e('Customers', 'woo-discount-rules'); ?> </label></div>
+                                <div class="col-md-3"><label> <?php esc_html_e('Customers', 'woo-discount-rules'); ?> </label>
+                                    <div class="wdr_desc_text_con">
+                                            <span class="wdr_desc_text">
+                                                <?php echo sprintf(__('Use this option to apply the rule for specific customers. <a href="%s">Read docs</a>.', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/2002022-customer-based-discount-specific-users', 'customer_based_discount')); ?>
+                                            </span>
+                                    </div>
+                                </div>
                                 <?php $opt = (isset($data->customer) ? $data->customer : ''); ?>
                                 <div class="col-md-9"><select class="selectpicker"
                                                               name="customer" id="apply_customer">
@@ -338,7 +359,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label> <?php esc_html_e('User roles', 'woo-discount-rules') ?> </label></div>
+                                <div class="col-md-3"><label> <?php esc_html_e('User roles', 'woo-discount-rules') ?> </label>
+                                    <div class="wdr_desc_text_con">
+                                            <span class="wdr_desc_text">
+                                                <?php echo sprintf(__('Use this option to set a discount based on user roles. <a href="%s">Read docs</a>.', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1933842-user-role-based-discount-rules', 'user_role_based_discount')); ?>
+                                            </span>
+                                    </div>
+                                </div>
                                 <div class="col-md-9">
                                     <?php
                                     if($pro){
@@ -365,7 +392,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label> <?php esc_html_e('Coupon', 'woo-discount-rules') ?> </label></div>
+                                <div class="col-md-3"><label> <?php esc_html_e('Coupon', 'woo-discount-rules') ?> </label>
+                                    <div class="wdr_desc_text_con">
+                                        <span class="wdr_desc_text">
+                                            <?php echo sprintf(__('Useful if you wish to activate this discount rule via coupon code.<br>You can create your own coupon code here or select coupons created from WooCommerce -> Coupons. <a href="%s">Read docs</a>.', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1818998-activate-discount-rule-using-a-coupon-code-in-woocommerce', 'coupon_based_discount')); ?>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="col-md-9">
                                     <?php
                                     if($pro){
@@ -449,9 +482,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label> <?php esc_html_e('Subtotal', 'woo-discount-rules') ?>
-                                        <span class="woocommerce-help-tip" data-tip="<?php esc_attr_e('Applies for the whole cart subtotal (not recommended).', 'woo-discount-rules'); ?>"></span>
-                                    </label></div>
+                                <div class="col-md-3"><label> <?php esc_html_e('Subtotal', 'woo-discount-rules') ?></label>
+                                    <div class="wdr_desc_text_con">
+                                        <span class="wdr_desc_text">
+                                            <?php echo __('Useful when you want to limit the rule based on subtotal. (Use this only when absolutely necessary.)<br>See cart based discount rule tab (link to cart based rule tab) for effective subtotal based discount rules.', 'woo-discount-rules'); ?>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="col-md-9">
                                     <?php
                                     if($pro){
@@ -497,7 +534,13 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-3"><label><?php esc_html_e('Purchase History', 'woo-discount-rules'); ?></label></div>
+                                <div class="col-md-3"><label><?php esc_html_e('Purchase History', 'woo-discount-rules'); ?></label>
+                                    <div class="wdr_desc_text_con">
+                                        <span class="wdr_desc_text">
+                                            <?php echo sprintf(__('Useful for providing discounts based on previous purchase history.<br><b>Example:</b> First order discount, discount based on customer’s total spent so far. <a href="%s">Read docs</a>.', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1993999-purchase-history-based-discount', 'purchase_history_based_discount')); ?>
+                                        </span>
+                                    </div>
+                                </div>
                                 <?php $based_on_purchase_history = (isset($data->based_on_purchase_history) ? $data->based_on_purchase_history : 0); ?>
                                 <div class="col-md-9">
                                     <?php
@@ -667,7 +710,7 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                     <h4 class="text text-muted"> <?php esc_html_e('Discount', 'woo-discount-rules'); ?></h4>
                     <div class="qty_based_discount_cont price_discounts_con">
                         <a href=javascript:void(0) class="button button-primary" id="addNewDiscountRange"><i
-                                    class="glyphicon glyphicon-plus"></i> <?php esc_html_e('Add New Range', 'woo-discount-rules'); ?></a>
+                                    class="glyphicon glyphicon-plus"></i> <?php esc_html_e('Add quantity ranges', 'woo-discount-rules'); ?></a>
                         <hr>
                         <div class="set_discount_with_range_warning">
                             <div class="notice inline notice-warning notice-alt">
@@ -912,11 +955,11 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                 </div>
                                             </div>
                                         </label>
-                                        <label><a href=javascript:void(0)
-                                                  class="btn btn-danger form-control remove_discount_range"><?php esc_html_e('Remove', 'woo-discount-rules'); ?></a>
-                                        </label>
                                         <label><a href="javascript:void(0)" data-id="<?php echo $fieldIndex; ?>"
                                                   class="btn btn-primary form-control create_duplicate_discount_range"><?php esc_html_e('Duplicate', 'woo-discount-rules'); ?></a>
+                                        </label>
+                                        <label><a href=javascript:void(0)
+                                                  class="btn btn-danger form-control remove_discount_range"><?php esc_html_e('Remove', 'woo-discount-rules'); ?></a>
                                         </label>
 
 

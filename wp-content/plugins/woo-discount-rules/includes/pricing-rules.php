@@ -1364,7 +1364,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
             if(!empty($this->rule_sets))
                 foreach ($this->rule_sets as $id => $rule) {
                     $quantity = (isset($item['quantity']) ? $item['quantity'] : 0);
-
+                    $is_cumulative = false;
                     //Exclude product from discount
                     $exclude_product_item = apply_filters('woo_discount_rules_exclude_product_from_discount', false, $item['data'], $id, $rule, $item);
                     if($exclude_product_item) continue;
@@ -1406,10 +1406,11 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                 case 'specific_products':
                                     if ($this->isItemInProductList($rule['type']['specific_products'], $item)) {
                                         if(isset($rule['is_cumulative_for_products']) && $rule['is_cumulative_for_products']){
+                                            $is_cumulative = true;
                                             if($bogo) $quantity = $this->getProductQuantityForCumulativeSpecificProducts($item, 0, $rule, $rule['type']['specific_products']);
                                             else $quantity = $this->getProductQuantityForCumulativeSpecificProducts($item, $product_page, $rule, $rule['type']['specific_products']);
                                         }
-                                        $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo);
+                                        $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, array(), $is_cumulative);
                                         $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
                                     }
                                     break;
@@ -1420,6 +1421,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                     if ($this->isItemInCategoryList($rule['type']['specific_category'], $item) && $notInProductList && $is_not_in_exclude_sale_items) {
                                         $alreadyExists = 0;
                                         if(isset($rule['type']['is_cumulative']) && $rule['type']['is_cumulative']){
+                                            $is_cumulative = true;
                                             $totalQuantityInThisCategory = $this->getProductQuantityInThisCategory($rule['type']['specific_category'], $rule['product_to_exclude'], $rule['exclude_sale_items']);
                                             if($product_page && !$bogo){
                                                 if(FlycartWooDiscountRulesGeneralHelper::addAQuantityForProductStrikeOut()){
@@ -1450,7 +1452,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                             }
                                         }
                                         if(!$alreadyExists){
-                                            $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude']);
+                                            $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude'], $is_cumulative);
                                             $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
                                         }
                                     }
@@ -1461,6 +1463,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                     if ($this->isItemInAttributeList($rule['type']['specific_attribute'], $item, $id) && $notInProductList && $is_not_in_exclude_sale_items) {
                                         $alreadyExists = 0;
                                         if(isset($rule['type']['is_cumulative']) && $rule['type']['is_cumulative']){
+                                            $is_cumulative = true;
                                             $totalQuantityInThisAttribute = $this->getProductQuantityInThisAttribute($rule['type']['specific_attribute'], $rule['product_to_exclude'], $rule['exclude_sale_items'], $id);
                                             if($product_page && !$bogo){
                                                 if(FlycartWooDiscountRulesGeneralHelper::addAQuantityForProductStrikeOut()){
@@ -1491,7 +1494,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                             }
                                         }
                                         if(!$alreadyExists){
-                                            $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude']);
+                                            $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude'], $is_cumulative);
                                             $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
                                         }
                                     }
@@ -1502,10 +1505,11 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                 $is_not_in_exclude_sale_items = !$this->isItemInSaleItems($rule['exclude_sale_items'], $item['data']);
                                 if (!$this->isItemInProductList($rule['product_to_exclude'], $item) && $is_not_in_exclude_sale_items) {
                                     if(isset($rule['is_cumulative_for_products']) && $rule['is_cumulative_for_products']){
+                                        $is_cumulative = true;
                                         if($bogo) $quantity = $this->getProductQuantityForCumulativeProducts($item, 0, $rule);
                                         else $quantity = $this->getProductQuantityForCumulativeProducts($item, $product_page, $rule);
                                     }
-                                    $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude']);
+                                    $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude'], $is_cumulative);
                                     $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
                                 }
 
@@ -1934,13 +1938,13 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
          * @param $product_page
          * @return array|bool
          */
-        public function getAdjustmentAmount($item, $quantity, $discount_ranges, $rule, $product_page, $bogo, $product_to_exclude = array())
+        public function getAdjustmentAmount($item, $quantity, $discount_ranges, $rule, $product_page, $bogo, $product_to_exclude = array(), $is_cumulative = false)
         {
             $adjustment = array();
             if(FlycartWooDiscountRulesGeneralHelper::is_countable($discount_ranges)){
                 if($product_page){
                     if($this->custom_qty > 0){
-                        $quantity += ($this->custom_qty-1);
+                        if($is_cumulative == true) $quantity += ($this->custom_qty-1);
                     }
                 }
                 $has_set_discount = $set_discount_min_qty = 0;
@@ -3406,6 +3410,24 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
         }
 
         /**
+         * Check has BOGO in adjustment set
+         * */
+        public function hasBOGOInAdjustmentSet($adjustment_sets){
+            $has_bogo = false;
+            foreach ($adjustment_sets as $key => $adjustment_set){
+                if(isset($adjustment_set['amount'])){
+                    if(isset($adjustment_set['amount']['product_ids'])){
+                        if(!empty($adjustment_set['amount']['product_ids'])){
+                            $has_bogo = true;
+                        }
+                    }
+                }
+            }
+
+            return $has_bogo;
+        }
+
+        /**
          * Start Implement adjustment on individual items in the cart.
          *
          * @param $cart_item
@@ -3444,6 +3466,13 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
             $adjustment_set = $this->resetTheDiscountIfProductDiscountAdjustmentExists($adjustment_set, $product_id, $cart_item_key);
             $additionalDetails = $rules_info = $additionalInfo = array();
             $product_page = 0;
+            if(!in_array($type, array('first', 'biggest'))){
+                $has_bogo = $this->hasBOGOInAdjustmentSet($adjustment_set);
+                if($has_bogo === true){
+                    $type = 'biggest';
+                }
+            }
+
             if ($type == 'first') {
                 // For Apply the First Rule.
                 $discount = $this->getAmount($adjustment_set, $price, 'first');

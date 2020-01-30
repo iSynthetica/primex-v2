@@ -454,6 +454,19 @@ if(!class_exists('FlycartWooDiscountRules')){
                 if (isset($_REQUEST['wc-ajax']) && ($_REQUEST['wc-ajax'] == 'add_to_cart' || $_REQUEST['wc-ajax'] == 'remove_from_cart')) {
                     add_action('woocommerce_before_mini_cart', array($this, 'applyRulesBeforeMiniCart'), 10);
                 }
+                // Refresh the cart when a coupon applied
+                add_action('woocommerce_applied_coupon', function (){
+                    add_action('woocommerce_before_cart', function (){
+                        ?>
+                        <script type="text/javascript">
+                            jQuery( document ).ready(function() {
+                                jQuery("[name='update_cart']").removeAttr('disabled');
+                                jQuery("[name='update_cart']").trigger("click");
+                            });
+                        </script>
+                        <?php
+                    });
+                });
             }
 
             add_action('wp_ajax_loadWooDiscountStrikeoutPriceOfProduct', array($this->pricingRules, 'getWooDiscountStrikeoutPriceOfProduct'));

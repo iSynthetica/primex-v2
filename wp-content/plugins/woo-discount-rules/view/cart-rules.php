@@ -58,7 +58,7 @@ $current_language = FlycartWooDiscountRulesGeneralHelper::getWPMLLanguage();
                         <div class="row">
                             <div class="col-md-4" id="add_new_rule_div">
                                 <?php if (isset($rule_list)) {
-                                    if (count($rule_list) >= 3 && !$pro) { ?>
+                                    if (count($rule_list) >= 6 && !$pro) { ?>
                                         <a href="javascript:void(0)" class="btn btn-primary">
                                             <?php esc_html_e('You Reach Max. Rule Limit', 'woo-discount-rules'); ?>
                                         </a>
@@ -120,7 +120,7 @@ $current_language = FlycartWooDiscountRulesGeneralHelper::getWPMLLanguage();
                                     if (is_array($rule_list)) {
                                         if (count($rule_list) > 0) {
                                             foreach ($rule_list as $index => $rule) {
-                                                if (!$pro && $i > 3) continue;
+                                                if (!$pro && $i > 6) continue;
                                                 $meta = $rule->meta;
                                                 $status = isset($meta['status'][0]) ? $meta['status'][0] : 'disable';
                                                 $class = 'btn btn-success';

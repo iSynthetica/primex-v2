@@ -26,6 +26,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
         private $instance = array();
 
         public $has_free_shipping = 0;
+        public $has_free_shipping_rule = 0;
 
         protected static $self_instance;
 
@@ -85,6 +86,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
             global $woocommerce;
             $cart_discount = $this->getInstance('FlycartWooDiscountRulesCartRules');
             $cart_discount->analyse($woocommerce, $free_shipping_check);
+            $this->has_free_shipping_rule = $cart_discount->has_free_shipping_rule;
             if($free_shipping_check){
                 $this->has_free_shipping = $cart_discount->has_free_shipping;
             }
@@ -826,7 +828,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
                     if (!$isPro) {
                         $pricing_rule = $this->getInstance('FlycartWooDiscountRulesPricingRules');
                         $data = $pricing_rule->getRules();
-                        if (count($data) >= 3) die('You are restricted to process this action.');
+                        if (count($data) >= 6) die('You are restricted to process this action.');
                     }
                     break;
 
@@ -857,7 +859,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
                         if (!$isPro) {
                             $cart_rule = $this->getInstance('FlycartWooDiscountRulesCartRules');
                             $total_record = $cart_rule->getRules(true);
-                            if ($total_record >= 3) wp_die('You are restricted to process this action.');
+                            if ($total_record >= 6) wp_die('You are restricted to process this action.');
                         }
                     }
 
@@ -872,7 +874,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
                     if (!$isPro) {
                         $cart_rule = $this->getInstance('FlycartWooDiscountRulesCartRules');
                         $total_record = $cart_rule->getRules(true);
-                        if ($total_record >= 3) wp_die('You are restricted to process this action.');
+                        if ($total_record >= 6) wp_die('You are restricted to process this action.');
                     }
                     break;
 
@@ -1137,6 +1139,10 @@ if (!class_exists('FlycartWooDiscountBase')) {
                 'more_than_one_cheapest_tool_tip_text' => __('Provide a specific product free when purchasing another product.<br><br>Instead of automatically adding, if you wish to choose the free product, you can select this option.<br><br>Note : Product will be discounted only when the user manually adds the product to cart.', 'woo-discount-rules'),
                 'more_than_one_cheapest_from_cat_tool_tip_text' => __('Used to provide BOGO discount within categories.<br><br>Example 1: Buy 2 from Category A and get 1 free from the same Category A.<br>Example 2: Buy any items from Category A and get 20% (limited percent) discount on Category B.', 'woo-discount-rules'),
                 'more_than_one_cheapest_from_all_tool_tip_text' => __('This allows you to offer the cheapest product in cart for free (or at a limited percentage like 50%)', 'woo-discount-rules'),
+                'apply_to_hint_all_products' => sprintf(__('<span class="wdr_desc_text">Useful for providing a discount on store wide or on all products.</span> <span class="wdr_desc_text"> <a href="%s">Read docs</a>.</span>', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1459869-storewide-global-discount-for-all-products', 'discount_for_all_products')),
+                'apply_to_hint_specific_products' => sprintf(__('<span class="wdr_desc_text">Useful for providing a discount on selected products. Check the box to count quantities together across products.</span><br><span class="wdr_desc_text"><b>Note:</b> For variable products, you can auto include variants by enabling it in the settings. <a href="%s">Read docs</a>.</span>', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1459887-product-specific-discount-get-discount-in-t-shirts', 'discount_for_specific_products')),
+                'apply_to_hint_specific_category' => sprintf(__('<span class="wdr_desc_text">Useful for providing a discount on a specific category or multiple categories.</span><br><span class="wdr_desc_text"><b>Example:</b> 10%% discount for products from category A or category B. <a href="%s">Read docs</a>.</span>', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1459878-category-specific-discount', 'discount_for_specific_products')),
+                'apply_to_hint_specific_attribute' => sprintf(__('<span class="wdr_desc_text">Useful to offer discount based on attributes. <b>Example:</b> 10%% discount on Small Size T-shirts.</span><br><span class="wdr_desc_text"><b>Note:</b> Please make sure that the attributes are pre-defined in WooCommerce -> Attributes. <a href="%s">Read docs</a>.</span>', 'woo-discount-rules'), FlycartWooDiscountRulesGeneralHelper::docsDirectURL('https://docs.flycart.org/en/articles/1993883-specific-attribute-based-discount', 'discount_for_specific_attributes')),
             );
         }
 

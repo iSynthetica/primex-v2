@@ -76,6 +76,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
         public static $cartRules;
 
         public $has_free_shipping = 0;
+        public $has_free_shipping_rule = 0;
         public $bogo_coupon_codes = array();
         public static $applied_coupon = array();
 
@@ -185,7 +186,11 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                             $result['message'] = esc_html__('Failed to save', 'woo-discount-rules');
                             $result['error_message'] = $validate_dynamic_coupon['message'];
                             $result['invalid_field'] = 'create_dynamic_coupon';
-                            echo json_encode($result);
+                            if(defined('JSON_UNESCAPED_UNICODE')){
+                                echo json_encode($result, JSON_UNESCAPED_UNICODE);
+                            } else {
+                                echo json_encode($result);
+                            }
                             die();
                         }
                     } else {
@@ -233,7 +238,14 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                 }
             }
 
-            if (isset($request['discount_rule'])) $request['discount_rule'] = json_encode($request['discount_rule']);
+            if (isset($request['discount_rule'])){
+                if(defined('JSON_UNESCAPED_UNICODE')){
+                    $request['discount_rule'] = json_encode($request['discount_rule'], JSON_UNESCAPED_UNICODE);
+                } else {
+                    $request['discount_rule'] = json_encode($request['discount_rule']);
+                }
+
+            }
 
             if (is_null($id) || !isset($id)) return false;
             FlycartWooDiscountRulesGeneralHelper::resetUsedCoupons($id, $coupons_used);
@@ -249,8 +261,11 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                     }
                 }
             }
-
-            echo json_encode($result);
+            if(defined('JSON_UNESCAPED_UNICODE')){
+                echo json_encode($result, JSON_UNESCAPED_UNICODE);
+            } else {
+                echo json_encode($result);
+            }
         }
 
         /**
@@ -403,13 +418,13 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                 $discount_type = 'fixed_cart';
                 $amount = $this->discount_total;
                 if(FlycartWoocommerceVersion::wcVersion('3.2')){
-                    if(!$this->has_category_in_rule){
+//                    if(!$this->has_category_in_rule){
                         $discount_type = 'percent';
                         //To calculate the percent from total
                         if($this->sub_total > 0) {
                             $amount = ((100 * $this->discount_total) / $this->sub_total);
                         }
-                    }
+//                    }
                 }
 
                 $coupon = array(
@@ -691,6 +706,11 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                 // If Order ID is '-', then this rule not going to implement.
                                 if ($rule->rule_order !== '-') {
                                     $rule_set[] = $rule;
+                                    if(!empty($rule->discount_type)){
+                                        if ($rule->discount_type == 'shipping_price') {
+                                            $this->has_free_shipping_rule = 1;
+                                        }
+                                    }
                                 }
                             }
                         }

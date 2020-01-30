@@ -396,8 +396,9 @@ function wooo_discount_range_altered() {
                 form += '<span class="discount_product_percent_field">&nbsp;<input type="text" name="discount_range['+count+'][discount_product_percent]" class="discount_product_percent_field" value="" placeholder="'+woo_discount_localization.place_holder_ex_10+'" />&nbsp;<span class="woocommerce-help-tip" data-tip="'+woo_discount_localization.percentage_tooltip+'"></span></span> ';
                 form += '</div>';
                 form += '</div>';
-                form += '</label>&nbsp;<label><a href=javascript:void(0) class="btn btn-danger form-control remove_discount_range">'+woo_discount_localization.remove_text+'</a></label> ';
-                form += '<label><a href="javascript:void(0)" data-id="'+count+'" class="btn btn-primary form-control create_duplicate_discount_range">'+woo_discount_localization.duplicate_text+'</a></label> </div> </div>';
+                form += '</label>&nbsp;';
+                form += '<label><a href="javascript:void(0)" data-id="'+count+'" class="btn btn-primary form-control create_duplicate_discount_range">'+woo_discount_localization.duplicate_text+'</a></label> ' +
+                    '<label><a href=javascript:void(0) class="btn btn-danger form-control remove_discount_range">'+woo_discount_localization.remove_text+'</a></label> </div> </div>';
             } else {
                 var form = '<div class="discount_rule_list"> <div class="form-group"><label><span class="discount_for_min_quantity_text">'+woo_discount_localization.min_quantity+'</span> <input type="text" name="discount_range[' + count + '][min_qty]" class="form-control discount_range_min_qty" value="" placeholder="'+woo_discount_localization.place_holder_ex_1+'"></label>' +
                     '<label class="discount_for_max_quantity_label">'+woo_discount_localization.max_quantity+' <input type="text" name="discount_range[' + count + '][max_qty]" class="form-control discount_range_max_qty" value="" placeholder="'+woo_discount_localization.place_holder_ex_50+'"> </label> <label>'+woo_discount_localization.adjustment_type+'<select class="form-control price_discount_type" name="discount_range[' + count + '][discount_type]"> ' +
@@ -415,8 +416,9 @@ function wooo_discount_range_altered() {
                 form += '<div class="price_discount_product_list_con hide"><select class="product_list selectpicker price_discount_product_list" multiple title="'+woo_discount_localization.none_selected+'" name="discount_range[' + count + '][discount_product][]">';
                 form += '<option>'+woo_discount_localization.none_text+'</option>';
                 form += '</select></div>';
-                form += '</label>&nbsp;<label><a href=javascript:void(0) class="btn btn-danger form-control remove_discount_range">'+woo_discount_localization.remove_text+'</a> </label> ';
-                form += ' <label><a href=javascript:void(0) data-id="'+count+'" class="btn btn-primary form-control create_duplicate_discount_range">'+woo_discount_localization.duplicate_text+'</a> </label></div> </div>';
+                form += '</label>&nbsp; ';
+                form += ' <label><a href=javascript:void(0) data-id="'+count+'" class="btn btn-primary form-control create_duplicate_discount_range">'+woo_discount_localization.duplicate_text+'</a> </label> ' +
+                    '<label><a href=javascript:void(0) class="btn btn-danger form-control remove_discount_range">'+woo_discount_localization.remove_text+'</a> </label></div> </div>';
             }
             $('#discount_rule_list').append(form);
             $('.product_list,.selectpicker').selectpicker('refresh');
@@ -515,30 +517,36 @@ function wooo_discount_range_altered() {
         // Manage the Type of Apply.
         $('#apply_to').on('change', function () {
             var option = $(this).val();
+            var hint_text = '';
             $('#cumulative_for_products_cont').hide();
             if (option == 'specific_products') {
+                hint_text = woo_discount_localization.apply_to_hint_specific_products;
                 $('#product_list').css('display', 'block');
                 $('#category_list').css('display', 'none');
                 $('#product_attributes_list').css('display', 'none');
                 $('#product_exclude_list').hide();
                 $('#cumulative_for_products_cont').show();
             } else if (option == 'specific_category') {
+                hint_text = woo_discount_localization.apply_to_hint_specific_category;
                 $('#product_list').css('display', 'none');
                 $('#product_attributes_list').css('display', 'none');
                 $('#category_list').css('display', 'block');
                 $('#product_exclude_list').show();
             } else if (option == 'specific_attribute') {
+                hint_text = woo_discount_localization.apply_to_hint_specific_attribute;
                 $('#product_list').css('display', 'none');
                 $('#category_list').css('display', 'none');
                 $('#product_attributes_list').css('display', 'block');
                 $('#product_exclude_list').show();
             } else {
+                hint_text = woo_discount_localization.apply_to_hint_all_products;
                 $('#product_list').css('display', 'none');
                 $('#category_list').css('display', 'none');
                 $('#product_attributes_list').css('display', 'none');
                 $('#product_exclude_list').show();
                 $('#cumulative_for_products_cont').show();
             }
+            $('.apply_to_hint').html(hint_text);
         });
         $('#apply_to').trigger('change');
 
