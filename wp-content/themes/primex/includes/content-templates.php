@@ -577,6 +577,112 @@ function snth_comment_form_defaults($defaults) {
     return $defaults;
 }
 
+function snth_show_sections($page_sections) {
+    foreach ($page_sections as $page_section) {
+        $template = get_post($page_section['section_template']);
+        if (!empty($template) && 'publish' === $template->post_status) {
+            $template_settings = get_field('settings', $template->ID);
+            $section_title = '';
+            $section_subtitle = '';
+            unset($page_section['section_template']);
+
+            if ($page_section['show_section_title']) {
+                $section_title = !empty($page_section['section_title']) ? $page_section['section_title'] : $template->post_title;
+
+                unset($page_section['section_title']);
+                unset($page_section['show_section_title']);
+            }
+
+            if ($page_section['show_section_subtitle']) {
+                $section_subtitle = !empty($page_section['section_subtitle']) ? $page_section['section_subtitle'] : get_field('section_subtitle', $template->ID);
+                unset($page_section['section_subtitle']);
+                unset($page_section['show_section_subtitle']);
+            }
+
+            $section_style = '';
+
+            if (!empty($page_section['section_bg_color'])) {
+                $section_style .= 'background:' . $page_section['section_bg_color'] . ';';
+                unset($page_section['section_bg_color']);
+            }
+
+            if (!empty($page_section['section_padding_top'])) {
+                $section_style .= 'padding-top:' . $page_section['section_padding_top'] . 'px;';
+                unset($page_section['section_padding_top']);
+            }
+
+            if (!empty($page_section['section_padding_bottom'])) {
+                $section_style .= 'padding-bottom:' . $page_section['section_padding_bottom'] . 'px;';
+                unset($page_section['section_padding_bottom']);
+            }
+
+            $show_title = !empty($section_title) || !empty($section_subtitle);
+            ?>
+            <div class="section nomargin"<?php echo !empty($section_style) ? ' style="'.$section_style.'"' : ''; ?>>
+                <div class="container clearfix">
+                    <?php
+                    if ($show_title) {
+                        ?>
+                        <div class="heading-block nomargin center">
+                            <?php
+                            if (!empty($section_title)) {
+                                ?><h2><?php echo $section_title; ?></h2><?php
+                            }
+
+                            if (!empty($section_subtitle)) {
+                                ?><span class="divcenter"><?php echo $section_subtitle; ?></span><?php
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
+                    <div class="section-content<?php echo !empty($show_title) ? ' topmargin-sm' : ''; ?>">
+                        <?php snth_show_section_content($template_settings); ?>
+                    </div>
+
+                    <?php
+                    //                        var_dump($page_section);
+                    // var_dump($template_settings);
+                    ?>
+                </div>
+            </div>
+            <?php
+        }
+    }
+}
+
+function snth_show_section_content($template_settings) {
+    $template = $template_settings['template'];
+
+    // var_dump($template_settings);
+
+    if ('one_column' === $template || 'two_column' === $template || 'three_column' === $template || 'four_column' === $template || 'six_column' === $template) {
+        $content = $template_settings['template_columns'];
+    } elseif ('wc_product_carousel' === $template) {
+        $content = array(
+                'products' => $template_settings['wc_product_carousel'],
+                'settings' => $template_settings['product_carousel_settings'],
+        );
+    } elseif ('wc_product_carousel_attributes' === $template) {
+        $content = array(
+                'products' => $template_settings['wc_product_carousel_attributes'],
+                'settings' => $template_settings['product_carousel_settings'],
+        );
+    } elseif ('tabs' === $template) {
+        $content = array(
+                'tabs' => $template_settings['tabs'],
+        );
+    } elseif ('sidebar' === $template) {
+        $content = $template_settings['sidebar'];
+    } elseif ('showcase' === $template) {
+        $content = $template_settings['showcase'];
+    }
+
+    snth_show_template('section/' . $template . '.php', array('content' => $content));
+}
+
 add_filter('comment_form_defaults', 'snth_comment_form_defaults', 15);
 
 /**

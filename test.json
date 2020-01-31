@@ -1,0 +1,134 @@
+{
+  "recipe_id": "cd97fc39-e9eb-456f-874f-82ba9e70745d",
+  "ingredient_values": [
+    {
+      "variable_name": "link_registration_destination",
+      "value": "https://signup.milkboxfunnels.com"
+    },
+    {
+      "variable_name": "header_background_img",
+      "value": "movies-header-background.png"
+    },
+    {
+      "variable_name": "background_color_code",
+      "value": "#0037ce"
+    },
+    {
+      "variable_name": "page_background_img",
+      "value": "none"
+    },
+    {
+      "variable_name": "video_img",
+      "value": "movies-openingscenewide_EN.jpg"
+    },
+    {
+      "variable_name": "cta_message",
+      "value": "You must create an account in order to watch the following content."
+    },
+    {
+      "variable_name": "button_color",
+      "value": "#b40519"
+    },
+    {
+      "variable_name": "comment_username_1",
+      "value": "IvsPeace"
+    },
+    {
+      "variable_name": "comment_username_2",
+      "value": "Bscrivs30"
+    },
+    {
+      "variable_name": "comment_username_3",
+      "value": "coookieeLizz"
+    },
+    {
+      "variable_name": "comment_username_4",
+      "value": "troutjustice"
+    },
+    {
+      "variable_name": "comment_username_5",
+      "value": "plzohjohn"
+    },
+    {
+      "variable_name": "comment_username_6",
+      "value": "Jenny1990xoxo"
+    },
+    {
+      "variable_name": "comment_username_7",
+      "value": "christmastreemask"
+    },
+    {
+      "variable_name": "comment_username_8",
+      "value": "robotdont"
+    },
+    {
+      "variable_name": "comment_username_9",
+      "value": "8teamparly"
+    },
+    {
+      "variable_name": "comment_username_ten",
+      "value": "houssston20"
+    },
+    {
+      "variable_name": "comment_username_11",
+      "value": "LoriB"
+    },
+    {
+      "variable_name": "comment_text_1",
+      "value": "10/10 website, fantastic library!!! Would recommend this to everyone."
+    },
+    {
+      "variable_name": "comment_text_2",
+      "value": "Love that so many movies are available in HD :D"
+    },
+    {
+      "variable_name": "comment_text_3",
+      "value": "Sweet"
+    },
+    {
+      "variable_name": "comment_text_4",
+      "value": "Thank you very much - was lookin for this for a veery long time."
+    },
+    {
+      "variable_name": "comment_text_5",
+      "value": "Awesome!"
+    },
+    {
+      "variable_name": "comment_text_6",
+      "value": "Love this place A++"
+    },
+    {
+      "variable_name": "comment_text_7",
+      "value": "glad i found this site :)"
+    },
+    {
+      "variable_name": "comment_text_8",
+      "value": "Please also offer airplay"
+    },
+    {
+      "variable_name": "comment_text_9",
+      "value": "Absolutely thrilled with the members content on here. Just what I was looking for."
+    },
+    {
+      "variable_name": "comment_text_ten",
+      "value": "I approve!"
+    },
+    {
+      "variable_name": "comment_text_11",
+      "value": "1080p rulesss ;)"
+    },
+    {
+      "variable_name": "footer_copyright",
+      "value": "*This filename has been transmitted via an external affiliate, we can therefore furnish no guarantee for the existence of this file on our servers. {{brand_site}} matches keywords, searched from 3rd-party sites, to affiliate-networks offering unlimited access to licensed entertainment content. {{brand_site}} allows visitors, otherwise looking for free-content to enjoy more for less."
+    },
+    {
+      "variable_name": "affiliates_link_text",
+      "value": "Affiliates"
+    },
+    {
+      "variable_name": "link_affiliates_destination",
+      "value": "https://signup.milkboxfunnels.com"
+    }
+  ],
+  "milkbox_account_id": "a3135cef-c1e7-431b-9a67-22a669e5742a"
+}

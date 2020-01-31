@@ -103,3 +103,332 @@
 [26-Jan-2020 11:08:37 UTC] PHP   3. WP_Hook->do_action() /Users/user/Sites/primex/public_html/wp-includes/plugin.php:478
 [26-Jan-2020 11:08:37 UTC] PHP   4. WP_Hook->apply_filters() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:312
 [26-Jan-2020 11:08:37 UTC] PHP   5. snth_ajax_search() /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 10:25:08 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 583
+[30-Jan-2020 10:35:45 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 589
+[30-Jan-2020 10:35:45 UTC] PHP Stack trace:
+[30-Jan-2020 10:35:45 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 10:35:45 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 10:35:45 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 10:35:45 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 10:35:45 UTC] PHP   5. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:78
+[30-Jan-2020 11:02:16 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 665
+[30-Jan-2020 11:02:16 UTC] PHP Stack trace:
+[30-Jan-2020 11:02:16 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 11:02:16 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 11:02:16 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 11:02:16 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 11:02:16 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:14
+[30-Jan-2020 11:02:16 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:08:51 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 670
+[30-Jan-2020 12:08:51 UTC] PHP Stack trace:
+[30-Jan-2020 12:08:51 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:08:51 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:08:51 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:08:51 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:08:51 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:08:51 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:09:12 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 670
+[30-Jan-2020 12:09:12 UTC] PHP Stack trace:
+[30-Jan-2020 12:09:12 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:09:12 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:09:12 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:09:12 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:09:12 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:09:12 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:10:42 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 675
+[30-Jan-2020 12:10:42 UTC] PHP Stack trace:
+[30-Jan-2020 12:10:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:10:42 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:10:42 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:10:42 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:10:42 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:10:42 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:11:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function get_id() on boolean in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/wc_product_carousel_attributes.php:29
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php(50): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php(675): snth_show_template('section/wc_prod...', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php(642): snth_show_section_content(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php(40): snth_show_sections(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php(98): include('/var/www/tsvito...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php(19): require_once('/var/www/tsvito...')
+#6 /var/www/tsvitokha/primex2.0/public_html/index.php(17): require('/var/www/tsvito...')
+ in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/wc_product_carousel_attributes.php on line 29
+[30-Jan-2020 12:14:51 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function wc_get_products(), 0 passed in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/wc_product_carousel_attributes.php on line 20 and exactly 1 expected in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-product-functions.php:26
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/wc_product_carousel_attributes.php(20): wc_get_products()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php(50): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php(675): snth_show_template('section/wc_prod...', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php(642): snth_show_section_content(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php(40):  in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-product-functions.php on line 26
+[30-Jan-2020 12:47:54 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 675
+[30-Jan-2020 12:47:54 UTC] PHP Stack trace:
+[30-Jan-2020 12:47:54 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:47:54 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:47:54 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:47:54 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:47:54 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:47:54 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:48:40 UTC] PHP Notice:  Undefined index: column_1 in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/tabs.php on line 11
+[30-Jan-2020 12:48:40 UTC] PHP Stack trace:
+[30-Jan-2020 12:48:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:48:40 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:48:40 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:48:40 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:48:40 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:48:40 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:48:40 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:680
+[30-Jan-2020 12:48:40 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[30-Jan-2020 12:48:40 UTC] PHP Notice:  Undefined index: column_2 in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/tabs.php on line 15
+[30-Jan-2020 12:48:40 UTC] PHP Stack trace:
+[30-Jan-2020 12:48:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:48:40 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:48:40 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:48:40 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:48:40 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:48:40 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:48:40 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:680
+[30-Jan-2020 12:48:40 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[30-Jan-2020 12:48:40 UTC] PHP Notice:  Undefined index: column_3 in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/tabs.php on line 19
+[30-Jan-2020 12:48:40 UTC] PHP Stack trace:
+[30-Jan-2020 12:48:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:48:40 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:48:40 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:48:40 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:48:40 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:48:40 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:48:40 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:680
+[30-Jan-2020 12:48:40 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[30-Jan-2020 12:48:40 UTC] PHP Notice:  Undefined index: column_4 in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/tabs.php on line 23
+[30-Jan-2020 12:48:40 UTC] PHP Stack trace:
+[30-Jan-2020 12:48:40 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 12:48:40 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 12:48:40 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 12:48:40 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 12:48:40 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/templates/page-landing.php:40
+[30-Jan-2020 12:48:40 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 12:48:40 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:680
+[30-Jan-2020 12:48:40 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[30-Jan-2020 13:51:43 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 679
+[30-Jan-2020 13:51:43 UTC] PHP Stack trace:
+[30-Jan-2020 13:51:43 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 13:51:43 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 13:51:43 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 13:51:43 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 13:51:43 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[30-Jan-2020 13:51:43 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 13:51:56 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 679
+[30-Jan-2020 13:51:56 UTC] PHP Stack trace:
+[30-Jan-2020 13:51:56 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[30-Jan-2020 13:51:56 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[30-Jan-2020 13:51:56 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[30-Jan-2020 13:51:56 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[30-Jan-2020 13:51:56 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[30-Jan-2020 13:51:56 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[30-Jan-2020 14:55:29 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 14:55:29 UTC] PHP Stack trace:
+[30-Jan-2020 14:55:29 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 14:55:29 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 14:55:29 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 14:55:29 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 14:55:29 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 14:55:29 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 14:55:29 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 14:55:29 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 14:55:29 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 14:55:29 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 14:55:29 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 14:55:29 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 14:55:29 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 14:55:29 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[30-Jan-2020 14:55:51 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 14:55:51 UTC] PHP Stack trace:
+[30-Jan-2020 14:55:51 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 14:55:51 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 14:55:51 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 14:55:51 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 14:55:51 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 14:55:51 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 14:55:51 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 14:55:51 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 14:55:51 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 14:55:51 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 14:55:51 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 14:55:51 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 14:55:51 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 14:55:51 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[30-Jan-2020 14:56:22 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 14:56:22 UTC] PHP Stack trace:
+[30-Jan-2020 14:56:22 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 14:56:22 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 14:56:22 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 14:56:22 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 14:56:22 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 14:56:22 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 14:56:22 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 14:56:22 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 14:56:22 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 14:56:22 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 14:56:22 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 14:56:22 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 14:56:22 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 14:56:22 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[30-Jan-2020 15:29:34 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 15:29:34 UTC] PHP Stack trace:
+[30-Jan-2020 15:29:34 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 15:29:34 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 15:29:34 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 15:29:34 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 15:29:34 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 15:29:34 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 15:29:34 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 15:29:34 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 15:29:34 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 15:29:34 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 15:29:34 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 15:29:34 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 15:29:34 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 15:29:34 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[30-Jan-2020 15:30:28 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 15:30:28 UTC] PHP Stack trace:
+[30-Jan-2020 15:30:28 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 15:30:28 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 15:30:28 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 15:30:28 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 15:30:28 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 15:30:28 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 15:30:28 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 15:30:28 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 15:30:28 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 15:30:28 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 15:30:28 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 15:30:28 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 15:30:28 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 15:30:28 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[30-Jan-2020 15:33:01 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/forums/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php on line 67
+[30-Jan-2020 15:33:01 UTC] PHP Stack trace:
+[30-Jan-2020 15:33:01 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:0
+[30-Jan-2020 15:33:01 UTC] PHP   2. include() /var/www/tsvitokha/primex2.0/public_html/wp-admin/post.php:198
+[30-Jan-2020 15:33:01 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-admin/edit-form-advanced.php:419
+[30-Jan-2020 15:33:01 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-admin/admin-header.php:104
+[30-Jan-2020 15:33:01 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[30-Jan-2020 15:33:01 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:312
+[30-Jan-2020 15:33:01 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:288
+[30-Jan-2020 15:33:01 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:841
+[30-Jan-2020 15:33:01 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:261
+[30-Jan-2020 15:33:01 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[30-Jan-2020 15:33:01 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[30-Jan-2020 15:33:01 UTC] PHP  12. wp_get_available_translations() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[30-Jan-2020 15:33:01 UTC] PHP  13. translations_api() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:131
+[30-Jan-2020 15:33:01 UTC] PHP  14. trigger_error() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/translation-install.php:67
+[31-Jan-2020 09:05:20 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 681
+[31-Jan-2020 09:05:20 UTC] PHP Stack trace:
+[31-Jan-2020 09:05:20 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 09:05:20 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 09:05:20 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 09:05:20 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 09:05:20 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:61
+[31-Jan-2020 09:05:20 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 09:10:18 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 681
+[31-Jan-2020 09:10:18 UTC] PHP Stack trace:
+[31-Jan-2020 09:10:18 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 09:10:18 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 09:10:18 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 09:10:18 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 09:10:18 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:61
+[31-Jan-2020 09:10:18 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 09:20:13 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 681
+[31-Jan-2020 09:20:13 UTC] PHP Stack trace:
+[31-Jan-2020 09:20:13 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 09:20:13 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 09:20:13 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 09:20:13 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 09:20:13 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:61
+[31-Jan-2020 09:20:13 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 09:20:25 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 681
+[31-Jan-2020 09:20:25 UTC] PHP Stack trace:
+[31-Jan-2020 09:20:25 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 09:20:25 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 09:20:25 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 09:20:25 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 09:20:25 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:61
+[31-Jan-2020 09:20:25 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 09:21:52 UTC] PHP Notice:  Undefined variable: content in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php on line 681
+[31-Jan-2020 09:21:52 UTC] PHP Stack trace:
+[31-Jan-2020 09:21:52 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 09:21:52 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 09:21:52 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 09:21:52 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 09:21:52 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:61
+[31-Jan-2020 09:21:52 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 12:58:02 UTC] PHP Notice:  Array to string conversion in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 51
+[31-Jan-2020 12:58:02 UTC] PHP Stack trace:
+[31-Jan-2020 12:58:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 12:58:02 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 12:58:02 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 12:58:02 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 12:58:02 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 12:58:02 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 12:58:02 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 12:58:02 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 12:58:02 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 12:58:02 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 12:58:02 UTC] PHP Notice:  Array to string conversion in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 61
+[31-Jan-2020 12:58:02 UTC] PHP Stack trace:
+[31-Jan-2020 12:58:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 12:58:02 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 12:58:02 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 12:58:02 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 12:58:02 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 12:58:02 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 12:58:02 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 12:58:02 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 12:58:02 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 12:58:02 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:14 UTC] PHP Notice:  Undefined index: url in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 95
+[31-Jan-2020 13:44:14 UTC] PHP Stack trace:
+[31-Jan-2020 13:44:14 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 13:44:14 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 13:44:14 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 13:44:14 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 13:44:14 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 13:44:14 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 13:44:14 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 13:44:14 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:14 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 13:44:14 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:14 UTC] PHP Notice:  Undefined index: url in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 137
+[31-Jan-2020 13:44:14 UTC] PHP Stack trace:
+[31-Jan-2020 13:44:14 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 13:44:14 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 13:44:14 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 13:44:14 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 13:44:14 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 13:44:14 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 13:44:14 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 13:44:14 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:14 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 13:44:14 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:42 UTC] PHP Notice:  Array to string conversion in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 100
+[31-Jan-2020 13:44:42 UTC] PHP Stack trace:
+[31-Jan-2020 13:44:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 13:44:42 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 13:44:42 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 13:44:42 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 13:44:42 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 13:44:42 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 13:44:42 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 13:44:42 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:42 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 13:44:42 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:42 UTC] PHP Notice:  Undefined index: url in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase-style-1.php on line 137
+[31-Jan-2020 13:44:42 UTC] PHP Stack trace:
+[31-Jan-2020 13:44:42 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[31-Jan-2020 13:44:42 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[31-Jan-2020 13:44:42 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[31-Jan-2020 13:44:42 UTC] PHP   4. include() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:98
+[31-Jan-2020 13:44:42 UTC] PHP   5. snth_show_sections() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/front-page.php:13
+[31-Jan-2020 13:44:42 UTC] PHP   6. snth_show_section_content() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:642
+[31-Jan-2020 13:44:42 UTC] PHP   7. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/content-templates.php:683
+[31-Jan-2020 13:44:42 UTC] PHP   8. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50
+[31-Jan-2020 13:44:42 UTC] PHP   9. snth_show_template() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/parts/section/showcase.php:13
+[31-Jan-2020 13:44:42 UTC] PHP  10. include() /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/includes/helpers.php:50

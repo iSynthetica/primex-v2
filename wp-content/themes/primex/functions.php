@@ -42,6 +42,8 @@ define('SNTH_INCLUDES_URL', SNTH_URL.'/includes');
 require_once(SNTH_INCLUDES.'/settings.php');
 // Helpers library
 require_once(SNTH_INCLUDES.'/helpers.php');
+// CPT library
+require_once(SNTH_INCLUDES.'/cpt.php');
 // Theme support options
 require_once(SNTH_INCLUDES.'/enqueue-scripts.php');
 // Theme support options

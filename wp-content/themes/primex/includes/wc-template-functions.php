@@ -250,13 +250,13 @@ function snth_wc_template_loop_add_to_cart( $args = array() ) {
     }
 }
 
-function snth_wc_product_loop_carousel_start( $echo = true ) {
+function snth_wc_product_loop_carousel_start( $echo = true, $items_xl = 4, $items_lg = 3, $items_md = 2 ) {
     ob_start();
 
     wc_set_loop_prop( 'loop', 0 );
 
     ?>
-    <div id="oc-product" class="owl-carousel product-carousel carousel-widget" data-margin="30" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-md="2" data-items-lg="3" data-items-xl="4">
+    <div id="oc-product" class="owl-carousel product-carousel carousel-widget" data-margin="30" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-md="<?php echo $items_md ?>" data-items-lg="<?php echo $items_lg ?>" data-items-xl="<?php echo $items_xl ?>">
     <?php
 
     $loop_start = ob_get_clean();

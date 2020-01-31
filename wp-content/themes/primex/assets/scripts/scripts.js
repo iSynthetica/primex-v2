@@ -10609,7 +10609,7 @@ var SEMICOLON = SEMICOLON || {};
         menufunctions: function(){
 
             $( '#primary-menu ul li:has(ul)' ).addClass('sub-menu');
-            $( '.top-links ul li:has(ul) > a, #primary-menu.with-arrows > ul > li:has(ul) > a > div, #primary-menu.with-arrows > div > ul > li:has(ul) > a > div, #page-menu nav ul li:has(ul) > a > div' ).append( '<i class="fas fa-caret-down"></i>' );
+            $( '.top-links ul li:has(ul) > a, #primary-menu.with-arrows > ul > li:has(ul) > a > div, #primary-menu.with-arrows > div > ul > li:has(ul) > a > div, #page-menu nav ul li:has(ul) > a > div' ).append( '<i class="icon-angle-down"></i>' );
             $( '.top-links > ul' ).addClass( 'clearfix' );
 
             if( $body.hasClass('device-xl') || $body.hasClass('device-lg') ) {
