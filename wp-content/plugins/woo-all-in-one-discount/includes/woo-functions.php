@@ -1,7 +1,147 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function wooaiodiscount_get_before_price_html($price, $product) {
+function wooaiodiscount_product_discount_price($product_price, $product) {
+    global $wooaiodiscount_current_user_rule;
+    $discount = 0;
+    $all_products_discount = null;
+    $category_discount = null;
+    $product_discount = null;
+    $discount_type = 'extra_charge';
+    $product_type = $product->get_type();
+
+    if ('variation' === $product_type) {
+        $_product = wc_get_product( $product->get_parent_id() );
+        $product_id = $_product->get_id();
+    } else {
+        $product_id = $product->get_id();
+    }
+
+
+    $rule = $wooaiodiscount_current_user_rule;
+    $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
+
+    if (!empty($rule['base_discount']['discount'])) {
+        $discount_type = $rule["base_discount"]["type"];
+        foreach ($rule['base_discount']['discount'] as $discount_rule) {
+            if ($discount_rule['apply'] === 'all_products') {
+                $all_products_discount = $discount_rule['amount'];
+            } elseif ($discount_rule['apply'] === 'by_categories') {
+
+            } elseif ($discount_rule['apply'] === 'separate_products') {
+                if (in_array($product_id, $discount_rule['products'])) {
+                    $product_discount = $discount_rule['amount'];
+                }
+            }
+        }
+    }
+
+    if (null !==  $all_products_discount) {
+        $discount = $all_products_discount;
+    }
+
+    if (null !==  $category_discount) {
+        $discount = $category_discount;
+    }
+
+    if (null !==  $product_discount) {
+        $discount = $product_discount;
+    }
+
+    if ('extra_charge' === $discount_type) {
+        $product_price = $product_price + ($product_price * ($discount / 100));
+    } else {
+        $product_price = $product_price - ($product_price * ($discount / 100));
+    }
+
+    return $product_price;
+}
+
+function wooaiodiscount_product_get_regular_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_product_get_sale_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_product_get_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_product_variation_get_regular_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_product_variation_get_sale_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_product_variation_get_price($price, $product) {
+    if (!$price) {
+        return $price;
+    }
+
+    return wooaiodiscount_product_discount_price($price, $product);
+}
+
+function wooaiodiscount_variation_prices($prices, $product) {
+    foreach ($prices as $price_type => $prices_amounts) {
+        foreach ($prices_amounts as $product_id => $price) {
+            $product = wc_get_product($product_id);
+            $prices[$price_type][$product_id] = wooaiodiscount_product_discount_price($price, $product);
+        }
+    }
+
+    return $prices;
+}
+
+function wooaiodiscount_set_discount_rules() {
+    add_filter('woocommerce_product_get_regular_price', 'wooaiodiscount_product_get_regular_price', 1000, 2 );
+    add_filter('woocommerce_product_get_sale_price', 'wooaiodiscount_product_get_sale_price', 1000, 2 );
+    add_filter('woocommerce_product_get_price', 'wooaiodiscount_product_get_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_price', 'wooaiodiscount_product_variation_get_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_regular_price', 'wooaiodiscount_product_variation_get_regular_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_sale_price', 'wooaiodiscount_product_variation_get_sale_price', 1000, 2 );
+    add_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000, 2 );
+}
+
+function wooaiodiscount_reset_discount_rules() {
+    remove_filter('woocommerce_product_get_regular_price', 'wooaiodiscount_product_get_regular_price', 1000, 2 );
+    remove_filter('woocommerce_product_get_sale_price', 'wooaiodiscount_product_get_sale_price', 1000, 2 );
+    remove_filter('woocommerce_product_get_price', 'wooaiodiscount_product_get_price', 1000, 2 );
+    remove_filter('woocommerce_product_variation_get_price', 'wooaiodiscount_product_variation_get_price', 1000, 2 );
+    remove_filter('woocommerce_product_variation_get_regular_price', 'wooaiodiscount_product_variation_get_regular_price', 1000, 2 );
+    remove_filter('woocommerce_product_variation_get_sale_price', 'wooaiodiscount_product_variation_get_sale_price', 1000, 2 );
+    remove_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000, 2 );
+}
+
+
+
+
+
+
+function wooaiodiscount_get_before_price_html_1($price, $product) {
     global $wooaiodiscount_current_user_rule;
 
     if (empty($wooaiodiscount_current_user_rule)) {
@@ -17,7 +157,65 @@ function wooaiodiscount_get_before_price_html($price, $product) {
     return $before_discount_price . $price;
 }
 
+function wooaiodiscount_get_before_price_html($product) {
+    $product_type = $product->get_type();
+
+    wooaiodiscount_reset_discount_rules();
+
+    if ('simple' === $product_type) {
+        return wooaiodiscount_simple_get_price_html( $product ) . "<br>";
+    }
+
+    wooaiodiscount_set_discount_rules();
+
+    return "";
+}
+
+function wooaiodiscount_simple_get_price_html( $product ) {
+    if ( '' === $product->get_price() ) {
+        $price = apply_filters( 'woocommerce_empty_price_html', '', $product );
+    } elseif ( $product->is_on_sale() ) {
+        $price = wc_format_sale_price( wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) ), wc_get_price_to_display( $product ) ) . $product->get_price_suffix();
+    } else {
+        $price = wc_price( wc_get_price_to_display( $product ) ) . $product->get_price_suffix();
+    }
+
+    return $price;
+}
+
 function wooaiodiscount_get_price_html($price, $product) {
+
+    $product_type = $product->get_type();
+
+    if ('simple' === $product_type) {
+
+        wooaiodiscount_reset_discount_rules();
+        $before_price = wooaiodiscount_simple_get_price_html( $product ) . "<br>";
+        wooaiodiscount_set_discount_rules();
+
+        $basic_price = "Цена: " . wooaiodiscount_simple_get_price_html( $product );
+
+        wooaiodiscount_reset_discount_rules();
+        $after_price = "<br> Цена розница: " . wooaiodiscount_simple_get_price_html( $product );
+        wooaiodiscount_set_discount_rules();
+
+        return $before_price . $basic_price . $after_price;
+    }
+
+    return $price;
+}
+
+function wooaiodiscount_get_after_price_html($product) {
+    $product_type = $product->get_type();
+
+    if ('simple' === $product_type) {
+        return "<br>" . wooaiodiscount_simple_get_price_html( $product );
+    }
+
+    return "";
+}
+
+function wooaiodiscount_get_price_html_1($price, $product) {
     global $wooaiodiscount_current_user_rule;
 
     if (empty($wooaiodiscount_current_user_rule)) {

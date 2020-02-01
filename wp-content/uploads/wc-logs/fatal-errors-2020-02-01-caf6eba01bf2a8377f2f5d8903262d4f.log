@@ -1,0 +1,82 @@
+2020-02-01T14:25:04+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function wooaiodiscount_variation_prices(), 1 passed in /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php on line 290 and exactly 2 expected in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:56
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/pri в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 56
+
+2020-02-01T14:27:05+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:5
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(61): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 5
+
+2020-02-01T14:27:18+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:5
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(61): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 5
+
+2020-02-01T14:30:20+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(62): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 6
+
+2020-02-01T14:30:24+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(62): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 6
+
+2020-02-01T14:30:53+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(62): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 6
+
+2020-02-01T14:31:21+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(62): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 6
+
+2020-02-01T14:37:57+00:00 CRITICAL Uncaught Error: Unsupported operand types in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(62): wooaiodiscount_product_discount_price(Array, Object(WC_Product_Variable))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): wooaiodiscount_variation_prices(Array, Object(WC_Product_Variable))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters(Array, Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/data-stores/class-wc-product-variable-data-store-cpt.php(382): apply_filters('woocommerce_var...', Array, Object(WC_Product_Variable), false)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(207): WC_Product_Variable_Data_Store_CPT->read_price_data(Object(WC_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 6
+
+2020-02-01T15:17:09+00:00 CRITICAL Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php:1526
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php(1526): in_array('term_id', Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php(1483): sanitize_term_field('term_id', '492', '492', 'product_cat', 'raw')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-term.php(210): sanitize_term(Object(WP_Term), 'product_cat', 'raw')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-term.php(184): WP_Term->filter('raw')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php(835): WP_Term::get_instance(492, 'product_cat')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php(3347): get_term(492, 'product_cat')
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-includes/category-template.php(1236): get_object_term_cache(8488, 'product_cat')
+#7 /var/www/tsvitokha/primex2. в /var/www/tsvitokha/primex2.0/public_html/wp-includes/taxonomy.php на строке 1526
+
+2020-02-01T15:23:31+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function wooaiodiscount_get_after_price_html(), 1 passed in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php on line 184 and exactly 2 expected in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php:189
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php(184): wooaiodiscount_get_after_price_html(Object(WC_Product_Simple))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaiodiscount_get_price_html('<del><span clas...', Object(WC_Product_Simple))
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters('<del><span clas...', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(1767): apply_filters('woocommerce_get...', '<del><sp в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-discount/includes/woo-functions.php на строке 189
+
