@@ -3,15 +3,11 @@
     var timer;
     var input;
 
-    // $(document.body).on('change keyup blur', '#ajax-search-field', function() {
-    //     alert('Form input');
-    // });
-
     $(document.body).on('keyup', '#ajax-search-field', function() {
         input = $(this);
         resetTimer();
 
-        timer = setTimeout(ajaxSearch, 2000);
+        timer = setTimeout(ajaxSearch, 1000);
     });
 
     $(document).ready(function() {
@@ -41,7 +37,9 @@
 		ajaxRequest(data, function(decoded) {
             if (decoded.searchResult) {
                 holder.html(decoded.searchResult).show();
-            }
+            } else {
+				holder.html('').show();
+			}
         });
     }
 
@@ -64,7 +62,7 @@
 					if (decoded.consoleLog) {
 						console.log(decoded.consoleLog);
                     }
-                    
+
 					if (decoded.message) {
 						alert(decoded.message);
 					}
@@ -117,7 +115,7 @@
 			});
 		}
 	}
-    
+
     function resetTimer() {
         console.log('Reset timer');
         clearTimeout( timer );

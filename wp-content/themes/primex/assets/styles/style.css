@@ -17232,6 +17232,19 @@ body:not(.device-md):not(.device-sm):not(.device-xs) #primary-menu.style-2.cente
   left: 0;
   transition: opacity .3s ease; }
 
+#top-search .ajax-search-holder {
+  border-top: 1px solid #1ABC9C;
+  border-bottom: 1px solid #EEE;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2); }
+  #top-search .ajax-search-holder a {
+    font-size: 0.875rem;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    color: #333; }
+
 body.top-search-open #top-search a i.fa-search,
 #top-search a i.fa-times {
   opacity: 0; }

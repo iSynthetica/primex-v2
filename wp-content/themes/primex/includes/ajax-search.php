@@ -20,14 +20,18 @@ function snth_ajax_search() {
 
     if (!empty($q)) {
         global $wpdb;
-        $sql = "SELECT * FROM {$wpdb->posts} WHERE post_title LIKE '%{$q}%'";
+        $sql = "SELECT * FROM {$wpdb->posts} WHERE post_title LIKE '%{$q}%' AND post_type = 'product'";
         $result = $wpdb->get_results($sql, ARRAY_A);
 
         if (!empty($result)) {
             ob_start();
             foreach($result as $item) {
                 ?>
-                <p><?php echo $item['post_title'] ?></p>
+                <p>
+                    <a href="<?php echo get_post_permalink( $item['ID'], false, true )?>">
+                        <?php echo $item['post_title'] ?>
+                    </a>
+                </p>
                 <?php
             }
             $search_result = ob_get_clean();
