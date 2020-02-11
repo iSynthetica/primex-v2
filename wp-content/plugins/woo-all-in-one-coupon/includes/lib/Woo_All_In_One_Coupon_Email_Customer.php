@@ -17,8 +17,8 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
         $this->subject     = sprintf( _x( '[%s] - Repair Request', 'default email subject for cancelled emails sent to the customer', 'woo-all-in-one-coupon' ), '{blogname}' );
 
         $this->email_type = $this->get_option( 'email_type', 'multipart' );
-        $this->template_html  = 'emails/wc-customer-repair-request.php';
-        $this->template_plain = 'emails/plain/wc-customer-repair-request.php';
+        $this->template_html  = 'emails/wc-customer-coupon-request.php';
+        $this->template_plain = 'emails/plain/wc-customer-coupon-request.php';
         $this->template_base = untrailingslashit( WAIO_COUPON_PATH ) . '/templates/';
 
         parent::__construct();
@@ -27,19 +27,16 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
     /**
      * @param $order_id
      */
-    public function trigger( $coupon_id ) {
+    public function trigger( $coupon_id, $email ) {
         $this->setup_locale();
-
-        $where = array('ID' => $coupon_id);
-        $repairs = Woo_All_In_One_Service_Model::get($where);
-        $this->object = $repairs[0];
+        $this->object = $coupon_id;
         $this->heading = $this->heading . ' ' . $this->object['title'];
 
-        $this->recipient = $this->object['email'];
+        $this->recipient = $email;
 
         $send = $this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 
-        if ($send && empty($email)) { // If review request sent and not test mode
+        if ($send) { // If review request sent and not test mode
             do_action('wooaiocoupon_coupon_email_sent', $coupon_id);
         }
 
@@ -48,7 +45,7 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
 
     public function get_content_html() {
         return wc_get_template_html( $this->template_html, array(
-            'repair'         => $this->object,
+            'coupon_id'         => $this->object,
             'email_heading' => $this->get_heading(),
             'sent_to_admin' => false,
             'plain_text'    => false,
@@ -58,7 +55,7 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
 
     public function get_content_plain() {
         return wc_get_template_html( $this->template_plain, array(
-            'repair'         => $this->object,
+            'coupon_id'         => $this->object,
             'email_heading' => $this->get_heading(),
             'sent_to_admin' => false,
             'plain_text'    => true,

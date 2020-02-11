@@ -41,6 +41,21 @@ function snth_wc_service_fields( $fields ) {
 // Hook in
 add_filter( 'wooaioservice_fields' , 'snth_wc_service_fields' );
 
+function snth_wc_coupon_fields( $fields ) {
+    foreach ($fields as $key => $field) {
+        if (in_array($key, array('coupon_name', 'coupon_phone', 'coupon_email'))) {
+            $fields[$key]['class'] = array('col-12');
+
+            $fields[$key]['input_class'][] = 'form-control';
+        }
+    }
+
+    return $fields;
+}
+
+// Hook in
+add_filter( 'wooaiocoupon_fields' , 'snth_wc_coupon_fields' );
+
 function snth_wc_remove_class($field) {
     $field = str_replace('form-row', '', $field);
     return $field;

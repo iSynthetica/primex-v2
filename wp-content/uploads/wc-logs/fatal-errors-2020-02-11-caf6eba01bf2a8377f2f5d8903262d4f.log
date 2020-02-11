@@ -7,3 +7,21 @@ Stack trace:
 #4 {main}
   thrown в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/class-woo-all-in-one-coupon-admin.php на строке 103
 
+2020-02-11T13:10:49+00:00 CRITICAL Uncaught Error: Call to undefined method Woo_All_In_One_Coupon::generate_unique_code() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Model.php:6
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/content-coupon.php(8): Woo_All_In_One_Coupon_Model::generate_coupon()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/woo-all-in-one-coupon-admin-display.php(21): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/class-woo-all-in-one-coupon-admin.php(112): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Coupon_Admin->render_settings_page('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#5 /var/www/tsvitokha/primex2.0/pu в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Model.php на строке 6
+
+2020-02-11T16:03:54+00:00 CRITICAL Uncaught Error: Class 'Woo_All_In_One_Service_Form' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php:17
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php(13): Woo_All_In_One_Coupon_Form::form_html(Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php(325): Woo_All_In_One_Coupon_Form::form_shortcode(Array, '', 'wooaiocoupon_fo...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(wooaio...', 'do_shortcode_ta...', '[wooaiocoupon_f...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/content-coupon.php(11): do_shortcode('[wooaiocoupon_f...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/woo-all-in- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php на строке 17
+

@@ -13,18 +13,12 @@
 <aside id="secondary" role="complementary" class="sidebar-widgets-wrap">
     <?php
     if ( is_singular( 'product' ) ) {
-        ?>
-        Single product sidebar
-        <?php
+        dynamic_sidebar( 'product-page-sidebar' );
     } else {
         if (is_shop()) {
-            ?>
-            Shop sidebar
-            <?php
+            dynamic_sidebar( 'shop-page-sidebar' );
         } else {
-            ?>
-            Archive shop sidebar
-            <?php
+            dynamic_sidebar( 'product-category-sidebar' );
         }
     }
     ?>
