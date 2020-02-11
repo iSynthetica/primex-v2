@@ -134,3 +134,33 @@ function snth_wc_checkout_fields( $fields ) {
 
     return $fields;
 }
+
+function snth_wc_coupon_form_before_submit() {
+    ?>
+    <div class="col-12">
+    <?php
+}
+add_action('wooaiocoupon_form_before_submit', 'snth_wc_coupon_form_before_submit');
+
+function snth_wc_form_after_submit() {
+    ?>
+    </div>
+    <?php
+}
+add_action('wooaiocoupon_form_after_submit', 'snth_wc_form_after_submit');
+
+function snth_wc_wooaiocoupon_form_submit_class($class) {
+
+    return $class . ' btn-block button-reveal';
+}
+
+// Hook in
+add_filter( 'wooaiocoupon_form_submit_class' , 'snth_wc_wooaiocoupon_form_submit_class' );
+
+function snth_wc_wooaiocoupon_form_submit_text($text) {
+
+    return '<i class="fas fa-percent"></i> <span>'.__('Get coupon', 'primex').'</span>';
+}
+
+// Hook in
+add_filter( 'wooaiocoupon_form_submit_text' , 'snth_wc_wooaiocoupon_form_submit_text' );

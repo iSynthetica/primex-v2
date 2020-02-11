@@ -105,6 +105,7 @@ class Woo_All_In_One_Coupon {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Coupon_Helpers.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Coupon_Model.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Coupon_Form.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template-functions.php';
 
         /**
          * The class responsible for orchestrating the actions and filters of the
@@ -134,6 +135,7 @@ class Woo_All_In_One_Coupon {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-coupon-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-all-in-one-coupon-public-ajax.php';
 
 		$this->loader = new Woo_All_In_One_Coupon_Loader();
 
@@ -183,10 +185,14 @@ class Woo_All_In_One_Coupon {
 	private function define_public_hooks() {
 
 		$plugin_public = new Woo_All_In_One_Coupon_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public_ajax = new Woo_All_In_One_Coupon_Public_ajax( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_public, 'add_shortcodes' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+        $this->loader->add_action('wp_ajax_nopriv_wooaiocoupon_submit', $plugin_public_ajax, 'wooaiocoupon_submit');
+        $this->loader->add_action('wp_ajax_wooaiocoupon_submit', $plugin_public_ajax, 'wooaiocoupon_submit');
 
 	}
 

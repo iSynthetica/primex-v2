@@ -19,7 +19,7 @@ class Woo_All_In_One_Coupon_Form {
         ?>
         <div class="wooaiocoupon_form_container">
             <form class="wooaioservice_form">
-                <?php do_action('wooaiocoupon_before_fields'); ?>
+                <?php do_action('wooaiocoupon_form_before_fields'); ?>
 
                 <?php
                 foreach ( $fields as $key => $field ) {
@@ -33,17 +33,13 @@ class Woo_All_In_One_Coupon_Form {
                 }
                 ?>
 
-                <?php do_action('wooaiocoupon_after_fields'); ?>
+                <?php do_action('wooaiocoupon_form_after_fields'); ?>
 
-                <?php do_action('wooaiocoupon_before_submit'); ?>
+                <?php do_action('wooaiocoupon_form_before_submit'); ?>
 
-                <div class="col-12">
-                    <button type="button" id="wooaioservice_submit" class="button">
-                        <?php echo __( 'Submit', 'woo-all-in-one-service' ) ?>
-                    </button>
-                </div>
+                <?php wooaiocoupon_form_submit(); ?>
 
-                <?php do_action('wooaiocoupon_after_submit'); ?>
+                <?php do_action('wooaiocoupon_form_after_submit'); ?>
             </form>
         </div>
         <?php

@@ -20,7 +20,7 @@
  * @subpackage Woo_All_In_One_Coupon/public
  * @author     Synthetica <i.synthetica@gmail.com>
  */
-class Woo_All_In_One_Coupon_Public {
+class Woo_All_In_One_Coupon_Public_Ajax {
 
 	/**
 	 * The ID of this plugin.
@@ -52,31 +52,7 @@ class Woo_All_In_One_Coupon_Public {
 		$this->version = $version;
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-coupon-public.css', array(), $this->version, 'all' );
-	}
+	public function form_submit() {
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-coupon-public.js', array( 'jquery' ), $this->version, true );
-
-        wp_localize_script( $this->plugin_name, 'wooaiocouponJsObj', array(
-            'ajaxurl'       => admin_url( 'admin-ajax.php' ),
-            'nonce'         => wp_create_nonce( 'snth_nonce' )
-        ) );
-	}
-
-	public function add_shortcodes() {
-        add_shortcode( 'wooaiocoupon_form', array('Woo_All_In_One_Coupon_Form', 'form_shortcode') );
     }
-
 }

@@ -25,3 +25,13 @@ Stack trace:
 #4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/content-coupon.php(11): do_shortcode('[wooaiocoupon_f...')
 #5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/admin/partials/woo-all-in- в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php на строке 17
 
+2020-02-11T16:30:24+00:00 CRITICAL Uncaught Error: Call to undefined function wooaiocoupon_form_submit() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php:40
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php(13): Woo_All_In_One_Coupon_Form::form_html(Array)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php(325): Woo_All_In_One_Coupon_Form::form_shortcode(Array, '', 'wooaiocoupon_fo...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(wooaio...', 'do_shortcode_ta...', '[wooaiocoupon_f...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(290): do_shortcode('[wooaiocoupon_f...')
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters('[wooaiocoupon_f...', Array)
+#6 /var/www/tsvitokha/ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-coupon/includes/lib/Woo_All_In_One_Coupon_Form.php на строке 40
+
