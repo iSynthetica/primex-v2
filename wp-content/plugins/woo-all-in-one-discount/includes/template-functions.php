@@ -15,7 +15,7 @@ if (!function_exists('wooaiodiscount_discount_setting_item')) {
             $discount_settings_categories = array_keys($discount_settings['categories']);
         }
 
-        $discount_rule_amount = !empty($discount_rule['amount']) ? $discount_rule['amount'] : '';
+        $discount_rule_amount = isset($discount_rule['amount']) ? $discount_rule['amount'] : '';
         $discount_rule_apply = !empty($discount_rule['apply']) ? $discount_rule['apply'] : '';
         $discount_rule_apply_class = '';
         $discount_rule_container_class = 'wooaio-discount-summary-amount-item';
@@ -51,7 +51,7 @@ if (!function_exists('wooaiodiscount_discount_setting_item')) {
                 </div>
 
                 <div class="edited-container">
-                    <input type="number" name="amount[<?php echo $i ?>]" value="<?php echo $discount_rule_amount ?>">
+                    <input type="number" style="display: inline-block;max-width: 80%;" name="amount[<?php echo $i ?>]" value="<?php echo $discount_rule_amount ?>"> %
                 </div>
             </div>
 

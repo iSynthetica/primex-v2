@@ -4,11 +4,25 @@ function wooaiocurrency_price($price, $product) {
     global $wooaiocurrency_rules;
     $rate = 1;
     $all_product_rate = null;
+    $specified_categories_rate = null;
+    $product_type = $product->get_type();
+
+    if ('variation' === $product_type) {
+        $_product = wc_get_product( $product->get_parent_id() );
+        $product_id = $_product->get_id();
+    } else {
+        $product_id = $product->get_id();
+    }
 
     if (!empty($wooaiocurrency_rules["current_currency_rule"]["rates"])) {
         foreach ($wooaiocurrency_rules["current_currency_rule"]["rates"] as $rate_rule) {
             if ($rate_rule['apply'] === 'all_products') {
                 $all_product_rate = $rate_rule['rate'];
+            }
+
+            if ($rate_rule['apply'] === 'specified_categories') {
+                $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
+                $specified_categories_rate = $rate_rule['rate'];
             }
         }
     }
@@ -83,10 +97,6 @@ function wooaiocurrency_product_variation_get_price( $price, $product ) {
 }
 
 function wooaiocurrency_variation_prices( $prices ) {
-//    if ( ! $price ) {
-//        return $price;
-//    }
-
     foreach ($prices as $price_type => $prices_amounts) {
         foreach ($prices_amounts as $product_id => $price) {
             $product = wc_get_product($product_id);

@@ -22561,7 +22561,7 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
     margin: 0; }
   .quantity .qty {
     float: left;
-    width: 50px;
+    width: 2.1875rem;
     height: 2.5rem;
     line-height: 2.5rem;
     border: 1px solid #DDD;
@@ -22575,7 +22575,7 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
     float: left;
     cursor: pointer;
     padding: 0;
-    width: 1.625rem;
+    width: 1.4375rem;
     height: 2.5rem;
     line-height: 2.375rem;
     border: 1px solid #1ABC9C;
@@ -32867,3 +32867,6 @@ label span.optional {
   padding: 0.9375rem 0.9375rem 0.9375rem 1.875rem;
   border-left: 3px solid #184B21;
   font-size: 14px; }
+
+table.woocommerce-grouped-product-list {
+  width: 100%; }

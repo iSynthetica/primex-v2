@@ -4194,7 +4194,7 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
 
     .qty {
         float: left;
-        width: 50px;
+        width: rem-calc(35);
         height: rem-calc(40);
         line-height: rem-calc(40);
         border: 1px solid #DDD;
@@ -4210,7 +4210,7 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-overlay a {
         float: left;
         cursor: pointer;
         padding: 0;
-        width: rem-calc(26);
+        width: rem-calc(23);
         height: rem-calc(40);
         line-height: rem-calc(38);
         border: 1px solid #1ABC9C;

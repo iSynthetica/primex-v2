@@ -211,8 +211,6 @@ class Woo_All_In_One_Discount_Public {
 //        add_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000, 2 );
 
         add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_price_html', 1000, 2);
-//        add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_before_price_html', 1200, 2);
-//        add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_discount_amount_html', 1400, 2);
     }
 
     public function recalculate_totals($cart_object) {

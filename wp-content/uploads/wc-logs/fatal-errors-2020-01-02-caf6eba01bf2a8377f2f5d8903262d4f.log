@@ -1,9 +1,0 @@
-2020-01-02T16:44:00+00:00 CRITICAL Uncaught Error: [] operator not supported for strings in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php:2635
-Stack trace:
-#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/woocommerce/repairs/repairs-list.php(63): woocommerce_form_field('repair_first_na...', Array)
-#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-service/includes/lib/Woo_All_In_One_Service_Endpoint.php(79): include('/var/www/tsvito...')
-#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_Service_Endpoint->endpoint_content('')
-#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
-#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
-#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3014): do_action('woocommerce_acc.. в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php на строке 2635
-
