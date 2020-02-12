@@ -71,8 +71,21 @@ class Woo_All_In_One_Coupon_Public_Ajax {
             $response = array('messageHtml' => wooaiocoupon_get_form_messages($validation['error'], 'error'));
             wooaio_ajax_response('error', $response);
         }
+        $data = $validation['data'];
 
-        $response = array('messageHtml' => wooaiocoupon_get_form_messages(array(__('Thank you, please check your email.', 'woo-all-in-one-coupon'))));
-        wooaio_ajax_response('success', $response);
+        $coupon_id = Woo_All_In_One_Coupon_Model::generate_coupon($data);
+
+        if ($coupon_id) {
+            $email = $data['coupon_email'];
+            $send_email = Woo_All_In_One_Coupon_Model::send_email_to_client($coupon_id, $email);
+
+            if ($send_email) {
+                $response = array('messageHtml' => wooaiocoupon_get_form_messages(array(__('Thank you, please check your email.', 'woo-all-in-one-coupon'))));
+                wooaio_ajax_response('success', $response);
+            }
+        }
+
+        $response = array('messageHtml' => wooaiocoupon_get_form_messages(array(__("We can't generate coupon right now, please try again later.", 'woo-all-in-one-coupon')), 'error'));
+        wooaio_ajax_response('error', $response);
     }
 }

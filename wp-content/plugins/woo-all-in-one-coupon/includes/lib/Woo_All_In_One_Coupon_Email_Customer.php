@@ -13,8 +13,8 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
         $this->title = __( 'Generated coupon to customer', 'woo-all-in-one-coupon' );
         $this->description = __( 'An email sent to the customer for Repair Request.', 'woo-all-in-one-coupon' );
         $this->customer_email = true;
-        $this->heading     = __( 'Repair request #', 'woo-all-in-one-coupon' );
-        $this->subject     = sprintf( _x( '[%s] - Repair Request', 'default email subject for cancelled emails sent to the customer', 'woo-all-in-one-coupon' ), '{blogname}' );
+        $this->heading     = __( 'Your discount coupon', 'woo-all-in-one-coupon' );
+        $this->subject     = sprintf( _x( '[%s] - Your discount coupon', 'default email subject for emails sent to the customer', 'woo-all-in-one-coupon' ), '{blogname}' );
 
         $this->email_type = $this->get_option( 'email_type', 'multipart' );
         $this->template_html  = 'emails/wc-customer-coupon-request.php';
@@ -25,7 +25,10 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
     }
 
     /**
-     * @param $order_id
+     * @param $coupon_id
+     * @param $email
+     *
+     * @return bool
      */
     public function trigger( $coupon_id, $email ) {
         $this->setup_locale();
@@ -41,6 +44,8 @@ class Woo_All_In_One_Coupon_Email_Customer extends WC_Email {
         }
 
         $this->restore_locale();
+
+        return $send;
     }
 
     public function get_content_html() {

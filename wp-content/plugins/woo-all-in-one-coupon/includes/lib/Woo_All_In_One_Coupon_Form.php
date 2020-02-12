@@ -14,6 +14,12 @@ class Woo_All_In_One_Coupon_Form {
     }
 
     public static function form_html($atts) {
+        $coupon_rule = get_option('wooaiocoupon_rule_default', false);
+
+        if (!$coupon_rule || empty($coupon_rule['coupon_amount'])) {
+            return '';
+        }
+
         $fields = Woo_All_In_One_Coupon_Form::get_form_fields();
         ob_start();
         ?>
@@ -34,6 +40,8 @@ class Woo_All_In_One_Coupon_Form {
                 ?>
 
                 <?php do_action('wooaiocoupon_form_after_fields'); ?>
+
+                <?php wooaiocoupon_form_description_container($coupon_rule); ?>
 
                 <?php wooaiocoupon_form_messages_container(); ?>
 

@@ -20,6 +20,16 @@ function wooaiocoupon_form_messages_container() {
     <?php
 }
 
+function wooaiocoupon_form_description_container($coupon_rule) {
+    if (!empty($coupon_rule['form_description'])) {
+        ?>
+        <div class="wooaiocoupon_description">
+            <?php echo wpautop($coupon_rule['form_description'])?>
+        </div>
+        <?php
+    }
+}
+
 function wooaiocoupon_get_form_messages($messages, $status = 'success') {
     if (empty($messages)) {
         return '';

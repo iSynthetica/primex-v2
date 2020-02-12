@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2020-02-12 17:07+0000\n"
+"POT-Creation-Date: 2020-02-12 17:03+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
@@ -31,7 +31,7 @@ msgid "Thank you, please check your email."
 msgstr ""
 
 #: public/class-woo-all-in-one-coupon-public-ajax.php:88
-msgid "We can't generate coupon right now, please try again later."
+msgid "'We can't generate coupon right now, please try again later."
 msgstr ""
 
 #: admin/partials/woo-all-in-one-coupon-admin-display.php:17

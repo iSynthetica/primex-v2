@@ -133,6 +133,7 @@ class Woo_All_In_One_Coupon {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-coupon-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-all-in-one-coupon-admin-ajax.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -172,11 +173,13 @@ class Woo_All_In_One_Coupon {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Woo_All_In_One_Coupon_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin_ajax = new Woo_All_In_One_Coupon_Admin_Ajax( $this->get_plugin_name(), $this->get_version() );
 
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu', 40 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+        $this->loader->add_action( 'wp_ajax_wooaiocoupon_save_coupon_rule_submit', $plugin_admin_ajax, 'wooaiocoupon_save_coupon_rule' );
 	}
 
 	/**

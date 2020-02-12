@@ -6,6 +6,7 @@
 		var form = btn.parents('.wooaioservice_form');
 		var formData = form.serializeArray();
 		var messageHolder = form.find('.wooaiocoupon_messages');
+		messageHolder.html('');
 
 		var data = {
 			'action': 'wooaiocoupon_submit',
