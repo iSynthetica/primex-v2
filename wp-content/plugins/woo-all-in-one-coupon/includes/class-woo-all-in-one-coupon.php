@@ -107,6 +107,10 @@ class Woo_All_In_One_Coupon {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_Coupon_Form.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/template-functions.php';
 
+        if (!function_exists('run_woo_all_in_one')) {
+            require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/wooaio-functions.php';
+        }
+
         /**
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.

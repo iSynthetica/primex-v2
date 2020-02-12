@@ -44,7 +44,7 @@ add_filter( 'wooaioservice_fields' , 'snth_wc_service_fields' );
 function snth_wc_coupon_fields( $fields ) {
     foreach ($fields as $key => $field) {
         if (in_array($key, array('coupon_name', 'coupon_phone', 'coupon_email'))) {
-            $fields[$key]['class'] = array('col-12');
+            $fields[$key]['class'] = array('');
 
             $fields[$key]['input_class'][] = 'form-control';
         }
@@ -137,10 +137,11 @@ function snth_wc_checkout_fields( $fields ) {
 
 function snth_wc_coupon_form_before_submit() {
     ?>
-    <div class="col-12">
+    <div class="">
     <?php
 }
 add_action('wooaiocoupon_form_before_submit', 'snth_wc_coupon_form_before_submit');
+add_action('wooaiocoupon_form_before_message', 'snth_wc_coupon_form_before_submit');
 
 function snth_wc_form_after_submit() {
     ?>
@@ -148,6 +149,7 @@ function snth_wc_form_after_submit() {
     <?php
 }
 add_action('wooaiocoupon_form_after_submit', 'snth_wc_form_after_submit');
+add_action('wooaiocoupon_form_after_message', 'snth_wc_form_after_submit');
 
 function snth_wc_wooaiocoupon_form_submit_class($class) {
 

@@ -52,7 +52,27 @@ class Woo_All_In_One_Coupon_Public_Ajax {
 		$this->version = $version;
 	}
 
-	public function form_submit() {
+	public function wooaiocoupon_submit() {
+        if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-coupon'));
 
+            wooaio_ajax_response('error', $response);
+        }
+
+        $data = array();
+
+        foreach ($_POST['formData'] as $form_data) {
+            $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
+        }
+
+        $validation = Woo_All_In_One_Coupon_Form::validate_form($data);
+
+        if (!empty($validation['error'])) {
+            $response = array('messageHtml' => wooaiocoupon_get_form_messages($validation['error'], 'error'));
+            wooaio_ajax_response('error', $response);
+        }
+
+        $response = array('messageHtml' => wooaiocoupon_get_form_messages(array(__('Thank you, please check your email.', 'woo-all-in-one-coupon'))));
+        wooaio_ajax_response('success', $response);
     }
 }
