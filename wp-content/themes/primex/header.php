@@ -52,15 +52,18 @@
                         if (function_exists('wooaiocurrency_currency_switcher')) {
                             wooaiocurrency_currency_switcher();
                         }
-                        ?>
-                        <li><a href="#">EN</a>
-                            <ul class="sub-small">
-                                <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/french.png" alt="French"> FR</a></li>
-                                <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/italian.png" alt="Italian"> IT</a></li>
-                                <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/german.png" alt="German"> DE</a></li>
-                            </ul>
-                        </li>
-                        <?php
+
+                        if (false) {
+                            ?>
+                            <li><a href="#">EN</a>
+                                <ul class="sub-small">
+                                    <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/french.png" alt="French"> FR</a></li>
+                                    <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/italian.png" alt="Italian"> IT</a></li>
+                                    <li><a href="#"><img src="<?php echo SNTH_IMAGES_URL ?>/canvas/icons/flags/german.png" alt="German"> DE</a></li>
+                                </ul>
+                            </li>
+                            <?php
+                        }
                         if (is_user_logged_in()) {
                             ?>
                             <li id="my-account"><a href="#">

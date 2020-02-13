@@ -3,16 +3,16 @@
  * Product ajax search
  */
 function snth_ajax_search_enqueue_scripts() {
-    wp_enqueue_style( 'ajax_search-css', SNTH_STYLES_URL.'/ajax-search.css', array(), SNTH_VERSION . time(), 'all' );
+     wp_enqueue_style( 'ajax_search-css', SNTH_STYLES_URL.'/ajax-search.css', array(), SNTH_VERSION . time(), 'all' );
 
-    wp_enqueue_script( 'ajax_search-js', SNTH_SCRIPTS_URL.'/ajax-search.js', array( 'jquery' ), SNTH_VERSION . time(), true );
+     wp_enqueue_script( 'ajax_search-js', SNTH_SCRIPTS_URL.'/ajax-search.js', array( 'jquery' ), SNTH_VERSION . time(), true );
 
     wp_localize_script( 'site-js', 'snthAjaxObj', array(
         'ajaxurl'       => admin_url( 'admin-ajax.php' )
     ) );
 }
 
-add_action('wp_enqueue_scripts', 'snth_ajax_search_enqueue_scripts', 999);
+// add_action('wp_enqueue_scripts', 'snth_ajax_search_enqueue_scripts', 999);
 
 function snth_ajax_search() {
     $q = !empty($_POST['q']) ? $_POST['q'] : '';

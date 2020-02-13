@@ -40,6 +40,8 @@ define('SNTH_INCLUDES_URL', SNTH_URL.'/includes');
 
 // Settings
 require_once(SNTH_INCLUDES.'/settings.php');
+
+require_once(SNTH_INCLUDES.'/clean.php');
 // Helpers library
 require_once(SNTH_INCLUDES.'/helpers.php');
 // CPT library
