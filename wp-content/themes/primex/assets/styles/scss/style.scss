@@ -22,10 +22,10 @@
 @import "../../../node_modules/bootstrap/scss/card";
 @import "../../../node_modules/bootstrap/scss/breadcrumb";
 @import "../../../node_modules/bootstrap/scss/pagination";
-@import "../../../node_modules/bootstrap/scss/badge";
-@import "../../../node_modules/bootstrap/scss/jumbotron";
+// @import "../../../node_modules/bootstrap/scss/badge";
+// @import "../../../node_modules/bootstrap/scss/jumbotron";
 @import "../../../node_modules/bootstrap/scss/alert";
-@import "../../../node_modules/bootstrap/scss/progress";
+// @import "../../../node_modules/bootstrap/scss/progress";
 @import "../../../node_modules/bootstrap/scss/media";
 @import "../../../node_modules/bootstrap/scss/list-group";
 @import "../../../node_modules/bootstrap/scss/close";
@@ -59,6 +59,9 @@
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
+@import "../../../../../plugins/woo-all-in-one-currency/public/css/woo-all-in-one-currency-public";
+@import "../../../../../plugins/woo-all-in-one-coupon/public/css/woo-all-in-one-coupon-public";
 
 @import "bootstrap-datepicker";
 @import "magnific-popup";

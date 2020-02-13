@@ -45,3 +45,9 @@ function snth_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'snth_enqueue_scripts', 999);
 
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+function wooaio_prevent_styles($return) {
+    return false;
+}
+add_filter( 'wooaiocoupon_enqueue_styles', 'wooaio_prevent_styles' );
+add_filter( 'wooaiocurrency_enqueue_styles', 'wooaio_prevent_styles' );

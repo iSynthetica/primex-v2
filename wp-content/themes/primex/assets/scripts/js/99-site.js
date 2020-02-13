@@ -12,7 +12,6 @@
         $('#product-modal-desc').modal();
     });
 
-
     $(document.body).on('click', "#top-cart-trigger", function(e) {
         $('#page-menu').toggleClass('pagemenu-active', false);
         $('#top-cart').toggleClass('top-cart-open');

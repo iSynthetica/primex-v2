@@ -58,7 +58,9 @@ class Woo_All_In_One_Coupon_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-coupon-public.css', array(), $this->version, 'all' );
+	    if (apply_filters( 'wooaiocoupon_enqueue_styles', true )) {
+            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-coupon-public.css', array(), $this->version, 'all' );
+        }
 	}
 
 	/**

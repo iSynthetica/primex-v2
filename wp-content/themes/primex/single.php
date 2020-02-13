@@ -4,7 +4,7 @@ $layout = 'left-sidebar';
 $layout = 'fullwidth';
 ?>
 
-<?php get_header('dark');?>
+<?php get_header();?>
 
 <?php
 /* Start the Loop */
