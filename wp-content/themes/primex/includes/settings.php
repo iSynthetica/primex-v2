@@ -77,7 +77,7 @@ function snth_settings_sidebars($sidebars) {
             'id' => 'product-page-sidebar',
             'name' => __('Product Page Sidebar', 'primex'),
             'description' => __('Product Page Sidebar.', 'primex'),
-            'before_widget' => '<hr><div id="%1$s" class="widget %2$s">',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
             'after_title' => '</h4>',

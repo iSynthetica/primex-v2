@@ -311,8 +311,7 @@ function snth_display_catalogue_item_description($product) {
 
 function snth_display_catalogue_item_add_to_cart($product) {
     ?>
-    <button class="button button-reveal button-mini catalogue-item-add-to-cart" type="button" data-id="<?php echo $product->get_id(); ?>">
-        <i class="fas fa-cart-plus"></i><span><?php echo __( 'Add to cart', 'woocommerce' ); ?></span>
+    <button class="button button-reveal button-mini catalogue-item-add-to-cart" type="button" data-id="<?php echo $product->get_id(); ?>"><i class="fas fa-cart-plus"></i><span><?php echo __( 'Add to cart', 'woocommerce' ); ?></span>
     </button>
     <?php
 }
