@@ -25,7 +25,7 @@ while ( have_posts() ) :
                     ?><span>Page Content on the Left &amp; Sidebar on the Right</span><?php
                 }
                 ?>
-                <?php snth_the_breadcrumbs(); ?>
+                <?php // snth_the_breadcrumbs(); ?>
             </div>
 
         </section><!-- #page-title end -->
@@ -41,7 +41,7 @@ while ( have_posts() ) :
                     ?><span>Page Content on the Left &amp; Sidebar on the Right</span><?php
                 }
                 ?>
-                <?php snth_the_breadcrumbs(); ?>
+                <?php // snth_the_breadcrumbs(); ?>
             </div>
         </section><!-- #page-title end -->
         <?php

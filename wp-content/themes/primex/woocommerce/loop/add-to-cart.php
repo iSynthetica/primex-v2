@@ -37,4 +37,5 @@ $add_to_cart_text = '<i class="fas fa-cart-plus"></i>' . '<span>' . esc_html( $p
         ),
     $product, $args );
     ?>
+    <?php echo do_shortcode("[ti_wishlists_addtowishlist loop=yes]"); ?>
     </div>
