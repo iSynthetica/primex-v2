@@ -287,6 +287,10 @@ function wooaiocurrency_before_calculate_totals($cart_object) {
     $currency = wooaiocurrency_get_current_currency();
     $base_currency = get_option( 'woocommerce_currency' );
 
+//    foreach ( $cart_object->get_cart() as $hash => $value ) {
+//        $value['data']->set_price( 10 );
+//    }
+
     return $cart_object;
 }
 

@@ -1,8 +1,9 @@
 (function( $ ) {
 	'use strict';
 
-	$(document.body).on('click', ".change-currency", function(e) {
+	$(document.body).on('click touchend', ".change-currency", function(e) {
 		e.preventDefault();
+		console.log('Clicked');
 		var control = $(this);
 		var currency_code = control.data('currency');
 		var old_currency = $.cookie('wooaiocurrency');
@@ -19,11 +20,11 @@
 	$(document).ready(function () {
 		var updateMiniCart = $.cookie('wooaiocurrency_update_minicart');
 
-		if (updateMiniCart) {
+		if (true) {
 			sessionStorage.removeItem(wc_cart_fragments_params.fragment_name);
 			$.removeCookie('wooaiocurrency_update_minicart');
 			$.removeCookie('wooaiocurrency');
-			console.log(updateMiniCart);
+			// console.log(updateMiniCart);
 		}
 	});
 

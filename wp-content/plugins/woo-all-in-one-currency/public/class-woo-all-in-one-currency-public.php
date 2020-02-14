@@ -127,7 +127,10 @@ class Woo_All_In_One_Currency_Public {
             $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$base_currency];
             $wooaiocurrency_rules['switcher'] = array();
         } else {
-            if (!empty($_COOKIE['wooaiocurrency'])) {
+            if (is_cart() || is_checkout()) {
+                $current_currency = 'UAH';
+                setcookie('wooaiocurrency_update_minicart', 1, time() + (86400 * 360), '/');
+            } elseif (!empty($_COOKIE['wooaiocurrency'])) {
                 $current_currency = $_COOKIE['wooaiocurrency'];
 
                 if (empty($currency_rules[$current_currency])) {

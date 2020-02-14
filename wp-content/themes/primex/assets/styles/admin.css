@@ -1,0 +1,15 @@
+.tinvwl-premium-feat.tinvwl-panel {
+    display: none!important;
+}
+
+.tinvwl-header.tinv-wishlist-clearfix {
+    display: none!important;
+}
+
+#intercom-frame {
+    display: none;
+}
+
+#intercom-container {
+    display: none;
+}

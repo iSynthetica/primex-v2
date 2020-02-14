@@ -196,7 +196,7 @@ class Woo_All_In_One_Currency {
 
 		$plugin_public = new Woo_All_In_One_Currency_Public( $this->get_plugin_name(), $this->get_version() );
 
-        $this->loader->add_action( 'init', $plugin_public, 'set_global_currency_rule', 10 );
+        $this->loader->add_action( 'wp', $plugin_public, 'set_global_currency_rule', 10 );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );

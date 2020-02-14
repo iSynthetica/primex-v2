@@ -63,6 +63,10 @@ require_once(SNTH_INCLUDES.'/content-templates.php');
 // Templates
 require_once(SNTH_INCLUDES.'/wc.php');
 
+if (is_admin()) {
+    require_once(SNTH_INCLUDES.'/admin.php');
+}
+
 
 // Templates
 if (file_exists(SNTH_INCLUDES.'/ajax-search.php')) {

@@ -16106,7 +16106,8 @@ small {
         font-weight: 700;
         text-transform: uppercase;
         height: 2.125rem;
-        color: #666; }
+        color: #666;
+        width: 100%; }
       .top-links ul li i {
         vertical-align: top; }
         .top-links ul li i.fa-caret-down {
@@ -16150,7 +16151,9 @@ small {
   padding-left: 0; }
   .top-links ul ul.sub-small {
     width: 70px;
-    text-align: center; }
+    text-align: center;
+    height: auto;
+    pointer-events: auto; }
 
 .top-links li:hover ul,
 .top-links li:hover div.top-link-section {

@@ -41,7 +41,6 @@
             &:first-child {
                 border-left: 0 !important;
             }
-
             & > a {
                 display: block;
                 padding: 0 12px;
@@ -50,6 +49,7 @@
                 text-transform: uppercase;
                 height: rem-calc(34);
                 color: #666;
+                width: 100%;
             }
 
             i {
@@ -99,6 +99,8 @@
     &.sub-small {
         width: 70px;
         text-align: center;
+        height: auto;
+        pointer-events: auto;
     }
 }
 
