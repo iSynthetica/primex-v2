@@ -87,8 +87,9 @@ function snth_cart_icon() {
                             <a href="<?php echo get_permalink( $product->get_id() ); ?>">
                                 <img
                                         class="image_fade"
-                                        src="<?php echo get_the_post_thumbnail_url( $product->get_id(), 'thumbnail' ); ?>"
+                                        src="<?php echo SNTH_IMAGES_URL . '/blank.svg'; ?>"
                                         alt="<?php echo $product->get_name(); ?>"
+                                        data-lazyload="<?php echo get_the_post_thumbnail_url( $product->get_id(), 'thumbnail' ); ?>"
                                 >
                             </a>
                         </div>

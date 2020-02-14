@@ -10188,7 +10188,7 @@ var SEMICOLON = SEMICOLON || {};
                     var element = $(this),
                         elementImg = element.attr( 'data-lazyload' );
 
-                    element.attr( 'src', 'images/blank.svg' ).css({ 'background': 'url(../images/canvas/preloader.gif) no-repeat center center #FFF' });
+                    element.css({ 'background': '#FFF' });
 
                     element.appear(function () {
                         element.css({ 'background': 'none' }).removeAttr( 'width' ).removeAttr( 'height' ).attr('src', elementImg);

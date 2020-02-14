@@ -101,11 +101,9 @@ function snth_wc_template_loop_product_image_start() {
  * Get the product thumbnail for the loop.
  */
 function snth_wc_template_loop_product_thumbnail() {
-    ?>
-    <?php
+    add_filter('wp_get_attachment_image_attributes', 'snth_wc_add_lazy_load_image', 100, 3);
     echo woocommerce_get_product_thumbnail(); // WPCS: XSS ok.
-    ?>
-    <?php
+    remove_filter('wp_get_attachment_image_attributes', 'snth_wc_add_lazy_load_image', 100);
 }
 
 function snth_wc_template_loop_product_image_end() {
@@ -317,4 +315,17 @@ function snth_display_catalogue_item_add_to_cart($product) {
         <i class="fas fa-cart-plus"></i><span><?php echo __( 'Add to cart', 'woocommerce' ); ?></span>
     </button>
     <?php
+}
+
+function snth_wc_add_lazy_load_image($attr, $attachment, $size) {
+    if (empty($attr['data-lazyload']) && !empty($attr["src"])) {
+        $attr['data-lazyload'] = $attr["src"];
+        $attr["src"] = SNTH_IMAGES_URL . '/blank.svg';
+
+        if (!empty($attr["srcset"])) {
+            unset($attr["srcset"]);
+        }
+    }
+
+    return $attr;
 }
