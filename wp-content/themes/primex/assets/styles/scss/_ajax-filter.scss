@@ -21,3 +21,54 @@
         }
     }
 }
+
+.berocket_aapf_widget_selected_area_text {
+    ul {
+        li {
+            margin-right: rem-calc(10);
+            a {
+                color: #555;
+                border: 1px solid #555;
+                padding: rem-calc(3 10);
+                border-radius: rem-calc(15);
+            }
+        }
+    }
+
+    .berocket_aapf_widget_selected_filter {
+        margin-bottom: rem-calc(10);
+        ul {
+            padding: 0;
+            &:after {
+                clear: both;
+                display: table;
+                content: ' ';
+            }
+        }
+        &:after {
+            clear: both;
+            display: table;
+            content: ' ';
+        }
+        a {
+            color: #555;
+            border: 1px solid #555;
+            padding: rem-calc(2 10);
+            line-height: rem-calc(1.2);
+            border-radius: rem-calc(15);
+
+            &:hover {
+                color: #C02942;
+                border: 1px solid #C02942;
+            }
+        }
+    }
+}
+
+.berocket_aapf_widget.berocket_aapf_widget_selected_area {
+    margin-bottom: rem-calc(0)!important;
+}
+
+.berocket_aapf_widget.berocket_aapf_widget_selected_area > ul {
+    display: none!important;
+}

@@ -28539,6 +28539,42 @@ table.woocommerce-grouped-product-list {
   .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li:last-child {
     margin-bottom: 0; }
 
+.berocket_aapf_widget_selected_area_text ul li {
+  margin-right: 0.625rem; }
+  .berocket_aapf_widget_selected_area_text ul li a {
+    color: #555;
+    border: 1px solid #555;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0.9375rem; }
+
+.berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter {
+  margin-bottom: 0.625rem; }
+  .berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter ul {
+    padding: 0; }
+    .berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter ul:after {
+      clear: both;
+      display: table;
+      content: ' '; }
+  .berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter:after {
+    clear: both;
+    display: table;
+    content: ' '; }
+  .berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter a {
+    color: #555;
+    border: 1px solid #555;
+    padding: 0.125rem 0.625rem;
+    line-height: 0.075rem;
+    border-radius: 0.9375rem; }
+    .berocket_aapf_widget_selected_area_text .berocket_aapf_widget_selected_filter a:hover {
+      color: #C02942;
+      border: 1px solid #C02942; }
+
+.berocket_aapf_widget.berocket_aapf_widget_selected_area {
+  margin-bottom: 0 !important; }
+
+.berocket_aapf_widget.berocket_aapf_widget_selected_area > ul {
+  display: none !important; }
+
 .search-form {
   position: relative; }
 
