@@ -1,0 +1,23 @@
+.berocket_aapf_widget-wrapper {
+    ul.berocket_aapf_widget {
+        & > li {
+            margin-bottom: rem-calc(6);
+            .berocket_label_widgets {
+                font-weight: normal;
+                padding-left: rem-calc(5);
+                padding-right: rem-calc(5);
+                text-transform: none;
+                font-size: rem-calc(14);
+                line-height: rem-calc(1.4);
+            }
+
+            &.berocket_term_depth_1 {
+                padding-left: rem-calc(15);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

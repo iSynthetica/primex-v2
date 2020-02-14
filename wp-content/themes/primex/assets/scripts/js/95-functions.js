@@ -3280,8 +3280,7 @@ var SEMICOLON = SEMICOLON || {};
                 $('body.open-header.close-header-on-scroll').removeClass("side-header-open");
                 SEMICOLON.header.stickyMenu( headerWrapOffset );
                 SEMICOLON.header.stickyPageMenu( pageMenuOffset );
-                SEMICOLON.header.logo();
-
+                // SEMICOLON.header.logo();
             });
 
             window.addEventListener('scroll', onScrollSliderParallax, false);

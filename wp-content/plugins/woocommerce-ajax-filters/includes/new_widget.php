@@ -105,23 +105,22 @@ class BeRocket_new_AAPF_Widget extends WP_Widget
         <p>
             <label for="<?php echo $this->get_field_id('group_id'); ?>"><?php _e('Group', 'BeRocket_AJAX_domain'); ?></label><br>
             <?php
-            $query = new WP_Query(array('post_type' => 'br_filters_group', 'nopaging' => true));
+            $query = new WP_Query(array('post_type' => 'br_filters_group', 'nopaging' => true, 'fields' => 'ids'));
+            $posts = $query->get_posts();
             $edit_link_current = '';
-            if ( $query->have_posts() ) {
+            if ( !empty($posts) ) {
                 echo '<select class="berocket_new_widget_selectbox group" id="'.$this->get_field_id('group_id').'" name="'.$this->get_field_name('group_id').'">';
                 echo '<option>'.__('--Please select group--', 'BeRocket_AJAX_domain').'</option>';
-                while ( $query->have_posts() ) {
+                foreach($posts as $post_id) {
                     if( empty($instance['group_id']) ) {
-                        $instance['group_id'] = get_the_id();
+                        $instance['group_id'] = $post_id;
                     }
-                    $query->the_post();
-                    echo '<option data-edit="'.get_edit_post_link().'" value="' . get_the_id() . '"'.(get_the_id() == $instance['group_id'] ? ' selected' : '').'>' . substr(get_the_title(), 0, 50) . (strlen(get_the_title()) > 50 ? '...' : '') . ' (ID:' . get_the_id() . ')</option>';
-                    if( get_the_id() == $instance['group_id'] ) {
-                        $edit_link_current = get_edit_post_link();
+                    echo '<option data-edit="'.get_edit_post_link($post_id).'" value="' . $post_id . '"'.($post_id == $instance['group_id'] ? ' selected' : '').'>' . substr(get_the_title($post_id), 0, 50) . (strlen(get_the_title($post_id)) > 50 ? '...' : '') . ' (ID:' . $post_id . ')</option>';
+                    if( $post_id == $instance['group_id'] ) {
+                        $edit_link_current = get_edit_post_link($post_id);
                     }
                 }
                 echo '</select>';
-                wp_reset_postdata();
             }
             ?>
             <a target="_blank" class="berocket_aapf_edit_post_link" href="<?php echo $edit_link_current; ?>"<?php if( empty($edit_link_current) ) echo ' style="display: none;"'; ?>><?php _e('Edit', 'BeRocket_AJAX_domain'); ?></a>
@@ -259,23 +258,22 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
         <p class="berocketwizard_aapf_single_widget_filter_id">
             <label for="<?php echo $this->get_field_id('filter_id'); ?>"><?php _e('Filter', 'BeRocket_AJAX_domain'); ?></label><br>
             <?php
-            $query = new WP_Query(array('post_type' => 'br_product_filter', 'nopaging' => true));
+            $query = new WP_Query(array('post_type' => 'br_product_filter', 'nopaging' => true, 'fields' => 'ids'));
+            $posts = $query->get_posts();
             $edit_link_current = '';
-            if ( $query->have_posts() ) {
+            if ( !empty($posts) ) {
                 echo '<select class="berocket_new_widget_selectbox single" id="'.$this->get_field_id('filter_id').'" name="'.$this->get_field_name('filter_id').'">';
                 echo '<option>'.__('--Please select filter--', 'BeRocket_AJAX_domain').'</option>';
-                while ( $query->have_posts() ) {
+                foreach($posts as $post_id) {
                     if( empty($instance['filter_id']) ) {
-                        $instance['filter_id'] = get_the_id();
+                        $instance['filter_id'] = $post_id;
                     }
-                    $query->the_post();
-                    echo '<option data-edit="'.get_edit_post_link().'" value="' . get_the_id() . '"'.(get_the_id() == $instance['filter_id'] ? ' selected' : '').'>' . substr(get_the_title(), 0, 50) . (strlen(get_the_title()) > 50 ? '...' : '') . ' (ID:' . get_the_id() . ')</option>';
-                    if( get_the_id() == $instance['filter_id'] ) {
-                        $edit_link_current = get_edit_post_link();
+                    echo '<option data-edit="'.get_edit_post_link($post_id).'" value="' . $post_id . '"'.($post_id == $instance['filter_id'] ? ' selected' : '').'>' . substr(get_the_title($post_id), 0, 50) . (strlen(get_the_title($post_id)) > 50 ? '...' : '') . ' (ID:' . $post_id . ')</option>';
+                    if( $post_id == $instance['filter_id'] ) {
+                        $edit_link_current = get_edit_post_link($post_id);
                     }
                 }
                 echo '</select>';
-                wp_reset_postdata();
             }
             ?>
             <a target="_blank" class="berocket_aapf_edit_post_link" href="<?php echo $edit_link_current; ?>"<?php if( empty($edit_link_current) ) echo ' style="display: none;"'; ?>><?php _e('Edit', 'BeRocket_AJAX_domain'); ?></a>

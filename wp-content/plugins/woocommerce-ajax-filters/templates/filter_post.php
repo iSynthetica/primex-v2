@@ -542,7 +542,7 @@ $custom_taxonomies = array_combine($custom_taxonomies, $custom_taxonomies);
                             <label class="br_admin_full_size" for="<?php echo 'use_max_price'; ?>"><?php _e('Use max price', 'BeRocket_AJAX_domain') ?></label>
                         </div>
                         <div <?php if ( !$instance['use_max_price'] ) echo 'style="display:none"'; ?>>
-                            <input type=number min=1 id="<?php echo 'max_price'; ?>" name="<?php echo $post_name.'[max_price]'; ?>" value="<?php echo ( ( $instance['max_price'] ) ? $instance['max_price'] : '0' ); ?>" class="br_admin_full_size berocket_aapf_widget_admin_input_price">
+                            <input type=number min=0 id="<?php echo 'max_price'; ?>" name="<?php echo $post_name.'[max_price]'; ?>" value="<?php echo ( ( $instance['max_price'] ) ? $instance['max_price'] : '0' ); ?>" class="br_admin_full_size berocket_aapf_widget_admin_input_price">
                         </div>
                     </div>
                     <div class="br_clearfix"></div>

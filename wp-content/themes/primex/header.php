@@ -15,10 +15,6 @@
     <meta name="author" content="SemiColonWeb" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Canvas | The Multi-Purpose HTML5 Template</title>
     <?php wp_head(); ?>
 </head>
 

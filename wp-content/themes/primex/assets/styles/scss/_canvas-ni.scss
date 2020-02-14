@@ -1,6 +1,340 @@
 
 
 
+
+/* ----------------------------------------------------------------
+	Flex Slider
+-----------------------------------------------------------------*/
+.fslider,
+.fslider .flexslider,
+.fslider .slider-wrap,
+.fslider .slide,
+.fslider .slide > a,
+.fslider .slide > img,
+.fslider .slide > a > img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.fslider { min-height: 32px; }
+
+
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  { outline: none; border: none; }
+.slider-wrap,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none; border: none;}
+
+.flexslider {position: relative;margin: 0; padding: 0;}
+.flexslider .slider-wrap > .slide {display: none; -webkit-backface-visibility: hidden;}
+.flexslider .slider-wrap img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+.slider-wrap:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slider-wrap {display: block;}
+* html .slider-wrap {height: 1%;}
+
+.no-js .slider-wrap > .slide:first-child {display: block;}
+
+.flex-viewport {
+    max-height: 2000px;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.flex-control-nav {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    top: 14px;
+    right: 10px;
+    margin: 0;
+}
+
+.flex-control-nav li {
+    float: left;
+    display: block;
+    margin: 0 3px;
+    width: 10px;
+    height: 10px;
+}
+
+.flex-control-nav li a {
+    display: block;
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 10px !important;
+    height: 10px !important;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+.flex-control-nav li:hover a,
+.flex-control-nav li a.flex-active { background-color: #FFF; }
+
+
+
+
+/* ----------------------------------------------------------------
+	Side Header
+-----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+
+
+    .side-header #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 260px;
+        height: 100%;
+        height: calc(100vh);
+        background-color: #FFF;
+        border: none;
+        border-right: 1px solid #EEE;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.065);
+    }
+
+    .side-header #header-wrap {
+        width: 300px;
+        height: 100%;
+        overflow: auto;
+        padding-right: 40px;
+    }
+
+    .side-header #header .container {
+        width: 260px !important;
+        padding: 0 30px !important;
+        margin: 0 !important;
+    }
+
+    .side-header #logo {
+        float: none;
+        margin: 60px 0 40px;
+    }
+
+    .side-header #logo img { height: auto !important; }
+
+    .side-header #logo:not(.nobottomborder):after,
+    .side-header #primary-menu:not(.nobottomborder):after {
+        display: block;
+        content: '';
+        width: 20%;
+        border-bottom: 1px solid #E5E5E5;
+    }
+
+    .side-header .center #logo:after { margin: 0 auto; }
+
+    .side-header #primary-menu { margin-bottom: 30px; }
+
+    .side-header #primary-menu:not(.nobottomborder):after { margin-top: 40px; }
+
+    .side-header #primary-menu,
+    .side-header #primary-menu ul {
+        float: none;
+        height: auto;
+    }
+
+    .side-header #primary-menu ul li {
+        float: none;
+        margin: 15px 0 0;
+    }
+
+    .side-header #primary-menu ul li:first-child { margin-top: 0; }
+
+    .side-header #primary-menu ul li a {
+        height: 25px;
+        line-height: 25px;
+        padding: 0;
+        text-transform: uppercase;
+    }
+
+    .side-header #primary-menu ul li i { line-height: 24px; }
+
+    .side-header #primary-menu ul ul {
+        position: relative;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        height: auto;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        margin: 5px 0;
+        padding-left: 12px;
+    }
+
+    .side-header #primary-menu ul ul ul {
+        top: 0 !important;
+        left: 0;
+    }
+
+    .side-header #primary-menu ul ul.menu-pos-invert {
+        left: 0;
+        right: auto;
+    }
+
+    .side-header #primary-menu ul ul ul.menu-pos-invert { right: auto; }
+
+    .side-header #primary-menu ul ul li {
+        margin: 0;
+        border: 0;
+    }
+
+    .side-header #primary-menu ul ul li:first-child { border-top: 0; }
+
+    .side-header #primary-menu ul ul a {
+        font-size: 12px;
+        height: auto !important;
+        line-height: 24px !important;
+        padding: 2px 0 !important;
+    }
+
+    .side-header #primary-menu ul ul li:hover > a {
+        background-color: transparent !important;
+        color: #444 !important;
+    }
+
+    .side-header #primary-menu ul > li.sub-menu > a,
+    .side-header #primary-menu ul > li.sub-menu:hover > a { background-image: none !important; }
+
+    .side-header #primary-menu ul > li.sub-menu > a:after {
+        position: absolute;
+        content: '\e7a5';
+        top: 1px;
+        right: 0;
+        -webkit-transition: transform .2s linear;
+        -o-transition: transform .2s linear;
+        transition: transform .2s linear;
+    }
+
+    .side-header #primary-menu ul > li.sub-menu:hover > a:after {
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    .side-header:not(.open-header) #wrapper {
+        margin: 0 0 0 260px !important;
+        width: auto !important;
+    }
+
+    .side-header:not(.open-header) #wrapper .container {
+        width: auto;
+        max-width: none;
+        margin: 0 40px;
+    }
+
+
+    /* Side Header - Push Header
+-----------------------------------------------------------------*/
+
+    .side-header.open-header.push-wrapper { overflow-x: hidden; }
+
+    .side-header.open-header #header { left: -260px; }
+
+    .side-header.open-header.side-header-open #header { left: 0; }
+
+    .side-header.open-header #wrapper { left: 0; }
+
+    .side-header.open-header.push-wrapper.side-header-open #wrapper { left: 260px; }
+
+    #header-trigger { display: none; }
+
+    .side-header.open-header #header-trigger {
+        display: block;
+        position: fixed;
+        cursor: pointer;
+        top: 20px;
+        left: 20px;
+        z-index: 11;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        background-color: #FFF;
+        text-align: center;
+        border-radius: 2px;
+    }
+
+    .side-header.open-header.side-header-open #header-trigger { left: 280px; }
+
+    .side-header.open-header #header-trigger i:nth-child(1),
+    .side-header.open-header.side-header-open #header-trigger i:nth-child(2) { display: block; }
+
+    .side-header.open-header.side-header-open #header-trigger i:nth-child(1),
+    .side-header.open-header #header-trigger i:nth-child(2) { display: none; }
+
+
+    .side-header.open-header #header,
+    .side-header.open-header #header-trigger,
+    .side-header.open-header.push-wrapper #wrapper {
+        -webkit-transition: left .4s ease;
+        -o-transition: left .4s ease;
+        transition: left .4s ease;
+    }
+
+
+    /* Side Header - Right Aligned
+-----------------------------------------------------------------*/
+
+    .side-header.side-header-right #header {
+        left: auto;
+        right: 0;
+        border: none;
+        border-left: 1px solid #EEE;
+    }
+
+    .side-header.side-header-right:not(.open-header) #wrapper { margin: 0 260px 0 0 !important; }
+
+    .side-header.side-header-right.open-header #header {
+        left: auto;
+        right: -260px;
+    }
+
+    .side-header.side-header-right.open-header.side-header-open #header {
+        left: auto;
+        right: 0;
+    }
+
+    .side-header.side-header-right.open-header.push-wrapper.side-header-open #wrapper { left: -260px; }
+
+    .side-header.side-header-right.open-header #header-trigger {
+        left: auto;
+        right: 20px;
+    }
+
+    .side-header.side-header-right.open-header.side-header-open #header-trigger {
+        left: auto;
+        right: 280px;
+    }
+
+    .side-header.side-header-right.open-header #header,
+    .side-header.side-header-right.open-header #header-trigger {
+        -webkit-transition: right .4s ease;
+        -o-transition: right .4s ease;
+        transition: right .4s ease;
+    }
+
+
+}
+
 /* ----------------------------------------------------------------
 	One Page
 -----------------------------------------------------------------*/
@@ -3679,4 +4013,429 @@ button.toast-close-button {
         padding: 15px 20px;
         width: 25em;
     }
+}
+
+/* ----------------------------------------------------------------
+	Pricing Boxes
+-----------------------------------------------------------------*/
+
+.pricing { position: relative; }
+
+.pricing [class^=col-] {
+    padding: 0;
+    margin-top: 20px;
+}
+
+
+/* Pricing Boxes
+-----------------------------------------------------------------*/
+
+.pricing-box {
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.075);
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-color: #F5F5F5;
+}
+
+
+/* Pricing Boxes - Title
+-----------------------------------------------------------------*/
+
+.pricing-title {
+    padding: 15px 0;
+    background-color: #F9F9F9;
+    border-radius: 3px 3px 0 0;
+    text-shadow: 1px 1px 1px #FFF;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.pricing-title h3 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.pricing-title span {
+    display: block;
+    color: #999;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 3px;
+    text-transform: uppercase;
+}
+
+
+/* Pricing Boxes - Price
+-----------------------------------------------------------------*/
+
+.pricing-price {
+    position: relative;
+    padding: 25px 0;
+    color: #333;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.pricing-price:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50px;
+}
+
+.pricing-price span {
+    display: inline-block;
+    vertical-align: top;
+    margin: 7px 3px 0 0;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.pricing-price span.price-tenure {
+    vertical-align: baseline;
+    font-size: 16px;
+    font-weight: normal;
+    color: #999;
+    margin: 0 0 0 3px;
+}
+
+
+/* Pricing Boxes - Features
+-----------------------------------------------------------------*/
+
+.pricing-features { border-bottom: 1px solid rgba(0,0,0,0.075); }
+
+.pricing-features ul {
+    margin: 0;
+    padding: 15px 0;
+    list-style: none;
+}
+
+.pricing-features li {
+    padding: 6px 0;
+    font-size: 14px;
+}
+
+
+/* Pricing Boxes - Action
+-----------------------------------------------------------------*/
+
+.pricing-action { padding: 15px 30px; }
+
+
+/* Pricing Boxes - Best Price
+-----------------------------------------------------------------*/
+
+.pricing-box.best-price {
+    background-color: #FFF;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.pricing-box.best-price { margin: -20px -1px 0 -1px; }
+
+.pricing-box.best-price .pricing-title {
+    background-color: #FFF;
+    padding: 20px 0;
+}
+
+.pricing-box.best-price .pricing-title h3 { font-size: 22px; }
+
+.pricing-box.best-price .pricing-price {
+    color: #1ABC9C;
+    font-size: 72px;
+}
+
+
+/* Pricing Boxes - Minimal
+-----------------------------------------------------------------*/
+
+.pricing-box.pricing-minimal .pricing-price {
+    background-color: #FFF;
+    border-bottom: 1px solid rgba(0,0,0,0.075);
+}
+
+.pricing-box.pricing-minimal .pricing-price:after { display: none; }
+
+
+/* Pricing Boxes - 5 Columns
+-----------------------------------------------------------------*/
+
+.pricing.pricing-5 .pricing-box {
+    float: left;
+    width: 20%;
+    margin-top: 20px;
+}
+
+.pricing.pricing-5 .pricing-box.best-price { margin-top: 0; }
+
+.pricing.pricing-5 .pricing-box:nth-child(5) { margin-left: -1px; }
+
+.pricing.pricing-5 .pricing-title h3 { font-size: 18px; }
+
+.pricing.pricing-5 .best-price .pricing-title h3 { font-size: 20px; }
+
+
+/* Pricing Boxes - Extended
+-----------------------------------------------------------------*/
+
+.pricing-box.pricing-extended {
+    background-color: #FFF;
+    text-align: left;
+}
+
+.pricing-box.pricing-extended .pricing-desc {
+    float: left;
+    width: 75%;
+    padding: 25px;
+}
+
+.pricing-box.pricing-extended .pricing-title {
+    background-color: transparent;
+    padding-top: 0;
+    text-align: left;
+}
+
+.pricing-box.pricing-extended .pricing-features { border: 0; }
+
+.pricing-box.pricing-extended .pricing-features ul { padding: 15px 0 0 0; }
+
+.pricing-box.pricing-extended .pricing-features li {
+    padding: 6px 0;
+    font-size: 15px;
+    width: 50%;
+    float: left;
+}
+
+.pricing-box.pricing-extended .pricing-features ul li i {
+    position: relative;
+    top: 1px;
+    width: 16px;
+    margin-right: 2px;
+}
+
+.pricing-box.pricing-extended .pricing-action-area {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    border-left: 1px solid rgba(0,0,0,0.05);
+    background-color: #F9F9F9;
+    padding: 30px;
+    border-radius: 0 3px 3px 0;
+    text-align: center;
+}
+
+.pricing-box.pricing-extended .pricing-action-area .pricing-price,
+.pricing-box.pricing-extended .pricing-action-area .pricing-action { padding: 0; }
+
+.pricing-box.pricing-extended .pricing-action-area .pricing-price { padding-bottom: 20px; }
+
+.pricing-box.pricing-extended .pricing-action-area .pricing-price:after { display: none; }
+
+.pricing-box.pricing-extended .pricing-action-area .pricing-price span.price-tenure {
+    display: block;
+    margin: 10px 0 0 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.pricing-box.pricing-extended .pricing-meta {
+    color: #999;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.table-comparison,
+.table-comparison th { text-align: center; }
+
+.table-comparison th:first-child,
+.table-comparison td:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------
+	Animated Rounded Skills
+-----------------------------------------------------------------*/
+
+
+.rounded-skill {
+    display: inline-block;
+    margin: 0 15px 15px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+body:not(.device-touch) .rounded-skill {
+    -webkit-transition: opacity .4s ease;
+    -o-transition: opacity .4s ease;
+    transition: opacity .4s ease;
+}
+
+.rounded-skill + h5 { margin-bottom: 0; }
+
+.rounded-skill i { font-size: 42px; }
+
+.rounded-skill canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* Emphasis Title
+-----------------------------------------------------------------*/
+
+.emphasis-title { margin: 0 0 50px; }
+
+.emphasis-title h1,
+.emphasis-title h2 {
+    font-size: 64px;
+    letter-spacing: -2px;
+}
+
+.emphasis-title h1 strong,
+.emphasis-title h2 strong { font-weight: 700; }
+
+
+/* ----------------------------------------------------------------
+	Landing Pages
+-----------------------------------------------------------------*/
+
+.landing-wide-form {
+    background: rgba(0,0,0,0.3);
+    padding: 30px;
+    border-radius: 3px;
+}
+
+.landing-form-overlay {
+    position: absolute;
+    z-index: 10;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: -154px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 3px 3px 0 0;
+}
+
+.landing-video {
+    z-index: 1;
+    width: 560px;
+    height: 315px;
+    margin: 22px 0 0 95px;
+    overflow: hidden;
+}
+
+.landing-promo h3 { font-size: 26px; }
+
+.landing-promo > .container > span { font-size: 17px; }
+
+
+/* Twitter Feed Widget
+-----------------------------------------------------------------*/
+
+.widget-twitter-feed li { margin: 15px 0 0 0; }
+
+.widget-twitter-feed li:first-child { margin-top: 0; }
+
+.widget-twitter-feed small {
+    display: block;
+    margin-top: 3px;
+}
+
+.widget-twitter-feed small a { color: #999; }
+
+.widget-twitter-feed .twitter-feed:not(.twitter-feed-avatar) a.twitter-avatar { display: none; }
+
+.widget-twitter-feed .twitter-feed.twitter-feed-avatar i.icon-twitter { display: none; }
+
+.widget-twitter-feed .twitter-feed-avatar { margin-left: 44px; }
+
+.widget-twitter-feed .twitter-feed-avatar > li a.twitter-avatar {
+    display: block;
+    position: absolute;
+    left: -44px;
+    text-align: center;
+    top: 2px;
+    width: 32px;
+    height: 32px;
+}
+
+.twitter-feed-avatar a.twitter-avatar img { border-radius: 50%; }
+
+
+/* ----------------------------------------------------------------
+	Wedding
+-----------------------------------------------------------------*/
+
+
+.wedding-head {
+    position: relative;
+    line-height: 1;
+    font-size: 80px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+}
+
+.wedding-head .first-name,
+.wedding-head .last-name,
+.wedding-head .and {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: bold;
+    text-align: right;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 2px;
+}
+
+.wedding-head .last-name {
+    margin: 0 0 0 15px;
+    text-align: left;
+}
+
+.wedding-head .first-name span,
+.wedding-head .last-name span {
+    display: block;
+    margin-top: 10px;
+    font-size: 56px;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Crete Round', serif;
+    text-transform: none;
+}
+
+.wedding-head .and {
+    margin: 0;
+    font-size: 200px;
+    font-family: 'Times New Roman', serif;
 }
