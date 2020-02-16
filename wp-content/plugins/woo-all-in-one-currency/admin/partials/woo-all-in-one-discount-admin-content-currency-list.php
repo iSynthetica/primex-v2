@@ -205,6 +205,11 @@ $base_currency = get_option( 'woocommerce_currency' );
             </tr>
             </tfoot>
         </table>
+
+        <h4><?php _e('Explanation', 'woo-all-in-one-currency'); ?>:</h4>
+        <p>
+            <?php _e('Base currency is a currency which your product saved in DB. Base currency rate always be equal 1.', 'woo-all-in-one-currency'); ?>
+        </p>
         <?php
     }
     ?>

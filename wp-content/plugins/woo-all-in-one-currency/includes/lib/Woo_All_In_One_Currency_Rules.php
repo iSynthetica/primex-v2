@@ -100,4 +100,14 @@ class Woo_All_In_One_Currency_Rules {
 
         return $woocommerce_currencies_array;
     }
+
+    public static function get_general_currency_settings() {
+        $default_currency_general_settings = array(
+            'multicurrency_allow' => 'no',
+        );
+
+        $currency_settings = get_option('wooaio_currency_general_settings', array());
+
+        return array_merge($default_currency_general_settings, $currency_settings);
+    }
 }

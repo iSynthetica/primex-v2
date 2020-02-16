@@ -9,6 +9,9 @@ class Woo_All_In_One_Currency_Helpers {
             'currency' => array(
                 'title' => __('Currency Settings', 'woo-all-in-one-currency')
             ),
+            'settings' => array(
+                'title' => __('General Settings', 'woo-all-in-one-currency')
+            ),
         );
     }
 

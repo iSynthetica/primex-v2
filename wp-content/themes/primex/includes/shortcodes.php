@@ -63,6 +63,9 @@ function snth_widget_blogroll() {
 }
 
 function snth_cart_icon() {
+    if (is_cart() || is_checkout()) {
+        return '';
+    }
     global $woocommerce;
     $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
     $cart_url = wc_get_cart_url();  // Set Cart URL
@@ -106,7 +109,7 @@ function snth_cart_icon() {
                 ?>
             </div>
             <div class="top-cart-action clearfix">
-                <span class="fleft top-checkout-price"><?php echo $woocommerce->cart->get_cart_total(); ?></span>
+                <span class="fleft top-checkout-price"><?php wc_cart_totals_subtotal_html(); ?></span>
                 <a href="<?php echo $cart_url; ?>" class="button button-3d button-small nomargin fright">
                     <?php echo __( 'View Cart', 'primex' ); ?>
                 </a>

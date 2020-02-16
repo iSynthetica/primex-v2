@@ -34,6 +34,11 @@ function wooaiodiscount_reset_currency_rules() {
 
 function wooaiocurrency_price($price, $product) {
     global $wooaiocurrency_rules;
+
+    if (!$wooaiocurrency_rules) {
+        $wooaiocurrency_rules = wooaiocurrency_set_global_currency_rule( true );
+    }
+
     $rate = 1;
     $all_product_rate = null;
     $specified_categories_rate = null;
@@ -113,4 +118,117 @@ function wooaiocurrency_variation_prices( $prices ) {
     }
 
     return $prices;
+}
+
+function wooaiocurrency_set_global_currency_rule($return = false) {
+    if (is_admin()) {
+        return;
+    }
+
+    global $wooaiocurrency_rules;
+    $general_multicurrency_settings = Woo_All_In_One_Currency_Rules::get_general_currency_settings();
+
+    $wooaiocurrency_rules = array();
+    $base_currency = get_option( 'woocommerce_currency' );
+    $main_currency = $base_currency;
+
+    $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+
+    foreach ($currency_rules as $currency_code => $currency_rule) {
+        if ($currency_code !== $base_currency && empty($currency_rule['rates'])) {
+            unset($currency_rules[$currency_code]);
+        }
+
+        if (!empty($currency_rule['main'])) {
+            $main_currency = $currency_code;
+        }
+    }
+
+    if (count($currency_rules) < 2) {
+        $wooaiocurrency_rules['current_currency_code'] = $base_currency;
+        $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$base_currency];
+        $wooaiocurrency_rules['switcher'] = array();
+    } else {
+        if ( $general_multicurrency_settings["multicurrency_allow"] === 'no' && is_cart_or_checkout() ) {
+            $current_currency = $main_currency;
+        } elseif (!empty($_COOKIE['wooaiocurrency'])) {
+            $current_currency = $_COOKIE['wooaiocurrency'];
+
+            if (empty($currency_rules[$current_currency])) {
+                $current_currency = false;
+
+                setcookie('wooaiocurrency_update_minicart', 1, time() + (86400 * 360), '/');
+                unset($_COOKIE['wooaiocurrency']);
+                $res = setcookie('wooaiocurrency', '', time() - 3600);
+            }
+        }
+
+        if (empty($current_currency)) {
+            foreach ($currency_rules as $currency_code => $currency_rule) {
+                if (!empty($currency_rule['main'])) {
+                    $current_currency =  $currency_code;
+                }
+            }
+        }
+
+        if (empty($current_currency)) {
+            $current_currency =  $base_currency;
+        }
+
+        $wooaiocurrency_rules['current_currency_code'] = $current_currency;
+        $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$current_currency];
+        $switcher_rules = $currency_rules;
+
+        unset($switcher_rules[$current_currency]);
+
+        $wooaiocurrency_rules['switcher'] = $switcher_rules;
+    }
+
+    if ($return) {
+        return $wooaiocurrency_rules;
+    }
+}
+
+function is_cart_or_checkout() {
+    if (is_cart() || is_checkout()) {
+        return true;
+    }
+
+    if (isset($_REQUEST['wc-ajax']) && sanitize_text_field($_REQUEST['wc-ajax']) == 'update_order_review') {
+        return true;
+    }
+
+    $current_url = @$_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://';
+    if ( $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443' ) {
+        $current_url .= $_SERVER['HTTP_HOST'] . ':' . $_SERVER['SERVER_PORT'] . $_SERVER['REQUEST_URI'];
+    } else {
+        $current_url .= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    }
+    $root = isset( $_SERVER['PHP_SELF'] ) ? $_SERVER['PHP_SELF'] : '';
+    if ( $root ) {
+        $root = str_replace( '/index.php', '', $root );
+        if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+            $path = str_replace( $root, '', $_SERVER['REQUEST_URI'] );
+            // Retrieve the current post's ID based on its URL
+
+            $id = get_page_by_path( $path );
+            if ( is_object( $id ) ) {
+                $id = $id->ID;
+            } else {
+                $id = url_to_postid( $current_url );;
+            }
+        } else {
+            // Retrieve the current post's ID based on its URL
+            $id = url_to_postid( $current_url );
+        }
+
+    } else {
+        // Retrieve the current post's ID based on its URL
+        $id = url_to_postid( $current_url );
+    }
+
+    $checkout_page_id = wc_get_page_id( 'checkout' );
+    $cart_page_id = wc_get_page_id( 'cart' );
+
+    return $id == $checkout_page_id || $id == $cart_page_id;
 }

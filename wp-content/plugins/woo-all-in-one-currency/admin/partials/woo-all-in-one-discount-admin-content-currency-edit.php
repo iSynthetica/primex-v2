@@ -22,7 +22,7 @@ if (empty($current_currency_rule)) {
 
 <hr class="wp-header-end">
 
-<?php var_dump($currency_rules); ?>
+<?php // var_dump($currency_rules); ?>
 
 <div id="poststuff">
     <div id="general-settings-container" class="postbox">
