@@ -21,7 +21,11 @@
 		var updateMiniCart = $.cookie('wooaiocurrency_update_minicart');
 
 		if (true) {
-			sessionStorage.removeItem(wc_cart_fragments_params.fragment_name);
+
+			if (typeof wc_cart_fragments_params === 'undefined' || wc_cart_fragments_params === null) {
+			} else {
+				sessionStorage.removeItem(wc_cart_fragments_params.fragment_name);
+			}
 			$.removeCookie('wooaiocurrency_update_minicart');
 			$.removeCookie('wooaiocurrency');
 			// console.log(updateMiniCart);

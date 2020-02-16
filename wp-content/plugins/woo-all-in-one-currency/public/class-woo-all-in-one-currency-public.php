@@ -77,17 +77,18 @@ class Woo_All_In_One_Currency_Public {
 
 	public function set_woocommerce_filters() {
         add_filter('woocommerce_currency', 'wooaiocurrency_currency', 1000, 2);
-        add_filter('woocommerce_before_calculate_totals', 'wooaiocurrency_before_calculate_totals', 1000, 2);
-        add_filter('woocommerce_cart_product_price', 'wooaiocurrency_cart_product_price', 10, 2 );
+        wooaiodiscount_set_currency_rules();
+//        add_filter('woocommerce_before_calculate_totals', 'wooaiocurrency_before_calculate_totals', 1000, 2);
+//        add_filter('woocommerce_cart_product_price', 'wooaiocurrency_cart_product_price', 10, 2 );
 
 
-        add_filter('woocommerce_product_get_regular_price', 'wooaiocurrency_product_get_regular_price', 1000, 2 );
-        add_filter('woocommerce_product_get_sale_price', 'wooaiocurrency_product_get_sale_price', 1000, 2 );
-        add_filter('woocommerce_product_get_price', 'wooaiocurrency_product_get_price', 1000, 2 );
-        add_filter('woocommerce_product_variation_get_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
-        add_filter('woocommerce_product_variation_get_regular_price', 'wooaiocurrency_product_variation_get_regular_price', 1000, 2 );
-        add_filter('woocommerce_product_variation_get_sale_price', 'wooaiocurrency_product_variation_get_sale_price', 1000, 2 );
-        add_filter('woocommerce_variation_prices', 'wooaiocurrency_variation_prices', 1000 );
+//        add_filter('woocommerce_product_get_regular_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+//        add_filter('woocommerce_product_get_sale_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+//        add_filter('woocommerce_product_get_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+//        add_filter('woocommerce_product_variation_get_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+//        add_filter('woocommerce_product_variation_get_regular_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+//        add_filter('woocommerce_product_variation_get_sale_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+//        add_filter('woocommerce_variation_prices', 'wooaiocurrency_variation_prices', 1000 );
 
 
         add_action( 'woocommerce_cart_loaded_from_session', 'wooaiocurrency_before_mini_cart', 1000 );
@@ -127,7 +128,8 @@ class Woo_All_In_One_Currency_Public {
             $wooaiocurrency_rules['current_currency_rule'] = $currency_rules[$base_currency];
             $wooaiocurrency_rules['switcher'] = array();
         } else {
-            if (is_cart() || is_checkout()) {
+            // if (is_cart() || is_checkout()) {
+            if (false) {
                 $current_currency = 'UAH';
                 setcookie('wooaiocurrency_update_minicart', 1, time() + (86400 * 360), '/');
             } elseif (!empty($_COOKIE['wooaiocurrency'])) {

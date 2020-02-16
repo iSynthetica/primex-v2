@@ -78,7 +78,7 @@ function snth_cart_icon() {
             </div>
             <div class="top-cart-items">
                 <?php
-                foreach( $cart as $cart_item ){
+                foreach( $cart as $cart_item_key => $cart_item ){
                     // var_dump($cart_item);
                     $product = wc_get_product( $cart_item['product_id'] );
                     ?>
@@ -95,7 +95,9 @@ function snth_cart_icon() {
                         </div>
                         <div class="top-cart-item-desc">
                             <a href="<?php echo get_permalink( $product->get_id() ); ?>"><?php echo $product->get_name(); ?></a>
-                            <span class="top-cart-item-price"><?php echo wc_price($cart_item['line_total']); ?></span>
+                            <span class="top-cart-item-price">
+                                <?php echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $product ), $cart_item, $cart_item_key ); ?>
+                            </span>
                             <span class="top-cart-item-quantity">x <?php echo $cart_item['quantity']; ?></span>
                         </div>
                     </div>

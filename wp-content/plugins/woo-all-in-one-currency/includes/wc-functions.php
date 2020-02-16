@@ -1,5 +1,37 @@
 <?php
 
+function wooaiodiscount_set_currency_rules() {
+    add_filter('woocommerce_product_get_regular_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+    add_filter('woocommerce_product_get_sale_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+    add_filter('woocommerce_product_get_price', 'wooaiocurrency_product_get_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_regular_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+    add_filter('woocommerce_product_variation_get_sale_price', 'wooaiocurrency_product_variation_get_price', 1000, 2 );
+    // add_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000, 2 );
+
+
+
+    add_filter('woocommerce_variation_prices_price', 'wooaiocurrency_variation_prices_price', 1000, 3 );
+    add_filter('woocommerce_variation_prices_regular_price', 'wooaiocurrency_variation_prices_price', 1000, 3 );
+    add_filter('woocommerce_variation_prices_sale_price', 'wooaiocurrency_variation_prices_price', 1000, 3 );
+}
+
+function wooaiodiscount_reset_currency_rules() {
+    remove_filter('woocommerce_product_get_regular_price', 'wooaiocurrency_product_get_price', 1000 );
+    remove_filter('woocommerce_product_get_sale_price', 'wooaiocurrency_product_get_price', 1000 );
+    remove_filter('woocommerce_product_get_price', 'wooaiocurrency_product_get_price', 1000 );
+    remove_filter('woocommerce_product_variation_get_price', 'wooaiocurrency_product_variation_get_price', 1000 );
+    remove_filter('woocommerce_product_variation_get_regular_price', 'wooaiocurrency_product_variation_get_price', 1000 );
+    remove_filter('woocommerce_product_variation_get_sale_price', 'wooaiocurrency_product_variation_get_price', 1000 );
+    // remove_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000 );
+
+
+
+    remove_filter('woocommerce_variation_prices_price', 'wooaiocurrency_variation_prices_price', 1000 );
+    remove_filter('woocommerce_variation_prices_regular_price', 'wooaiocurrency_variation_prices_price', 1000 );
+    remove_filter('woocommerce_variation_prices_sale_price', 'wooaiocurrency_variation_prices_price', 1000 );
+}
+
 function wooaiocurrency_price($price, $product) {
     global $wooaiocurrency_rules;
     $rate = 1;
@@ -48,39 +80,7 @@ function wooaiocurrency_currency($currency) {
     return wooaiocurrency_get_current_currency();
 }
 
-function wooaiocurrency_product_get_regular_price( $price, $product ) {
-    if ( ! $price ) {
-        return $price;
-    }
-
-    return wooaiocurrency_price($price, $product);
-}
-
-function wooaiocurrency_product_get_sale_price( $price, $product ) {
-    if ( ! $price ) {
-        return $price;
-    }
-
-    return wooaiocurrency_price($price, $product);
-}
-
 function wooaiocurrency_product_get_price( $price, $product ) {
-    if ( ! $price ) {
-        return $price;
-    }
-
-    return wooaiocurrency_price($price, $product);
-}
-
-function wooaiocurrency_product_variation_get_regular_price( $price, $product ) {
-    if ( ! $price ) {
-        return $price;
-    }
-
-    return wooaiocurrency_price($price, $product);
-}
-
-function wooaiocurrency_product_variation_get_sale_price( $price, $product ) {
     if ( ! $price ) {
         return $price;
     }
@@ -90,6 +90,14 @@ function wooaiocurrency_product_variation_get_sale_price( $price, $product ) {
 
 function wooaiocurrency_product_variation_get_price( $price, $product ) {
     if ( ! $price ) {
+        return $price;
+    }
+
+    return wooaiocurrency_price($price, $product);
+}
+
+function wooaiocurrency_variation_prices_price($price, $product) {
+    if (!$price) {
         return $price;
     }
 

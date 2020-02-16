@@ -28402,6 +28402,12 @@ body #side-panel.dark #side-panel-trigger-close a {
     min-width: 170px;
     text-align: center; }
 
+.added_to_cart {
+  display: block;
+  width: 100%;
+  padding: 0 0 0.625rem 0;
+  text-align: center; }
+
 /* ----------------------------------------------------------------
 	Cart
 -----------------------------------------------------------------*/
