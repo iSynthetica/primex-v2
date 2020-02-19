@@ -191,24 +191,12 @@ class Woo_All_In_One_Discount_Public {
         }
     }
 
-	public function raw_woocommerce_price($price, $product) {
-	    return $price;
-    }
-
     public function set_woocommerce_filters() {
         if (is_admin()) {
             return;
         }
 
         wooaiodiscount_set_discount_rules();
-
-//        add_filter('woocommerce_product_get_regular_price', 'wooaiodiscount_product_get_regular_price', 1000, 2 );
-//        add_filter('woocommerce_product_get_sale_price', 'wooaiodiscount_product_get_sale_price', 1000, 2 );
-//        add_filter('woocommerce_product_get_price', 'wooaiodiscount_product_get_price', 1000, 2 );
-//        add_filter('woocommerce_product_variation_get_price', 'wooaiodiscount_product_variation_get_price', 1000, 2 );
-//        add_filter('woocommerce_product_variation_get_regular_price', 'wooaiodiscount_product_variation_get_regular_price', 1000, 2 );
-//        add_filter('woocommerce_product_variation_get_sale_price', 'wooaiodiscount_product_variation_get_sale_price', 1000, 2 );
-//        add_filter('woocommerce_variation_prices', 'wooaiodiscount_variation_prices', 1000, 2 );
 
         add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_price_html', 1000, 2);
     }

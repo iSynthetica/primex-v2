@@ -201,8 +201,6 @@ class Woo_All_In_One_Discount {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-//		$this->loader->add_filter( 'woocommerce_product_get_price', $plugin_public, 'raw_woocommerce_price', 100, 2 );
-
 //		$this->loader->add_filter( 'woocommerce_before_calculate_totals', $plugin_public, 'recalculate_totals', 1000 );
 
 	}

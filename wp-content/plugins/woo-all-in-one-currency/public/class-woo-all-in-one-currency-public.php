@@ -48,10 +48,8 @@ class Woo_All_In_One_Currency_Public {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -77,7 +75,7 @@ class Woo_All_In_One_Currency_Public {
 
 	public function set_woocommerce_filters() {
         add_filter('woocommerce_currency', 'wooaiocurrency_currency', 1000, 2);
-        wooaiodiscount_set_currency_rules();
+        wooaiocurrency_set_currency_rules();
         add_action( 'woocommerce_cart_loaded_from_session', 'wooaiocurrency_before_mini_cart', 1000 );
     }
 
