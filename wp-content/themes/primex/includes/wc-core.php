@@ -11,58 +11,6 @@ function snth_wc_cart_count_fragments( $fragments ) {
     return $fragments;
 }
 
-// Hook in
-add_filter( 'woocommerce_checkout_fields' , 'snth_wc_checkout_fields' );
-
-function snth_wc_service_fields( $fields ) {
-    foreach ($fields as $key => $field) {
-        if (in_array($key, array('repair_name', 'repair_phone', 'repair_email', 'repair_created_date', 'repair_order_date', 'repair_np_ttn'))) {
-            $fields[$key]['class'] = array('col-12', 'col-md-6', 'col-lg-4');
-
-            $fields[$key]['input_class'][] = 'form-control';
-        }
-
-        if (in_array($key, array('repair_product', 'repair_serial', 'repair_set', 'repair_fault'))) {
-            $fields[$key]['class'] = array('col-12', 'col-md-6');
-
-            $fields[$key]['input_class'][] = 'form-control';
-        }
-
-        if (in_array($key, array('repair_state'))) {
-            $fields[$key]['class'] = array('col-12');
-
-            $fields[$key]['input_class'][] = 'form-control';
-        }
-    }
-
-    return $fields;
-}
-
-// Hook in
-add_filter( 'wooaioservice_fields' , 'snth_wc_service_fields' );
-
-function snth_wc_coupon_fields( $fields ) {
-    foreach ($fields as $key => $field) {
-        if (in_array($key, array('coupon_name', 'coupon_phone', 'coupon_email'))) {
-            $fields[$key]['class'] = array('');
-
-            $fields[$key]['input_class'][] = 'form-control';
-        }
-    }
-
-    return $fields;
-}
-
-// Hook in
-add_filter( 'wooaiocoupon_fields' , 'snth_wc_coupon_fields' );
-
-function snth_wc_remove_class($field) {
-    $field = str_replace('form-row', '', $field);
-    return $field;
-}
-
-// Hook in
-add_filter( 'woocommerce_form_field' , 'snth_wc_remove_class' );
 
 // Our hooked in function - $fields is passed via the filter!
 function snth_wc_checkout_fields( $fields ) {
@@ -136,6 +84,57 @@ function snth_wc_checkout_fields( $fields ) {
 
     return $fields;
 }
+// add_filter( 'woocommerce_checkout_fields' , 'snth_wc_checkout_fields' );
+
+function snth_wc_service_fields( $fields ) {
+    foreach ($fields as $key => $field) {
+        if (in_array($key, array('repair_name', 'repair_phone', 'repair_email', 'repair_created_date', 'repair_order_date', 'repair_np_ttn'))) {
+            $fields[$key]['class'] = array('col-12', 'col-md-6', 'col-lg-4');
+
+            $fields[$key]['input_class'][] = 'form-control';
+        }
+
+        if (in_array($key, array('repair_product', 'repair_serial', 'repair_set', 'repair_fault'))) {
+            $fields[$key]['class'] = array('col-12', 'col-md-6');
+
+            $fields[$key]['input_class'][] = 'form-control';
+        }
+
+        if (in_array($key, array('repair_state'))) {
+            $fields[$key]['class'] = array('col-12');
+
+            $fields[$key]['input_class'][] = 'form-control';
+        }
+    }
+
+    return $fields;
+}
+
+// Hook in
+add_filter( 'wooaioservice_fields' , 'snth_wc_service_fields' );
+
+function snth_wc_coupon_fields( $fields ) {
+    foreach ($fields as $key => $field) {
+        if (in_array($key, array('coupon_name', 'coupon_phone', 'coupon_email'))) {
+            $fields[$key]['class'] = array('');
+
+            $fields[$key]['input_class'][] = 'form-control';
+        }
+    }
+
+    return $fields;
+}
+
+// Hook in
+add_filter( 'wooaiocoupon_fields' , 'snth_wc_coupon_fields' );
+
+function snth_wc_remove_class($field) {
+    $field = str_replace('form-row', '', $field);
+    return $field;
+}
+
+// Hook in
+add_filter( 'woocommerce_form_field' , 'snth_wc_remove_class' );
 
 function snth_wc_coupon_form_before_submit() {
     ?>

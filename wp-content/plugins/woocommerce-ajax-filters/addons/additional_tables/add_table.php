@@ -72,7 +72,7 @@ class BeRocket_aapf_variations_tables {
         );
         $query['subquery']['join_close_1'] = ') as max_filtered_post ON max_filtered_post.ID = filtered_post.ID';
         $query['subquery']['select'] = 'SELECT filtered_post.*, max_filtered_post.max_meta_count, IF(max_filtered_post.max_meta_count != filtered_post.meta_count OR stock_table.out_of_stock_init = 1, 1, 0) as out_of_stock';
-        if ( ! empty($_POST['price_ranges']) || ! empty($_POST['price']) ) {
+        /*if ( ! empty($_POST['price_ranges']) || ! empty($_POST['price']) ) {
             $query_custom['join'] = "JOIN {$wpdb->prefix}wc_product_meta_lookup as wc_product_meta_lookup ON wc_product_meta_lookup.product_id = {$wpdb->prefix}braapf_product_stock_status_parent.post_id";
             $query_custom['where_open'] = 'WHERE';
             if ( ! empty($_POST['price']) ) {
@@ -97,7 +97,7 @@ class BeRocket_aapf_variations_tables {
                 }
                 $query_custom['where_1'] = implode(' AND ', $price_ranges);
             }
-        }
+        }*/
         $query_custom['group'] = 'GROUP BY id';
         $query['subquery']['subquery_3'] = $query_custom;
         return $query;

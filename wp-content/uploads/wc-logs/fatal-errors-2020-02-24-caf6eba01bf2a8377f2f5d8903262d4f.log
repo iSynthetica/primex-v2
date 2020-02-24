@@ -1,0 +1,22 @@
+2020-02-24T08:59:19+00:00 CRITICAL Cannot use [] for reading в xdebug://debug-eval на строке 1
+
+2020-02-24T08:59:27+00:00 CRITICAL Uncaught Error: [] operator not supported for strings in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-billing.php:51
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(249): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(294): wc_get_template('checkout/form-b...', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): WC_Checkout->checkout_form_billing('')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-checkout.php(37): do_action('woocommerce_che...')
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core в /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-billing.php на строке 51
+
+2020-02-24T08:59:40+00:00 CRITICAL Uncaught Error: [] operator not supported for strings in /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-billing.php:51
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(249): include()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php(294): wc_get_template('checkout/form-b...', Array)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): WC_Checkout->checkout_form_billing('')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-checkout.php(37): do_action('woocommerce_che...')
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core в /var/www/tsvitokha/primex2.0/public_html/wp-content/themes/primex/woocommerce/checkout/form-billing.php на строке 51
+

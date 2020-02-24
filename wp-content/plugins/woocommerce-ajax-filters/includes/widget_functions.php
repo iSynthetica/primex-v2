@@ -44,7 +44,11 @@ class BeRocket_AAPF_Widget_functions {
                     'after'   => (isset($text_after_price) ? $text_after_price : ''),
                 )
             );
-            $price_range = BeRocket_AAPF_Widget_functions::get_price_range( ( isset($cat_value_limit) ? $cat_value_limit : null ) );
+            if ( ! empty($price_values) ) {
+                $price_range = explode( ",", $price_values );
+            } else {
+                $price_range = BeRocket_AAPF_Widget_functions::get_price_range( ( isset($cat_value_limit) ? $cat_value_limit : null ) );
+            }
             if ( ! empty($price_values) ) {
                 $all_terms_name = $price_range;
                 $all_terms_slug = $price_range;

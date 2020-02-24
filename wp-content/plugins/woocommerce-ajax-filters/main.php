@@ -345,13 +345,6 @@ class BeRocket_AAPF extends BeRocket_Framework {
         return $notices;
     }
     public function init () {
-        /*$terms = berocket_aapf_get_terms( array(
-            'taxonomy'          => 'product_cat',
-            'hide_empty'        => false,
-            'order'             => 'DESC',
-            'suppress_filter'   => (function_exists('wpm_get_language') ? 0 : 1)
-        ) );
-        echo '<pre>', print_r($terms, true), '</pre>';die;*/
         parent::init();
         $option = $this->get_option();
         if( ! empty($option['use_tax_for_price']) ) {

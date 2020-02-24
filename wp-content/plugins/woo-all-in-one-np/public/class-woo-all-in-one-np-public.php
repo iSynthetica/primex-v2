@@ -92,6 +92,7 @@ class Woo_All_In_One_Np_Public {
 
     public function init() {
         add_action('woocommerce_shipping_init', 'woionp_sm_init');
+        add_action('woocommerce_shipping_init', 'woionp_sm_settings_init');
     }
 
 }

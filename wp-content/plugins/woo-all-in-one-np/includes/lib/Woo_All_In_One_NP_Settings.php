@@ -1,16 +1,12 @@
 <?php
 
-function woionp_sm_init() {
-    class Woo_All_In_One_NP_SM extends WC_Shipping_Method {
+function woionp_sm_settings_init() {
+    class Woo_All_In_One_NP_SM_Settings extends WC_Shipping_Method {
         public function __construct( $instance_id = 0 ) {
-            $this->id                 = 'novaposhta_warehouse_warehouse';
+            $this->id                 = 'novaposhta_settings';
             $this->instance_id        = absint( $instance_id );
-            $this->method_title       = __('NovaPoshta Warehouse - Warehouse', 'woo-all-in-one-np');
-            $this->method_description = __('NovaPoshta Warehouse - Warehouse shipping method', 'woo-all-in-one-np'); // Description shown in admin
-            $this->supports           = array(
-                'shipping-zones',
-                'instance-settings',
-            );
+            $this->method_title       = __('NovaPoshta Settings', 'woo-all-in-one-np');
+            $this->method_description = __('NovaPoshta shipping method Settings', 'woo-all-in-one-np'); // Description shown in admin
 
             $this->init();
 
@@ -27,7 +23,7 @@ function woionp_sm_init() {
         public function init_form_fields() {
             include_once("NovaPoshtaApi2.php");
 
-            $this->instance_form_fields = array(
+            $this->form_fields = array(
                 'title'      => array(
                     'title'       => __( 'Title', 'woocommerce' ),
                     'type'        => 'text',
@@ -38,8 +34,15 @@ function woionp_sm_init() {
                 'enabled' => array(
                     'title' => __('Enable/Disable', 'woocommerce'),
                     'type' => 'checkbox',
-                    'label' => __('Enable NovaPostha', 'woo-all-in-one-np'),
+                    'label' => __('Enable NavaPostha', 'woo-all-in-one-np'),
                     'default' => 'yes'
+                ),
+                'np_API_key' => array(
+                    'title' => __('NavaPostha API_key', 'woo-all-in-one-np'),
+                    'type' => 'text',
+                    'desc_tip' => true,
+                    'description' => __('API key for the NovaPoshta, is taken from your account <a href="https://my.novaposhta.ua/settings/index#apikeys">http://novaposhta.ua/apikeys</a>', 'woo-all-in-one-np'),
+                    'default' => ''
                 ),
                 'description' => array(
                     'title' => __('Description', 'woocommerce'),
@@ -65,13 +68,13 @@ function woionp_sm_init() {
     }
 }
 
-function woionp_sm_add_nova_poshta($methods)
+function woionp_sm_add_nova_poshta_settings($methods)
 {
 
-    $methods['novaposhta_warehouse_warehouse'] = 'Woo_All_In_One_NP_SM';
+    $methods['novaposhta_settings'] = 'Woo_All_In_One_NP_SM_Settings';
 
     return $methods;
 
 }
 
-add_filter('woocommerce_shipping_methods', 'woionp_sm_add_nova_poshta');
+add_filter('woocommerce_shipping_methods', 'woionp_sm_add_nova_poshta_settings');

@@ -573,7 +573,8 @@ class BeRocket_AAPF_Widget extends WP_Widget {
         } elseif( $type == 'select' ) {
             $set_query_var_title['select_multiple'] = ! empty($select_multiple);
         }
-        set_query_var( 'berocket_query_var_title', apply_filters('berocket_query_var_title_before_widget', $set_query_var_title, $type, $instance, $args, $terms));
+        $set_query_var_title = apply_filters('berocket_query_var_title_before_widget', $set_query_var_title, $type, $instance, $args, $terms);
+        set_query_var( 'berocket_query_var_title', $set_query_var_title);
         br_get_template_part( apply_filters('berocket_widget_load_template_name', $type, $instance, (empty($terms) ? '' : $terms)) );
 
         do_action('berocket_aapf_widget_before_end');

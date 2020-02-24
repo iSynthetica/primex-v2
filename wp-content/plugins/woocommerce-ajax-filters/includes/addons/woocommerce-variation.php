@@ -263,14 +263,7 @@ class BeRocket_AAPF_compat_woocommerce_variation {
             $limit_post__not_in_where_array = array();
             if( is_array($limit_post__not_in) && count($limit_post__not_in) ) {
                 $limit_post__term_id_without_product = array();
-                foreach($limit_post__not_in as $terms_id => $limit_post) {
-                    if( in_array($term_data->taxonomy, array('_sale', '_stock_status')) ) {
-                        $wp_terms_id = $terms_id;
-                    } else {
-                        $wp_term = get_term($terms_id);
-                        if( empty($wp_term) || is_wp_error($wp_term) ) continue;
-                        $wp_terms_id = $wp_term->term_taxonomy_id;
-                    }
+                foreach($limit_post__not_in as $wp_terms_id => $limit_post) {
                     if( is_array($limit_post) && count($limit_post) ) {
                         $limit_post__not_in_where_array[$wp_terms_id] = "({$wpdb->posts}.ID NOT IN (\"" . implode('","', $limit_post) . "\") AND term_relationships.term_taxonomy_id = {$wp_terms_id})";
                     } else {
