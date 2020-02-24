@@ -1,0 +1,739 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Hookah\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-22 12:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: searchform.php:8
+msgid "Start Search"
+msgstr ""
+
+#: searchform.php:11
+msgid "Search..."
+msgstr ""
+
+#: parts/nav-main-nav.php:32 parts/nav-main-nav-home.php:32
+#: includes/content.php:16
+msgid "uah"
+msgstr ""
+
+#: includes/cleanup.php:109
+msgid "Read"
+msgstr ""
+
+#: includes/cleanup.php:109
+msgid "... Read more &raquo;"
+msgstr ""
+
+#: includes/cleanup.php:148 includes/content.php:164
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: includes/wc-novaposhta-script.php:23 includes/enqueue-scripts.php:77
+msgid "Select a City"
+msgstr ""
+
+#: includes/wc-novaposhta-script.php:24
+msgid "Select a Warehouse"
+msgstr ""
+
+#: includes/wc.php:69
+msgid "Your discount"
+msgstr ""
+
+#: includes/content.php:160
+msgid "Home"
+msgstr ""
+
+#: includes/content.php:162
+msgid "Search"
+msgstr ""
+
+#: includes/content.php:163
+#, php-format
+msgid "Posts tagged with \"%s\""
+msgstr ""
+
+#: includes/content.php:165
+msgid "Error 404"
+msgstr ""
+
+#: includes/content.php:166
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: includes/content.php:167
+#, php-format
+msgid "Commentaries page %s"
+msgstr ""
+
+#: includes/content.php:620 parts/content/contacts.php:69
+#: parts/content/contacts.php:138 parts/content/contacts.php:191
+msgid "Address"
+msgstr ""
+
+#: includes/content.php:630 parts/content/contacts.php:84
+#: parts/content/contacts.php:153 parts/content/contacts.php:206
+msgid "Phone"
+msgstr ""
+
+#: includes/content.php:635
+msgid "Schedule"
+msgstr ""
+
+#: includes/wc-novaposhta.php:19
+msgid "Nova Poshta"
+msgstr ""
+
+#: includes/wc-novaposhta.php:60 includes/wc-novaposhta.php:112
+msgid "Select City"
+msgstr ""
+
+#: includes/wc-novaposhta.php:74 includes/wc-novaposhta.php:121
+msgid "Select Region"
+msgstr ""
+
+#: includes/wc-novaposhta.php:87
+msgid "Nova Poshta Settings"
+msgstr ""
+
+#: includes/wc-novaposhta.php:93
+msgid "Nova Poshta API key"
+msgstr ""
+
+#: includes/wc-novaposhta.php:96
+msgid ""
+"API key for the NovaPoshta, is taken from your account <a href=\"https://my."
+"novaposhta.ua/settings/index#apikeys\">http://novaposhta.ua/apikeys</a>"
+msgstr ""
+
+#: includes/wc-novaposhta.php:100
+msgid "Departure address"
+msgstr ""
+
+#: includes/wc-novaposhta.php:103
+msgid "Address, where the goods will be taken by local pickup."
+msgstr ""
+
+#: includes/wc-novaposhta.php:107
+msgid "Departure city"
+msgstr ""
+
+#: includes/wc-novaposhta.php:110
+msgid "The city, where the goods will be sent."
+msgstr ""
+
+#: includes/wc-novaposhta.php:116
+msgid "Departure Area"
+msgstr ""
+
+#: includes/wc-novaposhta.php:119
+msgid "The area where the goods will be sent."
+msgstr ""
+
+#: includes/wc-novaposhta.php:125
+msgid "Summarize postage?"
+msgstr ""
+
+#: includes/wc-novaposhta.php:129
+msgid "Summarize postage to the total value of the goods?"
+msgstr ""
+
+#: includes/wc-novaposhta.php:130 includes/wc-novaposhta.php:133
+msgid "No"
+msgstr ""
+
+#: includes/wc-novaposhta.php:132
+msgid "Yes"
+msgstr ""
+
+#: includes/wc-novaposhta.php:344 includes/wc-novaposhta.php:349
+#: includes/wc-novaposhta.php:370 includes/enqueue-scripts.php:80
+msgid "Local Pickup"
+msgstr ""
+
+#: includes/wc-novaposhta.php:345
+msgid "Local Pickup Shipping Method"
+msgstr ""
+
+#: includes/wc-novaposhta.php:359 includes/wc-novaposhta.php:407
+#: includes/wc-novaposhta.php:455 includes/wc-novaposhta.php:503
+msgid "Enable"
+msgstr ""
+
+#: includes/wc-novaposhta.php:362
+msgid "Enable Local Pickup shipping."
+msgstr ""
+
+#: includes/wc-novaposhta.php:366 includes/wc-novaposhta.php:414
+#: includes/wc-novaposhta.php:462 includes/wc-novaposhta.php:510
+msgid "Title"
+msgstr ""
+
+#: includes/wc-novaposhta.php:369 includes/wc-novaposhta.php:417
+#: includes/wc-novaposhta.php:465 includes/wc-novaposhta.php:513
+msgid "Title to be display on site"
+msgstr ""
+
+#: includes/wc-novaposhta.php:373 includes/wc-novaposhta.php:421
+#: includes/wc-novaposhta.php:469 includes/wc-novaposhta.php:517
+msgid "Description"
+msgstr ""
+
+#: includes/wc-novaposhta.php:376 includes/wc-novaposhta.php:424
+#: includes/wc-novaposhta.php:472 includes/wc-novaposhta.php:520
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: includes/wc-novaposhta.php:377
+msgid "Local Pickup Description"
+msgstr ""
+
+#: includes/wc-novaposhta.php:392 includes/wc-novaposhta.php:397
+#: includes/wc-novaposhta.php:418
+msgid "Other Delivery"
+msgstr ""
+
+#: includes/wc-novaposhta.php:393
+msgid "Used mostly for foreign delivery"
+msgstr ""
+
+#: includes/wc-novaposhta.php:410
+msgid "Enable Other Delivery shipping."
+msgstr ""
+
+#: includes/wc-novaposhta.php:425
+msgid "Other Delivery Description"
+msgstr ""
+
+#: includes/wc-novaposhta.php:440
+msgid "NovaPoshta Warehouse"
+msgstr ""
+
+#: includes/wc-novaposhta.php:441
+msgid "NovaPoshta Shipping Method using Warehouse Warehouse Service Type"
+msgstr ""
+
+#: includes/wc-novaposhta.php:445
+msgid "NovaPoshta (Warehouse)"
+msgstr ""
+
+#: includes/wc-novaposhta.php:458 includes/wc-novaposhta.php:506
+msgid "Enable Nova Poshta shipping."
+msgstr ""
+
+#: includes/wc-novaposhta.php:466
+msgid "NovaPoshta (Warehouse - Warehouse)"
+msgstr ""
+
+#: includes/wc-novaposhta.php:473
+msgid "NovaPoshta (Warehouse - Warehouse) Description"
+msgstr ""
+
+#: includes/wc-novaposhta.php:488
+msgid "NovaPoshta Doors"
+msgstr ""
+
+#: includes/wc-novaposhta.php:489
+msgid "NovaPoshta Shipping Method using Warehouse Doors Service Type"
+msgstr ""
+
+#: includes/wc-novaposhta.php:493
+msgid "NovaPoshta (Doors)"
+msgstr ""
+
+#: includes/wc-novaposhta.php:514
+msgid "NovaPoshta (Warehouse - Doors)"
+msgstr ""
+
+#: includes/wc-novaposhta.php:521
+msgid "NovaPoshta (Warehouse - Doors) Description"
+msgstr ""
+
+#: includes/enqueue-scripts.php:78
+msgid "At first Select City"
+msgstr ""
+
+#: includes/enqueue-scripts.php:79
+msgid "Select Warhouse"
+msgstr ""
+
+#: includes/cpt.php:14
+msgctxt "Post Type General Name"
+msgid "Locations"
+msgstr ""
+
+#: includes/cpt.php:15
+msgctxt "Post Type Singular Name"
+msgid "Location"
+msgstr ""
+
+#: includes/cpt.php:16
+msgid "Locations"
+msgstr ""
+
+#: includes/cpt.php:17 includes/cpt.php:43
+msgid "Location"
+msgstr ""
+
+#: includes/cpt.php:18
+msgid "Location Archives"
+msgstr ""
+
+#: includes/cpt.php:19
+msgid "Location Attributes"
+msgstr ""
+
+#: includes/cpt.php:20
+msgid "Parent Location:"
+msgstr ""
+
+#: includes/cpt.php:21
+msgid "All Locations"
+msgstr ""
+
+#: includes/cpt.php:22
+msgid "Add New Location"
+msgstr ""
+
+#: includes/cpt.php:23
+msgid "Add New"
+msgstr ""
+
+#: includes/cpt.php:24
+msgid "New Location"
+msgstr ""
+
+#: includes/cpt.php:25
+msgid "Edit Location"
+msgstr ""
+
+#: includes/cpt.php:26
+msgid "Update Location"
+msgstr ""
+
+#: includes/cpt.php:27
+msgid "View Location"
+msgstr ""
+
+#: includes/cpt.php:28
+msgid "View Locations"
+msgstr ""
+
+#: includes/cpt.php:29
+msgid "Search Location"
+msgstr ""
+
+#: includes/cpt.php:30
+msgid "Not found"
+msgstr ""
+
+#: includes/cpt.php:31
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/cpt.php:32
+msgid "Featured Image"
+msgstr ""
+
+#: includes/cpt.php:33
+msgid "Set featured image"
+msgstr ""
+
+#: includes/cpt.php:34
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/cpt.php:35
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/cpt.php:36
+msgid "Insert into Location"
+msgstr ""
+
+#: includes/cpt.php:37
+msgid "Uploaded to this Location"
+msgstr ""
+
+#: includes/cpt.php:38
+msgid "Locations list"
+msgstr ""
+
+#: includes/cpt.php:39
+msgid "Locations list navigation"
+msgstr ""
+
+#: includes/cpt.php:40
+msgid "Filter Locations list"
+msgstr ""
+
+#: includes/cpt.php:44
+msgid "Locations for hookah partners"
+msgstr ""
+
+#: includes/cpt.php:70
+msgctxt "Taxonomy General Name"
+msgid "Location Types"
+msgstr ""
+
+#: includes/cpt.php:71
+msgctxt "Taxonomy Singular Name"
+msgid "Location Type"
+msgstr ""
+
+#: includes/cpt.php:72
+msgid "Types"
+msgstr ""
+
+#: includes/cpt.php:73
+msgid "All Types"
+msgstr ""
+
+#: includes/cpt.php:74
+msgid "Parent Type"
+msgstr ""
+
+#: includes/cpt.php:75
+msgid "Parent Type:"
+msgstr ""
+
+#: includes/cpt.php:76
+msgid "New Type Name"
+msgstr ""
+
+#: includes/cpt.php:77
+msgid "Add New Type"
+msgstr ""
+
+#: includes/cpt.php:78
+msgid "Edit Type"
+msgstr ""
+
+#: includes/cpt.php:79
+msgid "Update Type"
+msgstr ""
+
+#: includes/cpt.php:80
+msgid "View Type"
+msgstr ""
+
+#: includes/cpt.php:81
+msgid "Separate Types with commas"
+msgstr ""
+
+#: includes/cpt.php:82
+msgid "Add or remove Types"
+msgstr ""
+
+#: includes/cpt.php:83 includes/cpt.php:124 includes/cpt.php:164
+msgid "Choose from the most used"
+msgstr ""
+
+#: includes/cpt.php:84
+msgid "Popular Types"
+msgstr ""
+
+#: includes/cpt.php:85
+msgid "Search Types"
+msgstr ""
+
+#: includes/cpt.php:86 includes/cpt.php:127 includes/cpt.php:167
+msgid "Not Found"
+msgstr ""
+
+#: includes/cpt.php:87
+msgid "No Types"
+msgstr ""
+
+#: includes/cpt.php:88
+msgid "Types list"
+msgstr ""
+
+#: includes/cpt.php:89
+msgid "Types list navigation"
+msgstr ""
+
+#: includes/cpt.php:111
+msgctxt "Taxonomy General Name"
+msgid "Columns"
+msgstr ""
+
+#: includes/cpt.php:112
+msgctxt "Taxonomy Singular Name"
+msgid "Column"
+msgstr ""
+
+#: includes/cpt.php:113
+msgid "Column"
+msgstr ""
+
+#: includes/cpt.php:114
+msgid "All Columns"
+msgstr ""
+
+#: includes/cpt.php:115
+msgid "Parent Column"
+msgstr ""
+
+#: includes/cpt.php:116
+msgid "Parent Column:"
+msgstr ""
+
+#: includes/cpt.php:117
+msgid "New Column Name"
+msgstr ""
+
+#: includes/cpt.php:118
+msgid "Add New Column"
+msgstr ""
+
+#: includes/cpt.php:119
+msgid "Edit Column"
+msgstr ""
+
+#: includes/cpt.php:120
+msgid "Update Column"
+msgstr ""
+
+#: includes/cpt.php:121
+msgid "View Column"
+msgstr ""
+
+#: includes/cpt.php:122
+msgid "Separate Columns with commas"
+msgstr ""
+
+#: includes/cpt.php:123
+msgid "Add or remove Columns"
+msgstr ""
+
+#: includes/cpt.php:125
+msgid "Popular Columns"
+msgstr ""
+
+#: includes/cpt.php:126
+msgid "Search Column"
+msgstr ""
+
+#: includes/cpt.php:128
+msgid "No Columns"
+msgstr ""
+
+#: includes/cpt.php:129
+msgid "Columns list"
+msgstr ""
+
+#: includes/cpt.php:130
+msgid "Columns list navigation"
+msgstr ""
+
+#: includes/cpt.php:151
+msgctxt "Taxonomy General Name"
+msgid "Wholesale Groups"
+msgstr ""
+
+#: includes/cpt.php:152
+msgctxt "Taxonomy Singular Name"
+msgid "Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:153
+msgid "Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:154
+msgid "All Groups"
+msgstr ""
+
+#: includes/cpt.php:155
+msgid "Parent Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:156
+msgid "Parent Wholesale Group:"
+msgstr ""
+
+#: includes/cpt.php:157
+msgid "New Wholesale Group Name"
+msgstr ""
+
+#: includes/cpt.php:158
+msgid "Add New Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:159
+msgid "Edit Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:160
+msgid "Update Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:161
+msgid "View Wholesale Group"
+msgstr ""
+
+#: includes/cpt.php:162
+msgid "Separate Wholesale Groups with commas"
+msgstr ""
+
+#: includes/cpt.php:163
+msgid "Add or remove Wholesale Groups"
+msgstr ""
+
+#: includes/cpt.php:165
+msgid "Popular Wholesale Groups"
+msgstr ""
+
+#: includes/cpt.php:166
+msgid "Search Wholesale Groups"
+msgstr ""
+
+#: includes/cpt.php:168
+msgid "No Wholesale Groups"
+msgstr ""
+
+#: includes/cpt.php:169
+msgid "Wholesale Groups list"
+msgstr ""
+
+#: includes/cpt.php:170
+msgid "Wholesale Groups list navigation"
+msgstr ""
+
+#: includes/wc-template-functions.php:119
+#: woocommerce/single-product/price.php:96
+#: woocommerce/single-product/price.php:148
+msgid " uah"
+msgstr ""
+
+#: includes/settings.php:30
+msgid "Full HD Image"
+msgstr ""
+
+#: includes/settings.php:36
+msgid "Loop Thumbnail"
+msgstr ""
+
+#: includes/settings.php:42
+msgid "Single Product"
+msgstr ""
+
+#: includes/settings.php:48
+msgid "Single Hookah"
+msgstr ""
+
+#: includes/settings.php:54
+msgid "Single Product Zoom"
+msgstr ""
+
+#: includes/settings.php:60
+msgid "Single Hookah Zoom"
+msgstr ""
+
+#: includes/settings.php:66
+msgid "Single Post Landscape"
+msgstr ""
+
+#. Name of the template
+msgid "Full Width (No Sidebar)"
+msgstr ""
+
+#. Name of the template
+msgid "About 1"
+msgstr ""
+
+#. Name of the template
+msgid "Contacts"
+msgstr ""
+
+#: woocommerce/checkout/terms.php:17
+msgid "Shipping and Payment"
+msgstr ""
+
+#: woocommerce/checkout/terms.php:21
+msgid "Privacy Policy"
+msgstr ""
+
+#: woocommerce/single-product/price.php:61
+msgid "Wholesale"
+msgstr ""
+
+#: woocommerce/single-product/price.php:131
+msgid "more than"
+msgstr ""
+
+#: woocommerce/single-product/hookah-up-sells.php:24
+msgid "With this product usually customers buy"
+msgstr ""
+
+#: parts/loop/single-4-columns.php:45 parts/loop/item-classic.php:51
+msgid "Read more"
+msgstr ""
+
+#: parts/content-header/loop.php:17 parts/content-header/loop-alt.php:18
+#: parts/content-header/archive.php:18
+msgid "Blog"
+msgstr ""
+
+#: parts/content-header/404.php:20
+msgid "Page 404"
+msgstr ""
+
+#: parts/sections/home-slider-right.php:22
+msgid "Our Hookahs"
+msgstr ""
+
+#: parts/sections/home-last-news.php:32
+msgid "Latest News"
+msgstr ""
+
+#: parts/sections/home-last-news.php:34
+msgid "All News in our blog"
+msgstr ""
+
+#: parts/sections/home-contact_form.php:34 parts/content/locations.php:67
+msgid "Open"
+msgstr ""
+
+#: parts/sections/home-slider-left.php:22
+msgid "Accessories"
+msgstr ""
+
+#: parts/blocks/share.php:16
+msgid "Share:"
+msgstr ""
+
+#: parts/content/contacts.php:96 parts/content/contacts.php:165
+#: parts/content/contacts.php:218
+msgid "Site"
+msgstr ""
+
+#. Name of the theme
+msgid "Hooka"
+msgstr ""
+
+#. URI of the theme
+msgid "http://www.synthetica.loc"
+msgstr ""
+
+#. Author of the theme
+msgid "Synthetica"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://www.synthetica.com.ua"
+msgstr ""

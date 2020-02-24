@@ -72,13 +72,15 @@ function snth_wc_checkout_fields( $fields ) {
         'billing_last_name',
         'billing_phone',
         'billing_email',
+        'jcity_ref',
+        'jwarhouse_ref',
     );
 
-    foreach ($fields["billing"] as $field_name => $field_value) {
-        if (!in_array($field_name, $allowed_billing_fields)) {
-            unset ($fields["billing"][$field_name]);
-        }
-    }
+//    foreach ($fields["billing"] as $field_name => $field_value) {
+//        if (!in_array($field_name, $allowed_billing_fields)) {
+//            unset ($fields["billing"][$field_name]);
+//        }
+//    }
 
     if (!empty($fields["billing"]["billing_phone"])) {
         $class = !empty($fields["billing"]["billing_phone"]['class']) ? $fields["billing"]["billing_phone"]['class'] : array();
@@ -126,11 +128,11 @@ function snth_wc_checkout_fields( $fields ) {
         'shipping_email',
     );
 
-    foreach ($fields["shipping"] as $field_name => $field_value) {
-        if (!in_array($field_name, $allowed_shipping_fields)) {
-            unset ($fields["shipping"][$field_name]);
-        }
-    }
+//    foreach ($fields["shipping"] as $field_name => $field_value) {
+//        if (!in_array($field_name, $allowed_shipping_fields)) {
+//            unset ($fields["shipping"][$field_name]);
+//        }
+//    }
 
     return $fields;
 }

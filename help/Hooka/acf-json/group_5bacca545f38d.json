@@ -1,0 +1,50 @@
+{
+    "key": "group_5bacca545f38d",
+    "title": "Товар: Мундштуки",
+    "fields": [
+        {
+            "key": "field_5baccaa3d2f5f",
+            "label": "Цена мундштука при покупке шахты",
+            "name": "hookah_hoses_with_hookah_discount",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "product_cat:hookah-hoses"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1538050860
+}

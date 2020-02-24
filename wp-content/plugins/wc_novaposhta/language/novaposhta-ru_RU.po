@@ -1,0 +1,284 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Nova poshta\n"
+"POT-Creation-Date: 2016-06-05 23:46+0200\n"
+"PO-Revision-Date: 2017-07-27 10:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: ../novaposhta_np.php:36 ../woo_np.php:126
+msgid "Enable/Disable"
+msgstr "Включить/Выключить"
+
+#: ../novaposhta_np.php:38
+msgid "Enable NovaPoshta Payment Module."
+msgstr ""
+
+#: ../novaposhta_np.php:41
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: ../novaposhta_np.php:43
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: ../novaposhta_np.php:44
+msgid "Novaposhta (cash on delivery)"
+msgstr "Наложенный платеж"
+
+#: ../novaposhta_np.php:46
+msgid "Description:"
+msgstr "Описание:"
+
+#: ../novaposhta_np.php:48 ../woo_np.php:198
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: ../novaposhta_np.php:49
+msgid ""
+"Pay securely by Credit or Debit card or internet banking through NovaPoshta "
+"Secure Servers."
+msgstr ""
+
+#: ../novaposhta_np.php:55
+msgid "NovaPoshta Payment Gateway"
+msgstr ""
+
+#: ../novaposhta_np.php:56
+msgid ""
+"NovaPoshta is most popular payment gateway for online shopping in Ukraine"
+msgstr "Новая Почта - это один из самых методов доставки грузов в Украине"
+
+#: ../novaposhta_np.php:74
+msgid ""
+"Thank you for your order, please click the button below to pay with "
+"NovaPoshta."
+msgstr ""
+
+#: ../novaposhta_np.php:86
+msgid "Payment to be made upon delivery."
+msgstr ""
+
+#: ../novaposhta_np.php:285
+msgid "Warhouse NovaPostha"
+msgstr "Отделения Новой Почты"
+
+#: ../np_class.php:191
+msgid "Cost of delivery"
+msgstr "Стоимость доставки"
+
+#: ../np_class.php:256
+msgid "Warhouse NovaPoshta"
+msgstr "Отделение Новой Почты"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:22
+msgid "Calculate Shipping"
+msgstr "Расчет стоимости доставки"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:38
+#: ../template/woocommerce/cart/shipping-calculator.php:42
+#: ../template/woocommerce/cart/shipping-calculator.php:52
+msgid "State / county"
+msgstr "Город"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:43
+msgid "Select a state&hellip;"
+msgstr "Выберите область"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:67
+#: ../template/woocommerce/cart/shipping-calculator.php:79
+msgid "City"
+msgstr "Город"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:68
+#: ../template/woocommerce/cart/shipping-calculator.php:118
+#: ../template/woocommerce/checkout/form-billing.php:45 ../woo_np.php:150
+msgid "Select a city"
+msgstr "Выберите город"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:87
+msgid "Postcode / Zip"
+msgstr "Индекс"
+
+#: ../template/woocommerce/cart/shipping-calculator.php:92
+msgid "Update Totals"
+msgstr ""
+
+#: ../template/woocommerce/checkout/form-billing.php:19
+msgid "Billing &amp; Shipping"
+msgstr "Оплата и Доставка"
+
+#: ../template/woocommerce/checkout/form-billing.php:23
+msgid "Billing Details"
+msgstr "Детали оплаты"
+
+#: ../template/woocommerce/checkout/form-billing.php:57
+#: ../template/woocommerce/checkout/form-billing.php:59
+#: ../template/woocommerce/checkout/form-shipping.php:65
+#: ../template/woocommerce/checkout/form-shipping.php:67
+msgid "Town / City"
+msgstr "Город"
+
+#: ../template/woocommerce/checkout/form-billing.php:88
+#: ../template/woocommerce/checkout/form-shipping.php:88
+msgid "Warhouse NovaPoshta #"
+msgstr "Номер отделения"
+
+#: ../template/woocommerce/checkout/form-billing.php:216
+msgid "At first Select City"
+msgstr "Сначала выберите город"
+
+#: ../template/woocommerce/checkout/form-billing.php:217
+msgid "Select Warhouse"
+msgstr "Выберите отделение"
+
+#: ../template/woocommerce/checkout/form-shipping.php:27
+msgid "Ship to a different address?"
+msgstr ""
+
+#: ../template/woocommerce/checkout/form-shipping.php:91
+msgid "Select Warhouse NovaPoshta"
+msgstr "Выберите отделение Новой Почты"
+
+#: ../template/woocommerce/checkout/form-shipping.php:131
+msgid "Additional Information"
+msgstr "Дополнительная информация"
+
+#: ../template/woocommerce/checkout/form-shipping.php:170
+msgid "Select a warhouse"
+msgstr "Выберите отделение"
+
+#: ../woo_np.php:38 ../woo_np.php:40 ../woo_np.php:44
+msgid "NovaPoshta"
+msgstr "Новая Почта"
+
+#: ../woo_np.php:128
+msgid "Enable NavaPostha"
+msgstr "Включить метод \"Новая Почта\""
+
+#: ../woo_np.php:132
+msgid "np_API_key"
+msgstr "API ключ"
+
+#: ../woo_np.php:135
+msgid ""
+"API key for the NovaPostha, is taken from your account <a href=\"https://my."
+"novaposhta.ua/settings/index#apikeys\">http://novaposhta.ua/apikeys</a>"
+msgstr ""
+"API ключ от от Новой Почты, взять его можно в личном профиле <a href="
+"\"https://my.novaposhta.ua/settings/index#apikeys\">http://novaposhta.ua/"
+"apikeys</a>"
+
+#: ../woo_np.php:139 ../woo_np.php:142
+msgid "You Class"
+msgstr "Ваш Class"
+
+#: ../woo_np.php:146
+msgid "Departure city"
+msgstr "Город отправления"
+
+#: ../woo_np.php:149
+msgid "The city, where the goods will be sent."
+msgstr "Город, откуда будет отправлен груз."
+
+#: ../woo_np.php:154
+msgid "Departure Area"
+msgstr "Область отправления"
+
+#: ../woo_np.php:157
+msgid "The area where the goods will be sent."
+msgstr "Область, откуда будет отправлен груз."
+
+#: ../woo_np.php:158
+msgid "Choose a region"
+msgstr "Выберите регион"
+
+#: ../woo_np.php:162
+msgid "Free shipping?"
+msgstr "Бесплатная доставка?"
+
+#: ../woo_np.php:165
+msgid "On/Off Free Shipping"
+msgstr "Вкл/Выкл Бесплатную доставку"
+
+#: ../woo_np.php:166 ../woo_np.php:169 ../woo_np.php:177 ../woo_np.php:180
+#: ../woo_np.php:188 ../woo_np.php:191
+msgid "No"
+msgstr "Нет"
+
+#: ../woo_np.php:168 ../woo_np.php:179 ../woo_np.php:190
+msgid "YES"
+msgstr "ДА"
+
+#: ../woo_np.php:168 ../woo_np.php:179 ../woo_np.php:190
+msgid "Yes"
+msgstr "Да"
+
+#: ../woo_np.php:169 ../woo_np.php:180 ../woo_np.php:191
+msgid "NO"
+msgstr "НЕТ"
+
+#: ../woo_np.php:173
+msgid "Summarize postage?"
+msgstr "Суммировать стоимость доставки?"
+
+#: ../woo_np.php:176
+msgid "Summarize postage to the total value of the goods?"
+msgstr "Суммировать стоимость доставки к общей стоимости товаров корзины?"
+
+#: ../woo_np.php:184
+msgid "Field Branch NP choice necessary?"
+msgstr "Сделать поле выбора отделения обязательным?"
+
+#: ../woo_np.php:187
+msgid ""
+"Do I have to fill the field, select the number of department NovaPoshta?"
+msgstr "Сделать поле выбора отделения Новой Почты обязательным?"
+
+#: ../woo_np.php:195
+msgid "Description"
+msgstr "Описание"
+
+#: ../woo_np.php:199
+msgid "NovaPostha Description"
+msgstr "Описание для Новой Почты"
+
+#: ../woo_np.php:202
+msgid "Language"
+msgstr "Язык"
+
+#: ../woo_np.php:205
+msgid "RU"
+msgstr ""
+
+#: ../woo_np.php:205
+msgid "Ru"
+msgstr ""
+
+#: ../woo_np.php:206
+msgid "UA"
+msgstr ""
+
+#: ../woo_np.php:206
+msgid "Ua"
+msgstr ""
+
+#~ msgid "Select City"
+#~ msgstr "Выберите город"
+
+#~ msgid "is a required field."
+#~ msgstr "обязательное поле"
+
+#~ msgid "Sipping Details"
+#~ msgstr "Детали доставки"

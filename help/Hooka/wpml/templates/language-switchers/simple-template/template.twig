@@ -1,0 +1,15 @@
+<div class="{{ css_classes }} my-custom-switcher">
+
+    <ul>
+        {% for code, language in languages %}
+
+            <li class="{{ language.css_classes }} my-custom-switcher-item">
+                <a href="{{ language.url }}" class="{{ css_classes_link }}">
+                    {{ language.code|upper }}
+                </a>
+            </li>
+
+        {% endfor %}
+    </ul>
+
+</div>
