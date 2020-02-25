@@ -1,0 +1,8 @@
+2020-02-25T16:27:42+00:00 CRITICAL Uncaught Error: Class 'Woo_All_In_One_NP_API' not found in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Settings.php:28
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Settings.php(17): Woo_All_In_One_NP_SM_Settings->init_form_fields()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Settings.php(11): Woo_All_In_One_NP_SM_Settings->init()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shipping.php(197): Woo_All_In_One_NP_SM_Settings->__construct()
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-shipping.php(175): WC_Shipping->register_shipping_method('Woo_All_In_One_...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/gateways/cod/class-wc-gateway-cod.php(76): WC_Shipping->load_shipp в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Settings.php на строке 28
+

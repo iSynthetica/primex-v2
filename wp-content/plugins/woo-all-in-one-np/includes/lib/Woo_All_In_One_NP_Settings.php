@@ -3,7 +3,7 @@
 function woionp_sm_settings_init() {
     class Woo_All_In_One_NP_SM_Settings extends WC_Shipping_Method {
         public function __construct( $instance_id = 0 ) {
-            $this->id                 = 'novaposhta_settings';
+            $this->id                 = 'novaposhta_general';
             $this->instance_id        = absint( $instance_id );
             $this->method_title       = __('NovaPoshta Settings', 'woo-all-in-one-np');
             $this->method_description = __('NovaPoshta shipping method Settings', 'woo-all-in-one-np'); // Description shown in admin
@@ -21,7 +21,22 @@ function woionp_sm_settings_init() {
         }
 
         public function init_form_fields() {
-            include_once("NovaPoshtaApi2.php");
+            $city = Woo_All_In_One_NP_API::get_cities();
+            $area = Woo_All_In_One_NP_API::get_areas();
+
+            if (!empty($city)) {
+                $city_arr = array(
+                    '' => __( 'Select city', 'woo-all-in-one-np' ),
+                );
+
+                foreach ($city as $item) {
+                    $city_arr[$item['Ref']] = $item['Description'];
+                }
+            } else {
+                $city_arr = array(
+                    '' => __( 'No city', 'woo-all-in-one-np' ),
+                );
+            }
 
             $this->form_fields = array(
                 'title'      => array(
@@ -37,6 +52,22 @@ function woionp_sm_settings_init() {
                     'label' => __('Enable NavaPostha', 'woo-all-in-one-np'),
                     'default' => 'yes'
                 ),
+                'CityRecipient' => array(
+                    'title' => __('Departure city', 'novaposhta'),
+                    'type' => 'select',
+                    'desc_tip' => true,
+                    'description' => __('The city, where the goods will be sent.', 'novaposhta'),
+                    'default' => __('Select a city', 'novaposhta'),
+                    'options' => $city_arr
+                ),
+//                'AreaRecipient' => array(
+//                    'title' => __('Departure Area', 'novaposhta'),
+//                    'type' => 'select',
+//                    'desc_tip' => true,
+//                    'description' => __('The area where the goods will be sent.', 'novaposhta'),
+//                    'default' => __('Choose a region', 'novaposhta'),
+//                    'options' => $area_arr
+//                ),
                 'np_API_key' => array(
                     'title' => __('NavaPostha API_key', 'woo-all-in-one-np'),
                     'type' => 'text',
