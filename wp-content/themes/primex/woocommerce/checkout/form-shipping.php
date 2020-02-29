@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) || exit;
                             } elseif ('form-row-last' === $c_class) {
                                 $container_class[$c_i] = 'col_half';
                                 $container_class[] = 'col_last';
-                            } else {
+                            } elseif ('form-row-wide' === $c_class) {
                                 $container_class[$c_i] = 'col_full';
                             }
                         }

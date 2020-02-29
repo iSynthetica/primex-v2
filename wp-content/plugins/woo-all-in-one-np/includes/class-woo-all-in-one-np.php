@@ -106,6 +106,13 @@ class Woo_All_In_One_Np {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_NP_API.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_NP.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_NP_Settings.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/lib/Woo_All_In_One_NP_Payments.php';
+
+
+
+        if (!function_exists('run_woo_all_in_one')) {
+            require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/wooaio-functions.php';
+        }
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -163,7 +170,7 @@ class Woo_All_In_One_Np {
 		$plugin_admin = new Woo_All_In_One_Np_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts', 1000 );
 
 	}
 
@@ -181,9 +188,13 @@ class Woo_All_In_One_Np {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		// $this->loader->add_filter( 'woocommerce_payment_gateways', $plugin_public, 'add_novaposhta_np_gateway' );
+        $this->loader->add_filter( 'woocommerce_form_field', $plugin_public, 'woocommerce_form_field', 999, 4 );
 		$this->loader->add_filter( 'woocommerce_shipping_methods', $plugin_public, 'add_novaposhta_sm' );
 		$this->loader->add_action( 'init', $plugin_public, 'init' );
+		$this->loader->add_action( 'wp_footer', $plugin_public, 'footer_script' );
+
+        $this->loader->add_action('wp_ajax_nopriv_wooaionp_get_warehouse_by_city', $plugin_public, 'ajax_get_warehouse_by_city');
+        $this->loader->add_action('wp_ajax_wooaionp_get_warehouse_by_city', $plugin_public, 'ajax_get_warehouse_by_city');
 	}
 
 	/**

@@ -67,4 +67,15 @@ class Woo_All_In_One_NP_API {
 
         return array();
     }
+
+    public static function get_warehouses_by_city($city) {
+        include_once("NovaPoshtaApi2.php");
+        $np_API_key = Woo_All_In_One_NP_API::get_settings()['np_API_key'];
+
+        $np = new NovaPoshtaApi2($np_API_key);
+        $warehous = $np->getWarehouses($city);
+        $warehouses = $warehous['data'];
+
+        return $warehouses;
+    }
 }

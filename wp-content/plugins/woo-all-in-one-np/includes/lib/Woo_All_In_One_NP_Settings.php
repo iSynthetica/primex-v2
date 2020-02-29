@@ -94,7 +94,7 @@ function woionp_sm_settings_init() {
             );
 
             // Register the rate
-            $this->add_rate( $rate );
+            // $this->add_rate( $rate );
         }
     }
 }

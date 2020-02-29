@@ -13,78 +13,74 @@ function snth_wc_cart_count_fragments( $fragments ) {
 
 
 // Our hooked in function - $fields is passed via the filter!
-function snth_wc_checkout_fields( $fields ) {
-    // Billing
-    $allowed_billing_fields = array(
-        'billing_first_name',
-        'billing_last_name',
-        'billing_phone',
-        'billing_email',
-        'jcity_ref',
-        'jwarhouse_ref',
+
+function snth_wc_checkout_fields($fields) {
+    $disabled_billing_fields = array(
+        'billing_company',
+        'billing_postcode',
+        'billing_address_2',
     );
 
-//    foreach ($fields["billing"] as $field_name => $field_value) {
-//        if (!in_array($field_name, $allowed_billing_fields)) {
-//            unset ($fields["billing"][$field_name]);
-//        }
-//    }
-
-    if (!empty($fields["billing"]["billing_phone"])) {
-        $class = !empty($fields["billing"]["billing_phone"]['class']) ? $fields["billing"]["billing_phone"]['class'] : array();
-
-        $change_class = true;
-
-        foreach ($class as $ci => $cv) {
-            if ('form-row-wide' === $cv) {
-                $class[$ci] = 'form-row-first';
-                $change_class = false;
+    foreach ($fields["billing"] as $key => $field) {
+        if (in_array($key, $disabled_billing_fields)) {
+            unset ($fields["billing"][$key]);
+        } else {
+            if ('billing_first_name' === $key) {
+                $fields["billing"][$key]['priority'] = 10;
+            }
+            if ('billing_last_name' === $key) {
+                $fields["billing"][$key]['priority'] = 20;
+            }
+            if ('billing_country' === $key) {
+                $fields["billing"][$key]['priority'] = 30;
+            }
+            if ('billing_state' === $key) {
+                $fields["billing"][$key]['priority'] = 40;
+            }
+            if ('billing_city' === $key) {
+                $fields["billing"][$key]['priority'] = 50;
+            }
+            if ('billing_address_1' === $key) {
+                $fields["billing"][$key]['priority'] = 60;
             }
         }
-
-        if ($change_class) {
-            $class[] = 'form-row-first';
-        }
-
-        $fields["billing"]["billing_phone"]['class'] = $class;
     }
 
-    if (!empty($fields["billing"]["billing_email"])) {
-        $class = !empty($fields["billing"]["billing_email"]['class']) ? $fields["billing"]["billing_email"]['class'] : array();
-
-        $change_class = true;
-
-        foreach ($class as $ci => $cv) {
-            if ('form-row-wide' === $cv) {
-                $class[$ci] = 'form-row-last';
-                $change_class = false;
-            }
-        }
-
-        if ($change_class) {
-            $class[] = 'form-row-last';
-        }
-
-        $fields["billing"]["billing_email"]['class'] = $class;
-    }
-
-    // Shipping
-    $allowed_shipping_fields = array(
-        'shipping_first_name',
-        'shipping_last_name',
-        'shipping_phone',
-        'shipping_email',
+    $disabled_shipping_fields = array(
+        'shipping_company',
+        'shipping_postcode',
+        'shipping_address_2',
     );
 
-//    foreach ($fields["shipping"] as $field_name => $field_value) {
-//        if (!in_array($field_name, $allowed_shipping_fields)) {
-//            unset ($fields["shipping"][$field_name]);
-//        }
-//    }
+    foreach ($fields["shipping"] as $key => $field) {
+        if (in_array($key, $disabled_shipping_fields)) {
+            unset ($fields["shipping"][$key]);
+        } else {
+            if ('shipping_first_name' === $key) {
+                $fields["shipping"][$key]['priority'] = 10;
+            }
+            if ('shipping_last_name' === $key) {
+                $fields["shipping"][$key]['priority'] = 20;
+            }
+            if ('shipping_country' === $key) {
+                $fields["shipping"][$key]['priority'] = 30;
+            }
+            if ('shipping_state' === $key) {
+                $fields["shipping"][$key]['priority'] = 40;
+            }
+            if ('shipping_city' === $key) {
+                $fields["shipping"][$key]['priority'] = 50;
+            }
+            if ('shipping_address_1' === $key) {
+                $fields["shipping"][$key]['priority'] = 60;
+            }
+        }
+    }
 
     return $fields;
 }
-// add_filter( 'woocommerce_checkout_fields' , 'snth_wc_checkout_fields' );
+
+add_filter( 'woocommerce_checkout_fields' , 'snth_wc_checkout_fields' );
 
 function snth_wc_service_fields( $fields ) {
     foreach ($fields as $key => $field) {
@@ -167,3 +163,20 @@ function snth_wc_wooaiocoupon_form_submit_text($text) {
 
 // Hook in
 add_filter( 'wooaiocoupon_form_submit_text' , 'snth_wc_wooaiocoupon_form_submit_text' );
+
+function snth_wc_payment_gateways($gateways) {
+    $array = array(
+            // 'WC_Gateway_BACS',
+            'WC_Gateway_Cheque',
+            'WC_Gateway_Paypal',
+    );
+
+    foreach ($gateways as $i => $gateway) {
+        if (in_array($gateway, $array)) {
+            unset($gateways[$i]);
+        }
+    }
+
+    return $gateways;
+}
+add_filter( 'woocommerce_payment_gateways', 'snth_wc_payment_gateways', 1000 );
