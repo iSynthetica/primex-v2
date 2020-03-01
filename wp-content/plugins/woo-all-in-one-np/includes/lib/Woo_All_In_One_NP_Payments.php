@@ -284,6 +284,20 @@ function woionp_init_cod_class() {
                     'default'     => '',
                     // 'desc_tip'    => true,
                 ),
+                'instant_discount'              => array(
+                    'title'       => __( 'Instant payment discount (%)', "woo-all-in-one-np" ),
+                    'type'        => 'number',
+                    'description' => __( 'Set instant payment discount (%).', 'woo-all-in-one-np' ),
+                    'default'     => '',
+                    // 'desc_tip'    => true,
+                ),
+                'instant_discount_period'              => array(
+                    'title'       => __( 'Instant payment discount period (minutes)', "woo-all-in-one-np" ),
+                    'type'        => 'number',
+                    'description' => __( 'Set instant payment discount period (minutes).', 'woo-all-in-one-np' ),
+                    'default'     => '',
+                    // 'desc_tip'    => true,
+                ),
                 'enable_for_methods' => array(
                     'title'             => __( 'Enable for shipping methods', 'woocommerce' ),
                     'type'              => 'multiselect',
@@ -332,39 +346,58 @@ function woionp_init_cod_class() {
 
         public function thankyou_page( $order_id ) {
 
-            if ( $this->instructions ) {
-                echo wp_kses_post( wpautop( wptexturize( wp_kses_post( $this->instructions ) ) ) );
-            }
-            $this->payment_details( $order_id );
         }
+    }
+}
 
-        private function payment_details( $order_id = '' ) {
-            // Get order and store in $order.
-            $order = wc_get_order( $order_id );
+function wooaio_np_payment_details( $order_id = '' ) {
+    // Get order and store in $order.
+    $order = wc_get_order( $order_id );
+    $status = $order->get_status();
+    $payment_method = $order->get_payment_method();
+    $payment_url = $order->get_checkout_payment_url();
 
-            // Get the order country and country $locale.
-            $country = $order->get_billing_country();
-            $settings = get_option('woocommerce_np_instant_settings', array());
-            $lp_order_id = $order->get_order_number();
-            $lp_description = __( 'Order number:', 'woocommerce' ) . ' ' . $lp_order_id . ' ('.wc_format_datetime( $order->get_date_created()).')';
-            $lp_description .= PHP_EOL . __( 'Order number:', 'woocommerce' ) . ' ' . $lp_order_id . ' ('.wc_format_datetime( $order->get_date_created()).')';
-            $lp_amount = $order->get_total();
+//    var_dump($status);
+//    var_dump($payment_method);
+//    var_dump($payment_url);
 
-            if (!empty($settings['public_key']) && !empty($settings['private_key'])) {
-                include_once 'LiqPay.php';
-                $liqpay = new LiqPay($settings['public_key'], $settings['private_key']);
+    if ('np_instant' !== $payment_method) {
+        return '';
+    }
 
-                $raw = $liqpay->cnb_form_raw(array(
-                    'action'         => 'pay',
-                    'amount'         => $lp_amount,
-                    'currency'       => 'UAH',
-                    'description'    => $lp_description,
-                    'order_id'       => $lp_order_id,
-                    'version'        => '3',
-                ));
-                ?>
+    if ('on-hold' === $status || 'pending' === $status) {
+        // Get the order country and country $locale.
+        $country = $order->get_billing_country();
+        $city = $order->get_billing_city();
+        $first_name = $order->get_billing_first_name();
+        $last_name = $order->get_billing_last_name();
+        $settings = get_option('woocommerce_np_instant_settings', array());
+        $lp_order_id = $order->get_order_number();
+        $lp_description = __( 'Order number:', 'woocommerce' ) . ' ' . $lp_order_id . ' ('.wc_format_datetime( $order->get_date_created()).')';
+        $lp_amount = $order->get_total();
+
+        if (!empty($settings['public_key']) && !empty($settings['private_key'])) {
+            include_once 'LiqPay.php';
+            $liqpay = new LiqPay($settings['public_key'], $settings['private_key']);
+
+            $raw = $liqpay->cnb_form_raw(array(
+                'action'         => 'pay',
+                'amount'         => $lp_amount,
+                'currency'       => 'UAH',
+                'description'    => $lp_description,
+                'order_id'       => $lp_order_id,
+                'version'        => '3',
+                //'sender_country_code'        => $country,
+                'sender_city'        => $city,
+                'sender_first_name'        => $first_name,
+                'sender_last_name'        => $last_name,
+            ));
+            ?>
+            <div id="liqpay_checkout_holder">
                 <div id="liqpay_checkout"></div>
                 <script>
+                    var ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' ) ?>';
+
                     window.LiqPayCheckoutCallback = function() {
                         LiqPayCheckout.init({
                             data: "<?php echo $raw['data'] ?>",
@@ -373,20 +406,74 @@ function woionp_init_cod_class() {
                             language: "ru",
                             mode: "embed" // embed || popup
                         }).on("liqpay.callback", function(data){
-                            console.log(data.status);
-                            console.log(data);
+                            liqpay_ajax_request(data)
                         }).on("liqpay.ready", function(data){
                             // ready
                         }).on("liqpay.close", function(data){
                             // close
                         });
                     };
+
+                    function liqpay_ajax_request(response) {
+                        var status = response.status;
+                        var data = {
+                            'order_id': '<?php echo $lp_order_id; ?>'
+                        };
+
+                        if ("failure" == status) {
+                            data.action = "wooaionp_liqpay_error";
+                        } else {
+                            data.action = "wooaionp_liqpay_success";
+
+                            jQuery.ajax({
+                                type: 'post',
+                                url: ajaxUrl,
+                                data: data,
+                                success: function (response) {
+                                    var decoded;
+
+                                    try {
+                                        decoded = jQuery.parseJSON(response);
+                                    } catch(err) {
+                                        console.log(err);
+                                        decoded = false;
+                                    }
+
+                                    if (decoded) {
+                                        if (decoded.message) {
+                                            alert(decoded.message);
+                                        }
+
+                                        if (decoded.fragments) {
+                                            updateFragments ( decoded.fragments );
+                                        }
+
+                                        setTimeout(function () {
+                                            if (decoded.url) {
+                                                window.location.replace(decoded.url);
+                                            } else if (decoded.reload) {
+                                                window.location.reload();
+                                            }
+                                        }, 100);
+                                    } else {
+                                        alert('Something went wrong');
+                                    }
+                                }
+                            });
+                        }
+
+                        console.log(response);
+                    }
                 </script>
                 <script src="//static.liqpay.ua/libjs/checkout.js" async></script>
-                <?php
-            } else {
-                echo __( 'Not available', 'woocommerce' );
-            }
+            </div>
+            <?php
+        } else {
+            echo __( 'Not available', 'woocommerce' );
         }
+    } else {
+
     }
 }
+
+add_action('woocommerce_order_details_before_order_table', 'wooaio_np_payment_details', 5);

@@ -103,6 +103,42 @@ class Woo_All_In_One_Np_Public {
         wooaio_ajax_response('success', $response);
     }
 
+    public function ajax_liqpay_success() {
+        if (empty($_POST['order_id'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-np'));
+
+            wooaio_ajax_response('error', $response);
+        }
+        $order_id = sanitize_text_field($_POST['order_id']);
+
+        $order = wc_get_order( $order_id );
+
+        if (!$order) {
+            $response = array('message' => __('Wrong order number', 'woo-all-in-one-np'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $order_note = __('Order payed', 'woo-all-in-one-np');
+        $order->update_status( 'processing', $order_note, true );
+        $order->set_date_paid(time());
+        $order->save();
+
+        $response = array('reload' => 0);
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function ajax_liqpay_error() {
+        if (empty($_POST['order_id'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-np'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $response = array('message' => __('Error!!!', 'woo-all-in-one-np'));
+        wooaio_ajax_response('success', $response);
+    }
+
     public function footer_script() {
 	    $np_cities = Woo_All_In_One_NP_API::get_cities();
 	    $np_areas = Woo_All_In_One_NP_API::get_areas();

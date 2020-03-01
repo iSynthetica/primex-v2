@@ -195,6 +195,12 @@ class Woo_All_In_One_Np {
 
         $this->loader->add_action('wp_ajax_nopriv_wooaionp_get_warehouse_by_city', $plugin_public, 'ajax_get_warehouse_by_city');
         $this->loader->add_action('wp_ajax_wooaionp_get_warehouse_by_city', $plugin_public, 'ajax_get_warehouse_by_city');
+
+        $this->loader->add_action('wp_ajax_nopriv_wooaionp_liqpay_success', $plugin_public, 'ajax_liqpay_success');
+        $this->loader->add_action('wp_ajax_wooaionp_liqpay_success', $plugin_public, 'ajax_liqpay_success');
+
+        $this->loader->add_action('wp_ajax_nopriv_wooaionp_liqpay_error', $plugin_public, 'ajax_liqpay_error');
+        $this->loader->add_action('wp_ajax_wooaionp_liqpay_error', $plugin_public, 'ajax_liqpay_error');
 	}
 
 	/**
