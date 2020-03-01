@@ -1,0 +1,36 @@
+2020-03-01T11:28:22+00:00 CRITICAL Uncaught Error: Call to undefined function cnb_form_raw() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php:171
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/checkout/payment-method.php(30): Woo_All_In_One_NP_PG_Cod->payment_fields()
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(249): include('/var/www/tsvito...')
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/checkout/payment.php(30): wc_get_template('checkout/paymen...', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(249): include('/var/www/tsvito...')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(2235): wc_get_template('checkout/paymen...', Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php на строке 171
+
+2020-03-01T13:19:28+00:00 CRITICAL Uncaught Error: Call to undefined method Woo_All_In_One_NP_PG_Liqpay_Card::get_country_locale() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php:372
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php(363): Woo_All_In_One_NP_PG_Liqpay_Card->payment_details(9595)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_NP_PG_Liqpay_Card->thankyou_page(9595)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/checkout/thankyou.php(77): do_action('woocommerce_tha...', 9595)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions. в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php на строке 372
+
+2020-03-01T13:19:33+00:00 CRITICAL Uncaught Error: Call to undefined method Woo_All_In_One_NP_PG_Liqpay_Card::get_country_locale() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php:372
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php(363): Woo_All_In_One_NP_PG_Liqpay_Card->payment_details(9595)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_NP_PG_Liqpay_Card->thankyou_page(9595)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/checkout/thankyou.php(77): do_action('woocommerce_tha...', 9595)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions. в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php на строке 372
+
+2020-03-01T13:19:50+00:00 CRITICAL Uncaught Error: Call to undefined method Woo_All_In_One_NP_PG_Liqpay_Card::get_country_locale() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php:372
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php(363): Woo_All_In_One_NP_PG_Liqpay_Card->payment_details(9595)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): Woo_All_In_One_NP_PG_Liqpay_Card->thankyou_page(9595)
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/templates/checkout/thankyou.php(77): do_action('woocommerce_tha...', 9595)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions. в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-np/includes/lib/Woo_All_In_One_NP_Payments.php на строке 372
+

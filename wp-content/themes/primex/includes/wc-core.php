@@ -168,7 +168,7 @@ function snth_wc_payment_gateways($gateways) {
     $array = array(
             // 'WC_Gateway_BACS',
             'WC_Gateway_Cheque',
-            'WC_Gateway_Paypal',
+            //'WC_Gateway_Paypal',
     );
 
     foreach ($gateways as $i => $gateway) {

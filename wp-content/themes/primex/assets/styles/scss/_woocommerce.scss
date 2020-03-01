@@ -256,3 +256,8 @@ label {
 table.woocommerce-grouped-product-list {
     width: 100%;
 }
+.woocommerce-thankyou-order-details {
+    & > div {
+        padding: rem-calc(3);
+    }
+}

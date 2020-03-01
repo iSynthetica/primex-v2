@@ -104,7 +104,6 @@ class Woo_All_In_One_Np_Public {
     }
 
     public function footer_script() {
-        $chosen_shipping_rates = WC()->session->get('chosen_shipping_methods');
 	    $np_cities = Woo_All_In_One_NP_API::get_cities();
 	    $np_areas = Woo_All_In_One_NP_API::get_areas();
 	    $np_areas_by_ref = array();
@@ -169,7 +168,6 @@ class Woo_All_In_One_Np_Public {
                 });
 
                 function np_generate_cities_field() {
-                    console.log(window.billing_city_val);
                     var selectedCountry = np_get_selected_value('billing_country');
 
                     if ('novaposhta_warehouse_warehouse' == window.selected_shipping_method && 'UA' == selectedCountry) {
@@ -198,12 +196,29 @@ class Woo_All_In_One_Np_Public {
                         $('#billing_address_1_field label').replaceWith(window.np_warehouse_label);
 
                         $('#billing_city').selectWoo({
-                            placeholder: '<?php echo __("Select city"); ?>',
+                            placeholder: '<?php echo __("Select city", "woo-all-in-one-np"); ?>',
                             width: '100%'
                         });
 
                         if (selectedCity) {
                             np_generate_warehouse_field();
+                        } else {
+                            var cities_html = '<select name="billing_address_1" id="billing_address_1" class="select select2 form-control">';
+                            cities_html += '<option value="" ></option>';
+
+                            cities_html += '</select>';
+
+
+                            if ($('#billing_address_1').hasClass("select2-hidden-accessible")) {
+                                $('#billing_address_1').selectWoo('destroy');
+                            }
+
+                            $('#billing_address_1').replaceWith(cities_html);
+
+                            $('#billing_address_1').selectWoo({
+                                placeholder: '<?php echo __("Select city first", "woo-all-in-one-np"); ?>',
+                                width: '100%'
+                            });
                         }
                     } else {
                         $('#billing_state_field').show().val('');

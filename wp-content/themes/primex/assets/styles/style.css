@@ -28534,6 +28534,9 @@ label span.optional {
 table.woocommerce-grouped-product-list {
   width: 100%; }
 
+.woocommerce-thankyou-order-details > div {
+  padding: 0.1875rem; }
+
 .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li {
   margin-bottom: 0.375rem; }
   .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li .berocket_label_widgets {
