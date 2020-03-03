@@ -2,7 +2,7 @@
 add_filter( 'woocommerce_payment_gateways', 'woionp_cod_class' );
 
 function woionp_cod_class( $gateways ) {
-    $gateways[] = 'Woo_All_In_One_NP_PG_Cod';
+    // $gateways[] = 'Woo_All_In_One_NP_PG_Cod';
     $gateways[] = 'Woo_All_In_One_NP_PG_Liqpay_Card';
 
     return $gateways;
@@ -124,12 +124,6 @@ function woionp_init_cod_class() {
         }
 
         public function is_available() {
-            $settings = get_option('woocommerce_np_cod_settings', array());
-
-            if (empty($settings['public_key']) || empty($settings['private_key'])) {
-                return false;
-            }
-
             return true;
         }
 
@@ -292,9 +286,22 @@ function woionp_init_cod_class() {
                     // 'desc_tip'    => true,
                 ),
                 'instant_discount_period'              => array(
-                    'title'       => __( 'Instant payment discount period (minutes)', "woo-all-in-one-np" ),
+                    'title'       => __( 'Instant payment discount period', "woo-all-in-one-np" ),
                     'type'        => 'number',
-                    'description' => __( 'Set instant payment discount period (minutes).', 'woo-all-in-one-np' ),
+                    'description' => __( 'Set instant payment discount period.', 'woo-all-in-one-np' ),
+                    'default'     => '',
+                    // 'desc_tip'    => true,
+                ),
+                'instant_discount_period_unit'              => array(
+                    'title'       => __( 'Instant payment discount period unit', "woo-all-in-one-np" ),
+                    'type'        => 'select',
+                    'description' => __( 'Set instant payment discount period unit (minutes, hours, days).', 'woo-all-in-one-np' ),
+                    'options'   => array(
+                            'none' => __( 'Select unit', "woo-all-in-one-np" ),
+                            'min' => __( 'Minutes', "woo-all-in-one-np" ),
+                            'hour' => __( 'Hours', "woo-all-in-one-np" ),
+                            'day' => __( 'Days', "woo-all-in-one-np" ),
+                    ),
                     'default'     => '',
                     // 'desc_tip'    => true,
                 ),
