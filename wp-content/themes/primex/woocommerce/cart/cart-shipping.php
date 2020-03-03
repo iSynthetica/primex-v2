@@ -28,14 +28,18 @@ $calculator_text          = '';
 <!---->
 <!--<table class="shop_table woocommerce-checkout-review-order-table" style="width: 100%;">-->
     <tr>
-        <th colspan="2"><?php echo wp_kses_post( $package_name ); ?></th>
+        <th colspan="2">
+            <div class="mt-2 ">
+                <?php echo wp_kses_post( $package_name ); ?>
+            </div>
+        </th>
     </tr>
 
     <tr class="woocommerce-shipping-totals shipping">
 
         <td colspan="2" data-title="<?php echo esc_attr( $package_name ); ?>">
             <?php if ( $available_methods ) : ?>
-                <ul id="shipping_method" class="woocommerce-shipping-methods mt-20 mb-20">
+                <ul id="shipping_method" class="woocommerce-shipping-methods mt-2 mb-2 list-unstyled">
                     <?php foreach ( $available_methods as $method ) : ?>
                         <li>
                             <?php
@@ -44,7 +48,7 @@ $calculator_text          = '';
                             } else {
                                 printf( '<input type="hidden" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ) ); // WPCS: XSS ok.
                             }
-                            printf( '<label for="shipping_method_%1$s_%2$s">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
+                            printf( '<label for="shipping_method_%1$s_%2$s" style="display: inline-block;margin-left: 10px;">%3$s</label>', $index, esc_attr( sanitize_title( $method->id ) ), wc_cart_totals_shipping_method_label( $method ) ); // WPCS: XSS ok.
                             do_action( 'woocommerce_after_shipping_rate', $method, $index );
                             ?>
                         </li>

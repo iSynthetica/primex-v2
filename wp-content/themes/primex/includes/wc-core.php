@@ -31,17 +31,25 @@ function snth_wc_checkout_fields($fields) {
             if ('billing_last_name' === $key) {
                 $fields["billing"][$key]['priority'] = 20;
             }
-            if ('billing_country' === $key) {
+            if ('billing_phone' === $key) {
                 $fields["billing"][$key]['priority'] = 30;
+                $fields["billing"][$key]['class'] = array('form-row-first');
+            }
+            if ('billing_email' === $key) {
+                $fields["billing"][$key]['priority'] = 40;
+                $fields["billing"][$key]['class'] = array('form-row-last');
+            }
+            if ('billing_country' === $key) {
+                $fields["billing"][$key]['priority'] = 60;
             }
             if ('billing_state' === $key) {
-                $fields["billing"][$key]['priority'] = 40;
+                $fields["billing"][$key]['priority'] = 70;
             }
             if ('billing_city' === $key) {
-                $fields["billing"][$key]['priority'] = 50;
+                $fields["billing"][$key]['priority'] = 80;
             }
             if ('billing_address_1' === $key) {
-                $fields["billing"][$key]['priority'] = 60;
+                $fields["billing"][$key]['priority'] = 90;
             }
         }
     }

@@ -161,9 +161,17 @@ function woionp_sm_init() {
                 return;
             }
 
+            $cost = 0;
+
+            $destination_city = $package["destination"]["city"];
+
             foreach ($courier_settings as $courier_setting) {
                 if (empty($courier_setting['courier_setting_state']) || empty($courier_setting['courier_setting_city'])) {
                     return;
+                }
+
+                if ($destination_city === $courier_setting["courier_setting_city"]) {
+                    $cost = (int) $courier_setting["courier_setting_cost"];
                 }
             }
 
@@ -172,6 +180,10 @@ function woionp_sm_init() {
                 'label' => $this->title,
                 'package' => $package,
             );
+
+            if (!empty($cost)) {
+                $rate['cost'] = $cost;
+            }
 
             // Register the rate
             $this->add_rate( $rate );
@@ -292,6 +304,16 @@ function woionp_sm_add_nova_poshta($methods)
 }
 
 add_filter('woocommerce_shipping_methods', 'woionp_sm_add_nova_poshta');
+
+function woionp_sm_cart_ready_to_calc_shipping($show_shipping) {
+    if (is_cart()) {
+        return false;
+    }
+
+    return $show_shipping;
+}
+
+add_filter('woocommerce_cart_ready_to_calc_shipping', 'woionp_sm_cart_ready_to_calc_shipping');
 
 function woionp_shipping_packages($packages)
 {
