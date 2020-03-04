@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Prime-X\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-04 12:23+0000\n"
+"POT-Creation-Date: 2020-01-10 11:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "My account"
 msgstr ""
 
-#: header.php:79
+#: header.php:78
 msgid "Login"
 msgstr ""
 
@@ -89,15 +89,11 @@ msgstr ""
 msgid "Theme settings"
 msgstr ""
 
-#: includes/wc-core.php:169
-msgid "Get coupon"
-msgstr ""
-
-#: includes/shortcodes.php:80
+#: includes/shortcodes.php:77
 msgid "Shopping Cart"
 msgstr ""
 
-#: includes/shortcodes.php:114
+#: includes/shortcodes.php:108
 msgid "View Cart"
 msgstr ""
 
@@ -123,139 +119,17 @@ msgstr ""
 msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr ""
 
-#: includes/cpt.php:6
-msgctxt "Post Type General Name"
-msgid "Section Templates"
-msgstr ""
-
-#: includes/cpt.php:7
-msgctxt "Post Type Singular Name"
-msgid "Section Template"
-msgstr ""
-
-#: includes/cpt.php:8 includes/cpt.php:9 includes/cpt.php:35
-msgid "Section Template"
-msgstr ""
-
-#: includes/cpt.php:10
-msgid "Item Archives"
-msgstr ""
-
-#: includes/cpt.php:11
-msgid "Item Attributes"
-msgstr ""
-
-#: includes/cpt.php:12
-msgid "Parent Section Template:"
-msgstr ""
-
-#: includes/cpt.php:13
-msgid "All Items"
-msgstr ""
-
-#: includes/cpt.php:14
-msgid "Add New Item"
-msgstr ""
-
-#: includes/cpt.php:15
-msgid "Add New"
-msgstr ""
-
-#: includes/cpt.php:16
-msgid "New Item"
-msgstr ""
-
-#: includes/cpt.php:17
-msgid "Edit Item"
-msgstr ""
-
-#: includes/cpt.php:18
-msgid "Update Item"
-msgstr ""
-
-#: includes/cpt.php:19
-msgid "View Item"
-msgstr ""
-
-#: includes/cpt.php:20
-msgid "View Items"
-msgstr ""
-
-#: includes/cpt.php:21
-msgid "Search Item"
-msgstr ""
-
-#: includes/cpt.php:22
-msgid "Not found"
-msgstr ""
-
-#: includes/cpt.php:23
-msgid "Not found in Trash"
-msgstr ""
-
-#: includes/cpt.php:24
-msgid "Featured Image"
-msgstr ""
-
-#: includes/cpt.php:25
-msgid "Set featured image"
-msgstr ""
-
-#: includes/cpt.php:26
-msgid "Remove featured image"
-msgstr ""
-
-#: includes/cpt.php:27
-msgid "Use as featured image"
-msgstr ""
-
-#: includes/cpt.php:28
-msgid "Insert into item"
-msgstr ""
-
-#: includes/cpt.php:29
-msgid "Uploaded to this item"
-msgstr ""
-
-#: includes/cpt.php:30
-msgid "Section Template list"
-msgstr ""
-
-#: includes/cpt.php:31
-msgid "Items list navigation"
-msgstr ""
-
-#: includes/cpt.php:32
-msgid "Filter items list"
-msgstr ""
-
-#: includes/cpt.php:36
-msgid "Section Template for landing pages"
-msgstr ""
-
 #: includes/menu.php:15
 msgid "Main Menu Navigation"
 msgstr ""
 
 #: includes/menu.php:16
-msgid "Top Bar Menu Navigation"
-msgstr ""
-
-#: includes/menu.php:17
 msgid "Footer Navigation"
 msgstr ""
 
-#: includes/wc-template-functions.php:131
-#: includes/wc-template-functions.php:294
+#: includes/wc-template-functions.php:133
+#: includes/wc-template-functions.php:296
 msgid "Quick view"
-msgstr ""
-
-#: includes/wc-template-functions.php:336
-msgid "Don't call me back"
-msgstr ""
-
-#: includes/wc-template-functions.php:353
-msgid "Customer asked to not call back"
 msgstr ""
 
 #: includes/settings.php:6
@@ -306,36 +180,8 @@ msgstr ""
 msgid "Blog sidebar."
 msgstr ""
 
-#: includes/settings.php:60
-msgid "Shop Sidebar"
-msgstr ""
-
-#: includes/settings.php:61
-msgid "Shop Sidebar."
-msgstr ""
-
-#: includes/settings.php:69
-msgid "Product Category Sidebar"
-msgstr ""
-
-#: includes/settings.php:70
-msgid "Product Category Sidebar."
-msgstr ""
-
-#: includes/settings.php:78
-msgid "Product Page Sidebar"
-msgstr ""
-
-#: includes/settings.php:79
-msgid "Product Page Sidebar."
-msgstr ""
-
 #. Name of the template
 msgid "Fullwidth Page"
-msgstr ""
-
-#. Name of the template
-msgid "Landing Page"
 msgstr ""
 
 #. Name of the theme

@@ -59,3 +59,10 @@ remove_action('wooaioc_display_catalogue_item_description', 'wooaioc_display_cat
 remove_action('wooaioc_display_catalogue_item_add_to_cart', 'wooaioc_display_catalogue_item_add_to_cart', 10);
 add_action('wooaioc_display_catalogue_item_description', 'snth_display_catalogue_item_description', 10);
 add_action('wooaioc_display_catalogue_item_add_to_cart', 'snth_display_catalogue_item_add_to_cart', 10);
+
+/**
+ * Checkout
+ */
+add_action('woocommerce_checkout_after_terms_and_conditions', 'snth_display_dont_call_me_back_checkbox');
+add_action( 'woocommerce_checkout_update_order_meta', 'snth_save_dont_call_me_back' );
+add_action( 'woocommerce_admin_order_data_after_billing_address', 'snth_admin_order_display_dont_call_me_back', 10, 1 );

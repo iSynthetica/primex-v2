@@ -328,3 +328,30 @@ function snth_wc_add_lazy_load_image($attr, $attachment, $size) {
 
     return $attr;
 }
+
+function snth_display_dont_call_me_back_checkbox() {
+    ?>
+    <div class="dont_call_me_back_container mb-2 alert alert-warning" style="display: block;width: 100%;line-height: 1;" role="alert">
+        <input type="checkbox" name="dont_call_me_back" id="dont_call_me_back" value="yes">
+        <label class="mb-0" style="color:#856404;" for="dont_call_me_back"><?php echo __("Don't call me back", 'primex') ?></label>
+    </div>
+    <?php
+}
+
+function snth_save_dont_call_me_back($order_id) {
+    if ( ! empty( $_POST['dont_call_me_back'] ) && 'yes' === $_POST['dont_call_me_back'] ) {
+        update_post_meta( $order_id, 'dont_call_me_back', sanitize_text_field( $_POST['dont_call_me_back'] ) );
+    }
+}
+
+function snth_admin_order_display_dont_call_me_back($order) {
+    $dont_call_me_back = get_post_meta( $order->get_id(), 'dont_call_me_back', true );
+
+    if (!empty($dont_call_me_back) && 'yes' === $dont_call_me_back) {
+        ?>
+        <p>
+            <strong><?php echo __("Customer asked to not call back", 'primex') ?></strong>
+        </p>
+        <?php
+    }
+}

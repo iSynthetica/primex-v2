@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Prime-X\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 11:53+0000\n"
-"PO-Revision-Date: 2020-01-10 11:53+0000\n"
+"POT-Creation-Date: 2020-03-04 12:23+0000\n"
+"PO-Revision-Date: 2020-03-04 12:24+0000\n"
 "Last-Translator: Synthetica <syntheticafreon@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -78,7 +78,7 @@ msgstr "Блог"
 msgid "My account"
 msgstr "Мой аккаунт"
 
-#: header.php:78
+#: header.php:79
 msgid "Login"
 msgstr "Войти"
 
@@ -90,11 +90,15 @@ msgstr "Основные настройки темы"
 msgid "Theme settings"
 msgstr "Настройки темы"
 
-#: includes/shortcodes.php:77
+#: includes/wc-core.php:169
+msgid "Get coupon"
+msgstr "Получить купон"
+
+#: includes/shortcodes.php:80
 msgid "Shopping Cart"
 msgstr "Корзина"
 
-#: includes/shortcodes.php:108
+#: includes/shortcodes.php:114
 msgid "View Cart"
 msgstr "В корзину"
 
@@ -120,18 +124,140 @@ msgstr "<i class=\"fas fa-angle-left\"></i>"
 msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr "<i class=\"fas fa-angle-right\"></i>"
 
+#: includes/cpt.php:6
+msgctxt "Post Type General Name"
+msgid "Section Templates"
+msgstr ""
+
+#: includes/cpt.php:7
+msgctxt "Post Type Singular Name"
+msgid "Section Template"
+msgstr ""
+
+#: includes/cpt.php:8 includes/cpt.php:9 includes/cpt.php:35
+msgid "Section Template"
+msgstr ""
+
+#: includes/cpt.php:10
+msgid "Item Archives"
+msgstr ""
+
+#: includes/cpt.php:11
+msgid "Item Attributes"
+msgstr ""
+
+#: includes/cpt.php:12
+msgid "Parent Section Template:"
+msgstr ""
+
+#: includes/cpt.php:13
+msgid "All Items"
+msgstr ""
+
+#: includes/cpt.php:14
+msgid "Add New Item"
+msgstr ""
+
+#: includes/cpt.php:15
+msgid "Add New"
+msgstr ""
+
+#: includes/cpt.php:16
+msgid "New Item"
+msgstr ""
+
+#: includes/cpt.php:17
+msgid "Edit Item"
+msgstr ""
+
+#: includes/cpt.php:18
+msgid "Update Item"
+msgstr ""
+
+#: includes/cpt.php:19
+msgid "View Item"
+msgstr ""
+
+#: includes/cpt.php:20
+msgid "View Items"
+msgstr ""
+
+#: includes/cpt.php:21
+msgid "Search Item"
+msgstr ""
+
+#: includes/cpt.php:22
+msgid "Not found"
+msgstr ""
+
+#: includes/cpt.php:23
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/cpt.php:24
+msgid "Featured Image"
+msgstr ""
+
+#: includes/cpt.php:25
+msgid "Set featured image"
+msgstr ""
+
+#: includes/cpt.php:26
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/cpt.php:27
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/cpt.php:28
+msgid "Insert into item"
+msgstr ""
+
+#: includes/cpt.php:29
+msgid "Uploaded to this item"
+msgstr ""
+
+#: includes/cpt.php:30
+msgid "Section Template list"
+msgstr ""
+
+#: includes/cpt.php:31
+msgid "Items list navigation"
+msgstr ""
+
+#: includes/cpt.php:32
+msgid "Filter items list"
+msgstr ""
+
+#: includes/cpt.php:36
+msgid "Section Template for landing pages"
+msgstr ""
+
 #: includes/menu.php:15
 msgid "Main Menu Navigation"
 msgstr "Главное навигационное меню"
 
 #: includes/menu.php:16
+msgid "Top Bar Menu Navigation"
+msgstr ""
+
+#: includes/menu.php:17
 msgid "Footer Navigation"
 msgstr "Навигация подвала"
 
-#: includes/wc-template-functions.php:133
-#: includes/wc-template-functions.php:296
+#: includes/wc-template-functions.php:131
+#: includes/wc-template-functions.php:294
 msgid "Quick view"
 msgstr "Быстрый просмотр"
+
+#: includes/wc-template-functions.php:336
+msgid "Don't call me back"
+msgstr "Не перезванивать мне"
+
+#: includes/wc-template-functions.php:353
+msgid "Customer asked to not call back"
+msgstr "Клиент попросил не перезванивать"
 
 #: includes/settings.php:6
 msgid "Footer 1"
@@ -181,9 +307,37 @@ msgstr "Сайдбар Блога"
 msgid "Blog sidebar."
 msgstr "Сайдбар блогаю"
 
+#: includes/settings.php:60
+msgid "Shop Sidebar"
+msgstr ""
+
+#: includes/settings.php:61
+msgid "Shop Sidebar."
+msgstr ""
+
+#: includes/settings.php:69
+msgid "Product Category Sidebar"
+msgstr ""
+
+#: includes/settings.php:70
+msgid "Product Category Sidebar."
+msgstr ""
+
+#: includes/settings.php:78
+msgid "Product Page Sidebar"
+msgstr ""
+
+#: includes/settings.php:79
+msgid "Product Page Sidebar."
+msgstr ""
+
 #. Name of the template
 msgid "Fullwidth Page"
 msgstr "Страница без боковых сайдбаров"
+
+#. Name of the template
+msgid "Landing Page"
+msgstr ""
 
 #. Name of the theme
 msgid "Prime-X"
