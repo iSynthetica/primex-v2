@@ -1,0 +1,2 @@
+2020-03-04T12:49:42+00:00 DEBUG Sender payload: {"click_action":"plugin_deactivation","plugin":"flexible-shipping\/flexible-shipping.php","plugin_name":"Flexible Shipping","reason":"plugin_for_short_period","variant_id":12,"fs_method_created":2}
+2020-03-04T12:49:44+00:00 DEBUG Sender response: {"headers":[],"body":"","response":{"code":false,"message":false},"cookies":[],"http_response":null}

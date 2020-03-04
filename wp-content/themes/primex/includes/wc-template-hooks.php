@@ -13,6 +13,8 @@ remove_action( 'woocommerce_review_before_comment_meta', 'woocommerce_review_dis
 remove_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 10 );
 remove_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
 
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+
 add_action( 'woocommerce_single_product_summary', 'snth_wc_template_after_price_line', 12 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 20 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 30 );
@@ -22,6 +24,8 @@ add_action( 'woocommerce_review_before', 'snth_wc_review_display_gravatar', 10 )
 add_action( 'woocommerce_review_before_comment_text', 'snth_wc_review_display_meta', 10 );
 add_action( 'woocommerce_review_comment_text', 'woocommerce_review_display_comment_text', 10 );
 add_action( 'woocommerce_review_after_comment_text', 'woocommerce_review_display_rating', 10 );
+
+add_action( 'woocommerce_single_product_summary', 'snth_show_social_share', 50 );
 
 add_filter('woocommerce_product_additional_information_heading', 'snth_wc_product_additional_information_heading', 100);
 add_filter('woocommerce_product_description_heading', 'snth_wc_product_description_heading', 100);

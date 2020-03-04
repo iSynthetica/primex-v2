@@ -703,3 +703,7 @@ function snth_comment_form_fields($comment_fields) {
 }
 
 add_filter( 'comment_form_fields', 'snth_comment_form_fields' );
+
+function snth_show_social_share() {
+    snth_show_template('blocks/share.php');
+}
