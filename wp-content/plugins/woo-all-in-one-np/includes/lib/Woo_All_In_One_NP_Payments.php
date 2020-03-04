@@ -305,6 +305,13 @@ function woionp_init_cod_class() {
                     'default'     => '',
                     // 'desc_tip'    => true,
                 ),
+                'instant_discount_description'       => array(
+                    'title'       => __( 'Description for discount.', 'woocommerce' ),
+                    'type'        => 'textarea',
+                    'description' => __( 'This description your client will see before payment widget. You can use placeholders: {{discount_percent}} - percent of discount, {{discount_amount}} - discount amount in order currency, {{discount_date}} discount date/time until valid.', 'woocommerce' ),
+                    'default'     => __( 'Your discount {{discount_percent}} - {{discount_amount}} if you pay until {{discount_date}}', 'woo-all-in-one-np' ),
+                    'desc_tip'    => true,
+                ),
                 'enable_for_methods' => array(
                     'title'             => __( 'Enable for shipping methods', 'woocommerce' ),
                     'type'              => 'multiselect',
@@ -364,10 +371,6 @@ function wooaio_np_payment_details( $order_id = '' ) {
     $payment_method = $order->get_payment_method();
     $payment_url = $order->get_checkout_payment_url();
 
-//    var_dump($status);
-//    var_dump($payment_method);
-//    var_dump($payment_url);
-
     if ('np_instant' !== $payment_method) {
         return '';
     }
@@ -379,9 +382,34 @@ function wooaio_np_payment_details( $order_id = '' ) {
         $first_name = $order->get_billing_first_name();
         $last_name = $order->get_billing_last_name();
         $settings = get_option('woocommerce_np_instant_settings', array());
+        $lp_amount = $order->get_total();
+        $lp_discount = 0;
+
+        if ( !empty($settings["instant_discount"]) && !empty($settings["instant_discount_period"]) && !empty($settings["instant_discount_period_unit"]) && $settings["instant_discount_period_unit"] !== 'none' ) {
+            $period = (int) $settings["instant_discount_period"];
+            $unit = $settings["instant_discount_period_unit"];
+            $discount = $settings["instant_discount"];
+            $delay = 0;
+
+            if ('min' === $unit) {
+                $delay = $period * 60;
+            } elseif ('hour' === $unit) {
+                $delay = $period * 60 * 60;
+            } elseif('day' === $unit) {
+                $delay = $period * 60 * 60 * 24;
+            }
+
+            $date = strtotime($order->get_date_created());
+            $date_delayed = $date + $delay;
+
+            if ($date_delayed > time()) {
+                $lp_discount = floor($lp_amount * ($discount / 100));
+                $lp_amount = $lp_amount - $lp_discount;
+            }
+        }
+
         $lp_order_id = $order->get_order_number();
         $lp_description = __( 'Order number:', 'woocommerce' ) . ' ' . $lp_order_id . ' ('.wc_format_datetime( $order->get_date_created()).')';
-        $lp_amount = $order->get_total();
 
         if (!empty($settings['public_key']) && !empty($settings['private_key'])) {
             include_once 'LiqPay.php';
@@ -401,6 +429,15 @@ function wooaio_np_payment_details( $order_id = '' ) {
             ));
             ?>
             <div id="liqpay_checkout_holder">
+                <?php
+                if (!empty($lp_discount)) {
+                    ?>
+                    <p>
+                        <?php  echo __( 'If your pay your order now you will get a discount.', 'woo-all-in-one-np' ); ?>
+                    </p>
+                    <?php
+                }
+                ?>
                 <div id="liqpay_checkout"></div>
                 <script>
                     var ajaxUrl = '<?php echo admin_url( 'admin-ajax.php' ) ?>';
@@ -424,7 +461,9 @@ function wooaio_np_payment_details( $order_id = '' ) {
                     function liqpay_ajax_request(response) {
                         var status = response.status;
                         var data = {
-                            'order_id': '<?php echo $lp_order_id; ?>'
+                            'order_id': '<?php echo $lp_order_id; ?>',
+                            'order_amount': '<?php echo $lp_amount; ?>',
+                            'order_discount': '<?php echo $lp_discount; ?>'
                         };
 
                         if ("failure" == status) {

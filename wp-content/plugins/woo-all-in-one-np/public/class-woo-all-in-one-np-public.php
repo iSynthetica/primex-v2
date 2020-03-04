@@ -122,6 +122,19 @@ class Woo_All_In_One_Np_Public {
         $order_note = __('Order payed', 'woo-all-in-one-np');
         $order->update_status( 'processing', $order_note, true );
         $order->set_date_paid(time());
+
+        if (!empty($_POST['order_discount'])) {
+            $amount = $_POST['order_discount'];
+            $formatted_amount = wc_price( $amount, array( 'currency' => $order->get_currency() ) );
+            $amount = $amount * -1;
+            $fee = new WC_Order_Item_Fee();
+            $fee->set_amount( $amount );
+            $fee->set_total( $amount );
+            $fee->set_name( sprintf( __( 'Discount for instant payment %s', 'woo-all-in-one-np' ), wc_clean( $formatted_amount ) ) );
+            $order->add_item( $fee );
+            $order->calculate_totals( true );
+        }
+
         $order->save();
 
         $response = array('reload' => 0);
