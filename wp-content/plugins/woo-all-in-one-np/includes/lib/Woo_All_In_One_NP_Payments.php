@@ -310,7 +310,7 @@ function woionp_init_cod_class() {
                     'type'        => 'textarea',
                     'description' => __( 'This description your client will see before payment widget. You can use placeholders: {{discount_percent}} - percent of discount, {{discount_amount}} - discount amount in order currency, {{discount_date}} discount date/time until valid.', 'woocommerce' ),
                     'default'     => __( 'Your discount {{discount_percent}} - {{discount_amount}} if you pay until {{discount_date}}', 'woo-all-in-one-np' ),
-                    'desc_tip'    => true,
+                    // 'desc_tip'    => true,
                 ),
                 'enable_for_methods' => array(
                     'title'             => __( 'Enable for shipping methods', 'woocommerce' ),
@@ -430,10 +430,14 @@ function wooaio_np_payment_details( $order_id = '' ) {
             ?>
             <div id="liqpay_checkout_holder">
                 <?php
-                if (!empty($lp_discount)) {
+                if (!empty($lp_discount) && !empty($settings['instant_discount_description'])) {
+                    $instant_discount_description = $settings['instant_discount_description'];
+                    $instant_discount_description = str_replace("{{discount_amount}}", $lp_discount, $instant_discount_description);
+                    $instant_discount_description = str_replace("{{discount_percent}}", $discount . '%', $instant_discount_description);
+                    $instant_discount_description = str_replace("{{discount_date}}", $date_delayed, $instant_discount_description);
                     ?>
                     <p>
-                        <?php  echo __( 'If your pay your order now you will get a discount.', 'woo-all-in-one-np' ); ?>
+                        <?php  echo $instant_discount_description; ?>
                     </p>
                     <?php
                 }
