@@ -81,6 +81,46 @@ class Woo_All_In_One_Np_Public {
         add_action('woocommerce_shipping_init', 'woionp_sm_settings_init');
     }
 
+    public function register_order_status($order_statuses) {
+
+        $order_statuses['wc-novaposhta-sent'] = array(
+            'label'                     => _x( 'Sent with NovaPoshta', 'Order status', 'woo-all-in-one-np' ),
+            'public'                    => false,
+            'exclude_from_search'       => false,
+            'show_in_admin_all_list'    => true,
+            'show_in_admin_status_list' => true,
+            /* translators: %s: number of orders */
+            'label_count'               => _n_noop( 'Pending payment <span class="count">(%s)</span>', 'Pending payment <span class="count">(%s)</span>', 'woo-all-in-one-np' ),
+        );
+        
+        return $order_statuses;
+    }
+
+    public function show_order_status($order_statuses) {
+        
+        $order_statuses['wc-novaposhta-sent'] = _x( 'Sent with NovaPoshta', 'Order status', 'woo-all-in-one-np' );       
+        return $order_statuses;
+    }
+
+    public function show_custom_fields($order) {
+        $field = array(
+            'label' => __( 'Nova Poshta TTN', 'woocommerce' ),
+        );
+
+        $field_name = 'novaposhta_ttn';
+        $field['value'] = $order->get_meta( '_' . $field_name );
+        $field['id'] = '_novaposhta_ttn';
+        $field['wrapper_class'] = 'form-field-wide';
+
+        woocommerce_wp_text_input( $field );
+    }
+
+    public function process_custom_fields($post_id, $post) {
+        if (isset($_POST[ '_novaposhta_ttn' ])) {
+            update_post_meta( $post_id, '_novaposhta_ttn', wc_clean( $_POST[ '_novaposhta_ttn' ] ) );
+        }
+    }
+
     public function woocommerce_form_field( $field, $key, $args, $value ) {
 	    if ('billing_city' === $key) {
             $packages           = WC()->shipping()->get_packages();
@@ -153,6 +193,9 @@ class Woo_All_In_One_Np_Public {
     }
 
     public function footer_script() {
+        if (!is_checkout()) {
+            return;
+        }
 	    global $wpdb;
         $local_pickup_settings_sql = "SELECT * FROM {$wpdb->options} WHERE option_name LIKE '%woocommerce_novaposhta_local_pickup%'";
         $local_pickup_settings_result = $wpdb->get_results($local_pickup_settings_sql, ARRAY_A);

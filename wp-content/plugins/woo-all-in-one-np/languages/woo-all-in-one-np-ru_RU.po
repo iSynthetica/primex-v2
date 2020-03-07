@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Language: ru_RU\n"
-"POT-Creation-Date: 2020-03-01 13:06+0000\n"
+"POT-Creation-Date: 2020-03-06 18:04+0000\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
-"PO-Revision-Date: 2020-03-01 13:12+0000\n"
+"PO-Revision-Date: 2020-03-06 18:05+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: Woo All In One Nova Poshta\n"
 "Report-Msgid-Bugs-To: \n"
@@ -15,76 +15,145 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Loco-Version: 2.3.1; wp-5.3.2"
 
-#: public/class-woo-all-in-one-np-public.php:95
+#: public/class-woo-all-in-one-np-public.php:87
+#: public/class-woo-all-in-one-np-public.php:101
+msgctxt "Order status"
+msgid "Sent with NovaPoshta"
+msgstr "Отправлено Новой Почтой"
+
+#. %s: number of orders
+#: public/class-woo-all-in-one-np-public.php:93
+#, php-format
+msgid "Pending payment <span class=\"count\">(%s)</span>"
+msgid_plural "Pending payment <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: public/class-woo-all-in-one-np-public.php:116
+#: public/class-woo-all-in-one-np-public.php:129
+#: public/class-woo-all-in-one-np-public.php:167
 msgid "Cheating, huh!!!"
 msgstr "В игры играем!!!"
 
-#: public/class-woo-all-in-one-np-public.php:142
+#: public/class-woo-all-in-one-np-public.php:138
+msgid "Wrong order number"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:143
+msgid "Order payed"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:154
+#, php-format
+msgid "Discount for instant payment %s"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:172
+msgid "Error!!!"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:250
 msgid "NovaPoshta warehouse"
 msgstr "Отделение Новой Почты"
 
-#: public/class-woo-all-in-one-np-public.php:199
+#: public/class-woo-all-in-one-np-public.php:349
+#: public/class-woo-all-in-one-np-public.php:426
 #: includes/lib/Woo_All_In_One_NP_Settings.php:29
 msgid "Select city"
 msgstr "Выберите город"
 
-#: public/class-woo-all-in-one-np-public.php:219
+#: public/class-woo-all-in-one-np-public.php:369
 msgid "Select city first"
 msgstr "Сначала выберите город"
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:198
-#: includes/lib/Woo_All_In_One_NP_Payments.php:257
+#: public/class-woo-all-in-one-np-public.php:396
+msgid "Select location"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:557
+msgid "Select warehouse"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:191
+#: includes/lib/Woo_All_In_One_NP_Payments.php:250
 msgid "Instant payment"
 msgstr "Моментальная оплата"
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:199
-#: includes/lib/Woo_All_In_One_NP_Payments.php:264
+#: includes/lib/Woo_All_In_One_NP_Payments.php:192
+#: includes/lib/Woo_All_In_One_NP_Payments.php:257
 msgid "Instant payment."
 msgstr "Моментальная оплата."
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:248
+#: includes/lib/Woo_All_In_One_NP_Payments.php:241
 msgid "Enable Instant payment"
 msgstr "Включить мгновенную оплату"
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:271
+#: includes/lib/Woo_All_In_One_NP_Payments.php:264
 msgid "Select one of available methods."
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:275
+#: includes/lib/Woo_All_In_One_NP_Payments.php:268
 msgid "Public key"
 msgstr "Публичный ключ"
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:277
+#: includes/lib/Woo_All_In_One_NP_Payments.php:270
 msgid "Public key you can get after registration on LiqPay."
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:282
+#: includes/lib/Woo_All_In_One_NP_Payments.php:275
 msgid "Private key"
 msgstr "Приватный ключ"
 
-#: includes/lib/Woo_All_In_One_NP_Payments.php:284
+#: includes/lib/Woo_All_In_One_NP_Payments.php:277
 msgid "Private key you can get after registration on LiqPay."
 msgstr ""
 
+#: includes/lib/Woo_All_In_One_NP_Payments.php:282
+msgid "Instant payment discount (%)"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:284
+msgid "Set instant payment discount (%)."
+msgstr ""
+
 #: includes/lib/Woo_All_In_One_NP_Payments.php:289
-msgid "Card payment enabled"
-msgstr "Оплата картой включена"
+msgid "Instant payment discount period"
+msgstr ""
 
 #: includes/lib/Woo_All_In_One_NP_Payments.php:291
-msgid "Enable or disable payment with credit card."
+msgid "Set instant payment discount period."
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_NP_Payments.php:296
-msgid "Privat24 payment enabled"
-msgstr "Оплата с помощью Privat24 включена"
+msgid "Instant payment discount period unit"
+msgstr ""
 
 #: includes/lib/Woo_All_In_One_NP_Payments.php:298
-msgid "Enable or disable payment with Private 24."
+msgid "Set instant payment discount period unit (minutes, hours, days)."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:300
+msgid "Select unit"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:301
+msgid "Minutes"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:302
+msgid "Hours"
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_NP_Payments.php:303
-msgid "QR code payment enabled"
-msgstr "Оплата по QR коду включена"
+msgid "Days"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:312
+msgid ""
+"Your discount {{discount_percent}} - {{discount_amount}} if you pay until "
+"{{discount_date}}"
+msgstr ""
 
 #: includes/lib/Woo_All_In_One_NP_Settings.php:8
 msgid "NovaPoshta Settings"
@@ -135,6 +204,37 @@ msgstr ""
 #: includes/lib/Woo_All_In_One_NP.php:41
 msgid "Enable NovaPostha"
 msgstr "Активировать Новую Почту"
+
+#: includes/lib/Woo_All_In_One_NP.php:71
+#: includes/lib/settings/courier-shipping.php:7
+msgid "Courier Shipping"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:72
+msgid "Courier Shipping Method"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:197
+#: includes/lib/settings/localpickup-shipping.php:7
+msgid "Local Pickup"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:198
+msgid "Local Pickup shipping method"
+msgstr ""
+
+#: includes/lib/settings/courier-shipping.php:11
+msgid "Courier settings"
+msgstr ""
+
+#: includes/lib/settings/courier-shipping.php:13
+#: includes/lib/settings/localpickup-shipping.php:13
+msgid "Create one or more locations for local pickup"
+msgstr ""
+
+#: includes/lib/settings/localpickup-shipping.php:11
+msgid "Local Pickup Locations"
+msgstr ""
 
 #. Name of the plugin
 msgid "Woo All In One Nova Poshta"

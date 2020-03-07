@@ -270,6 +270,8 @@ class Woo_All_In_One_Discount_Rules {
                 return self::update_general_user_discount($id, $data);
             case 'base_discount':
                 return self::update_base_discount_user_discount($id, $data);
+            case 'before_discount':
+                return self::update_before_discount_user_discount($id, $data);
         }
 
         $result = array(
@@ -314,6 +316,21 @@ class Woo_All_In_One_Discount_Rules {
         $result = array( 'error' => '', 'id' => $id );
 
         $product_discount_rule['base_discount'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_user_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_before_discount_user_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array( 'error' => '', 'id' => $id );
+
+        $product_discount_rule['before_discount'] = $data;
 
         $product_discount_rules[$id] = $product_discount_rule;
 

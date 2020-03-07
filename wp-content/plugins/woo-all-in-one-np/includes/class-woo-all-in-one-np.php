@@ -188,6 +188,11 @@ class Woo_All_In_One_Np {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+		$this->loader->add_filter( 'woocommerce_register_shop_order_post_statuses', $plugin_public, 'register_order_status' );
+		$this->loader->add_action( 'woocommerce_admin_order_data_after_shipping_address', $plugin_public, 'show_custom_fields' );
+		$this->loader->add_action( 'woocommerce_process_shop_order_meta', $plugin_public, 'process_custom_fields', 45, 2 );
+
+		$this->loader->add_filter( 'wc_order_statuses', $plugin_public, 'show_order_status' );
         $this->loader->add_filter( 'woocommerce_form_field', $plugin_public, 'woocommerce_form_field', 999, 4 );
 		$this->loader->add_filter( 'woocommerce_shipping_methods', $plugin_public, 'add_novaposhta_sm' );
 		$this->loader->add_action( 'init', $plugin_public, 'init' );

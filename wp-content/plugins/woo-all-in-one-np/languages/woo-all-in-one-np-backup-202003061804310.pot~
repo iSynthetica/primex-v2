@@ -1,0 +1,146 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Language: \n"
+"POT-Creation-Date: 2020-03-01 13:06+0000\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: public/class-woo-all-in-one-np-public.php:95
+msgid "Cheating, huh!!!"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:142
+msgid "NovaPoshta warehouse"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:199
+#: includes/lib/Woo_All_In_One_NP_Settings.php:29
+msgid "Select city"
+msgstr ""
+
+#: public/class-woo-all-in-one-np-public.php:219
+msgid "Select city first"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:198
+#: includes/lib/Woo_All_In_One_NP_Payments.php:257
+msgid "Instant payment"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:199
+#: includes/lib/Woo_All_In_One_NP_Payments.php:264
+msgid "Instant payment."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:248
+msgid "Enable Instant payment"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:271
+msgid "Select one of available methods."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:275
+msgid "Public key"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:277
+msgid "Public key you can get after registration on LiqPay."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:282
+msgid "Private key"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:284
+msgid "Private key you can get after registration on LiqPay."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:289
+msgid "Card payment enabled"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:291
+msgid "Enable or disable payment with credit card."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:296
+msgid "Privat24 payment enabled"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:298
+msgid "Enable or disable payment with Private 24."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Payments.php:303
+msgid "QR code payment enabled"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:8
+msgid "NovaPoshta Settings"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:9
+msgid "NovaPoshta shipping method Settings"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:37
+msgid "No city"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:52
+msgid "Enable NavaPostha"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:72
+msgid "NavaPostha API_key"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:75
+msgid ""
+"API key for the NovaPoshta, is taken from your account <a href=\"https://my."
+"novaposhta.ua/settings/index#apikeys\">http://novaposhta.ua/apikeys</a>"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:82
+#: includes/lib/Woo_All_In_One_NP.php:48
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP_Settings.php:83
+#: includes/lib/Woo_All_In_One_NP.php:49
+msgid "NovaPoshta Description"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:8
+msgid "NovaPoshta Warehouse - Warehouse"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:9
+msgid "NovaPoshta Warehouse - Warehouse shipping method"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_NP.php:41
+msgid "Enable NovaPostha"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woo All In One Nova Poshta"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://synthetica.com.ua"
+msgstr ""
+
+#. Author of the plugin
+msgid "Synthetica"
+msgstr ""

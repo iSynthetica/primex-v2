@@ -1,0 +1,166 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Language: \n"
+"POT-Creation-Date: 2020-03-06 14:50+0000\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:84
+#: admin/class-woo-all-in-one-turbosms-admin.php:93
+msgid "TurboSMS"
+msgstr ""
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:85
+msgid "TurboSMS  Settings"
+msgstr ""
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:94
+msgid "TurboSMS Settings"
+msgstr ""
+
+#: includes/woo-functions.php:53
+msgid "SMS can't be send. Login or Password is empty"
+msgstr ""
+
+#: includes/woo-functions.php:60
+#, php-format
+msgid "SMS can't be send. %s."
+msgstr ""
+
+#: includes/woo-functions.php:62
+#, php-format
+msgid "SMS sent to client. Phone number %s. SMS Text: \"%s\""
+msgstr ""
+
+#: admin/partials/admin-display.php:18
+msgid "Woocommerce TurboSMS"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:29
+msgid "General settings"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:39
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:6
+msgid "General Settings"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:44
+msgid "TurboSMS Login"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:51
+msgid "Enter TurboSMS login"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:60
+msgid "TurboSMS Password"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:67
+msgid "Enter TurboSMS password"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:79
+msgid "TurboSMS balance"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:101
+#: admin/partials/admin-content-settings.php:217
+msgid "Update"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:109
+msgid "SMS Text Settings"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:114
+msgid "New order"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:119
+msgid "Send SMS when order created"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:123
+#: admin/partials/admin-content-settings.php:167
+msgid "Yes"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:124
+#: admin/partials/admin-content-settings.php:168
+msgid "No"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:131
+msgid "SMS Text for new order"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:158
+msgid "Order status"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:163
+msgid "Send SMS when order changed status to:"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:175
+msgid "SMS Text when order status changed to:"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:192
+msgid "Available shortcodes"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:196
+msgid "Order number"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:197
+msgid "Order created date"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:198
+msgid "Order total amount"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:199
+msgid "Current order status"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:200
+msgid "Old order status"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:200
+msgid "(Only for changed status SMS)"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:16
+msgid "New order created"
+msgstr ""
+
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:31
+msgid "Your order #{{order_number}} status changed to {{order_status}}"
+msgstr ""
+
+#. Name of the plugin
+msgid "Woo All In One Turbosms"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://synthetica.com.ua"
+msgstr ""
+
+#. Author of the plugin
+msgid "Synthetica"
+msgstr ""

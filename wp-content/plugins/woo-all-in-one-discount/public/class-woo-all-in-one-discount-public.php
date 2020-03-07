@@ -100,10 +100,12 @@ class Woo_All_In_One_Discount_Public {
 
 	}
 
+    /**
+     * Set discount rules globally
+     */
 	public function set_global_discount_for_user() {
-        if (is_admin()) {
-            return;
-        }
+        if (is_admin()) return;
+
         global $wooaiodiscount_product_rules;
         global $wooaiodiscount_user_rules;
         global $wooaiodiscount_current_user_rule;
@@ -111,6 +113,10 @@ class Woo_All_In_One_Discount_Public {
         $wooaiodiscount_product_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
         $wooaiodiscount_user_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
         $wooaiodiscount_current_user_rule = array();
+
+        if (empty($wooaiodiscount_user_rules)) {
+            return;
+        }
 
         $user = null;
         $user_roles = array('all_users');
@@ -128,10 +134,13 @@ class Woo_All_In_One_Discount_Public {
 
         $all_users_rule_priority = 0;
         $all_users_rule = array();
+
         $unregistered_users_priority = 0;
         $unregistered_users_rule = array();
+
         $registered_users_priority = 0;
         $registered_users_rule = array();
+
         $role_users_rule_priority = 0;
         $role_users_rule = array();
 
@@ -140,9 +149,28 @@ class Woo_All_In_One_Discount_Public {
                 $base_discount = $wooaiodiscount_product_rules[$user_rule["base_discount"]["discount_id"]]['discounts'];
                 $base_discount_type = $wooaiodiscount_product_rules[$user_rule["base_discount"]["discount_id"]]['type'];
                 $base_discount_priority = !empty($wooaiodiscount_product_rules[$user_rule["base_discount"]["discount_id"]]['priority']) ? $wooaiodiscount_product_rules[$user_rule["base_discount"]["discount_id"]]['priority'] : 10;
+
                 $user_rule["base_discount"]["discount"] = $base_discount;
                 $user_rule["base_discount"]["type"] = $base_discount_type;
                 $user_rule["base_discount"]["priority"] = $base_discount_priority;
+
+                unset($base_discount);
+                unset($base_discount_type);
+                unset($base_discount_priority);
+            }
+
+            if (!empty($user_rule["before_discount"]["discount_id"]) && !empty($wooaiodiscount_product_rules[$user_rule["before_discount"]["discount_id"]])) {
+                $before_discount = $wooaiodiscount_product_rules[$user_rule["before_discount"]["discount_id"]]['discounts'];
+                $before_discount_type = $wooaiodiscount_product_rules[$user_rule["before_discount"]["discount_id"]]['type'];
+                $before_discount_priority = !empty($wooaiodiscount_product_rules[$user_rule["before_discount"]["discount_id"]]['priority']) ? $wooaiodiscount_product_rules[$user_rule["before_discount"]["discount_id"]]['priority'] : 10;
+
+                $user_rule["before_discount"]["discount"] = $before_discount;
+                $user_rule["before_discount"]["type"] = $before_discount_type;
+                $user_rule["before_discount"]["priority"] = $before_discount_priority;
+
+                unset($before_discount);
+                unset($before_discount_type);
+                unset($before_discount_priority);
             }
 
             $wooaiodiscount_user_rules[$user_rule_id] = $user_rule;
@@ -192,13 +220,23 @@ class Woo_All_In_One_Discount_Public {
     }
 
     public function set_woocommerce_filters() {
-        if (is_admin()) {
+        if (is_admin()) return;
+
+        global $wooaiodiscount_current_user_rule;
+
+        if (empty($wooaiodiscount_current_user_rule)) {
             return;
         }
 
+        // Set base price according to current user rules
         wooaiodiscount_set_discount_rules();
 
+        // Set Base HTML Price
         add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_price_html', 1000, 2);
+
+        if (!empty($wooaiodiscount_current_user_rule["before_discount"]["discount"])) {
+            add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_before_discount_price_html', 1100, 2);
+        }
     }
 
     public function recalculate_totals($cart_object) {

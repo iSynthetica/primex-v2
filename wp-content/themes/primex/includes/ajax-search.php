@@ -48,3 +48,10 @@ function snth_ajax_search() {
 
 add_action('wp_ajax_nopriv_snth_ajax_search', 'snth_ajax_search');
 add_action('wp_ajax_snth_ajax_search', 'snth_ajax_search');
+
+//SELECT p.ID, p.post_title, pm.meta_key, pm.meta_value
+//FROM `tsvt_posts` as p
+//RIGHT JOIN `tsvt_postmeta` as pm
+//ON p.ID = pm.post_id
+//WHERE post_type = 'product'
+//AND pm.meta_key LIKE '%sku%'

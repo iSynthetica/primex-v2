@@ -120,15 +120,22 @@ if (!$discount_rule) {
 
     <?php
     if (!empty($product_discount_rules)) {
+        $after_discount_rule = array(
+            'discount_id' => '',
+            'discount_label' => '',
+        );
+        if (!empty($discount_rule['base_discount']) && is_array($discount_rule['base_discount'])) {
+            $after_discount_rule = array_merge($after_discount_rule, $discount_rule['base_discount']);
+        }
         ?>
         <div id="base_discount-settings-container" class="postbox">
-            <h2 class="hndle ui-sortable-handle"><span><?php _e('Base Rule', 'woo-all-in-one-discount'); ?></span></h2>
+            <h2 class="hndle ui-sortable-handle"><span><?php _e('Base Price Rule', 'woo-all-in-one-discount'); ?></span></h2>
 
             <div class="inside">
                 <form id="base_discount_user_discount_settings">
                     <div class="wooaio-discount-item">
                         <div>
-                            <label for="discount_base_discount"><?php _e('Assign Base Discount', 'woo-all-in-one-discount'); ?></label>
+                            <label for="discount_base_discount"><?php _e('Assign Base Discount Rule', 'woo-all-in-one-discount'); ?></label>
                         </div>
                         <div>
                             <select name="discount_id" id="discount_base_discount">
@@ -137,7 +144,7 @@ if (!$discount_rule) {
                                 $selected_base_discount = !empty($discount_rule['base_discount']['discount_id']) ? $discount_rule['base_discount']['discount_id'] : '';
                                 foreach ($product_discount_rules as $product_discount_rule_id => $product_discount_rule) {
                                     ?>
-                                    <option value="<?php echo $product_discount_rule_id ?>"<?php echo $selected_base_discount === $product_discount_rule_id ? ' selected' : ''; ?>>
+                                    <option value="<?php echo $product_discount_rule_id ?>"<?php echo $after_discount_rule['discount_id'] === $product_discount_rule_id ? ' selected' : ''; ?>>
                                         <?php echo $product_discount_rule['title'] ?> (<?php echo Woo_All_In_One_Discount_Rules::get_product_discounts_types()[$product_discount_rule['type']] ?>)
                                     </option>
                                     <?php
@@ -146,29 +153,14 @@ if (!$discount_rule) {
                             </select>
                         </div>
                     </div>
+
                     <div class="wooaio-discount-item">
                         <div>
-                            <label for="discount_base_discount"><?php _e('Additional settings', 'woo-all-in-one-discount'); ?></label>
+                            <label for="discount_base_discount_label" style="margin-bottom: 5px;display:block;"><?php _e('Label for discounted price', 'woo-all-in-one-discount'); ?></label>
                         </div>
                         <div>
                             <div style="margin-bottom: 15px;">
-                                <?php $discount_label = !empty($discount_rule['base_discount']['discount_label']) ? $discount_rule['base_discount']['discount_label'] : ''; ?>
-                                <label for="discount_base_discount_label" style="margin-bottom: 5px;display:block;"><?php _e('Label for discounted price', 'woo-all-in-one-discount'); ?></label>
-                                <input id="discount_base_discount_label" type="text" name="discount_label" value="<?php echo $discount_label; ?>">
-                            </div>
-
-                            <div style="margin-bottom: 15px;">
-
-                                <?php $price_label = !empty($discount_rule['base_discount']['price_label']) ? $discount_rule['base_discount']['price_label'] : ''; ?>
-                                <label for="discount_base_price_label" style="margin-bottom: 5px;display:block;"><?php _e('Label for base price', 'woo-all-in-one-discount'); ?></label>
-                                <input id="discount_base_price_label" type="text" name="price_label" value="<?php echo $price_label; ?>">
-                            </div>
-
-                            <div style="margin-bottom: 15px;">
-
-                                <?php $discount_amount_label = !empty($discount_rule['base_discount']['discount_amount_label']) ? $discount_rule['base_discount']['discount_amount_label'] : ''; ?>
-                                <label for="discount_base_discount_amount_label" style="margin-bottom: 5px;display:block;"><?php _e('Discount amount label', 'woo-all-in-one-discount'); ?></label>
-                                <input id="discount_base_discount_amount_label" type="text" name="discount_amount_label" value="<?php echo $discount_amount_label; ?>">
+                                <input id="discount_base_discount_label" type="text" name="discount_label" value="<?php echo $after_discount_rule['discount_label']; ?>">
                             </div>
                         </div>
                     </div>
@@ -184,6 +176,82 @@ if (!$discount_rule) {
                                     data-id="<?php echo $discount_id ?>"
                                     data-setting="base_discount"
                                     data-form="base_discount_user_discount_settings"
+                                    type="button"
+                            ><?php _e('Update', 'woo-all-in-one-discount'); ?></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <?php
+        $before_discount_rule = array(
+            'show_before_discount' => 'no',
+            'discount_id' => '',
+            'discount_label' => '',
+        );
+        if (!empty($discount_rule['before_discount']) && is_array($discount_rule['before_discount'])) {
+            $before_discount_rule = array_merge($before_discount_rule, $discount_rule['before_discount']);
+        }
+        ?>
+
+        <div id="before_discount-settings-container" class="postbox">
+            <h2 class="hndle ui-sortable-handle"><span><?php _e('Before Discount Price Rule', 'woo-all-in-one-discount'); ?></span></h2>
+
+            <div class="inside">
+                <form id="before_discount_user_discount_settings">
+                    <div class="wooaio-discount-item">
+                        <div>
+                            <label for="show_discount_before_discount"><?php _e('Show Before discount price', 'woo-all-in-one-discount'); ?></label>
+                        </div>
+                        <div>
+                            <select name="show_before_discount" id="show_discount_before_discount">
+                                <option value="yes"<?php echo $before_discount_rule['show_before_discount'] === 'yes' ? ' selected' : ''; ?>><?php _e('Yes', 'woo-all-in-one-discount'); ?></option>
+                                <option value="no"<?php echo $before_discount_rule['show_before_discount'] === 'no' ? ' selected' : ''; ?>><?php _e('No', 'woo-all-in-one-discount'); ?></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="wooaio-discount-item">
+                        <div>
+                            <label for="discount_before_discount_id"><?php _e('Assign before discount rule', 'woo-all-in-one-discount'); ?></label>
+                        </div>
+                        <div>
+                            <select name="discount_id" id="discount_before_discount_id">
+                                <option value=""><?php _e('-- Select Before Discount Rule --', 'woo-all-in-one-discount'); ?></option>
+                                <?php
+                                foreach ($product_discount_rules as $product_discount_rule_id => $product_discount_rule) {
+                                    ?>
+                                    <option value="<?php echo $product_discount_rule_id ?>"<?php echo $before_discount_rule['discount_id'] === $product_discount_rule_id ? ' selected' : ''; ?>>
+                                        <?php echo $product_discount_rule['title'] ?> (<?php echo Woo_All_In_One_Discount_Rules::get_product_discounts_types()[$product_discount_rule['type']] ?>)
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="wooaio-discount-item">
+                        <div>
+                            <label for="discount_price_before_discount_label"><?php _e('Label for before discounted price', 'woo-all-in-one-discount'); ?></label>
+                        </div>
+                        <div>
+                            <input id="discount_price_before_discount_label" type="text" name="discount_label" value="<?php echo $before_discount_rule['discount_label']; ?>">
+                        </div>
+                    </div>
+
+                    <div class="wooaio-discount-item">
+                        <div>
+
+                        </div>
+
+                        <div>
+                            <button
+                                    class="button update-user-submit"
+                                    data-id="<?php echo $discount_id ?>"
+                                    data-setting="before_discount"
+                                    data-form="before_discount_user_discount_settings"
                                     type="button"
                             ><?php _e('Update', 'woo-all-in-one-discount'); ?></button>
                         </div>

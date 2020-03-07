@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Language: ru_RU\n"
+"POT-Creation-Date: 2020-03-06 14:50+0000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"PO-Revision-Date: 2020-03-06 15:05+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Project-Id-Version: Woo All In One Turbosms\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Synthetica <syntheticafreon@gmail.com>\n"
+"Language-Team: Русский\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:84
+#: admin/class-woo-all-in-one-turbosms-admin.php:93
+msgid "TurboSMS"
+msgstr "TurboSMS"
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:85
+msgid "TurboSMS  Settings"
+msgstr "Настройки ТурбоСМС"
+
+#: admin/class-woo-all-in-one-turbosms-admin.php:94
+msgid "TurboSMS Settings"
+msgstr "Настройки ТурбоСМС"
+
+#: includes/woo-functions.php:53
+msgid "SMS can't be send. Login or Password is empty"
+msgstr "СМС не может быть отправлено. Логин или Пароль не заполнены"
+
+#: includes/woo-functions.php:60
+#, php-format
+msgid "SMS can't be send. %s."
+msgstr "СМС не может быть отправлено. %s."
+
+#: includes/woo-functions.php:62
+#, php-format
+msgid "SMS sent to client. Phone number %s. SMS Text: \"%s\""
+msgstr "СМС отправлено клиенту. Телефонный номер %s. СМС сообщение: \"%s\""
+
+#: admin/partials/admin-display.php:18
+msgid "Woocommerce TurboSMS"
+msgstr ""
+
+#: admin/partials/admin-content-settings.php:29
+msgid "General settings"
+msgstr "Основные настройки"
+
+#: admin/partials/admin-content-settings.php:39
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:6
+msgid "General Settings"
+msgstr "Основные Настройки"
+
+#: admin/partials/admin-content-settings.php:44
+msgid "TurboSMS Login"
+msgstr "Логин Турбо СМС"
+
+#: admin/partials/admin-content-settings.php:51
+msgid "Enter TurboSMS login"
+msgstr "Ввведите логин ТурбоСМС"
+
+#: admin/partials/admin-content-settings.php:60
+msgid "TurboSMS Password"
+msgstr "Пароль ТурбоСМС"
+
+#: admin/partials/admin-content-settings.php:67
+msgid "Enter TurboSMS password"
+msgstr "Введите пароль ТурбоСМС"
+
+#: admin/partials/admin-content-settings.php:79
+msgid "TurboSMS balance"
+msgstr "Баланс ТурбоСМС"
+
+#: admin/partials/admin-content-settings.php:101
+#: admin/partials/admin-content-settings.php:217
+msgid "Update"
+msgstr "Сохранить"
+
+#: admin/partials/admin-content-settings.php:109
+msgid "SMS Text Settings"
+msgstr "Настройки текста СМС"
+
+#: admin/partials/admin-content-settings.php:114
+msgid "New order"
+msgstr "Новый заказ"
+
+#: admin/partials/admin-content-settings.php:119
+msgid "Send SMS when order created"
+msgstr "Отправить СМС когда создан новый заказ"
+
+#: admin/partials/admin-content-settings.php:123
+#: admin/partials/admin-content-settings.php:167
+msgid "Yes"
+msgstr "Да"
+
+#: admin/partials/admin-content-settings.php:124
+#: admin/partials/admin-content-settings.php:168
+msgid "No"
+msgstr "Нет"
+
+#: admin/partials/admin-content-settings.php:131
+msgid "SMS Text for new order"
+msgstr "СМС Текст для нового заказа"
+
+#: admin/partials/admin-content-settings.php:158
+msgid "Order status"
+msgstr "Статус заказа"
+
+#: admin/partials/admin-content-settings.php:163
+msgid "Send SMS when order changed status to:"
+msgstr "Отправить СМС когда статус заказа изменен на:"
+
+#: admin/partials/admin-content-settings.php:175
+msgid "SMS Text when order status changed to:"
+msgstr "СМС Текст когда статус заказа изменен на:"
+
+#: admin/partials/admin-content-settings.php:192
+msgid "Available shortcodes"
+msgstr "Доступные шаблоны"
+
+#: admin/partials/admin-content-settings.php:196
+msgid "Order number"
+msgstr "Номер заказа"
+
+#: admin/partials/admin-content-settings.php:197
+msgid "Order created date"
+msgstr "Дата создания заказа"
+
+#: admin/partials/admin-content-settings.php:198
+msgid "Order total amount"
+msgstr "Сумма заказа"
+
+#: admin/partials/admin-content-settings.php:199
+msgid "Current order status"
+msgstr "Текущий статус заказа"
+
+#: admin/partials/admin-content-settings.php:200
+msgid "Old order status"
+msgstr "Предыдущий статус заказа"
+
+#: admin/partials/admin-content-settings.php:200
+msgid "(Only for changed status SMS)"
+msgstr "(Только для СМС когда статус изменен)"
+
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:16
+msgid "New order created"
+msgstr "Новый заказ создан"
+
+#: includes/lib/Woo_All_In_One_Turbosms_Helpers.php:31
+msgid "Your order #{{order_number}} status changed to {{order_status}}"
+msgstr "Статус Вашего заказ №{{order_number}} изменен на {{order_status}}"
+
+#. Name of the plugin
+msgid "Woo All In One Turbosms"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://synthetica.com.ua"
+msgstr "http://synthetica.com.ua"
+
+#. Author of the plugin
+msgid "Synthetica"
+msgstr "Synthetica"
