@@ -185,6 +185,8 @@ function wooaiocurrency_set_global_currency_rule($return = false) {
         $wooaiocurrency_rules['switcher'] = $switcher_rules;
     }
 
+    set_transient('wooaiodiscount_current_currency_hash', md5( wp_json_encode( $wooaiocurrency_rules ) ) );
+
     if ($return) {
         return $wooaiocurrency_rules;
     }
@@ -233,3 +235,11 @@ function is_cart_or_checkout() {
 
     return $id == $checkout_page_id || $id == $cart_page_id;
 }
+
+function wooaiocurrency_get_variation_prices_hash($price_hash, $product, $for_display) {
+    $current_user_hash = get_transient('wooaiodiscount_current_currency_hash');
+    $price_hash['wooaiodiscount_current_currency_hash'] = $current_user_hash;
+    return $price_hash;
+}
+
+add_filter('woocommerce_get_variation_prices_hash', 'wooaiocurrency_get_variation_prices_hash', 1000, 3);

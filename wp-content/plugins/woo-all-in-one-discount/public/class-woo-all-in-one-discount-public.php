@@ -217,6 +217,10 @@ class Woo_All_In_One_Discount_Public {
                 $wooaiodiscount_current_user_rule = $role_users_rule;
             }
         }
+
+        //md5( wp_json_encode( apply_filters( 'woocommerce_get_variation_prices_hash', $price_hash, $product, $for_display ) ) );
+
+        set_transient('wooaiodiscount_current_user_rule_hash', md5( wp_json_encode( $wooaiodiscount_current_user_rule ) ) );
     }
 
     public function set_woocommerce_filters() {
@@ -229,7 +233,7 @@ class Woo_All_In_One_Discount_Public {
         }
 
         // Set base price according to current user rules
-        wooaiodiscount_set_discount_rules();
+         wooaiodiscount_set_discount_rules();
 
         // Set Base HTML Price
         add_filter('woocommerce_get_price_html', 'wooaiodiscount_get_price_html', 1000, 2);

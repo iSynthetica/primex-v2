@@ -3,28 +3,65 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function wooaiodiscount_product_discount_price($product_price, $product, $rule_type = 'base_discount') {
     global $wooaiodiscount_current_user_rule;
+    global $wooaiodiscount_current_user_rule_products;
+
+    if (empty($wooaiodiscount_current_user_rule_products)) {
+        $wooaiodiscount_current_user_rule_products = array();
+    }
+
     $discount = 0;
+    $before_discount = 0;
+
     $all_products_discount = null;
     $category_discount = null;
     $product_discount = null;
     $discount_type = 'extra_charge';
+
+    $all_products_before_discount = null;
+    $category_before_discount = null;
+    $product_before_discount = null;
+    $before_discount_type = 'extra_charge';
+
     $product_type = $product->get_type();
 
     if ('variation' === $product_type) {
         $_product = wc_get_product( $product->get_parent_id() );
+        $saved_product_id = $product->get_id();
         $product_id = $_product->get_id();
     } else {
         $product_id = $product->get_id();
+        $saved_product_id = $product_id;
     }
 
+    if (!empty($wooaiodiscount_current_user_rule_products[$saved_product_id])) {
+        $product_prices = $wooaiodiscount_current_user_rule_products[$saved_product_id];
+
+        if ($rule_type === 'base_discount') {
+            if (!empty($product_prices['discount_price'])) {
+                return $product_prices['discount_price'];
+            }
+        } else {
+            if (!empty($product_prices['before_discount_price'])) {
+                return $product_prices['before_discount_price'];
+            }
+        }
+    } else {
+        $product_prices = array(
+            'discount_price' => '',
+            'before_discount_price' => '',
+            'discount_amount' => '',
+            'discount_percent' => '',
+        );
+    }
 
     $rule = $wooaiodiscount_current_user_rule;
     $product_cats_ids = wc_get_product_term_ids( $product_id, 'product_cat' );
 
-    if (!empty($rule[$rule_type]['discount'])) {
-        $discount_type = $rule[$rule_type]["type"];
+    // Calculate discount
+    if (!empty($rule['base_discount']['discount'])) {
+        $discount_type = $rule['base_discount']["type"];
 
-        foreach ($rule[$rule_type]['discount'] as $discount_rule) {
+        foreach ($rule['base_discount']['discount'] as $discount_rule) {
             if ($discount_rule['apply'] === 'all_products') {
                 $all_products_discount = $discount_rule['amount'];
             } elseif ($discount_rule['apply'] === 'by_categories') {
@@ -50,9 +87,72 @@ function wooaiodiscount_product_discount_price($product_price, $product, $rule_t
     }
 
     if ('extra_charge' === $discount_type) {
-        $product_price = $product_price + ($product_price * ($discount / 100));
+        $product_discount_price = $product_price + ($product_price * ($discount / 100));
     } else {
-        $product_price = $product_price - ($product_price * ($discount / 100));
+        $product_discount_price = $product_price - ($product_price * ($discount / 100));
+    }
+
+    $product_discount_price = ceil($product_discount_price);
+
+    $product_prices['discount_price'] = $product_discount_price;
+
+    // Calculate before discount
+    if (!empty($rule['before_discount']['discount'])) {
+        $before_discount_type = $rule['before_discount']["type"];
+
+        foreach ($rule['before_discount']['discount'] as $discount_rule) {
+            if ($discount_rule['apply'] === 'all_products') {
+                $all_products_before_discount = $discount_rule['amount'];
+            } elseif ($discount_rule['apply'] === 'by_categories') {
+
+            } elseif ($discount_rule['apply'] === 'separate_products') {
+                if (in_array($product_id, $discount_rule['products'])) {
+                    $product_before_discount = $discount_rule['amount'];
+                }
+            }
+        }
+    }
+
+    if (null !==  $all_products_before_discount) {
+        $before_discount = $all_products_before_discount;
+    }
+
+    if (null !==  $category_before_discount) {
+        $before_discount = $category_before_discount;
+    }
+
+    if (null !==  $product_before_discount) {
+        $before_discount = $product_before_discount;
+    }
+
+    if ('extra_charge' === $before_discount_type) {
+        $product_before_discount_price = $product_price + ($product_price * ($before_discount / 100));
+    } else {
+        $product_before_discount_price = $product_price - ($product_price * ($before_discount / 100));
+    }
+
+    $product_before_discount_price = ceil($product_before_discount_price);
+
+    $product_prices['before_discount_price'] = $product_before_discount_price;
+
+    $discount_amount = $product_before_discount_price - $product_discount_price;
+
+    if (0 > $discount_amount) { // extra charge
+        $discount_amount = -1 * $discount_amount;
+        $discount_percent = ($discount_amount / $product_discount_price) * 100;
+    } else { // discount
+        $discount_percent = ($discount_amount / $product_before_discount_price) * 100;
+    }
+
+    $product_prices['discount_amount'] = $discount_amount;
+    $product_prices['discount_percent'] = ceil($discount_percent);
+
+    $wooaiodiscount_current_user_rule_products[$saved_product_id] = $product_prices;
+
+    if ('base_discount' === $rule_type) {
+        $product_price = $product_discount_price;
+    } else {
+        $product_price = $product_before_discount_price;
     }
 
     return $product_price;
@@ -100,12 +200,14 @@ function wooaiodiscount_product_variation_get_price($price, $product) {
     return wooaiodiscount_product_discount_price($price, $product);
 }
 
-function wooaiodiscount_variation_prices_price($price, $product) {
+function wooaiodiscount_variation_prices_price($price, $variation, $product) {
     if (!$price) {
         return $price;
     }
 
-    return wooaiodiscount_product_discount_price($price, $product);
+    wc_delete_product_transients($variation->get_id());
+
+    return wooaiodiscount_product_discount_price($price, $variation);
 }
 
 function wooaiodiscount_reset_discount_rules() {
@@ -155,12 +257,14 @@ function wooaiodiscount_product_variation_get_before_discount_price($price, $pro
     return wooaiodiscount_product_discount_price($price, $product, 'before_discount');
 }
 
-function wooaiodiscount_variation_prices_before_discount_price($price, $product) {
+function wooaiodiscount_variation_prices_before_discount_price($price, $variation, $product) {
     if (!$price) {
         return $price;
     }
 
-    return wooaiodiscount_product_discount_price($price, $product, 'before_discount');
+    wc_delete_product_transients($variation->get_id());
+
+    return wooaiodiscount_product_discount_price($price, $variation, 'before_discount');
 }
 
 /**
@@ -370,19 +474,13 @@ function wooaiodiscount_get_price_html($price, $product) {
 
     if ('grouped' === $product_type) {
         $basic_price = $label . wooaiodiscount_grouped_get_price_html( $product );
-
-        return $basic_price;
     } elseif ('variable' === $product_type) {
         $basic_price = $label .wooaiodiscount_variable_get_price_html( $product );
-
-        return $basic_price;
     } else {
         $basic_price = $label . wooaiodiscount_simple_get_price_html( $product );
-
-        return $basic_price;
     }
 
-    return $price;
+    return $basic_price;
 }
 
 function wooaiodiscount_get_before_discount_price_html($price, $product) {
@@ -422,3 +520,12 @@ function wooaiodiscount_get_after_price_html($product) {
 
     return "";
 }
+
+// $price_hash, $product, $for_display
+
+function wooaiodiscount_get_variation_prices_hash($price_hash, $product, $for_display) {
+    $current_user_hash = get_transient('wooaiodiscount_current_user_rule_hash');
+    $price_hash['wooaiodiscount_current_user_rule_hash'] = $current_user_hash;
+    return $price_hash;
+}
+add_filter('woocommerce_get_variation_prices_hash', 'wooaiodiscount_get_variation_prices_hash', 1000, 3);

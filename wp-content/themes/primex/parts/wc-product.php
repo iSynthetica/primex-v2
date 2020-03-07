@@ -1,4 +1,6 @@
 <?php
+$start = time();
+error_log('Start: ' . $start);
 $layout = 'right-sidebar';
 $subtitle = !empty($subtitle) ? $subtitle : '';
 ?>
@@ -48,3 +50,11 @@ $subtitle = !empty($subtitle) ? $subtitle : '';
         </div>
     </div>
 </section>
+<?php
+
+$end = time();
+error_log('End: ' . $end);
+$duration = $end - $start;
+
+error_log('Duration: ' . $duration);
+?>
