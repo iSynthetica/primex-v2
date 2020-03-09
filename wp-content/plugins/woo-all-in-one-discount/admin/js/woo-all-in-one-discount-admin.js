@@ -101,6 +101,23 @@
 		ajaxRequest(data);
 	});
 
+	/**
+	 * Currency rule for discount
+	 */
+	$(document.body).on('click', ".copy-discount-currency-rate", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var currencyCode = btn.data('currency-code');
+
+		var data = {
+			id: id,
+			currencyCode: currencyCode,
+			action: 'wooaiodiscount_copy_discount_currency_rate'
+		};
+
+		ajaxRequest(data);
+	});
+
 	$(document.body).on('click', ".delete-discount-amount", function(e) {
 		var btn = $(this);
 		var item = btn.parents('.wooaio-discount-amount-item');

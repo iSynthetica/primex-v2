@@ -296,6 +296,58 @@ class Woo_All_In_One_Discount_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
+    /**
+     * Copy and save discount currency settings from currency settings
+     */
+    public function copy_discount_currency_rate() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+        $currencyCode = !empty($_POST['currencyCode']) ? sanitize_text_field($_POST['currencyCode']) : false;
+
+        if (empty($id) || empty($currencyCode)) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+
+        if (empty($currency_rules[$currencyCode])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $currency_rule = $currency_rules[$currencyCode];
+
+        $discount_rule[$currencyCode] = array(
+            'rates' => array(),
+            'categories' => array(),
+            'products' => array(),
+        );
+
+        if (empty($currency_rule['rates'])) {
+            $response = array('message' => __('No rates set up for this currency', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $discount_rule[$currencyCode]['rates'] = $currency_rule['rates'];
+
+        if (!empty($currency_rule['categories'])) {
+            $discount_rule[$currencyCode]['categories'] = $currency_rule['categories'];
+        }
+
+        if (!empty($currency_rule['products'])) {
+            $discount_rule[$currencyCode]['products'] = $currency_rule['products'];
+        }
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'currency', $discount_rule);
+
+        $response = array('message' => __('User discount rule updated', 'woo-all-in-one-discount'), 'reload' => 1);
+
+        wooaio_ajax_response('error', $response);
+    }
+
     public function create_user_discount_rule() {
         if (empty($_POST['formData']) || !is_array($_POST['formData'])) {
             $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));

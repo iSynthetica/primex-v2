@@ -70,6 +70,8 @@ class Woo_All_In_One_Discount_Rules {
         switch ($setting) {
             case 'general':
                 return self::update_general_product_discount($id, $data);
+            case 'currency':
+                return self::update_currency_product_discount($id, $data);
             case 'discounts':
                 return self::update_amount_product_discount($id, $data);
             case 'products':
@@ -118,6 +120,30 @@ class Woo_All_In_One_Discount_Rules {
         );
 
         $product_discount_rule['discounts'] = $data;
+
+        $product_discount_rules[$id] = $product_discount_rule;
+
+        update_option('wooaio_product_discount_rules', $product_discount_rules);
+
+        return $result;
+    }
+
+    public static function update_currency_product_discount($id, $data) {
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+
+        $result = array(
+            'error' => '',
+            'id' => $id
+        );
+
+        $product_discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
+
+        foreach ($data as $currency_code => $rule) {
+            $product_discount_currency_rule[$currency_code] = $rule;
+        }
+
+        $product_discount_rule['currency'] = $product_discount_currency_rule;
 
         $product_discount_rules[$id] = $product_discount_rule;
 

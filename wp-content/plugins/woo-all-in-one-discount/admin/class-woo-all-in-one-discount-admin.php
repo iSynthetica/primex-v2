@@ -61,6 +61,10 @@ class Woo_All_In_One_Discount_Admin {
 	 */
 	public function enqueue_styles() {
 	    if (!empty($_GET['page']) && 'wooaiodiscount' === $_GET['page']) {
+
+            if (!function_exists('run_woo_all_in_one')) {
+                wp_enqueue_style( $this->plugin_name . '-grid', plugin_dir_url( __FILE__ ) . 'css/wooaio-flexboxgrid.css', array(), '0.6.3', 'all' );
+            }
             wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-all-in-one-discount-admin.css', array(), $this->version, 'all' );
         }
 	}

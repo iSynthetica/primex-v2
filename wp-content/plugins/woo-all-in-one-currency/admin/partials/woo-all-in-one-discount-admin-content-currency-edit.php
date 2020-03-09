@@ -15,6 +15,8 @@ if (empty($current_currency_rule)) {
 
     return;
 }
+
+var_dump($current_currency_rule);
 ?>
 <h3 class="wp-heading-inline">
     <?php _e('Currency Rule Edit', 'woo-all-in-one-currency'); ?>: <?php echo $current_currency_rule['title']; ?>

@@ -11,6 +11,8 @@ if (!empty($discount_rules[$discount_id])) {
     $discount_rule = $discount_rules[$discount_id];
 }
 
+var_dump($discount_rule);
+
 if (!$discount_rule) {
     ?>
     <h3 class="wp-heading-inline">
@@ -132,9 +134,87 @@ if (!$discount_rule) {
 
     <?php
     if (function_exists('run_woo_all_in_one_currency')) {
+        $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
+        $discount_rule_currency = !empty($discount_rule['currency']) ? $discount_rule['currency'] : array();
         ?>
         <div id="before_discount-settings-container" class="postbox">
             <h2 class="hndle ui-sortable-handle"><span><?php _e('Multicurrency rule', 'woo-all-in-one-discount'); ?></span></h2>
+
+            <div class="inside">
+                <?php
+                if (!empty($currency_rules)) {
+                    ?>
+                    <form id="general_product_discount_currency_settings">
+                        <?php
+                        foreach ($currency_rules as $currency_code => $currency_rule) {
+                            $current_currency_rule = !empty($discount_rule_currency[$currency_code]) ? $discount_rule_currency[$currency_code] : array('rates' => array(), 'categories' => array(), 'products' => array());
+                            ?>
+                            <div id="wooaio-discount-currency-item-<?php echo $currency_code; ?>" class="wooaio-discount-currency-item">
+                                <div class="wooaio-row">
+                                    <div class="wooaio-col-xs-12 wooaio-col-sm-5 wooaio-col-md-3">
+                                        <h3><?php echo $currency_rule['title']; ?> (<?php echo $currency_code; ?>)</h3>
+                                        <?php
+                                        if (!empty($currency_rule['main'])) {
+                                            ?>
+                                            <p>
+                                                <strong><?php _e('Main site currency', 'woo-all-in-one-discount'); ?></strong>
+                                            </p>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+
+                                    <div class="wooaio-col-xs-12 wooaio-col-sm-7 wooaio-col-md-9">
+                                        <div id="wooaio-discount-currency-item-<?php echo $currency_code; ?>-rates">
+                                            <?php
+                                            var_dump($currency_rule);
+
+                                            $i = 0;
+
+                                            if (!empty($current_currency_rule['rates'])) {
+                                                foreach ($current_currency_rule['rates'] as $currency_rule_rate) {
+                                                    // wooaiocurrency_currency_rate_item( $currency_id, $i, $categories, $products, $currency_rule );
+                                                    $i++;
+                                                }
+                                            }
+                                            ?>
+
+                                            <div id="wooaio-discount-currency-item-action">
+                                                <div class="wooaio-row">
+                                                    <div class="wooaio-col-xs-12">
+                                                        <button
+                                                                id="add-discount-currency-rate-<?php echo $currency_code ?>"
+                                                                data-index="<?php echo $i; ?>"
+                                                                data-id="<?php echo $discount_id ?>"
+                                                                data-currency-code="<?php echo $currency_code ?>"
+                                                                class="button button-primary add-discount-currency-rate"
+                                                                type="button"
+                                                        ><?php _e('Add currency rate', 'woo-all-in-one-currency'); ?></button>
+
+                                                        <button
+                                                                id="copy-discount-currency-rate"
+                                                                data-index="<?php echo $i; ?>"
+                                                                data-id="<?php echo $discount_id ?>"
+                                                                data-currency-code="<?php echo $currency_code ?>"
+                                                                class="button button-primary copy-discount-currency-rate"
+                                                                type="button"
+                                                        ><?php _e('Copy from currency', 'woo-all-in-one-currency'); ?></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+
+                        }
+                        ?>
+                    </form>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
         <?php
     }
