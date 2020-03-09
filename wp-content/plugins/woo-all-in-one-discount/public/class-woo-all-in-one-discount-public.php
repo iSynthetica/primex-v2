@@ -109,6 +109,7 @@ class Woo_All_In_One_Discount_Public {
         global $wooaiodiscount_product_rules;
         global $wooaiodiscount_user_rules;
         global $wooaiodiscount_current_user_rule;
+        global $wooaiodiscount_current_discount_rule_id;
 
         $wooaiodiscount_product_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
         $wooaiodiscount_user_rules = Woo_All_In_One_Discount_Rules::get_user_discounts();
@@ -217,6 +218,8 @@ class Woo_All_In_One_Discount_Public {
                 $wooaiodiscount_current_user_rule = $role_users_rule;
             }
         }
+
+        $wooaiodiscount_current_discount_rule_id = !empty($wooaiodiscount_current_user_rule["base_discount"]["discount_id"]) ? $wooaiodiscount_current_user_rule["base_discount"]["discount_id"] : '';
 
         //md5( wp_json_encode( apply_filters( 'woocommerce_get_variation_prices_hash', $price_hash, $product, $for_display ) ) );
 

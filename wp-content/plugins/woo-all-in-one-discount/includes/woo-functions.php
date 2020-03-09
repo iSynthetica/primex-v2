@@ -4,6 +4,23 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function wooaiodiscount_product_discount_price($product_price, $product, $rule_type = 'base_discount') {
     global $wooaiodiscount_current_user_rule;
     global $wooaiodiscount_current_user_rule_products;
+    global $wooaiodiscount_product_rules;
+    global $wooaiodiscount_current_discount_rule_id;
+
+    if (function_exists('run_woo_all_in_one_currency')) {
+        wooaiocurrency_reset_currency_rules();
+
+        $base_discount_id = !empty($wooaiodiscount_current_user_rule["base_discount"]["discount_id"]) ? $wooaiodiscount_current_user_rule["base_discount"]["discount_id"] : false;
+        $before_discount_id = !empty($wooaiodiscount_current_user_rule["before_discount"]["discount_id"]) ? $wooaiodiscount_current_user_rule["before_discount"]["discount_id"] : false;
+
+        if (!empty($base_discount_id)) {
+            $base_discount_currency = !empty($wooaiodiscount_product_rules[$base_discount_id]["currency"]) ? $wooaiodiscount_product_rules[$base_discount_id]["currency"] : false;
+        }
+
+        if (!empty($before_discount_id)) {
+            $before_discount_currency = !empty($wooaiodiscount_product_rules[$before_discount_id]["currency"]) ? $wooaiodiscount_product_rules[$before_discount_id]["currency"] : false;
+        }
+    }
 
     if (empty($wooaiodiscount_current_user_rule_products)) {
         $wooaiodiscount_current_user_rule_products = array();
@@ -92,6 +109,22 @@ function wooaiodiscount_product_discount_price($product_price, $product, $rule_t
         $product_discount_price = $product_price - ($product_price * ($discount / 100));
     }
 
+    if (function_exists('run_woo_all_in_one_currency')) {
+        global $wooaiocurrency_rules;
+        $temp_currency_rule = $wooaiocurrency_rules;
+
+        if (!empty($base_discount_currency)) {
+            $current_currency_code = $wooaiocurrency_rules['current_currency_code'];
+
+            if (!empty($base_discount_currency[$current_currency_code])) {
+                $wooaiocurrency_rules['current_currency_rule']['rates'] = $base_discount_currency[$current_currency_code]['rates'];
+            }
+        }
+
+        $product_discount_price = wooaiocurrency_price($product_discount_price, $product);
+        $wooaiocurrency_rules = $temp_currency_rule;
+    }
+
     $product_discount_price = ceil($product_discount_price);
 
     $product_prices['discount_price'] = $product_discount_price;
@@ -129,6 +162,22 @@ function wooaiodiscount_product_discount_price($product_price, $product, $rule_t
         $product_before_discount_price = $product_price + ($product_price * ($before_discount / 100));
     } else {
         $product_before_discount_price = $product_price - ($product_price * ($before_discount / 100));
+    }
+
+    if (function_exists('run_woo_all_in_one_currency')) {
+        global $wooaiocurrency_rules;
+        $temp_currency_rule = $wooaiocurrency_rules;
+
+        if (!empty($before_discount_currency)) {
+            $current_currency_code = $wooaiocurrency_rules['current_currency_code'];
+
+            if (!empty($before_discount_currency[$current_currency_code])) {
+                $wooaiocurrency_rules['current_currency_rule']['rates'] = $before_discount_currency[$current_currency_code]['rates'];
+            }
+        }
+
+        $product_before_discount_price = wooaiocurrency_price($product_before_discount_price, $product);
+        $wooaiocurrency_rules = $temp_currency_rule;
     }
 
     $product_before_discount_price = ceil($product_before_discount_price);

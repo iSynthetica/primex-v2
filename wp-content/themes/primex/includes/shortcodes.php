@@ -83,16 +83,15 @@ function snth_cart_icon() {
                 <?php
                 foreach( $cart as $cart_item_key => $cart_item ){
                     // var_dump($cart_item);
-                    $product = wc_get_product( $cart_item['product_id'] );
+                    $product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                     ?>
                     <div class="top-cart-item clearfix">
                         <div class="top-cart-item-image">
                             <a href="<?php echo get_permalink( $product->get_id() ); ?>">
                                 <img
                                         class="image_fade"
-                                        src="<?php echo SNTH_IMAGES_URL . '/blank.svg'; ?>"
+                                        src="<?php echo get_the_post_thumbnail_url( $product->get_id(), 'thumbnail' ); ?>"
                                         alt="<?php echo $product->get_name(); ?>"
-                                        data-lazyload="<?php echo get_the_post_thumbnail_url( $product->get_id(), 'thumbnail' ); ?>"
                                 >
                             </a>
                         </div>

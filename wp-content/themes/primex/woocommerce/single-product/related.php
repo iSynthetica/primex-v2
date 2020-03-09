@@ -19,6 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+return;
+
 if ( $related_products ) : ?>
 
     <div class="clear"></div><div class="line"></div>
