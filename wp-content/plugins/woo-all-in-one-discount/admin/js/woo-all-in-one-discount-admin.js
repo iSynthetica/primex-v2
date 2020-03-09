@@ -104,6 +104,128 @@
 	/**
 	 * Currency rule for discount
 	 */
+	$(document.body).on('click', ".add-discount-currency-rate", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var currencyCode = btn.data('currency-code');
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+
+		var data = {
+			id: id,
+			currencyCode: currencyCode,
+			action: 'wooaiodiscount_add_discount_currency_rate'
+		};
+
+		ajaxRequest(data, function(decoded) {
+			if (decoded.template) {
+				var template = $(decoded.template);
+
+				var actionContainer = btn.parents('.wooaio-discount-currency-item-action');
+				actionContainer.hide();
+
+				var editBtns = $('.currency-rate-item-edit');
+				var deleteBtns = $('.currency-rate-item-change-delete');
+
+				if (editBtns.length) {
+					editBtns.each(function() {
+						$(this).attr('disabled', true);
+					});
+				}
+
+				if (deleteBtns.length) {
+					deleteBtns.each(function() {
+						$(this).attr('disabled', true);
+					});
+				}
+
+				// $('#currency_rate_set_action').hide();
+				currencyContainer.find('.wooaio-discount-currency-rate-items').append(template);
+			}
+		});
+	});
+
+	$(document.body).on('click', ".currency-rate-item-create, .currency-rate-item-update", function(e) {
+		var btn = $(this);
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+		var id = currencyContainer.data('id');
+		var currencyCode = currencyContainer.data('currency-code');
+		var formData = btn.parents('.general_product_discount_currency_settings-form').serialize();
+
+		var data = {
+			id: id,
+			currencyCode: currencyCode,
+			formData: formData,
+			action: 'wooaiodiscount_create_discount_currency_rate'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".currency-rate-item-cancel", function(e) {
+		var btn = $(this);
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+		var currencyRateContainer = btn.parents('.wooaio-currency-rate-item');
+		currencyRateContainer.remove();
+
+		var editBtns = $('.currency-rate-item-edit');
+		var deleteBtns = $('.currency-rate-item-change-delete');
+
+		if (editBtns.length) {
+			editBtns.each(function() {
+				$(this).attr('disabled', false);
+			});
+		}
+
+		if (deleteBtns.length) {
+			deleteBtns.each(function() {
+				$(this).attr('disabled', false);
+			});
+		}
+
+		var actionContainer = currencyContainer.find('.wooaio-discount-currency-item-action');
+		actionContainer.show();
+	});
+
+	$(document.body).on('click', ".currency-rate-item-change-delete", function(e) {
+		var btn = $(this);
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+		var currencyRateContainer = btn.parents('.wooaio-currency-rate-item');
+		var id = currencyContainer.data('id');
+		var currencyCode = currencyContainer.data('currency-code');
+
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			currencyRateContainer.remove();
+
+			var formData = $('#general_product_discount_currency_settings-form-' + currencyCode).serialize();
+
+			var data = {
+				id: id,
+				currencyCode: currencyCode,
+				formData: formData,
+				action: 'wooaiodiscount_create_discount_currency_rate'
+			};
+
+			ajaxRequest(data);
+		}
+	});
+
+	$(document.body).on('change', ".apply_for_radio", function(e) {
+		var radio = $(this);
+		var item = radio.parents('.wooaio-currency-item');
+		var selected = item.find('.apply_for_radio:checked').val();
+		var applyByContainer = item.find('.apply_by_container');
+		applyByContainer.removeClass('apply_for_specified_categories').removeClass('apply_for_specified_products');
+
+		if (selected == 'specified_categories') {
+			applyByContainer.addClass('apply_for_specified_categories');
+		} else if(selected == 'specified_products') {
+			applyByContainer.addClass('apply_for_specified_products');
+		}
+	});
+
 	$(document.body).on('click', ".copy-discount-currency-rate", function(e) {
 		var btn = $(this);
 		var id = btn.data('id');
@@ -116,6 +238,38 @@
 		};
 
 		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".delete-discount-currency-rate", function(e) {
+		var btn = $(this);
+		var id = btn.data('id');
+		var currencyCode = btn.data('currency-code');
+
+		var data = {
+			id: id,
+			currencyCode: currencyCode,
+			action: 'wooaiodiscount_delete_discount_currency_rate'
+		};
+
+		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".wooaio-discount-currency-item .currency-rate-item-edit", function(e) {
+		var btn = $(this);
+		var itemContainer = btn.parents('.wooaio-currency-rate-item');
+		itemContainer.removeClass('summary-view-item').addClass('edit-view-item');
+
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+		currencyContainer.find('.wooaio-discount-currency-item-action').hide();
+	});
+
+	$(document.body).on('click', ".wooaio-discount-currency-item .currency-rate-item-change-cancel", function(e) {
+		var btn = $(this);
+		var itemContainer = btn.parents('.wooaio-currency-rate-item');
+		itemContainer.removeClass('edit-view-item').addClass('summary-view-item');
+
+		var currencyContainer = btn.parents('.wooaio-discount-currency-item');
+		currencyContainer.find('.wooaio-discount-currency-item-action').show();
 	});
 
 	$(document.body).on('click', ".delete-discount-amount", function(e) {

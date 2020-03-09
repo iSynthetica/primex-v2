@@ -221,7 +221,7 @@ function wooaiocurrency_products_tree( $i, $product, $rule_products, $rule ) {
     $product_type = $product->get_type();
 
     if ('grouped' !== $product_type) {
-        if (!empty($rule["apply"]) && $rule["apply"] !== 'separate_products') {
+        if (!empty($rule["apply"]) && $rule["apply"] !== 'specified_products') {
             if (!in_array($product_id, $rule_products)) {
                 ?>
                 <li>

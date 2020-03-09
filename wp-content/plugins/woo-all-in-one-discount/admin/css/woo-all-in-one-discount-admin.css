@@ -115,3 +115,36 @@
     margin-bottom: 3px;
     padding: 3px 0;
 }
+
+.wooaio-currency-rate-item.summary-view-item .summary-container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.summary-view-item .edited-container{
+    display: none;
+}
+
+.wooaio-currency-rate-item.summary-view-item .currency-rate-item-update,
+.wooaio-currency-rate-item.summary-view-item .currency-rate-item-change-cancel {
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.edit-view-item .summary-container{
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .currency-rate-item-edit{
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container.apply_for_specified_categories .specified_categories_container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container.apply_for_specified_products .specified_products_container{
+    display: block;
+}

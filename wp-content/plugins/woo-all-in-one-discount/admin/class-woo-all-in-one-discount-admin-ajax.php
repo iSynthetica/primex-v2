@@ -299,6 +299,111 @@ class Woo_All_In_One_Discount_Admin_Ajax {
     /**
      * Copy and save discount currency settings from currency settings
      */
+    public function add_discount_currency_rate() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+        $currencyCode = !empty($_POST['currencyCode']) ? sanitize_text_field($_POST['currencyCode']) : false;
+
+        if (empty($id) || empty($currencyCode)) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+        $discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
+
+        if (empty($discount_currency_rule) || empty($discount_currency_rule[$currencyCode])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $current_currency_rule = $discount_currency_rule[$currencyCode];
+        $count_rates = count($current_currency_rule['rates']);
+        $categories = Woo_All_In_One_Currency_Helpers::get_product_categories_tree();
+        $products = Woo_All_In_One_Currency_Helpers::get_products_tree();
+
+        ob_start();
+        wooaiodiscount_currency_rate_item( $currencyCode, $count_rates, $categories, $products, array(), $discount_currency_rule );
+        $template = ob_get_clean();
+
+        $response = array('template' => $template);
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function create_discount_currency_rate() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+        $currencyCode = !empty($_POST['currencyCode']) ? sanitize_text_field($_POST['currencyCode']) : false;
+
+        if (empty($id) || empty($currencyCode)) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        if (empty($_POST['formData'])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-currency'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        parse_str($_POST['formData'], $form_data);
+
+        $data = array();
+        $products = array();
+        $categories = array();
+
+        foreach ($form_data as $form_data_field => $form_data_values) {
+            foreach ($form_data_values as $index => $value) {
+                $data[$index][$form_data_field] = $value;
+            }
+        }
+
+        foreach ($data as $data_settings) {
+            if (empty($data_settings['rate'])) {
+                $response = array('message' => __('Set currency rate amount!', 'woo-all-in-one-currency'));
+                wooaio_ajax_response('error', $response);
+            }
+
+            if ('specified_categories' === $data_settings["apply"]) {
+                if (empty($data_settings["categories"])) {
+                    $response = array('message' => __('Select at least one category!', 'woo-all-in-one-currency'));
+                    wooaio_ajax_response('error', $response);
+                }
+
+                $categories = array_merge($categories, $data_settings["categories"]);
+            }
+
+            if ('specified_products' === $data_settings["apply"]) {
+                if (empty($data_settings["products"])) {
+                    $response = array('message' => __('Select at least one product!', 'woo-all-in-one-currency'));
+                    wooaio_ajax_response('error', $response);
+                }
+
+                $products = array_merge($products, $data_settings["products"]);
+            }
+        }
+
+        $discount_rule = array(
+            'rates' => $data,
+            'categories' => array_unique($categories),
+            'products' => array_unique($products),
+        );
+
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+        $discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
+        $discount_currency_rule[$currencyCode] = $discount_rule;
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'currency', $discount_currency_rule);
+
+        $response = array('message' => __('User discount rule updated', 'woo-all-in-one-discount'), 'reload' => 1);
+
+        wooaio_ajax_response('success', $response);
+    }
+
     public function copy_discount_currency_rate() {
         $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
         $currencyCode = !empty($_POST['currencyCode']) ? sanitize_text_field($_POST['currencyCode']) : false;
@@ -319,7 +424,7 @@ class Woo_All_In_One_Discount_Admin_Ajax {
 
         $currency_rule = $currency_rules[$currencyCode];
 
-        $discount_rule[$currencyCode] = array(
+        $discount_rule = array(
             'rates' => array(),
             'categories' => array(),
             'products' => array(),
@@ -331,17 +436,51 @@ class Woo_All_In_One_Discount_Admin_Ajax {
             wooaio_ajax_response('error', $response);
         }
 
-        $discount_rule[$currencyCode]['rates'] = $currency_rule['rates'];
+        $discount_rule['rates'] = $currency_rule['rates'];
 
         if (!empty($currency_rule['categories'])) {
-            $discount_rule[$currencyCode]['categories'] = $currency_rule['categories'];
+            $discount_rule['categories'] = $currency_rule['categories'];
         }
 
         if (!empty($currency_rule['products'])) {
-            $discount_rule[$currencyCode]['products'] = $currency_rule['products'];
+            $discount_rule['products'] = $currency_rule['products'];
         }
 
-        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'currency', $discount_rule);
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+        $discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
+        $discount_currency_rule[$currencyCode] = $discount_rule;
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'currency', $discount_currency_rule);
+
+        $response = array('message' => __('User discount rule updated', 'woo-all-in-one-discount'), 'reload' => 1);
+
+        wooaio_ajax_response('success', $response);
+    }
+
+    public function delete_discount_currency_rate() {
+        $id = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
+        $currencyCode = !empty($_POST['currencyCode']) ? sanitize_text_field($_POST['currencyCode']) : false;
+
+        if (empty($id) || empty($currencyCode)) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        $product_discount_rules = Woo_All_In_One_Discount_Rules::get_product_discounts();
+        $product_discount_rule = $product_discount_rules[$id];
+        $discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
+
+        if (empty($discount_currency_rule) || empty($discount_currency_rule[$currencyCode])) {
+            $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-discount'));
+
+            wooaio_ajax_response('error', $response);
+        }
+
+        unset($discount_currency_rule[$currencyCode]);
+
+        $update = Woo_All_In_One_Discount_Rules::update_product_discount($id, 'currency', $discount_currency_rule);
 
         $response = array('message' => __('User discount rule updated', 'woo-all-in-one-discount'), 'reload' => 1);
 

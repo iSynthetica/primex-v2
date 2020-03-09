@@ -137,13 +137,7 @@ class Woo_All_In_One_Discount_Rules {
             'id' => $id
         );
 
-        $product_discount_currency_rule = !empty($product_discount_rule['currency']) ? $product_discount_rule['currency'] : array();
-
-        foreach ($data as $currency_code => $rule) {
-            $product_discount_currency_rule[$currency_code] = $rule;
-        }
-
-        $product_discount_rule['currency'] = $product_discount_currency_rule;
+        $product_discount_rule['currency'] = $data;
 
         $product_discount_rules[$id] = $product_discount_rule;
 

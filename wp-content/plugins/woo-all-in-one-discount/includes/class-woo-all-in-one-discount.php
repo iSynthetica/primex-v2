@@ -180,7 +180,10 @@ class Woo_All_In_One_Discount {
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_update_user_discount_rule', $plugin_admin_ajax, 'update_user_discount_rule' );
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_user_discount_rule', $plugin_admin_ajax, 'delete_user_discount_rule' );
 
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_add_discount_currency_rate', $plugin_admin_ajax, 'add_discount_currency_rate' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_create_discount_currency_rate', $plugin_admin_ajax, 'create_discount_currency_rate' );
         $this->loader->add_action( 'wp_ajax_wooaiodiscount_copy_discount_currency_rate', $plugin_admin_ajax, 'copy_discount_currency_rate' );
+        $this->loader->add_action( 'wp_ajax_wooaiodiscount_delete_discount_currency_rate', $plugin_admin_ajax, 'delete_discount_currency_rate' );
 
 	}
 
