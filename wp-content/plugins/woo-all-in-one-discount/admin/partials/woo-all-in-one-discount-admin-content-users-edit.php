@@ -10,7 +10,7 @@ if (!empty($users_rules[$discount_id])) {
     $discount_rule = $users_rules[$discount_id];
 }
 
-var_dump($discount_rule);
+// var_dump($discount_rule);
 
 if (!$discount_rule) {
     ?>

@@ -94,6 +94,9 @@
 		});
 	});
 
+	/**
+	 * Page for editing one currency rates
+	 */
 	$(document.body).on('click', ".currency-rate-item-cancel", function(e) {
 		var btn = $(this);
 		var parent = btn.parents('.wooaio-currency-item');
@@ -137,12 +140,32 @@
 
 	$(document.body).on('click', ".currency-rate-item-create, .currency-rate-item-update", function(e) {
 		var formData = $("#wooaio-currency-rate-settings").serialize();
+
 		var data = {
 			formData: formData,
 			action: 'wooaiocurrency_create_currency_rate'
 		};
 
 		ajaxRequest(data);
+	});
+
+	$(document.body).on('click', ".currency-rate-item-change-delete", function(e) {
+		var btn = $(this);
+		var sureMessage = btn.data('confirm');
+		var sure = confirm(sureMessage);
+
+		if (sure) {
+			var parent_item = btn.parents('.wooaio-currency-item');
+			parent_item.remove();
+			var formData = $("#wooaio-currency-rate-settings").serialize();
+
+			var data = {
+				formData: formData,
+				action: 'wooaiocurrency_create_currency_rate'
+			};
+
+			ajaxRequest(data);
+		}
 	});
 
 	$(document.body).on('change', ".apply_for_radio", function(e) {

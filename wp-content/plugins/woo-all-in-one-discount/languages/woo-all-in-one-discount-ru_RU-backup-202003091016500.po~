@@ -300,7 +300,7 @@ msgstr "Правила наценки/скидки с ID %s не существ�
 
 #: admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php:105
 msgid "Products Discount Settings"
-msgstr "Настройки Скидок/Наценок для товаров"
+msgstr ""
 
 #: admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php:127
 msgid "Add discount amount"
@@ -358,7 +358,7 @@ msgstr ""
 
 #: includes/lib/Woo_All_In_One_Discount_Helpers.php:8
 msgid "Product Discounts"
-msgstr "Скидки/Наценки для товаров"
+msgstr ""
 
 #: includes/lib/Woo_All_In_One_Discount_Helpers.php:11
 msgid "User Roles Settings"

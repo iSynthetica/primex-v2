@@ -166,6 +166,9 @@ class Woo_All_In_One_Currency_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
+    /**
+     * Add new selected currency rate rule item
+     */
     public function add_currency_rate() {
         $currency_code = !empty($_POST['id']) ? sanitize_text_field($_POST['id']) : false;
         $index = !empty($_POST['index']) ? sanitize_text_field($_POST['index']) : 0;
@@ -190,6 +193,9 @@ class Woo_All_In_One_Currency_Admin_Ajax {
         wooaio_ajax_response('success', $response);
     }
 
+    /**
+     * Ajax create, update, delete selected currency rates rules
+     */
     public function create_currency_rate() {
         if (empty($_POST['formData'])) {
             $response = array('message' => __('Cheating, huh!!!', 'woo-all-in-one-currency'));
@@ -256,7 +262,7 @@ class Woo_All_In_One_Currency_Admin_Ajax {
         }
 
         $response = array(
-            'message' => __('Created!', 'woo-all-in-one-currency'),
+            'message' => __('Rate rules for current currency updated!', 'woo-all-in-one-currency'),
             'reload' => 1,
         );
         wooaio_ajax_response('success', $response);

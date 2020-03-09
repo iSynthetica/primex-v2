@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2020-03-07 12:55+0000\n"
+"POT-Creation-Date: 2020-03-09 10:05+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
@@ -107,8 +107,8 @@ msgstr ""
 
 #: includes/template-functions.php:100
 #: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:114
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:188
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:243
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:180
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:256
 #: admin/partials/woo-all-in-one-discount-admin-content-discounts-edit.php:97
 msgid "Update"
 msgstr ""
@@ -169,51 +169,47 @@ msgstr ""
 msgid "User role"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:125
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:132
 msgid "Base Price Rule"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:131
-msgid "Assign Base Discount"
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:138
+msgid "Assign Base Discount Rule"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:135
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:142
 msgid "-- Select Base Rule --"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:151
-msgid "Additional settings"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:156
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:159
 msgid "Label for discounted price"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:163
-msgid "Label for base price"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:170
-msgid "Discount amount label"
-msgstr ""
-
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:206
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:199
 msgid "Before Discount Price Rule"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:212
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:205
 msgid "Show Before discount price"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:216
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:209
 msgid "Yes"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:217
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:210
 msgid "No"
 msgstr ""
 
-#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:224
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:217
+msgid "Assign before discount rule"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:221
+msgid "-- Select Before Discount Rule --"
+msgstr ""
+
+#: admin/partials/woo-all-in-one-discount-admin-content-users-edit.php:237
 msgid "Label for before discounted price"
 msgstr ""
 
@@ -327,7 +323,7 @@ msgid "Extra charge"
 msgstr ""
 
 #: includes/lib/Woo_All_In_One_Discount_Rules.php:82
-#: includes/lib/Woo_All_In_One_Discount_Rules.php:276
+#: includes/lib/Woo_All_In_One_Discount_Rules.php:278
 msgid "Something went wrong"
 msgstr ""
 
@@ -347,7 +343,7 @@ msgstr ""
 msgid "User Roles"
 msgstr ""
 
-#: includes/lib/Woo_All_In_One_Discount_Rules.php:334
+#: includes/lib/Woo_All_In_One_Discount_Rules.php:351
 #, php-format
 msgid "There is no user rule with ID %s"
 msgstr ""

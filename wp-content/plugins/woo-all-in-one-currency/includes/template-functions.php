@@ -5,6 +5,8 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
     function wooaiocurrency_currency_rate_item( $currency_code, $i, $categories, $products, $rule = array() ) {
         $currency_rules = Woo_All_In_One_Currency_Rules::get_all();
         $current_currency_rules = $currency_rules[$currency_code];
+        $count_current_currency_rates = count($current_currency_rules["rates"]);
+        $hide_delete_btn = $i === 0 && 1 < $count_current_currency_rates;
         $currency = get_option( 'woocommerce_currency' );
         $rule_products = !empty($current_currency_rules['products']) ? $current_currency_rules['products'] : array();
         $rule_categories = !empty($current_currency_rules['categories']) ? $current_currency_rules['categories'] : array();
@@ -48,10 +50,17 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                     </div>
 
                     <div class="edited-container">
-                        <label for="all_products_<?php echo $i ?>" style="display: inline-block;margin-right: 10px;">
-                            <?php _e('For all products', 'woo-all-in-one-currency'); ?>
-                            <input id="all_products_<?php echo $i ?>" type="radio" class="apply_for_radio" name="apply[<?php echo $i ?>]" value="all_products"<?php echo 'all_products' === $rule_apply ? ' checked' : ''; ?>>
-                        </label>
+                        <?php
+                        // Show rule for all products only for first rule
+                        if ($i === 0) {
+                            ?>
+                            <label for="all_products_<?php echo $i ?>" style="display: inline-block;margin-right: 10px;">
+                                <?php _e('For all products', 'woo-all-in-one-currency'); ?>
+                                <input id="all_products_<?php echo $i ?>" type="radio" class="apply_for_radio" name="apply[<?php echo $i ?>]" value="all_products"<?php echo 'all_products' === $rule_apply ? ' checked' : ''; ?>>
+                            </label>
+                            <?php
+                        }
+                        ?>
 
                         <label for="by_categories_<?php echo $i ?>" style="display: inline-block;margin-right: 10px;<?php echo 0 === $i ? ' display:none;' : ''; ?>">
                             <?php _e('For specified categories', 'woo-all-in-one-currency'); ?>
@@ -129,6 +138,19 @@ if (!function_exists('wooaiocurrency_currency_rate_item')) {
                             <?php _e('Cancel', 'woo-all-in-one-currency'); ?>
                         </button>
 
+                        <?php
+                        if (!$hide_delete_btn) {
+                            ?>
+                            <button
+                                    type="button"
+                                    class="currency-rate-item-change-delete button button-small"
+                                    data-confirm="<?php echo __('Are you sure you want to delete this item for current currency?', 'woo-all-in-one-currency'); ?>"
+                            >
+                                <?php _e('Delete', 'woo-all-in-one-currency'); ?>
+                            </button>
+                            <?php
+                        }
+                        ?>
                         <?php
                     }
                     ?>

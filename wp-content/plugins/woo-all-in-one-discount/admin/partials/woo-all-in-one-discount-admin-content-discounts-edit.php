@@ -131,16 +131,10 @@ if (!$discount_rule) {
     </div>
 
     <?php
-    if (false) {
+    if (function_exists('run_woo_all_in_one_currency')) {
         ?>
-        <div id="user-settings-container" class="postbox">
-            <h2 class="hndle ui-sortable-handle"><span><?php _e('Users Discount Settings', 'woo-all-in-one-discount'); ?></span></h2>
-
-            <div class="inside">
-                <form id="user_product_discount_settings">
-
-                </form>
-            </div>
+        <div id="before_discount-settings-container" class="postbox">
+            <h2 class="hndle ui-sortable-handle"><span><?php _e('Multicurrency rule', 'woo-all-in-one-discount'); ?></span></h2>
         </div>
         <?php
     }
