@@ -21,15 +21,37 @@ function snth_ajax_search() {
     if (!empty($q)) {
         global $wpdb;
         $sql = "SELECT * FROM {$wpdb->posts} WHERE post_title LIKE '%{$q}%' AND post_type = 'product'";
+        $sql = "";
+        $sql .= "SELECT * ";
+        $sql .= "FROM {$wpdb->posts} AS p ";
+        $sql .= "JOIN {$wpdb->postmeta} AS pm ";
+        $sql .= "ON p.ID = pm.post_id ";
+        $sql .= "WHERE p.post_type = 'product' ";
+        $sql .= "AND (";
+        $sql .= "p.post_title LIKE '%".$q."%' ";
+        $sql .= "OR(pm.meta_key LIKE '%sku%' AND pm.meta_value LIKE '%".$q."%')";
+        $sql .= ") ";
+        $sql .= "GROUP BY p.ID;";
+
+        // SELECT *
+        // FROM `tsvt_posts` AS p
+        // JOIN `tsvt_postmeta` AS pm
+        // ON p.ID = pm.post_id
+        // WHERE p.post_type = 'product'
+        // AND (p.post_title LIKE '%зеркал%' OR(pm.meta_key LIKE '%sku%' AND pm.meta_value LIKE '1404'))
+
+
         $result = $wpdb->get_results($sql, ARRAY_A);
 
         if (!empty($result)) {
             ob_start();
             foreach($result as $item) {
+                $product = wc_get_product($item['ID']);
+                $sku = $product->get_sku();
                 ?>
                 <p>
-                    <a href="<?php echo get_post_permalink( $item['ID'], false, true )?>">
-                        <?php echo $item['post_title'] ?>
+                    <a href="<?php echo get_post_permalink( $item['ID'], false, true )?>" target="_blank">
+                        <?php echo $item['post_title'] ?><?php echo !empty($sku) ? ' ('.__( 'SKU:', 'woocommerce' ) .' '.$sku.')' : ''; ?>
                     </a>
                 </p>
                 <?php
@@ -48,10 +70,3 @@ function snth_ajax_search() {
 
 add_action('wp_ajax_nopriv_snth_ajax_search', 'snth_ajax_search');
 add_action('wp_ajax_snth_ajax_search', 'snth_ajax_search');
-
-//SELECT p.ID, p.post_title, pm.meta_key, pm.meta_value
-//FROM `tsvt_posts` as p
-//RIGHT JOIN `tsvt_postmeta` as pm
-//ON p.ID = pm.post_id
-//WHERE post_type = 'product'
-//AND pm.meta_key LIKE '%sku%'
