@@ -76,28 +76,7 @@
                             <?php
                         } else {
                             ?>
-                            <li id="my-account"><a href="#"><i class="fas fa-sign-in-alt"></i><span><?php _e('Login', 'primex'); ?></span></a>
-                                <div class="top-link-section">
-                                    <form id="top-login" role="form">
-                                        <div class="input-group" id="top-login-username">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="icon-user"></i></div>
-                                            </div>
-                                            <input type="email" class="form-control" placeholder="Email address" required="">
-                                        </div>
-                                        <div class="input-group" id="top-login-password">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="icon-key"></i></div>
-                                            </div>
-                                            <input type="password" class="form-control" placeholder="Password" required="">
-                                        </div>
-                                        <label class="checkbox">
-                                            <input type="checkbox" value="remember-me"> Remember me
-                                        </label>
-                                        <button class="btn btn-danger btn-block" type="submit">Sign in</button>
-                                    </form>
-                                </div>
-                            </li>
+                            <li id="my-account"><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><i class="fas fa-sign-in-alt"></i><span><?php _e('Login', 'primex'); ?></span></a></li>
                             <?php
                         }
                         ?>
