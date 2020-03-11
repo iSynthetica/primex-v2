@@ -4,6 +4,15 @@ if (!defined('ABSPATH')) exit; // Exit if accessed directly
 if ( ! class_exists( 'FlycartWooDiscountRulesActivationHelper' ) ) {
     class FlycartWooDiscountRulesActivationHelper
     {
+        public static function isWooCommerceActive()
+        {
+            $active_plugins = apply_filters('active_plugins', get_option('active_plugins', array()));
+            if (is_multisite()) {
+                $active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
+            }
+            return in_array('woocommerce/woocommerce.php', $active_plugins, false) || array_key_exists('woocommerce/woocommerce.php', $active_plugins);
+        }
+
         public static function flyCartWooDiscountRulesAddSampleRules(){
             $price_rule = self::flyCartWooDiscountRulesGetRulesFromPost('woo_discount');
             $cart_rule = self::flyCartWooDiscountRulesGetRulesFromPost('woo_discount_cart');
@@ -154,7 +163,7 @@ if ( ! class_exists( 'FlycartWooDiscountRulesActivationHelper' ) ) {
 if (!function_exists('onWooDiscountActivate')) {
     function onWooDiscountActivate() {
         // Dependency Check.
-        if (!in_array('woocommerce/woocommerce.php', get_option('active_plugins'))) wp_die('Please Install WooCommerce to Continue !');
+        if (!FlycartWooDiscountRulesActivationHelper::isWooCommerceActive()) wp_die('Please Install WooCommerce to Continue !');
 
         FlycartWooDiscountRulesActivationHelper::flyCartWooDiscountRulesAddSampleRules();
     }

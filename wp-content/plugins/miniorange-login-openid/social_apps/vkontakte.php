@@ -16,7 +16,7 @@ class vkontakte
             $this->instructions = "Go to <a href=\"https://new.vk.com/dev\" target=\"_blank\">https://new.vk.com/dev</a> and sign in with your vkontakte account.##Go to <strong>My Apps</strong> and click on <strong>Create an Application</strong>.##Provide a name for your app.##Select <strong>Website</strong> as the <strong>Category</strong>. Select <b><code id='4'>" . get_option('siteurl') . "</code><i style= \"width: 11px;height: 9px;padding-left:2px;padding-top:3px\" class=\"mofa mofa-fw mofa-lg mofa-copy mo_copy mo_copytooltip\" onclick=\"copyToClipboard(this, '#4', '#shortcode_url_copy')\"><span id=\"shortcode_url_copy\" class=\"mo_copytooltiptext\">Copy to Clipboard</span></i></b> as <strong>Site address</strong>##Enter the <b><code id='5'>" . str_replace('https://', '', get_option("siteurl")) . "</code><i style= \"width: 11px;height: 9px;padding-left:2px;padding-top:3px\" class=\"mofa mofa-fw mofa-lg mofa-copy mo_copy mo_copytooltip\" onclick=\"copyToClipboard(this, '#5', '#shortcode_url1_copy')\"><span id=\"shortcode_url1_copy\" class=\"mo_copytooltiptext\">Copy to Clipboard</span></i></b> as Base domain.##Click on <strong>Connect Site</strong> to create the app.##You will be required to confirm your request with a code send via SMS.##Once the application is created, select <strong>Settings</strong> in the left nav.##Enter the <b><code id='6'>" . get_social_app_redirect_uri('vkontakte') . "</code><i style= \"width: 11px;height: 9px;padding-left:2px;padding-top:3px\" class=\"mofa mofa-fw mofa-lg mofa-copy mo_copy mo_copytooltip\" onclick=\"copyToClipboard(this, '#6', '#shortcode_url2_copy')\"><span id=\"shortcode_url2_copy\" class=\"mo_copytooltiptext\">Copy to Clipboard</span></i></b> as <b>Authorized redirect URI.</b>##Click on Save.##From the top of the same page, copy the <b>Application ID</b> (This is your <b>Client ID </b>) and <b>Secure Key</b> (This is your <b>Client Secret</b>). Paste them into the fields above.##Click on the Save settings button.##Go to Social Login tab to configure the display as well as other login settings.";
         }
         else{
-            $this->instructions= "<strong style='color: red;font-weight: bold'><br>You have selected plain permalink and vkontakte doesnot support it.</strong><br><br> Please change the permalink to continue further.Follow the steps given below:<br>1. Go to settings from the left panel and select the permalinks option.<br>2. Plain permalink is selected ,so please select any other permalink and click on save button.<br> <strong class='mo_openid_note_style' style='color: red;font-weight: bold'> When you will change the permalink ,then you have to re-configure the already set up custom apps because that will change the redirect URL.</strong>";
+            $this->instructions= "<strong style='color: red;font-weight: bold'><br>You have selected plain permalink and vkontakte does not support it.</strong><br><br> Please change the permalink to continue further.Follow the steps given below:<br>1. Go to settings from the left panel and select the permalinks option.<br>2. Plain permalink is selected ,so please select any other permalink and click on save button.<br> <strong class='mo_openid_note_style' style='color: red;font-weight: bold'> When you will change the permalink ,then you have to re-configure all the custom apps because that will change the redirect URL.</strong>";
         }
     }
 
@@ -24,8 +24,6 @@ class vkontakte
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('vkontakte');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'vkontakte';
         $client_id = $appslist['vkontakte']['clientid'];
         $scope = $appslist['vkontakte']['scope'];
         $login_dialog_url ='https://oauth.vk.com/authorize?client_id='.$client_id.'&scope='.$scope.'&response_type=code&redirect_uri=' . $social_app_redirect_uri .'&v=5.69';
@@ -43,14 +41,10 @@ class vkontakte
         $client_secret = $appslist['vkontakte']['clientsecret'];
         $access_token_uri = 'https://oauth.vk.com/access_token';
         $postData = 'client_id='. $client_id .'&client_secret=' . $client_secret . '&code=' . $code . '&redirect_uri=' . $social_app_redirect_uri.'&v=5.69';
-
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'vkontakte');
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
         $userid = isset($access_token_json_output['user_id']) ? $access_token_json_output['user_id'] : '';
-        mo_openid_start_session();
-
         $profile_url = 'https://api.vk.com/method/users.get?uids='. $userid . '&fields=uid,hash,occupation,photos,first_name,last_name,nickname,domain,site,education,relation,timezone,screen_name,sex,bdate,city,country,timezone,photo,lists,contacts,universities,schools,status,about&access_token=' . $access_token.'&v=5.69';
-
         $profile_json_output = mo_openid_get_social_app_data($access_token, $profile_url,'vkontakte');
 
         //Test Configuration

@@ -116,7 +116,7 @@ if (!class_exists('FlycartWooDiscountBase')) {
                     jQuery( function( $ ) {
                         $(document).ready(function() {
                             $( document.body ).on( "blur", "'.$on_blur_event_for_items.$additional_class_to_add.'", function() {
-                                $("select#billing_country").trigger("change");
+                                $(document.body).trigger("update_checkout");
                             });
                         }); 
                     });
@@ -1032,9 +1032,9 @@ if (!class_exists('FlycartWooDiscountBase')) {
                 'same_product' => esc_html__('Same product', 'woo-discount-rules'),
                 'any_one_cheapest_from_selected' => esc_html__('Any one cheapest from selected', 'woo-discount-rules'),
                 'any_one_cheapest_from_all_products' => esc_html__('Any one cheapest from all products', 'woo-discount-rules'),
-                'more_than_one_cheapest_from_selected_category' => esc_html__('Cheapest in cart - selected category(ies)', 'woo-discount-rules'),
-                'more_than_one_cheapest_from_selected' => esc_html__('Cheapest in cart - selected item(s)', 'woo-discount-rules'),
-                'more_than_one_cheapest_from_all' => esc_html__('Cheapest among all items in cart', 'woo-discount-rules'),
+                'more_than_one_cheapest_from_selected_category' => esc_html__('Buy X Get Y - Selected Categories (Cheapest in cart)', 'woo-discount-rules'),
+                'more_than_one_cheapest_from_selected' => esc_html__('Buy X Get Y - Selected item(s) (Cheapest in cart)', 'woo-discount-rules'),
+                'more_than_one_cheapest_from_all' => esc_html__('Buy X get Y - Cheapest among all items in cart', 'woo-discount-rules'),
                 'free_quantity' => esc_html__('Free quantity', 'woo-discount-rules'),
                 'number_of_quantities_in_each_products' => esc_html__('Number of quantity(ies) in each selected product(s)', 'woo-discount-rules'),
                 'fixed_item_count' => esc_html__('Fixed item count (not recommended)', 'woo-discount-rules'),

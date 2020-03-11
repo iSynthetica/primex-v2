@@ -4,6 +4,53 @@ function mo_openid_licensing_plans(){
 
     echo '<style>.update-nag, .updated, .error, .is-dismissible, .notice, .notice-error { display: none; }</style>';
     ?>
+
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* The Modal (background) */
+        .mo_openid_woo_modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            padding-left: 20%;
+            padding-right: 15%;
+
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .mo_openid_woo_modal-content {
+            background-color: #ffffff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .mo_openid_woo_close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .mo_openid_woo_close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
     <style>
         *, *::after, *::before {
             -webkit-box-sizing: border-box;
@@ -335,23 +382,7 @@ function mo_openid_licensing_plans(){
             }
         }
 
-        .cd-currency, .cd-value {
-            font-size: 4rem;
-            font-weight: 300;
-        }
 
-        .cd-duration {
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: #8dc8e4;
-            text-transform: uppercase;
-        }
-        .user-label {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #8dc8e4;
-            text-transform: uppercase;
-        }
         .cd-popular .cd-duration {
             color: #f3b6ab;
         }
@@ -384,17 +415,7 @@ function mo_openid_licensing_plans(){
                 color: #ba6453;
             }
 
-            .cd-currency {
-                display: inline-block;
-                margin-top: 10px;
-                vertical-align: top;
-                font-size: 4rem;
-                font-weight: 700;
-            }
 
-            .cd-duration {
-                font-size: 1.4rem;
-            }
         }
         .cd-pricing-body {
             overflow-x: auto;
@@ -473,44 +494,7 @@ function mo_openid_licensing_plans(){
             }
         }
 
-        .cd-pricing-footer {
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            /* on mobile it covers the .cd-pricing-header */
-            height: 80px;
-            width: 100%;
-        }
-        .cd-pricing-footer::after {
-            /* right arrow visible on mobile */
-            content: '';
-            position: absolute;
-            right: 1em;
-            top: 50%;
-            bottom: auto;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            height: 20px;
-            width: 20px;
-        }
-        @media only screen and (min-width: 768px) {
-            .cd-pricing-footer {
-                position: relative;
-                height: auto;
-                text-align: center;
-            }
-            .cd-pricing-footer::after {
-                /* hide arrow */
-                display: none;
-            }
-            .cd-has-margins .cd-pricing-footer {
-                padding-bottom: 0;
-            }
-        }
+
 
         .cd-select {
             position: relative;
@@ -868,7 +852,7 @@ function mo_openid_licensing_plans(){
         .ui-slider-horizontal .ui-slider-handle {
             top: -.6em !important;
         }
-        /***********************ADDED BY SHAILESH************************/
+
 
 
         .pricing-tooltip .pricing-tooltiptext {
@@ -961,12 +945,64 @@ function mo_openid_licensing_plans(){
         }
     </style>
 
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtnwoo" style="width:23%;border-radius: 25px;margin-top:2%;margin-right:2%;border-color:#FA5658;background-color:#FA5658;float:right;color:white;font-size: 15px;font-weight: bold;"  class="button button-primary button-large">Woocommerce Special Offer</button>
+    <!-- The Modal -->
+    <div id="myModalwoo" class="mo_openid_woo_modal">
+        <!-- Modal content -->
+        <div class="mo_openid_woo_modal-content">
+            <span class="mo_openid_woo_close">&times;</span>
+            <strong><h1 style="padding-left: 33%;color: red">Special March Offer</h1><hr><p style="padding-left: 23%;font-size: 14px;font-weight: bold;font-size:20px;color:darkblue">WOOCOMMERCE INTEGRATION PLAN $19</p></strong>
+            <h3><strong>Features Included</strong></h3>
+            <h4>Woocommerce Display Options+Standard Features(STANDARD PLAN) <strike style="color: maroon;font-size:20px;font-weight: bold">$29</strike></h4>
+            <h4>Woocommerce integration + Display Options+Premium Features(PREMIUM PLAN) <strike style="color: maroon;font-size:20px;font-weight: bold">$49</strike></h4>
+            <h4 style="font-size: 16px;color: #0000A0">Woocommerce integration + Display Options+Free Features(<b>WOOCOMMERCE INTEGRATION PLAN</b>) <b style="color: red;font-size:20px;font-weight: bold">$19</b></h4>
+
+            <p><strong style="color: red;font-size: 100%">WOOCOMMERCE INTEGRATION WITH SOCIAL LOGIN </strong><br>
+              <p style="font-size: 15px"> If you will use social login icons at the registration and login page then the information field will be automatically filled at the checkout page. </p> </p><br>
+            <center><input type="submit" onclick="mosocial_addonform('wp_social_login_woocommerce_plan')" name="submit" value="<?php echo mo_sl('UPGRADE NOW');?>" style="width:150px;background-color:#0867b2;color:white;box-shadow:none;text-shadow: none;"  class="button button-primary button-large" /></b><br><br></center>
+        </div>
+
+    </div>
+
+    <script>
+        // Get the modal
+        var modalwoo = document.getElementById("myModalwoo");
+        //woocommerce_notice        // Get the button that opens the modal
+
+
+        var btnwoo = document.getElementById("myBtnwoo");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("mo_openid_woo_close")[0];
+
+        // When the user clicks the button, open the modal
+        btnwoo.onclick = function() {
+            modalwoo.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modalwoo.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modalwoo) {
+                modalwoo.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+
 
     <div class="tab-content">
         <div class="tab-pane active text-center" id="cloud">
             <div class="cd-pricing-container cd-has-margins"><br>
                 <div class="cd-pricing-switcher">
-                    <p class="fieldset" style="background-color: #e97d68;">
+                    <p class="fieldset" style="background-color: #e97d68;margin-left: 20%">
                         <input type="radio" name="sitetype" value="regular_plans" id="regular_plans" onclick="mo_openid_load();" checked>
                         <label for="regular_plans">Regular Plans</label>
                         <input type="radio" name="sitetype" value="Recharge" id="Recharge">
@@ -995,8 +1031,8 @@ function mo_openid_licensing_plans(){
                                     </header> <!-- .cd-pricing-header -->
                                 </a>
 
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('')" >Contact us for more features</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 3%"  class="cd-select" onclick="mo_openid_support_form('')" >Contact us for more features</a>
                                 </footer>
 
                                 <div class="cd-pricing-body">
@@ -1025,13 +1061,13 @@ function mo_openid_licensing_plans(){
 
                             <li data-type="Recharge" class="momslp is-hidden" >
                                 <h2>&nbsp;</h2>
-                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;">Plan-1</h2>
+                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;padding-left: 32%">Plan-1</h2>
                                     <h3 style="color:black;">(Social Login Premium Applications)<br /><br /></h3></center>
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">10</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-1.App integrations]')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-1.App integrations]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1042,13 +1078,13 @@ function mo_openid_licensing_plans(){
                             <br>
                             <li data-type="Recharge" class="momslp is-hidden">
                                 <h2>&nbsp;</h2>
-                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;">Plan-4</h2>
+                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;padding-left: 32%">Plan-4</h2>
                                     <h3 style="color:black;">(Email notification + GDPR + Account linking)<br /><br /></h3></center>
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-4.Email notification+GDPR+Account linking],It seems that you have shown interest. Please elaborate more on your requirements ')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-4.Email notification+GDPR+Account linking],It seems that you have shown interest. Please elaborate more on your requirements ')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1059,13 +1095,13 @@ function mo_openid_licensing_plans(){
                             <br>
                             <li data-type="Recharge" class="momslp is-hidden" >
                                 <h2>&nbsp;</h2>
-                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;">Plan-7</h2>
+                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;padding-left: 32%">Plan-7</h2>
                                     <h3 style="color:black;">(Mailchimp Integration)<br /><br /><br></h3></center>
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">29</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-7.Mailchimp integration]')" >Interested</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-7.Mailchimp integration]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1075,13 +1111,13 @@ function mo_openid_licensing_plans(){
                             </li><br>
                             <li data-type="Recharge" class="momslp is-hidden" >
                                 <h2>&nbsp;</h2>
-                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;">Plan-10</h2>
+                                <center><h2 style="margin-bottom: 10px;margin-top: 1px;padding-left: 32%">Plan-10</h2>
                                     <h3 style="color:black;">(Premium Features)<br /><br /><br></h3></center>
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-10.Premium Features]')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-10.Premium Features]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1109,16 +1145,16 @@ function mo_openid_licensing_plans(){
                                 </header> <!-- .cd-pricing-header -->
 
                                 </a>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" id="mosocial_purchase_cust_addon" onclick="mosocial_addonform('wp_social_login_standard_plan')"  >Upgrade Now</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" id="mosocial_purchase_cust_addon" onclick="mosocial_addonform('wp_social_login_standard_plan')"  >Upgrade Now</a>
 
                                 </footer>
 
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
                                         <li><b>All Free features +</b></li>
-                                        <li><div class="mo_openid_tooltip" style="padding-left: 40px;">24 Custom Social Login Apps <i class="mofa mofa-commenting " style="font-size:18px;color:#85929E"></i><span class="mo_openid_tooltiptext"style="width:100%;"> Using the custom app tab, you can set up your own app id and secret in the plugin. Login flow will not involve miniOrange in between. Login flow will go from plugin to social media application and then back to plugin.<br>24 custom apps are <span id="mo_openid_dots3">...</span><span id="mo_openid_more3" style="display:none" ><br>Facebook,Google,vkontakte,<br/>twitter,linkedin,amazon,<br>windowslive,yahoo,apple,<br>disqus,instagram,wordpress,<br>pinterest,spotify,tumblr,<br/>
-                                                                          twitch,vimeo,kakao,discord,<br>dirbble,flickr,line,meetup and stackexchange.</span><button style="border:transparent;background-color: transparent;color: tomato;" onclick="myFunction('mo_openid_dots3','mo_openid_more3','mo_openid_myBtn3')" id="mo_openid_myBtn3">Read more</button>
+                                        <li><div class="mo_openid_tooltip" style="padding-left: 40px;">31 Custom Social Login Apps <i class="mofa mofa-commenting " style="font-size:18px;color:#85929E"></i><span class="mo_openid_tooltiptext"style="width:100%;"> Using the custom app tab, you can set up your own app id and secret in the plugin. Login flow will not involve miniOrange in between. Login flow will go from plugin to social media application and then back to plugin.<br>31 custom apps are <span id="mo_openid_dots3">...</span><span id="mo_openid_more3" style="display:none" ><br>Facebook,Google,vkontakte,<br/>Reddit,twitter,linkedin,amazon,<br>windowslive,yahoo,apple,<br>disqus,instagram,wordpress,<br>pinterest,spotify,tumblr,<br/>
+                                                                          twitch,vimeo,kakao,discord,<br>dirbble,flickr,line,meetup,naver,<br/>snapchat,foursquare,teamsnap,<br/>stackexchange,livejournal & odnoklassniki.</span><button style="border:transparent;background-color: transparent;color: tomato;" onclick="myFunction('mo_openid_dots3','mo_openid_more3','mo_openid_myBtn3')" id="mo_openid_myBtn3">Read more</button>
                                             </div></li>
                                         <li>Advance Account Linking</li>
                                         <li style="padding-right: 0px; padding-left: 0px">General Data Protection Regulation (GDPR)</li>
@@ -1146,8 +1182,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-2.Woocommerce integration]')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-2.Woocommerce integration]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1164,8 +1200,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-5.Domain Restriction+Recaptcha+Password reset]')" >Interested</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-5.Domain Restriction+Recaptcha+Password reset]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1182,8 +1218,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-8.Paid Membership Pro+GDPR+Email notification]')" >Interested</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-8.Paid Membership Pro+GDPR+Email notification]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1200,8 +1236,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-11.Redirect to new window+Domain restriction]')" >Interested</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-11.Redirect to new window+Domain restriction]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1222,8 +1258,8 @@ function mo_openid_licensing_plans(){
                                     <h3>(Features and plans)</h3>
                                 </header> <!-- .cd-pricing-header -->
                                 </a>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" id="mosocial_purchase_cust_addon" onclick="mosocial_addonform('wp_social_login_premium_plan')"  >Upgrade Now</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" id="mosocial_purchase_cust_addon" onclick="mosocial_addonform('wp_social_login_premium_plan')"  >Upgrade Now</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features ">
@@ -1263,8 +1299,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">25</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-3.Buddypress Integrations]')" >Interested</a>
+                                <footer>
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-3.Buddypress Integrations]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1281,8 +1317,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-6.User moderation + Force admin]')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-6.User moderation + Force admin]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1298,8 +1334,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">19</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" id="plan" class="cd-select" onclick="mo_openid_support_form('[Plan-9.Recaptcha +GDPR] ')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" id="plan" class="cd-select" onclick="mo_openid_support_form('[Plan-9.Recaptcha +GDPR] ')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1315,8 +1351,8 @@ function mo_openid_licensing_plans(){
                                 <div class="cd-price" style="align-content: center">
                                     <center><h1><img src="<?php echo plugin_dir_url(dirname(dirname(__FILE__)));?>includes/images/dollar.png" style="width:20px;height:20px;">10</h1></center>
                                 </div>
-                                <footer class="cd-pricing-footer">
-                                    <a href="#" class="cd-select" onclick="mo_openid_support_form('[Plan-12.Email notification]')" >Interested</a>
+                                <footer >
+                                    <a href="#" style="padding-left: 32%" class="cd-select" onclick="mo_openid_support_form('[Plan-12.Email notification]')" >Interested</a>
                                 </footer>
                                 <div class="cd-pricing-body">
                                     <ul class="cd-pricing-features">
@@ -1888,6 +1924,9 @@ function mo_openid_licensing_plans_addon()
                 });
             }
         </script>
+
+
+
     <td>
         <form style="display:none;" id="mosocial_loginform" action="<?php echo get_option( 'mo_openid_host_name' ) . '/moas/login'; ?>"
               target="_blank" method="post" >

@@ -1199,7 +1199,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                             $tld = $this->getTLDFromEmail($user_email);
                         else
                             $tld = $this->getDomainFromEmail($user_email);
-                        if(in_array($tld, $rule)){
+                        if($this->validateTLD($tld, $rule)){
                             return true;
                         }
                     } else if(get_current_user_id()){
@@ -1209,7 +1209,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                 $tld = $this->getTLDFromEmail($user_email);
                             else
                                 $tld = $this->getDomainFromEmail($user_email);
-                            if(in_array($tld, $rule)){
+                            if($this->validateTLD($tld, $rule)){
                                 return true;
                             }
                         } else {
@@ -1220,7 +1220,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                     $tld = $this->getTLDFromEmail($user_email);
                                 else
                                     $tld = $this->getDomainFromEmail($user_email);
-                                if(in_array($tld, $rule)){
+                                if($this->validateTLD($tld, $rule)){
                                     return true;
                                 }
                             }
@@ -1771,7 +1771,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
             $sub_total = $item_count = $quantity = array();
             foreach ($woocommerce->cart->cart_contents as $key => $cartItem) {
                 $product_categories = FlycartWoocommerceProduct::get_category_ids($cartItem['data']);
-                $allow_discount = $this->checkForProductConditionsMatchesForAnProduct($product, $rules, $rules_with_all_data);
+                $allow_discount = $this->checkForProductConditionsMatchesForAnProduct($cartItem['data'], $rules, $rules_with_all_data);
                 if($allow_discount){
                     if(!empty($product_categories)){
                         if(is_array($product_categories)){
@@ -2115,9 +2115,33 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                 if(count($emailDomainArray)>1){
                     unset($emailDomainArray[0]);
                 }
-                return implode('.', $emailDomainArray);
+                if(count($emailDomainArray) > 1){
+                    return array(end($emailDomainArray), implode('.', $emailDomainArray));
+                } else {
+                    return implode('.', $emailDomainArray);
+                }
             }
+            
             return $emailArray[0];
+        }
+
+        /**
+         * validate tld from email
+         * */
+        protected function validateTLD($tlds, $rule){
+            if(is_array($tlds)){
+                foreach($tlds as $tld){
+                    if(in_array($tld, $rule)){
+                        return true;
+                    }
+                }
+            } else {
+                if(in_array($tlds, $rule)){
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /**
@@ -2544,7 +2568,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                             $tld = $this->getTLDFromEmail($user_email);
                         else
                             $tld = $this->getDomainFromEmail($user_email);
-                        if(in_array($tld, $rule)){
+                        if($this->validateTLD($tld, $rule)){
                             return true;
                         }
                     } else if(get_current_user_id()){
@@ -2554,7 +2578,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                 $tld = $this->getTLDFromEmail($user_email);
                             else
                                 $tld = $this->getDomainFromEmail($user_email);
-                            if(in_array($tld, $rule)){
+                            if($this->validateTLD($tld, $rule)){
                                 return true;
                             }
                         } else {
@@ -2565,7 +2589,7 @@ if (!class_exists('FlycartWooDiscountRulesCartRules')) {
                                     $tld = $this->getTLDFromEmail($user_email);
                                 else
                                     $tld = $this->getDomainFromEmail($user_email);
-                                if(in_array($tld, $rule)){
+                                if($this->validateTLD($tld, $rule)){
                                     return true;
                                 }
                             }

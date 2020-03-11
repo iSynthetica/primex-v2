@@ -361,13 +361,7 @@ class CustomerOpenID {
         $currentTimeInMillis = self::get_timestamp();
         $stringToHash = $customerKey . $currentTimeInMillis . $apiKey;
         $hashValue = hash("sha512", $stringToHash);
-        if($licience_type=="general") {
-            $fields = array(
-                'customerId' => $customerKey,
-                'applicationName' => 'wp_social_login_premium'
-            );
-        }
-        else if($licience_type=="extra_attributes_addon") {
+        if($licience_type=="extra_attributes_addon") {
             $fields = array(
                 'customerId' => $customerKey,
                 'applicationName' => 'wp_social_login_extra_attributes_addon'

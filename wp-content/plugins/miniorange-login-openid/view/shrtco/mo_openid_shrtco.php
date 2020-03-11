@@ -177,7 +177,12 @@ function mo_openid_login_shortcodes(){
 
                         </body>
                     </div>
-                    <hr>
+                    <br/><hr><br/>
+                    <h3><?php echo mo_sl("Shortcode in php file");?></h3>
+                    <?php echo mo_sl("You can use shortcode in PHP file as following: ");?>
+                    <code>&lt;&#63;php echo do_shortcode(‘SHORTCODE’) /&#63;&gt;</code><br/><br/>
+                    <?php echo mo_sl('Replace SHORTCODE in above code with the required shortcode like <code>[miniorange_social_login theme="default"]</code>, so the final code looks like following :');?><br/><br/>
+                    <code id='7'>&lt;&#63;php echo do_shortcode('[miniorange_social_login theme="default"]') &#63;&gt;</code><i style= "width: 11px;height: 9px;padding-left:2px;padding-top:3px" class="mofa mofa-fw mofa-lg mofa-copy mo_copy mo_copytooltip" onclick="copyToClipboard(this, '#7', '#shortcode_url33_copy')"><span id="shortcode_url33_copy" class="mo_copytooltiptext">Copy to Clipboard</span></i><br/><br/>
                 </td>
             </tr>
         </table>

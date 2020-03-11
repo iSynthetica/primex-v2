@@ -54,7 +54,7 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                         ?>
                         <div class="notice inline notice notice-warning notice-alt">
                             <p>
-                                <b><?php esc_html_e("This rule is not running currently: "); ?></b><?php echo $validateDateString; ?>
+                                <b><?php esc_html_e("This rule is not running currently: ", 'woo-discount-rules'); ?></b><?php echo $validateDateString; ?>
                             </p>
                         </div>
                         <br>
@@ -375,7 +375,6 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                 <option value="<?php echo $index; ?>"<?php if (in_array($index, $roles_list)) { ?> selected=selected <?php } ?>><?php echo $user; ?></option>
                                             <?php } ?>
                                         </select>
-                                        <?php echo FlycartWooDiscountRulesGeneralHelper::docsURLHTML('role-based-discounts/user-role-based-discount-rules', 'role_based'); ?>
                                         <?php
                                     } else {
                                         ?>
@@ -412,7 +411,7 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                             <option value="any_selected"<?php if ($coupons_to_apply_option == 'any_selected') { ?> selected=selected <?php } ?>><?php esc_html_e('Apply if any one coupon applied (Select from WooCommerce)', 'woo-discount-rules'); ?></option>
                                             <option value="all_selected"<?php if ($coupons_to_apply_option == 'all_selected') { ?> selected=selected <?php } ?>><?php esc_html_e('Apply if all coupon applied (Select from WooCommerce)', 'woo-discount-rules'); ?></option>
                                         </select>
-                                        <?php echo FlycartWooDiscountRulesGeneralHelper::docsURLHTML('coupon-based-discounts/activate-discount-rule-using-a-coupon-code-in-woocommerce', 'coupon');
+                                        <?php
 
                                         if(!empty($coupons_to_apply)){
                                             if(is_string($coupons_to_apply)) $coupons_to_apply = explode(',', $coupons_to_apply);
@@ -485,7 +484,7 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                 <div class="col-md-3"><label> <?php esc_html_e('Subtotal', 'woo-discount-rules') ?></label>
                                     <div class="wdr_desc_text_con">
                                         <span class="wdr_desc_text">
-                                            <?php echo __('Useful when you want to limit the rule based on subtotal. (Use this only when absolutely necessary.)<br>See cart based discount rule tab (link to cart based rule tab) for effective subtotal based discount rules.', 'woo-discount-rules'); ?>
+                                            <?php echo sprintf(__('Useful when you want to limit the rule based on subtotal. (Use this only when absolutely necessary.)<br>See cart based discount rule tab (<a href="%s" target="_blank">cart based rule</a>) for effective subtotal based discount rules.', 'woo-discount-rules'), admin_url("admin.php?page=woo_discount_rules&tab=cart-rules")); ?>
                                         </span>
                                     </div>
                                 </div>
@@ -554,7 +553,6 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                             <option value="3"<?php if ($based_on_purchase_history == '3') { ?> selected=selected <?php } ?>><?php esc_html_e('Number of previous orders made with following products', 'woo-discount-rules'); ?></option>
                                             <option value="4"<?php if ($based_on_purchase_history == '4') { ?> selected=selected <?php } ?>><?php esc_html_e('Number of quantity(s) in previous orders made with following products', 'woo-discount-rules'); ?></option>
                                         </select>
-                                        <?php echo FlycartWooDiscountRulesGeneralHelper::docsURLHTML('purchase-history-based-discounts/purchase-history-based-discount', 'purchase_history'); ?>
                                         <?php
                                     } else {
                                         ?>
@@ -752,9 +750,37 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                    value="<?php echo(isset($discount->max_qty) ? $discount->max_qty : ''); ?>"
                                                    placeholder="<?php esc_html_e('ex. 50', 'woo-discount-rules'); ?>"> </label>
                                         <label><?php esc_html_e('Adjustment Type', 'woo-discount-rules'); ?>
+                                            <?php
+                                            $products_list = (isset($discount->discount_product) ? $discount->discount_product : array());
+                                            $discount_product_option = (isset($discount->discount_product_option) ? $discount->discount_product_option : 'all');
+                                            if(in_array($discount_product_option, array('any_cheapest', 'any_cheapest_from_all'))){
+                                                $discount->discount_product_item_type = 'dynamic';
+                                                if($discount_product_option == 'any_cheapest'){
+                                                    $discount_product_option = 'more_than_one_cheapest';
+                                                    $discount->discount_product_qty = 1;
+                                                } else {
+                                                    $discount_product_option = 'more_than_one_cheapest_from_all';
+                                                    $discount->discount_product_qty = 1;
+                                                }
+                                            }
+                                            ?>
                                             <select class="form-control price_discount_type"
                                                     name="discount_range[<?php echo $fieldIndex; ?>][discount_type]">
-                                                <?php $opt = (isset($discount->discount_type) ? $discount->discount_type : ''); ?>
+                                                <?php $opt = (isset($discount->discount_type) ? $discount->discount_type : '');
+                                                if($opt == 'product_discount'){
+                                                    if($discount_product_option == 'same_product'){
+                                                        $opt = 'buy_x_get_x';
+                                                    } else if($discount_product_option == 'all'){
+                                                        $opt = 'buy_x_get_y';
+                                                    } else if($discount_product_option == 'more_than_one_cheapest'){
+                                                        $opt = 'more_than_one_cheapest';
+                                                    } else if($discount_product_option == 'more_than_one_cheapest_from_cat'){
+                                                        $opt = 'more_than_one_cheapest_from_cat';
+                                                    } else if($discount_product_option == 'more_than_one_cheapest_from_all'){
+                                                        $opt = 'more_than_one_cheapest_from_all';
+                                                    }
+                                                }
+                                                ?>
                                                 <option
                                                         value="percentage_discount" <?php if ($opt == 'percentage_discount') { ?> selected=selected <?php } ?> >
                                                     <?php esc_html_e('Percentage Discount', 'woo-discount-rules'); ?>
@@ -815,9 +841,9 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                     }
                                                     if ($opt == 'more_than_one_cheapest') { ?> selected=selected <?php } ?>>
                                                     <?php if (!$pro) { ?>
-                                                        <?php esc_html_e('Cheapest in cart - selected item(s)', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
+                                                        <?php esc_html_e('Buy X Get Y - Selected item(s) (Cheapest in cart)', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
                                                     <?php } else { ?>
-                                                        <?php esc_html_e('Cheapest in cart - selected item(s)', 'woo-discount-rules'); ?>
+                                                        <?php esc_html_e('Buy X Get Y - Selected item(s) (Cheapest in cart)', 'woo-discount-rules'); ?>
                                                     <?php } ?>
                                                 </option>
                                                 <option
@@ -825,9 +851,9 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                     }
                                                     if ($opt == 'more_than_one_cheapest_from_cat') { ?> selected=selected <?php } ?>>
                                                     <?php if (!$pro) { ?>
-                                                        <?php esc_html_e('Cheapest in cart - selected category(ies)', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
+                                                        <?php esc_html_e('Buy X Get Y - Selected Categories (Cheapest in cart)', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
                                                     <?php } else { ?>
-                                                        <?php esc_html_e('Cheapest in cart - selected category(ies)', 'woo-discount-rules'); ?>
+                                                        <?php esc_html_e('Buy X Get Y - Selected Categories (Cheapest in cart)', 'woo-discount-rules'); ?>
                                                     <?php } ?>
                                                 </option>
                                                 <option
@@ -835,9 +861,9 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                     }
                                                     if ($opt == 'more_than_one_cheapest_from_all') { ?> selected=selected <?php } ?>>
                                                     <?php if (!$pro) { ?>
-                                                        <?php esc_html_e('Cheapest among all items in cart', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
+                                                        <?php esc_html_e('Buy X get Y - Cheapest among all items in cart', 'woo-discount-rules'); ?> <b><?php echo $suffix; ?></b>
                                                     <?php } else { ?>
-                                                        <?php esc_html_e('Cheapest among all items in cart', 'woo-discount-rules'); ?>
+                                                        <?php esc_html_e('Buy X get Y - Cheapest among all items in cart', 'woo-discount-rules'); ?>
                                                     <?php } ?>
                                                 </option>
                                             </select></label>
@@ -852,20 +878,6 @@ $current_date_and_time = FlycartWooDiscountRulesGeneralHelper::getCurrentDateAnd
                                                    value="<?php echo(isset($discount->to_discount) ? $discount->to_discount : ''); ?>"
                                                    placeholder="<?php esc_attr_e('ex. 50', 'woo-discount-rules'); ?>">
 
-                                            <?php
-                                            $products_list = (isset($discount->discount_product) ? $discount->discount_product : array());
-                                            $discount_product_option = (isset($discount->discount_product_option) ? $discount->discount_product_option : 'all');
-                                            if(in_array($discount_product_option, array('any_cheapest', 'any_cheapest_from_all'))){
-                                                $discount->discount_product_item_type = 'dynamic';
-                                                if($discount_product_option == 'any_cheapest'){
-                                                    $discount_product_option = 'more_than_one_cheapest';
-                                                    $discount->discount_product_qty = 1;
-                                                } else {
-                                                    $discount_product_option = 'more_than_one_cheapest_from_all';
-                                                    $discount->discount_product_qty = 1;
-                                                }
-                                            }
-                                            ?>
                                             <div class="price_discount_product_list_con">
                                                 <span class="bogo_receive_discount_for_text"><?php esc_html_e('receive discount for', 'woo-discount-rules') ?></span>
                                                 <select class="discount_product_option" name="discount_range[<?php echo $fieldIndex; ?>][discount_product_option]">

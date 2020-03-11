@@ -16,8 +16,6 @@ class google
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('google');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'google';
         $client_id = $appslist['google']['clientid'];
         $scope = $appslist['google']['scope'];
         $login_dialog_url = 'https://accounts.google.com/o/oauth2/auth?redirect_uri=' .$social_app_redirect_uri .'&response_type=code&client_id=' .$client_id .'&scope='.$scope.'&access_type=offline';
@@ -35,14 +33,9 @@ class google
         $client_secret = $appslist['google']['clientsecret'];
         $access_token_uri = 'https://accounts.google.com/o/oauth2/token';
         $postData = 'code=' .$code .'&client_id=' .$client_id .'&client_secret=' . $client_secret . '&redirect_uri=' . $social_app_redirect_uri . '&grant_type=authorization_code';
-
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'google');
-
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
-
         $profile_url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token='  .$access_token;
-
         $profile_json_output = mo_openid_get_social_app_data($access_token, $profile_url, 'google');
 
         //Test Configuration

@@ -61,7 +61,7 @@ delete_option('mo_openid_social_comment_google_label' );
 delete_option('mo_openid_social_comment_heading_label' );
 delete_option('app_pos' );
 delete_option('app_pos_premium');
-
+delete_option('mo_openid_deactivate_reason');
 
 delete_option('mo_share_options_enable_post');
 delete_option('mo_share_options_enable_home_page');

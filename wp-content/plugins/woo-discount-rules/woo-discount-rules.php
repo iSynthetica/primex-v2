@@ -5,7 +5,7 @@
  * Description: Simple Discount Rules for WooCommerce.
  * Author: Flycart Technologies LLP
  * Author URI: https://www.flycart.org
- * Version: 1.9.3
+ * Version: 1.9.5
  * Slug: woo-discount-rules
  * Text Domain: woo-discount-rules
  * Domain Path: /i18n/languages/

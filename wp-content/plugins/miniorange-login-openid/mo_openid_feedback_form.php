@@ -27,6 +27,7 @@
                     <p style="margin-left:2%">
 
                         <?php
+                        update_option('mo_openid_deactivate_reason',1);
                         $deactivate_reasons = array(
                             "Not Working",
                             "Facebook Login Error",

@@ -4,20 +4,20 @@ Donate link: https://www.miniorange.com
 Tags: social login, facebook login, google login, twitter login, Vkontakte login, social, facebook, twitter, google, login, google, social connect, social network login, social plugin, Vkontakte, LinkedIn
 Requires at least: 2.0.2
 Tested up to: 5.3
-Stable tag: 7.3.1
+Stable tag: 7.3.2
 License URI: http://miniorange.com/usecases/miniOrange_User_Agreement.pdf
 
-Social Login with Google, Facebook, Apple, Twitter, Vkontakte, LinkedIn and more. GDPR compliant. Social sharing and social comments. 24x7 Support.
+Social Login with Google, Facebook, Apple, Twitter, Reddit, Vkontakte, LinkedIn and more. GDPR compliant. Social sharing and social comments. 24x7 Support.
 
 == Description ==
 
-Social Login enables social login, social sharing, social comments using social login apps like Google, Facebook, Twitter, Vkontakte, LinkedIn, Windows Live, Instagram, Amazon, Salesforce, Yahoo, WordPress.
+Social Login enables social login, social sharing, social comments using social login apps like Google, Facebook, Twitter, Vkontakte, LinkedIn, Windows Live, Instagram, Amazon, Salesforce, Yahoo, WordPress, apple, disqus, pinterest, spotify, reddit, tumblr, twitch, vimeo, kakao, discord, dribbble, flickr, line, meetup, stackexchange, livejournal, snapchat, foursquare, teamsnap, naver, odnoklassniki.
 
 = Free Social Login Features =
 
-*   Social Login with Facebook, Google, Twitter, Vkontakte, LinkedIn, Instagram, Amazon, Windows Live & Salesforce
+*   Social Login with Facebook, Google, Twitter, Vkontakte, LinkedIn, Instagram, Amazon, Windows Live, Salesforce & Yahoo
 *	**NO SETUP required for default social login apps.**
-*	Setup your own social login application with APP ID and APP Secret for Facebook, Twitter.
+*	Setup your own social login application with APP ID and APP Secret for Facebook, Google, Twitter, Vkontakte, LinkedIn, Instagram, Amazon, Windows Live & Yahoo
 *	**Preview is available for Social Login icons**
 *	**Icon Customizations** - customize shape, theme, space & size of social login icons.
 *   **Profile completion** (username, email) - Prompt user for email & username if social login app doesn't return it. Email is verified with verification code.
@@ -36,7 +36,6 @@ Social Login enables social login, social sharing, social comments using social 
 *	Share with social applications - Facebook, Twitter, Google+, Pinterest, Reddit, Vkontakte, Tumblr, StumbleUpon, LinkedIn, Pocket, Digg, Delicious, Odnoklassniki, Email, Print, Whatsapp
 *	**Icon Customizations** - customize shape, theme, space & size of social sharing icons.
 *	**Preview is available for Social Sharing icons**
-*	**bbPress display options** - Enable Social Sharing on bbPress Forum, Topic and Reply Pages.
 *	Add Social Comments using Facebook.
 *   Add social sharing icons on homepage, posts, feeds, content pages, WooCommerce product page etc.
 *	Add a horizontal social sharing widget.
@@ -45,6 +44,7 @@ Social Login enables social login, social sharing, social comments using social 
 
 = Premium Social Login Features =
 
+*   Social Login with Google, Facebook, Twitter, Vkontakte, LinkedIn, Windows Live, Instagram, Amazon, Salesforce, Yahoo, WordPress, apple, disqus, pinterest, spotify, reddit, tumblr, twitch, vimeo, kakao, discord, dribbble, flickr, line, meetup, stackexchange, livejournal, snapchat, foursquare, teamsnap, naver, odnoklassniki.
 *	GDPR compliant Social Login.
 *   **Account Linking** - Link social account to WordPress account
 *	**Woocommerce display options** - Enable social login icons on the Woocommerce Checkout, Login, Registration pages.
@@ -177,6 +177,14 @@ Please email us at info@miniorange.com. You can also submit your query from the 
 
 
 == Changelog ==
+= 7.3.2 =
+* Updated Yahoo API.
+* Updated feedback on deactivation.
+* Minor UI changes.
+* Added a new social login plugin for woocommerce integration.
+* Added auto as a paramater for width in shortcode of social login icons.
+* Added Reddit, Foursquare, Snapchat, Teamsnap, Live Journal, Odnoklassniki, Naver.
+
 = 7.3.1 =
 * Instagram instructions updated with new API'S.
 * Updated save and test configuration button.
@@ -681,6 +689,14 @@ SECURITY FIXES
 * First version of Social Login, Social Sharing plugin.
 
 == Upgrade Notice ==
+= 7.3.2 =
+* Updated Yahoo API.
+* Updated feedback on deactivation.
+* Minor UI changes.
+* Added a new social login plugin for woocommerce integration.
+* Added auto as a paramater for width in shortcode of social login icons.
+* Added Reddit, Foursquare, Snapchat, Teamsnap, Live Journal, Odnoklassniki, Naver.
+
 = 7.3.1 =
 * Instagram instructions updated with new API'S.
 * Updated save and test configuration button.

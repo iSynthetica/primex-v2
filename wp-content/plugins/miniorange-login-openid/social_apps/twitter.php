@@ -16,8 +16,6 @@ class twitter
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('twitter');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'twitter';
         $client_id = $appslist['twitter']['clientid'];
         $client_secret = $appslist['twitter']['clientsecret'];
         $twiter_getrequest_object = new Mo_Openid_Twitter_OAuth($client_id,$client_secret);	//creating the object of Mo_Openid_Twitter_OAuth class
@@ -54,8 +52,6 @@ class twitter
         $oauth_token_secret1 =    isset($oauth_token_secret[1]) ? $oauth_token_secret[1] : '';
         $screen_name1    =   isset($screen_name[1]) ? $screen_name[1] : '';
         $profile_json_output = $twitter_get_profile_signature_object->mo_twitter_get_profile_signature($oauth_access_token1,$oauth_token_secret1,$screen_name1);
-
-        mo_openid_start_session();
 
         //Test Configuration
         if (is_user_logged_in() && get_option('mo_openid_test_configuration') == 1) {
@@ -262,7 +258,6 @@ class Mo_Openid_Twitter_OAuth
 
         $get_response = wp_remote_get($url,$args);
         $response =  $get_response['body'];
-        mo_openid_start_session();
 
         $dirs = explode('&', $response);
         $dirs1 = explode('=', $dirs[0]);

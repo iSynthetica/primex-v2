@@ -24,8 +24,6 @@ class instagram
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('instagram');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'instagram';
         $client_id = $appslist['instagram']['clientid'];
         $scope = $appslist['instagram']['scope'];
         $login_dialog_url = 'https://api.instagram.com/oauth/authorize/?client_id=' . $client_id . '&redirect_uri=' . $social_app_redirect_uri . '&scope='.$scope.'&response_type=code';
@@ -45,12 +43,8 @@ class instagram
         $postData = 'client_id='. $client_id .'&client_secret=' . $client_secret . '&grant_type=authorization_code&redirect_uri=' . $social_app_redirect_uri.'&code=' . $code;
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'instagram');
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
-
         $profile_url = 'https://graph.instagram.com/me?fields=id,username&access_token='.$access_token;
-
         $profile_json_output = mo_openid_get_social_app_data($access_token, $profile_url,'amazon');
-        mo_openid_start_session();
 
         //Test Configuration
         if (is_user_logged_in() && get_option('mo_openid_test_configuration') == 1) {

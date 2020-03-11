@@ -36,6 +36,29 @@ require('view/soc_com/com_shrtco/comm_shrtco.php');
 include('view/add_on/custom_registration_form.php');
 
 function mo_register_openid() {
+?>
+    <div id="upgrade_notice" class="update-nag" style="width: 92.5%;margin-left: 0%;"><strong>Special March Offer for WOOCOMMERCE INTEGRATION. Click here to                 <a id="pricing" style="background: #FFA335;border-color: #FFA335;color: white;" class="button" href="<?php echo add_query_arg( array('tab' => 'licensing_plans'), $_SERVER['REQUEST_URI'] ); ?>"><?php echo mo_sl('Upgrade Now');?></a>
+        </strong></div>
+    <div id="myModalwoo_not" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <strong><h1 style="padding-left: 5%;color: darkblue"> WOOCOMMERCE INTEGRATION PLAN $19</h1><hr><p style="padding-left: 40%;font-size:18px;color:red">Special March Offer</p></strong>
+            <h4><strong>Features Included</strong></h4>   <input type="submit"  name="submit" value="<?php echo mo_sl('UPGRADE NOW');?>" style="float:right;width:150px;background-color:#0867b2;color:white;box-shadow:none;text-shadow: none;"  class="button button-primary button-large" /></b>
+            <h4>Woocommerce Display Options(STANDARD PLAN) <strike style="color: maroon;font-size:20px;font-weight: bold">$29</strike></h4>
+            <h4>Woocommerce integration + Display Options(PREMIUM PLAN) <strike style="color: maroon;font-size:20px;font-weight: bold">$49</strike></h4>
+            <label class="mo_openid_note_style">
+                We provide Woocommerece integration in our premium plan which includes Woocommerece integration and various Woocommerce display options along with other integration for $49.
+                We provide only Woocommerece display options in our standard plan along with other standard features for $29.
+                But now we have a special March offer for you this month, you can avail the Woocommerce integration and various Woocommerce display options with the free plugin features only at $19.
+            </label>
+            <p><strong style="color: #0000A0">Feature Description</strong>
+                Using Woocommerce integration you will get all the text fields at the checkout form pre-filled.</p>
+        </div>
+
+    </div>
+<?php
+    
     if( isset( $_GET[ 'tab' ]) && $_GET[ 'tab' ] !== 'register' ) {
         $active_tab = $_GET[ 'tab' ];
     } else {
@@ -185,7 +208,6 @@ function mo_register_openid() {
     </div>
     <?php include('view/support_form/miniorange_openid_support_form.php');?>
     <script>
-
         jQuery("#contact_us_phone").intlTelInput();
             function mo_openid_support_form(abc) {
                 
@@ -750,7 +772,6 @@ function mo_comment_openid() {
     <script>
         jQuery(document).ready(function ()
         {
-
             jQuery("#bkgOverlay").delay(4800).fadeIn(400);
             jQuery("#mo_openid_rateus_myModal").delay(5000).fadeIn(400);
 

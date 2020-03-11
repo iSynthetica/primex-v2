@@ -23,8 +23,6 @@ class windowslive
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri = get_social_app_redirect_uri('windowslive');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'windowslive';
         $client_id = $appslist['windowslive']['clientid'];
         $scope = $appslist['windowslive']['scope'];
         $login_dialog_url = 'https://login.live.com/oauth20_authorize.srf?client_id=' . $client_id . '&scope=' . $scope . '&response_type=code&redirect_uri=' . $social_app_redirect_uri;
@@ -46,10 +44,7 @@ class windowslive
         $postData = 'grant_type=authorization_code&client_id=' .$client_id .'&redirect_uri='. $social_app_redirect_uri .'&code='.$code .'&client_secret='. $client_secret;
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'windowslive');
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
-
         $profile_url = 'https://apis.live.net/v5.0/me?access_token=' .$access_token;
-
         $profile_json_output = mo_openid_get_social_app_data($access_token, $profile_url,'windowslive');
 
         //Test Configuration

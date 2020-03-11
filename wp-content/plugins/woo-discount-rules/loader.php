@@ -659,7 +659,7 @@ add_filter('woocommerce_screen_ids', function($screen_ids){
 /**
  * init Woo Discount Rules
  */
-if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+if ( FlycartWooDiscountRulesActivationHelper::isWooCommerceActive() ) {
     global $flycart_woo_discount_rules;
     $flycart_woo_discount_rules = FlycartWooDiscountRules::init();
     $purchase_helper = new FlycartWooDiscountRulesPurchase();

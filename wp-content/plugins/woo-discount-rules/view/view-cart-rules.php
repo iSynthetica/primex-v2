@@ -72,7 +72,7 @@ $has_large_no_of_coupon = FlycartWooDiscountBase::hasLargeNumberOfCoupon();
                             ?>
                             <div class="notice inline notice notice-warning notice-alt">
                                 <p>
-                                    <b><?php esc_html_e("This rule is not running currently: "); ?></b><?php echo $validateDateString; ?>
+                                    <b><?php esc_html_e("This rule is not running currently: ", 'woo-discount-rules'); ?></b><?php echo $validateDateString; ?>
                                 </p>
                             </div>
                             <br>

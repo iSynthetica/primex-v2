@@ -4,7 +4,7 @@ Donate link: https://flycart.org/
 Tags: woocommerce, coupons, discounts, dynamic pricing, Buy One Get One Free, pricing deals, bulk discount, discount
 Requires at least: 4.4.1
 Tested up to: 5.3
-Stable tag: 1.9.3
+Stable tag: 1.9.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -335,6 +335,22 @@ Discount - Enter minimum & Maximum quantity -> Adjustment Type -> Product Discou
 * Dutch Translation - [@mvdburg1971](https://profiles.wordpress.org/mvdburg1971) - Michael van der Burg
 
 == Changelog ==
+
+= 1.9.5 - 19/02/20 =
+* Fix - Strikeout for On after apply discount option doesn't works with non cumulative options.
+* Improvement - Text improvements
+* Improvement - Email TLD improvement
+* Improvement - Event apply_filters('woo_discount_rules_calculate_subtotal_before_discounts_for_price_rules', false, $rule);
+
+= 1.9.4 - 05/02/20 =
+* Fix - Each category option in cart rules doesn't consider product exclude option.
+* Fix - 7.3 compatible fix warning issue.
+* Improvement - Trigger event when billing email updated.
+* Improvement - Backward compatible for Adjustment type.
+* Improvement - Updated bootstrap to 3.4.1.
+* Improvement - Event apply_filters('woo_discount_rules_has_bogo_from_adjustment_set', $has_bogo, $adjustment_sets).
+* Improvement - Improved dependency check on activate plugin.
+* Improvement - Compatible for Alg_WC_Currency_Switcher.
 
 = 1.9.3 - 29/01/20 =
 * Fix - Disabled default free shipping even when the rule is disabled.

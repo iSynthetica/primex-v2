@@ -17,8 +17,6 @@ class amazon
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('amazon');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'amazon';
         $client_id = $appslist['amazon']['clientid'];
         $scope = $appslist['amazon']['scope'];
         $login_dialog_url = 'https://www.amazon.com/ap/oa?client_id=' . $client_id . '&scope=' . $scope . '&redirect_uri=' . $social_app_redirect_uri . '&response_type=code';
@@ -30,20 +28,14 @@ class amazon
     {
         $code = mo_openid_validate_code();
         $social_app_redirect_uri = get_social_app_redirect_uri('amazon');
-
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $client_id = $appslist['amazon']['clientid'];
         $client_secret = $appslist['amazon']['clientsecret'];
         $access_token_uri = 'https://api.amazon.com/auth/o2/token';
         $postData = 'grant_type=authorization_code&client_id='. $client_id .'&client_secret=' . $client_secret . '&code=' . $code . '&redirect_uri=' . $social_app_redirect_uri;
-
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'amazon');
-
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
-
         $profile_url = 'https://api.amazon.com/user/profile?access_token=' . $access_token;
-
         $profile_json_output = mo_openid_get_social_app_data($access_token, $profile_url,'amazon');
 
         //Test Configuration

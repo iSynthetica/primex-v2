@@ -16,8 +16,6 @@ class linkedin
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('linkedin');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'linkedin';
         $client_id = $appslist['linkedin']['clientid'];
         $scope = $appslist['linkedin']['scope'];
         $login_dialog_url ='https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id='.$client_id.'&redirect_uri=' . $social_app_redirect_uri .'&state=fooobar&scope=' . $scope;
@@ -39,7 +37,6 @@ class linkedin
         $access_token_json_output = mo_openid_get_access_token($postData, $access_token_uri,'linkedin');
 
         $access_token = isset($access_token_json_output['access_token']) ? $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
 
         $profile_url_email = 'https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))';
         $profile_url = 'https://api.linkedin.com/v2/me?projection=(id,firstName,lastName,emailAddress,profilePicture(displayImage~:playableStreams))';

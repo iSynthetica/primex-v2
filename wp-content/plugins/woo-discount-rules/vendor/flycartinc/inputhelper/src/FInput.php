@@ -235,38 +235,39 @@ class FInput implements Serializable, Countable
 		}
 
 		$results = array();
+        if(is_array($vars) && !empty($vars)){
+            foreach ($vars as $k => $v)
+            {
+                if (is_array($v))
+                {
+                    if (is_null($datasource))
+                    {
+                        $results[$k] = $this->getArrayRecursive($v, $this->get($k, null, 'array'), $defaultFilter, true);
+                    }
+                    else
+                    {
+                        $results[$k] = $this->getArrayRecursive($v, $datasource[$k], $defaultFilter, true);
+                    }
+                }
+                else
+                {
+                    $filter = isset($defaultFilter) ? $defaultFilter : $v;
 
-		foreach ($vars as $k => $v)
-		{
-			if (is_array($v))
-			{
-				if (is_null($datasource))
-				{
-					$results[$k] = $this->getArrayRecursive($v, $this->get($k, null, 'array'), $defaultFilter, true);
-				}
-				else
-				{
-					$results[$k] = $this->getArrayRecursive($v, $datasource[$k], $defaultFilter, true);
-				}
-			}
-			else
-			{
-				$filter = isset($defaultFilter) ? $defaultFilter : $v;
-
-				if (is_null($datasource))
-				{
-					$results[$k] = $this->get($k, null, $filter);
-				}
-				elseif (isset($datasource[$k]))
-				{
-					$results[$k] = $this->filter->clean($datasource[$k], $filter);
-				}
-				else
-				{
-					$results[$k] = $this->filter->clean(null, $filter);
-				}
-			}
-		}
+                    if (is_null($datasource))
+                    {
+                        $results[$k] = $this->get($k, null, $filter);
+                    }
+                    elseif (isset($datasource[$k]))
+                    {
+                        $results[$k] = $this->filter->clean($datasource[$k], $filter);
+                    }
+                    else
+                    {
+                        $results[$k] = $this->filter->clean(null, $filter);
+                    }
+                }
+            }
+        }
 
 		return $results;
 	}

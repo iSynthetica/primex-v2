@@ -4,12 +4,12 @@
  * Plugin Name: Social Login, Social Sharing by miniOrange
  * Plugin URI: https://www.miniorange.com
  * Description: Allow your users to login, comment and share with Facebook, Google, Apple, Twitter, LinkedIn etc using customizable buttons.
- * Version: 7.3.1
+ * Version: 7.3.2
  * Author: miniOrange
  * License URI: http://miniorange.com/usecases/miniOrange_User_Agreement.pdf
  */
 
-define('MO_OPENID_SOCIAL_LOGIN_VERSION', '7.3.1');
+define('MO_OPENID_SOCIAL_LOGIN_VERSION', '7.3.2');
 define('plugin_url', plugin_dir_url(__FILE__) . "includes/images/icons/");
 define('MOSL_PLUGIN_DIR',str_replace('/','\\',plugin_dir_path(__FILE__)));
 require('miniorange_openid_sso_settings_page.php');
@@ -40,8 +40,8 @@ class miniorange_openid_sso_settings
         add_action( 'admin_init',  array( $this, 'miniorange_openid_save_settings' ) );
         add_action('init', 'mo_openid_login_validate' );
         add_action( 'plugins_loaded', 'mo_openid_plugin_update' ,1 );
-            add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_script' ) );
-            add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_style' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_script' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'mo_openid_plugin_settings_style' ) );
         add_action('wp_ajax_mo-openid-sso-sort-action', 'mo_openid_sso_sort_action');
         add_action('wp_ajax_mo_openid_share', 'mo_openid_share_action');
         add_action('wp_ajax_mo_openid_app_enable', 'mo_openid_sso_enable_app');
@@ -83,7 +83,7 @@ class miniorange_openid_sso_settings
         add_option('mo_openid_admin_api_key','BjIZyuSDTE90MVWp4pRLr3dzrFs8h74T');
         add_option('mo_openid_customer_token','6osoapPWEgGlBRgT');
         add_option('app_pos','facebook#google#vkontakte#twitter#instagram#linkedin#amazon#salesforce#windowslive#yahoo');
-        add_option('app_pos_premium','apple#wordpress#disqus#pinterest#spotify#tumblr#twitch#vimeo#kakao#discord#dribbble#flickr#line#meetup#stackexchange#wiebo#wechat#baidu#renren#qq');
+        update_option('app_pos_premium','apple#wordpress#disqus#pinterest#spotify#reddit#tumblr#twitch#vimeo#kakao#discord#dribbble#flickr#line#meetup#stackexchange#livejournal#snapchat#foursquare#teamsnap#naver#odnoklassniki#wiebo#wechat#baidu#renren#qq');
         add_option('mo_openid_default_login_enable',1);
         add_option( 'mo_openid_login_theme', 'longbutton' );
         add_option( 'mo_openid_register_email_message', 'Hello,<br><br>##User Name## has registered to your site  successfully.<br><br>Thanks,<br>miniOrange' );
@@ -115,7 +115,7 @@ class miniorange_openid_sso_settings
         add_option('moopenid_logo_check_account','1');
         add_option( 'mo_openid_email_enable', '1');
         add_option( 'mo_openid_tour_new','0');
-
+        add_option( 'mo_openid_deactivate_reason',0);
 
         add_option('mo_openid_user_activation_date','0');
         //GDPR options
@@ -792,7 +792,8 @@ Thank you.';
 
 
     function mo_openid_feedback_request(){
-        mo_openid_display_feedback_form();
+        if(get_option('mo_openid_deactivate_reason')=='0')
+            mo_openid_display_feedback_form();
     }
     function mo_openid_add_social_share_links($content) {
         global $post;

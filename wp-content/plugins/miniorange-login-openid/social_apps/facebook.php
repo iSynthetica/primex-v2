@@ -15,8 +15,6 @@ class facebook
     {
         $appslist = maybe_unserialize(get_option('mo_openid_apps_list'));
         $social_app_redirect_uri= get_social_app_redirect_uri('facebook');
-        mo_openid_start_session();
-        $_SESSION["appname"] = 'facebook';
         $client_id = $appslist['facebook']['clientid'];
         $scope = $appslist['facebook']['scope'];
         $login_dialog_url = "https://www.facebook.com/v2.11/dialog/oauth?client_id=".$client_id. '&redirect_uri='. $social_app_redirect_uri .'&response_type=code&scope='.$scope;
@@ -34,15 +32,10 @@ class facebook
         $client_secret = $appslist['facebook']['clientsecret'];
         $access_token_uri = 'https://graph.facebook.com/v2.11/oauth/access_token';
         $postData = 'client_id=' . $client_id . '&redirect_uri=' . $social_app_redirect_uri . '&client_secret=' . $client_secret . '&code=' . $code;
-
         $access_token_json_output=mo_openid_get_access_token($postData,$access_token_uri,'facebook');
-
         $access_token = isset( $access_token_json_output['access_token']) ?  $access_token_json_output['access_token'] : '';
-        mo_openid_start_session();
-
         $px = get_option('facebook_profile_pic_resolution')?get_option('facebook_profile_pic_resolution'):'180';
         $profile_url ='https://graph.facebook.com/me/?fields=age_range,birthday,about,cover,currency,devices,education,email,favorite_athletes,favorite_teams,first_name,gender,hometown,inspirational_people,interested_in,is_verified,languages,last_name,link,locale,location,meeting_for,middle_name,name,name_format,political,public_key,quotes,relationship_status,religion,sports,timezone,updated_time,verified,website,work,friends,picture.height('.$px.')&access_token='  .$access_token;
-
         $profile_json_output = mo_openid_get_social_app_data($access_token,$profile_url,'facebook');
 
         //Test Configuration

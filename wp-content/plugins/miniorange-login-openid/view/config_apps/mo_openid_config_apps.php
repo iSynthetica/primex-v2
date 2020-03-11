@@ -87,7 +87,6 @@ function mo_openid_show_apps()
             </td>
         </tr>
     </table>
-
     <div id="mo_openid_notice_snackbar"><label id="mo_openid_notice_message"></label></div>
 
 
@@ -96,7 +95,6 @@ function mo_openid_show_apps()
     <script>
         //to set heading name
         jQuery('#mo_openid_page_heading').text('<?php echo mo_sl('Configure Applications'); ?>');
-
         //to enable apps from outside toggle
         function enable_default_app(app_name) {
             var a = document.getElementById('mo_apps_'.concat(app_name));
@@ -542,7 +540,7 @@ function mo_openid_show_apps()
                 document.getElementById('mo_openid_ajax_wait_img').style.display = 'none';
                 document.getElementById('mo_openid_ajax_wait_fade').style.display = 'none';
             }
-
+            
             //register_old_user
             jQuery('#mo_register_old_user').click(function () {
                 jQuery('#mo_msg_box').hide();

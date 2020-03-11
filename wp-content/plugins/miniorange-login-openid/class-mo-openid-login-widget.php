@@ -1,6 +1,6 @@
 <?php
 include "mo-openid-social-login-functions.php";
-add_action( 'wp_login', 'mo_openid_link_account', 5, 2);
+add_action( 'wp_login', 'mo_openid_link_account', 5, 3);
 add_action( 'mo_user_register', 'mo_openid_update_role', 1, 2);
 add_action( 'mo_user_register','mo_openid_send_email',1, 2 );
 if(get_option('mo_openid_popup_window')=='0') {
@@ -9,11 +9,10 @@ if(get_option('mo_openid_popup_window')=='0') {
 else {
     add_action('wp_login', 'mo_openid_login_redirect_pop_up', 11, 2);
 }
-add_action('wp_login', 'mo_openid_update_user_meta', 8, 2);
+//add_action('wp_login', 'mo_openid_update_user_meta', 8, 2);
 add_action( 'delete_user', 'mo_openid_delete_account_linking_rows' );
 
 add_action('manage_users_custom_column', 'mo_openid_delete_profile_column', 9, 3);
-//add_filter('manage_users_columns', 'mo_openid_add_custom_column2');
 add_filter('manage_users_columns', 'mo_openid_add_custom_column1');
 add_action('admin_head', 'mo_openid_delete_social_profile_script');
 add_filter( 'login_message', 'mo_openid_account_linking');
@@ -73,7 +72,7 @@ class mo_openid_login_wid extends WP_Widget {
         }
 
         $selected_theme = esc_attr(get_option('mo_openid_login_theme'));
-        $appsConfigured = get_option('mo_openid_google_enable') | get_option('mo_openid_salesforce_enable') | get_option('mo_openid_facebook_enable') | get_option('mo_openid_linkedin_enable') | get_option('mo_openid_instagram_enable') | get_option('mo_openid_amazon_enable') | get_option('mo_openid_windowslive_enable') | get_option('mo_openid_twitter_enable') | get_option('mo_openid_vkontakte_enable')| get_option('mo_openid_yahoo_enable')| get_option('mo_openid_wordpress_enable')| get_option('mo_openid_disqus_enable')| get_option('mo_openid_pinterest_enable')| get_option('mo_openid_twitch_enable')| get_option('mo_openid_vimeo_enable')| get_option('mo_openid_kakao_enable');
+        $appsConfigured = get_option('mo_openid_google_enable') | get_option('mo_openid_salesforce_enable') | get_option('mo_openid_facebook_enable') | get_option('mo_openid_linkedin_enable') | get_option('mo_openid_instagram_enable') | get_option('mo_openid_amazon_enable') | get_option('mo_openid_windowslive_enable') | get_option('mo_openid_twitter_enable') | get_option('mo_openid_vkontakte_enable')| get_option('mo_openid_yahoo_enable');
         $spacebetweenicons = esc_attr(get_option('mo_login_icon_space'));
         $customWidth = esc_attr(get_option('mo_login_icon_custom_width'));
         $customHeight = esc_attr(get_option('mo_login_icon_custom_height'));
@@ -108,8 +107,10 @@ class mo_openid_login_wid extends WP_Widget {
         $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
         $sign_up_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         $mo_URL=strstr($sign_up_url, "?", true);
-        if($mo_URL) {setcookie("mo_openid_signup_url",  $mo_URL, time() + (86400 * 30), "/");}
-        else{setcookie("mo_openid_signup_url", $sign_up_url, time() + (86400 * 30), "/");}
+        if($mo_URL) {
+            setcookie("mo_openid_signup_url",  $mo_URL, time() + (86400 * 30), "/");}
+        else{
+            setcookie("mo_openid_signup_url", $sign_up_url, time() + (86400 * 30), "/");}
 
         if( ! is_user_logged_in() ) {
             if( $appsConfigured ) {
@@ -256,9 +257,7 @@ class mo_openid_login_wid extends WP_Widget {
                                                 echo get_option('mo_openid_login_button_customize_text'); 	?> Microsoft</a>
                                         <?php }
                                         else{ ?>
-
-
-                                            <a class="<?php if(get_option('mo_openid_gdpr_consent_enable')){echo "dis";} ?> login-button" rel='nofollow'  <?php echo $gdpr_setting; ?>title="<?php echo $customTextofTitle ?> Microsoft" onClick="moOpenIdLogin('windowslive','<?php echo $custom_app?>');"><img alt='Windowslive' style="width:<?php echo $customSize?>px !important;height:<?php echo $customSize?>px !important;margin-left:<?php echo $spacebetweenicons-4?>px !important"  src="<?php echo plugins_url( 'includes/images/icons/windowslive.png', __FILE__ )?>" class="<?php echo $selected_theme; ?><?php if(get_option('mo_openid_gdpr_consent_enable')){echo "dis";} ?> login-button"></a>
+                                            <a class="<?php if(get_option('mo_openid_gdpr_consent_enable')){echo "dis";} ?> login-button" rel='nofollow'  <?php echo $gdpr_setting; ?> title="<?php echo $customTextofTitle ?> Microsoft" onClick="moOpenIdLogin('windowslive','<?php echo $custom_app?>');"><img alt='Windowslive' style="width:<?php echo $customSize?>px !important;height:<?php echo $customSize?>px !important;margin-left:<?php echo $spacebetweenicons-4?>px !important"  src="<?php echo plugins_url( 'includes/images/icons/windowslive.png', __FILE__ )?>" class="<?php echo $selected_theme; ?> <?php if(get_option('mo_openid_gdpr_consent_enable')){echo "dis";} ?> login-button"></a>
                                         <?php }
                                         break;
                                     case 'yahoo':
@@ -877,15 +876,18 @@ class mo_openid_login_wid extends WP_Widget {
         if($customer_register=='no' && $custom_app =='false')
             return 'disable';
     }
+
     //for shortcode
     public function add_apps($app_name,$theme,$gdpr_setting,$spacebetweenicons,$customWidth,$customHeight,$customBoundary,$buttonText,$dis,$customTextofTitle,$customSize,$selected_theme,$custom_app,$html,$view,$customBackground,$app_dis)
     {
+        if($customWidth!=='auto'||$customWidth=='Auto'||$customWidth=='AUTO')
+            $customWidth.='px';
         if($theme=="default")
         {
             if($app_name=="fb")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-facebook btn-custom-dec login-button'";
                     } else {
@@ -902,14 +904,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="google")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;background: rgb(255,255,255)!important; background:linear-gradient(90deg, rgba(255,255,255,1) 38px, rgb(79, 113, 232) 5%) !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;border-color: rgba(79, 113, 232, 1);border-bottom-width: thin;'";
+                    $html .= "<a  rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;background: rgb(255,255,255)!important; background:linear-gradient(90deg, rgba(255,255,255,1) 38px, rgb(79, 113, 232) 5%) !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;border-color: rgba(79, 113, 232, 1);border-bottom-width: thin;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-google btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-google btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('google','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('google','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 29) . "px !important;border-right:none;' class='mofa'><svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 70 70\" style=\"padding-left: 8%;\" ><defs><path id=\"a\" d=\"M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z\"/></defs><clipPath id=\"b\"><use xlink:href=\"#a\" overflow=\"visible\"/></clipPath><path clip-path=\"url(#b)\" fill=\"#FBBC05\" d=\"M0 37V11l17 13z\"/><path clip-path=\"url(#b)\" fill=\"#EA4335\" d=\"M0 11l17 13 7-6.1L48 14V0H0z\"/><path clip-path=\"url(#b)\" fill=\"#34A853\" d=\"M0 37l30-23 7.9 1L48 0v48H0z\"/><path clip-path=\"url(#b)\" fill=\"#4285F4\" d=\"M48 48L17 24l-4-3 35-10z\"/></svg></i><span style=\"color:#ffffff;\">" . $buttonText . " Google</span></a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow'";if($app_dis!="disable")$html.=" onClick=\"moOpenIdLogin('google','" . $custom_app . "');\""; $html.=" title= ' " . $customTextofTitle . " Google'><img alt='Google' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/google.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -919,14 +921,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="vk")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow' " . $gdpr_setting . "  style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow' " . $gdpr_setting . "  style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-vk btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-vk btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('vkontakte','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('vkontakte','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-vk'></i>" . $buttonText . " Vkontakte</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow'"; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('vkontakte','" . $custom_app . "');\""; $html.="title= ' " . $customTextofTitle . " Vkontakte'><img alt='Vkontakte' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/vk.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -936,14 +938,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="twitter")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'  " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'  " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-twitter btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-twitter btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('twitter','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('twitter','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-twitter'></i>" . $buttonText . " Twitter</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " . $customTextofTitle . " Twitter'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('twitter','" . $custom_app . "');\""; $html.=" ><img alt='Twitter' style=' width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/twitter.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -953,14 +955,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="linkin")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-linkedin btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-linkedin btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('linkedin','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('linkedin','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-linkedin'></i>" . $buttonText . " LinkedIn</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " . $customTextofTitle . " LinkedIn'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('linkedin','" . $custom_app . "');\""; $html.=" ><img alt='LinkedIn' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/linkedin.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -970,14 +972,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="insta")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'  " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'  " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-instagram btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-instagram btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('instagram','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('instagram','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-instagram'></i>" . $buttonText . " Instagram</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' " . $customTextofTitle . " Instagram'";if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('instagram','" . $custom_app . "');\""; $html.=" ><img alt='Instagram' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/instagram.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -987,14 +989,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="amazon")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-soundcloud btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-soundcloud btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('amazon','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('amazon','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-amazon'></i>" . $buttonText . " Amazon</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " . $customTextofTitle . " Amazon' ";if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('amazon','" . $custom_app . "');\""; $html.=" ><img alt='Amazon' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/amazon.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -1008,14 +1010,14 @@ class mo_openid_login_wid extends WP_Widget {
                 else
                     $app_dis='';
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-vimeo btn-custom-dec login-button' ";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-vimeo btn-custom-dec login-button' ";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('salesforce','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('salesforce','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-cloud'></i>" . $buttonText . " Salesforce</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " . $customTextofTitle . " Salesforce'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('salesforce','" . $custom_app . "');\""; $html.=" ><img alt='Salesforce' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/salesforce.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -1025,14 +1027,14 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="wlive")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-microsoft btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-microsoft btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= " onClick=\"moOpenIdLogin('windowslive','" . $custom_app . "');\"";
+                        $html .= " onClick=\"moOpenIdLogin('windowslive','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-windows'></i>" . $buttonText . " Microsoft</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow'  title= ' " . $customTextofTitle . " Microsoft'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('windowslive','" . $custom_app . "');\""; $html.=" ><img alt='Windowslive' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/windowslive.png', __FILE__) . "' class='" . $dis . " login-button " . $selected_theme . "' ></a>";
@@ -1042,37 +1044,18 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="yahoo")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-yahoo btn-custom-dec login-button'";
                     } else {
                         $html .= "class='btn btn-mo btn-block btn-social btn-yahoo btn-custom-dec login-button'";
                     }
                     if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('yaahoo','" . $custom_app . "');\"";
+                        $html .= "onClick=\"moOpenIdLogin('yaahoo','" . $custom_app . "');\"";
                     $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-yahoo'></i>" . $buttonText . " Yahoo</a>";
                 } else {
                     $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " .
                         $customTextofTitle . " Yahoo'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('yaahoo','" . $custom_app . "');\""; $html.=" ><img alt='Yahoo' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/yahoo.png', __FILE__) . "' class='login-button " . $selected_theme . "' ></a>";
-                }
-                return $html;
-            }
-            else if($app_name=="wpress")
-            {
-                if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow' " . $gdpr_setting . " style='margin-left: " . $spacebetweenicons . "px !important;width: " . $customWidth . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom: " . ($spacebetweenicons - 5) . "px !important;border-radius: " . $customBoundary . "px !important;'";
-                    if ($view == "horizontal") {
-                        $html .= "class='btn btn-mo btn-block-inline btn-social btn-wordpress btn-custom-dec login-button'";
-                    } else {
-                        $html .= "class='btn btn-mo btn-block btn-social btn-wordpress btn-custom-dec login-button'";
-                    }
-                    if($app_dis!="disable")
-                    $html .= "onClick=\"moOpenIdLogin('wordpress','" . $custom_app . "');\"";
-                    $html.="> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-wordpress'></i>" . $buttonText . " WordPress</a>";
-                } else {
-                    $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " .
-                        $customTextofTitle . " WordPress'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('wordpress','" . $custom_app . "');\"";
-                    $html.="><img alt='WordPress' style='width:" . $customSize . "px !important;height: " . $customSize . "px !important;margin-left: " . ($spacebetweenicons) . "px !important' src='" . plugins_url('includes/images/icons/wordpress.png', __FILE__) . "' class='login-button " . $selected_theme . "' ></a>";
                 }
                 return $html;
             }
@@ -1082,7 +1065,7 @@ class mo_openid_login_wid extends WP_Widget {
             if($app_name=="fb")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('facebook','" . $custom_app . "');\"";$html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('facebook','" . $custom_app . "');\"";$html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1096,7 +1079,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="google") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "";if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('google','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . "";if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('google','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1110,7 +1093,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="vk") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('vkontakte','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('vkontakte','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1124,7 +1107,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="twitter") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('twitter','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('twitter','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1138,7 +1121,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="linkin") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('linkedin','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('linkedin','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1153,7 +1136,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="insta") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('instagram','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.="onClick=\"moOpenIdLogin('instagram','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1167,7 +1150,7 @@ class mo_openid_login_wid extends WP_Widget {
             }
             else if($app_name=="amazon") {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('amazon','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('amazon','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1187,7 +1170,7 @@ class mo_openid_login_wid extends WP_Widget {
                 else
                     $app_dis='';
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('salesforce','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('salesforce','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1202,7 +1185,7 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="wlive")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('windowslive','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a  rel='nofollow'  " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('windowslive','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1217,7 +1200,7 @@ class mo_openid_login_wid extends WP_Widget {
             else if($app_name=="yahoo")
             {
                 if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('yaahoo','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
+                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('yaahoo','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . " !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
                     if ($view == "horizontal") {
                         $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
                     } else {
@@ -1229,24 +1212,10 @@ class mo_openid_login_wid extends WP_Widget {
                 }
                 return $html;
             }
-            else if($app_name=="wpress")
-            {
-                if ($selected_theme == 'longbutton') {
-                    $html .= "<a rel='nofollow'   " . $gdpr_setting . ""; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('wordpress','" . $custom_app . "');\""; $html.=" style='margin-left: " . $spacebetweenicons . "px !important;width:" . ($customWidth) . "px !important;padding-top:" . ($customHeight - 29) . "px !important;padding-bottom:" . ($customHeight - 29) . "px !important;margin-bottom:" . ($spacebetweenicons - 5) . "px !important; background:#" . $customBackground . "!important;border-radius: " . $customBoundary . "px !important;'";
-                    if ($view == "horizontal") {
-                        $html .= "class='btn btn-mo btn-block-inline btn-social btn-customtheme btn-custom-dec login-button'";
-                    } else {
-                        $html .= "class='btn btn-mo btn-block btn-social btn-customtheme btn-custom-dec login-button'";
-                    }
-                    $html .= "> <i style='padding-top:" . ($customHeight - 35) . "px !important' class='mofa mofa-wordpress'></i> " . $buttonText . " WordPress</a>";
-                } else {
-                    $html .= "<a class='" . $dis . " login-button' rel='nofollow' title= ' " . $customTextofTitle . " WordPress'"; if($app_dis!="disable") $html.=" onClick=\"moOpenIdLogin('wordpress','" . $custom_app . "');\""; $html.=" ><i style='margin-top:10px;width:" . $customSize . "px !important;height:" . $customSize . "px !important;margin-left:" . ($spacebetweenicons) . "px !important;background:#" . $customBackground . " !important;font-size: " . ($customSize - 16) . "px !important;'  class='mofa btn-mo mofa-wordpress custom-login-button  " . $selected_theme . "' ></i></a>";
-                }
-                return $html;
-            }
         }
 
     }
+
 
     private function mo_openid_load_login_script() {
         if(!get_option('mo_openid_gdpr_consent_enable')){?>
@@ -1263,12 +1232,12 @@ class mo_openid_login_wid extends WP_Widget {
 
                     jQuery('#mo_openid_consent_checkbox').val(1);
                     jQuery(".btn-mo").attr("disabled", true);
-                    jQuery(".login-button").addClass("mo_openid_dis");
+                    jQuery(".login-button").addClass("dis");
                 } else {
 
                     jQuery('#mo_openid_consent_checkbox').val(0);
                     jQuery(".btn-mo").attr("disabled", false);
-                    jQuery(".login-button").removeClass("mo_openid_dis");
+                    jQuery(".login-button").removeClass("dis");
                 }
             }
 
@@ -1594,7 +1563,6 @@ function mo_openid_redirect_after_logout($logout_url)
 
 function mo_openid_login_validate(){
 
-
     $present_time_rateus_pop = date('Y-m-d');
     if(get_option('check_ten_rate_us') < 5 ){
         if(get_option('mo_openid_user_activation_date') < $present_time_rateus_pop){
@@ -1712,7 +1680,6 @@ function mo_openid_login_validate(){
                 'social_user_id' => $social_user_id,
             );
 
-            mo_openid_start_session_login($session_values);
             $user	= get_user_by('id', $user_id );
             update_custom_data($user_id);
             //registration hook
@@ -1808,7 +1775,6 @@ function mo_openid_login_validate(){
         if ( ! wp_verify_nonce( $nonce, 'mo-openid-account-linking-nonce' ) ) {
             wp_die('<strong>ERROR</strong>: Invalid Request.');
         } else {
-            mo_openid_start_session();
             //link account
             if (!isset($_POST['mo_openid_create_new_account'])) {
                 $nonce = wp_create_nonce('mo-openid-disable-social-login-nonce');
@@ -2007,9 +1973,7 @@ function mo_openid_update_role($user_id='', $user_url=''){
 
 
 function mo_openid_login_redirect($username = '', $user = NULL){
-    mo_openid_start_session();
-    if(is_string($username) && $username && is_object($user) && !empty($user->ID) && ($user_id = $user->ID) && isset($_SESSION['mo_login']) && $_SESSION['mo_login']){
-        $_SESSION['mo_login'] = false;
+   if(is_string($username) && $username && is_object($user) && !empty($user->ID) && ($user_id = $user->ID) ){
         wp_set_auth_cookie( $user_id, true );
         $redirect_url = mo_openid_get_redirect_url();
         wp_redirect($redirect_url);
@@ -2019,7 +1983,6 @@ function mo_openid_login_redirect($username = '', $user = NULL){
 
 function mo_openid_login_redirect_pop_up($username = '', $user = NULL){
 
-    mo_openid_start_session();
     if(is_string($username) && $username && is_object($user) && !empty($user->ID) && ($user_id = $user->ID) && isset($_SESSION['mo_login']) && $_SESSION['mo_login']){
         $_SESSION['mo_login'] = false;
         wp_set_auth_cookie( $user_id, true );
@@ -2041,8 +2004,6 @@ function mo_openid_login_redirect_pop_up($username = '', $user = NULL){
 }
 
 function mo_openid_update_user_meta($username, $user ){
-    mo_openid_start_session();
-
     if(isset($_SESSION['location_city'])? $_SESSION['location_city']: '') {
         update_user_meta($user->ID, 'location_city', $_SESSION['location_city']);
     }
@@ -2097,15 +2058,14 @@ function mo_openid_update_user_meta($username, $user ){
     update_user_meta( $user->ID, 'NA', isset($_SESSION['NA'])? $_SESSION['NA']:'' );
 }
 
-function mo_openid_link_account( $username, $user ){
+function mo_openid_link_account( $username, $user){
     if($user){
         $userid = $user->ID;
     }
-    mo_openid_start_session();
+    $user_email = $_COOKIE["user_email"];
+    $social_app_identifier = $_COOKIE['social_id'];
+    $social_app_name = $_COOKIE['social_app_name'];
 
-    $user_email =  isset($_SESSION['user_email']) ? sanitize_text_field($_SESSION['user_email']):'';
-    $social_app_identifier = isset($_SESSION['social_user_id']) ? sanitize_text_field($_SESSION['social_user_id']):'';
-    $social_app_name = isset($_SESSION['social_app_name']) ? sanitize_text_field($_SESSION['social_app_name']):'';
     if(empty($user_email)){
         $user_email=$user->user_email;
     }
@@ -2116,11 +2076,9 @@ function mo_openid_link_account( $username, $user ){
     elseif(!isset($userid)){
         return;
     }
-
     global $wpdb;
     $db_prefix = $wpdb->prefix;
     $linked_email_id = $wpdb->get_var($wpdb->prepare("SELECT user_id FROM ".$db_prefix."mo_openid_linked_user where linked_email = \"%s\" AND linked_social_app = \"%s\"",$user_email,$social_app_name));
-
     // if a user with given email and social app name doesn't already exist in the mo_openid_linked_user table
     if(!isset($linked_email_id)){
         mo_openid_insert_query($social_app_name,$user_email,$userid,$social_app_identifier);

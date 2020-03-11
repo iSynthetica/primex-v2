@@ -1064,12 +1064,15 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
          * Check with users roles
          * */
         public function checkWithUserRoles($rule){
-            $user_roles_to_apply = json_decode($rule->user_roles_to_apply, true);
-            if(!empty($user_roles_to_apply)){
-                if (count(array_intersect(FlycartWooDiscountRulesGeneralHelper::getCurrentUserRoles(), $user_roles_to_apply)) == 0) {
-                    return false;
+            if(!empty($rule->user_roles_to_apply)){
+                $user_roles_to_apply = json_decode($rule->user_roles_to_apply, true);
+                if(!empty($user_roles_to_apply)){
+                    if (count(array_intersect(FlycartWooDiscountRulesGeneralHelper::getCurrentUserRoles(), $user_roles_to_apply)) == 0) {
+                        return false;
+                    }
                 }
             }
+
             return true;
         }
 
@@ -1105,8 +1108,13 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
             if(isset($rule->subtotal_to_apply_option)){
                 if($rule->subtotal_to_apply_option == 'atleast'){
                     if(isset($rule->subtotal_to_apply) && $rule->subtotal_to_apply > 0){
-                        //get_calculated_item_subtotal_manually
-                        $sub_total = FlycartWooDiscountRulesGeneralHelper::get_calculated_item_subtotal_manually($rule);//FlycartWooDiscountRulesAdvancedHelper::get_calculated_item_subtotal();
+                        $sub_total_before_discount = apply_filters('woo_discount_rules_calculate_subtotal_before_discounts_for_price_rules', false, $rule);
+                        if($sub_total_before_discount){
+                            $sub_total = FlycartWooDiscountRulesAdvancedHelper::get_calculated_item_subtotal();
+                        } else {
+                            //get_calculated_item_subtotal_manually
+                            $sub_total = FlycartWooDiscountRulesGeneralHelper::get_calculated_item_subtotal_manually($rule);
+                        }
                         if(!($rule->subtotal_to_apply <= $sub_total)){
                             $allowed = 0;
                         }
@@ -1409,6 +1417,15 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                             $is_cumulative = true;
                                             if($bogo) $quantity = $this->getProductQuantityForCumulativeSpecificProducts($item, 0, $rule, $rule['type']['specific_products']);
                                             else $quantity = $this->getProductQuantityForCumulativeSpecificProducts($item, $product_page, $rule, $rule['type']['specific_products']);
+                                        } else {
+                                            if($product_page && !$bogo){
+                                                if(FlycartWooDiscountRulesGeneralHelper::addAQuantityForProductStrikeOut()){
+                                                } else {
+                                                    if($quantity > 0){
+                                                        $quantity = $quantity-1;
+                                                    }
+                                                }
+                                            }
                                         }
                                         $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, array(), $is_cumulative);
                                         $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
@@ -1508,7 +1525,17 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                                         $is_cumulative = true;
                                         if($bogo) $quantity = $this->getProductQuantityForCumulativeProducts($item, 0, $rule);
                                         else $quantity = $this->getProductQuantityForCumulativeProducts($item, $product_page, $rule);
+                                    } else {
+                                        if($product_page && !$bogo){
+                                            if(FlycartWooDiscountRulesGeneralHelper::addAQuantityForProductStrikeOut()){
+                                            } else {
+                                                if($quantity > 0){
+                                                    $quantity = $quantity-1;
+                                                }
+                                            }
+                                        }
                                     }
+
                                     $discount_amount = $this->getAdjustmentAmount($item, $quantity, $this->array_first($rule['discount']), $rule, $product_page, $bogo, $rule['product_to_exclude'], $is_cumulative);
                                     $applied_rules[$i] = $this->formatRulesToApply($discount_amount, $rule['name'], $index, $item['product_id'], $id);
                                 }
@@ -3424,7 +3451,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                 }
             }
 
-            return $has_bogo;
+            return apply_filters('woo_discount_rules_has_bogo_from_adjustment_set', $has_bogo, $adjustment_sets);
         }
 
         /**
@@ -3466,7 +3493,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
             $adjustment_set = $this->resetTheDiscountIfProductDiscountAdjustmentExists($adjustment_set, $product_id, $cart_item_key);
             $additionalDetails = $rules_info = $additionalInfo = array();
             $product_page = 0;
-            if(!in_array($type, array('first', 'biggest'))){
+            if(!in_array($type, array('biggest'))){
                 $has_bogo = $this->hasBOGOInAdjustmentSet($adjustment_set);
                 if($has_bogo === true){
                     $type = 'biggest';
@@ -3793,6 +3820,14 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
                     }
                 }
             }
+            //Alg_WC_Currency_Switcher compatible
+            if (class_exists( 'Alg_WC_Currency_Switcher' ) ) {
+                if(function_exists('alg_wc_cs_get_currency_exchange_rate') && function_exists('alg_get_current_currency_code')){
+                    $alg_wc_cs = alg_wc_cs_get_currency_exchange_rate(alg_get_current_currency_code());
+                    $amount = $amount / $alg_wc_cs;
+                }
+            }
+
             $original_price_excluding_tax = FlycartWoocommerceProduct::get_price_excluding_tax($original_product);
             $amount_excluding_tax = FlycartWoocommerceProduct::get_price_excluding_tax($original_product, 1, $amount);
             //for future reference
@@ -4847,6 +4882,7 @@ if (!class_exists('FlycartWooDiscountRulesPricingRules')) {
             $subtotal_additional_text = '<span class="wdr_you_saved_con">';
             $config = new FlycartWooDiscountBase();
             $display_you_saved_string = $config->getConfigData('display_you_saved_text_value', " You saved: {{total_discount_price}}");
+            $display_you_saved_string = esc_html__($display_you_saved_string, 'woo-discount-rules');
             $display_you_saved_string = str_replace('{{total_discount_price}}', '%s', $display_you_saved_string);
             $subtotal_additional_text .= sprintf(esc_html__($display_you_saved_string, 'woo-discount-rules'), $total_discounted_price);
             $subtotal_additional_text .= '</span>';
