@@ -12901,7 +12901,7 @@ var SEMICOLON = SEMICOLON || {};
     var timer;
     var input;
 
-    $(document.body).on('keyup', '#ajax-search-field', function() {
+    $(document.body).on('keyup', '.ajax-search-field', function() {
         input = $(this);
         resetTimer();
 
@@ -12909,10 +12909,17 @@ var SEMICOLON = SEMICOLON || {};
     });
 
     $(document).ready(function() {
-        var searchInput = $('#ajax-search-field');
-        var parent = searchInput.parents('form');
-        var holder = "<div class='ajax-search-holder'></div>";
-        parent.append(holder);
+        var searchInput = $('.ajax-search-field');
+
+        if (searchInput.length) {
+			searchInput.each(function() {
+				var input = $(this);
+				var parent = input.parents('form');
+				var holder = "<div class='ajax-search-holder'></div>";
+				parent.append(holder);
+			});
+		}
+
     });
 
     $(window).on('load', function () {});

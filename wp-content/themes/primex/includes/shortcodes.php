@@ -159,3 +159,22 @@ function snth_phones_header() {
     </ul>
     <?php
 }
+
+function snth_ajax_search_form() {
+    ob_start();
+    ?>
+    <div class="ajax_search_form_holder">
+        <form class="ajax_search_form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="hidden" name="filters" value="">
+
+                <input type="text" class="form-control ajax-search-field" placeholder="<?php echo __('Search product...', 'primex'); ?>" aria-label="Username" aria-describedby="basic-addon1"  name="s">
+            </div>
+        </form>
+    </div>
+    <?php
+    return ob_get_clean();
+}

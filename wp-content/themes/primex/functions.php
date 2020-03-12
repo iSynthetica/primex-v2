@@ -72,3 +72,43 @@ if (is_admin()) {
 if (file_exists(SNTH_INCLUDES.'/ajax-search.php')) {
     require_once(SNTH_INCLUDES.'/ajax-search.php');
 }
+
+add_filter('berocket_aapf_is_filtered_page_check', 'snth_is_filtered_page_check', 100, 1);
+
+function snth_is_filtered_page_check($filtered) {
+    if (!empty($_GET['s'])) {
+        if (!empty($_GET['dgwt_wcas'])) {
+            $filtered = false;
+        } elseif (!empty($_GET["wc-ajax"]) && $_GET["wc-ajax"] == 'dgwt_wcas_ajax_search') {
+            $filtered = false;
+        }
+    }
+
+//    if( ! empty($_GET['s']) && (!empty($_GET['dgwt_wcas'])) || (!empty($_GET["wc-ajax"]) && $_GET["wc-ajax"] == 'dgwt_wcas_ajax_search')) {
+//        $filtered = false;
+//    }
+
+    return $filtered;
+}
+
+function jmworld_woo_betanet_epost_free($rates, $package) {
+    $rate_free_ids = array('novaposhta_courier:15', 'betanet_epost7');
+    $cart_total_free = 100;
+    $cart_total = (int) WC()->cart->get_cart_contents_total();
+
+    if ($cart_total < $cart_total_free) {
+        return $rates;
+    }
+
+    foreach ($rates as $rate_id => $rate_data) {
+        if (in_array($rate_id, $rate_free_ids)) {
+            $rate_data->set_cost(0);
+
+            $rates[$rate_id] = $rate_data;
+        }
+    }
+
+    return $rates;
+}
+
+add_filter('woocommerce_package_rates', 'jmworld_woo_betanet_epost_free', 100, 2);

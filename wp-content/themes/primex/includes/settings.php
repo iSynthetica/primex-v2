@@ -108,6 +108,10 @@ function snth_settings_shortcodes($shortcodes) {
             'id' => 'snth_phones_header',
             'callback' => 'snth_phones_header',
         ),
+        array(
+            'id' => 'snth_ajax_search_form',
+            'callback' => 'snth_ajax_search_form',
+        ),
     );
 }
 add_filter('snth_shortcodes', 'snth_settings_shortcodes', 999);

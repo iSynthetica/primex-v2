@@ -10,6 +10,7 @@ class BeRocket_AAPF_Widget_functions {
         if( ! empty($_GET['s']) ) {
             $filtered = true;
         }
+
         return $filtered;
     }
     public static function br_widget_ajax_set() {
@@ -20,11 +21,11 @@ class BeRocket_AAPF_Widget_functions {
             add_action( 'wp_ajax_br_include_exclude_list', array( __CLASS__, 'ajax_include_exclude_list' ) );
         }
     }
-    
+
     public static function apply_price_slider($set_query_var_title, $type, $instance, $args = false, $terms = false) {
         if($args === false || $terms === false) {
             return $set_query_var_title;
-        } 
+        }
         extract($instance);
         extract($args);
         $slider_with_string = false;
@@ -111,8 +112,8 @@ class BeRocket_AAPF_Widget_functions {
             $set_query_var_title['enable_slider_inputs'] = (isset($enable_slider_inputs) ? $enable_slider_inputs : null);
             if( ! empty($number_style) ) {
                 $set_query_var_title['number_style'] = array(
-                    ( empty($number_style_thousand_separate) ? '' : $number_style_thousand_separate ), 
-                    ( empty($number_style_decimal_separate) ? '' : $number_style_decimal_separate ), 
+                    ( empty($number_style_thousand_separate) ? '' : $number_style_thousand_separate ),
+                    ( empty($number_style_decimal_separate) ? '' : $number_style_decimal_separate ),
                     ( empty($number_style_decimal_number) ? '' : $number_style_decimal_number )
                 );
             } else {
@@ -121,7 +122,7 @@ class BeRocket_AAPF_Widget_functions {
         }
         return $set_query_var_title;
     }
-    
+
     public static function listener(){
         global $wp_query, $wp_rewrite;
         $br_options = apply_filters( 'berocket_aapf_listener_br_options', BeRocket_AAPF::get_aapf_option() );
@@ -179,7 +180,7 @@ class BeRocket_AAPF_Widget_functions {
                 ob_end_clean();
             }
         }
-        
+
         if( braapf_filters_must_be_recounted() ) {
             $_RESPONSE['attributesname'] = array();
             $_RESPONSE['attributes'] = array();
@@ -384,7 +385,7 @@ class BeRocket_AAPF_Widget_functions {
         $_POST['location'] = (empty($_POST['location']) ? $_GET['location'] : $_POST['location']);
         if ( $is_using_permalinks and preg_match( "~/page/([0-9]+)~", $_POST['location'], $mathces ) or preg_match( "~paged?=([0-9]+)~", $_POST['location'], $mathces ) ) {
             $args['paged'] = min( $mathces[1], $wp_query->max_num_pages );
-            
+
             $wp_query = new WP_Query( $args );
         }
         return apply_filters('berocket_listener_wp_query_return', $wp_query, $args);
@@ -557,14 +558,14 @@ class BeRocket_AAPF_Widget_functions {
         set_query_var( 'berocket_query_var_color', $set_query_var_color );
         br_get_template_part( 'color_ajax' );
     }
-    
+
     public static function ajax_include_exclude_list() {
         if( ! empty($_POST['taxonomy_name']) ) {
             echo self::include_exclude_terms_list($_POST['taxonomy_name']);
         }
         wp_die();
     }
-    
+
     public static function include_exclude_terms_list($taxonomy_name = false, $selected = array() ) {
         $terms = get_terms( $taxonomy_name, array( 'hide_empty' => false ) );
         $set_query_var_exclude_list = array();
@@ -870,12 +871,12 @@ class BeRocket_AAPF_Widget_functions {
                 }
             }
         }
-        if ( 
-            (   ! $hide_empty 
-                || apply_filters( 'berocket_aapf_is_filtered_page_check', ! empty($_GET['filters']), 'get_filter_args', $wp_query ) 
+        if (
+            (   ! $hide_empty
+                || apply_filters( 'berocket_aapf_is_filtered_page_check', ! empty($_GET['filters']), 'get_filter_args', $wp_query )
                 || ( ! empty($br_options['out_of_stock_variable_reload']) && ! empty($br_options['out_of_stock_variable']) )
                 || is_filtered()
-            ) && $count_filtering 
+            ) && $count_filtering
         ) {
             $terms = apply_filters('berocket_aapf_recount_terms_apply', $terms, array(
                 'taxonomy' => $taxonomy,
