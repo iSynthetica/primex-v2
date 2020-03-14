@@ -28537,6 +28537,10 @@ table.woocommerce-grouped-product-list {
 .woocommerce-thankyou-order-details > div {
   padding: 0.1875rem; }
 
+/* Fix image size */
+.wpgs--with-images img {
+  height: auto; }
+
 .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li {
   margin-bottom: 0.375rem; }
   .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li .berocket_label_widgets {

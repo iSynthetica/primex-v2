@@ -261,3 +261,10 @@ table.woocommerce-grouped-product-list {
         padding: rem-calc(3);
     }
 }
+
+/* Fix image size */
+.wpgs--with-images {
+    img {
+        height: auto;
+    }
+}

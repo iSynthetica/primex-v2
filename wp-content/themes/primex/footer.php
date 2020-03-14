@@ -20,7 +20,7 @@
         ============================================= -->
         <div class="footer-widgets-wrap clearfix">
 
-            <div class="col_half">
+            <div class="col_two_third">
 
                 <div class="widget clearfix">
 
@@ -41,17 +41,23 @@
                 </div>
             </div>
 
-            <div class="col_one_fourth">
+            <div class="col_one_third col_last">
                 <div class="widget clearfix">
                     <?php dynamic_sidebar( 'footer4' ); ?>
                 </div>
             </div>
 
-            <div class="col_one_fourth col_last">
-                <div class="widget clearfix">
-                    <?php dynamic_sidebar( 'footer5' ); ?>
+            <?php
+            if (false) {
+                ?>
+                <div class="col_one_fourth col_last">
+                    <div class="widget clearfix">
+                        <?php dynamic_sidebar( 'footer5' ); ?>
+                    </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
         </div><!-- .footer-widgets-wrap end -->
     </div>
 
