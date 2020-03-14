@@ -28,7 +28,36 @@
         });
     });
 
-    $(document).ready(function() {});
+    $(document).ready(function() {
+        var catalogueLoadingContainer = $('.catalogue-loading-container');
+
+        if (catalogueLoadingContainer.length) {
+
+            $.ajax({
+                url: wooaiocJsObj.ajaxurl,
+                method: 'POST',
+                data: {
+                    action: 'wooaioc_load_catalogue'
+                },
+                success: function (response) {
+                    if ( ! response ) {
+                        return;
+                    }
+
+                    if ( response.error ) {
+                        return;
+                    }
+
+                    if (response.html) {
+                        $('#catalogue-loading').remove();
+
+                        catalogueLoadingContainer.replaceWith( response.html );
+                    }
+                },
+                dataType: 'json'
+            });
+        }
+    });
 
     $(window).on('load', function () {});
 

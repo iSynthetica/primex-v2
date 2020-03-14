@@ -1,0 +1,9 @@
+2020-03-14T17:49:56+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::set_catalogue_price_html() in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php:208
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php(182): wooaioc_get_product_categories_tree(489)
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/templates/catalogue.php(25): wooaioc_get_product_categories_tree()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php(92): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php(112): wooaioc_get_template('catalogue.php', Array, '', '')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/shortcodes.php(34): wooaioc_get_template_html('catalogue.php', Array)
+#5 /var/www/t в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php на строке 208
+

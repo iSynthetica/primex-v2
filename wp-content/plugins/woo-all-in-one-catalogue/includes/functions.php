@@ -155,18 +155,6 @@ function wooaioc_locate_template( $template_name, $template_path = '', $default_
     return $template;
 }
 
-function wooaioc_get_product_categories_tree1() {
-    global $wpdb;
-    $sql = "
-SELECT * FROM {$wpdb->terms} AS t
-JOIN {$wpdb->term_taxonomy} AS tt
-ON t.`term_id` = tt.`term_id`
-WHERE tt.`taxonomy` = 'product_cat'
-    ";
-
-    $results = $wpdb->get_results($sql, ARRAY_A);
-}
-
 function wooaioc_get_product_categories_tree($parent = 0) {
     $tree = array();
 
@@ -205,14 +193,29 @@ function wooaioc_get_product_categories_tree($parent = 0) {
                 $tree[$cat->term_id]['products'] = array();
 
                 foreach ($products as $product) {
+                    $product->catalogue_price_html = $product->get_price_html();
                     $product_type = $product->get_type();
-                    $tree[$cat->term_id]['products'][$product->get_id()] = $product;
+
+                    $stored_product = array(
+                        'id' => $product->get_id(),
+                        'catalogue_price_html' => $product->get_price_html(),
+                    );
+
+                    $tree[$cat->term_id]['products'][$product->get_id()] = $stored_product;
+
                     if ('variable' === $product_type) {
                         $available_variations = $product->get_available_variations();
                         if (!empty($available_variations)) {
                             foreach ($available_variations as $variation) {
                                 $variation_product = wc_get_product($variation['variation_id']);
-                                $tree[$cat->term_id]['products'][$variation_product->get_id()] = $variation_product;
+                                $variation_product->catalogue_price_html = $variation_product->get_price_html();
+
+                                $stored_product = array(
+                                    'id' => $variation_product->get_id(),
+                                    'catalogue_price_html' => $variation_product->get_price_html(),
+                                );
+
+                                $tree[$cat->term_id]['products'][$variation_product->get_id()] = $stored_product;
                             }
                         }
                     }
@@ -235,7 +238,9 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
     if (!empty($item['products'])) {
         ?>
             <?php
-            foreach ($item['products'] as $product) {
+            foreach ($item['products'] as $product_id => $stored_product) {
+                $product = wc_get_product($product_id);
+
                 $product_data = $product->get_data();
                 $product_type = $product->get_type();
                 ?>
@@ -261,7 +266,7 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                         <?php do_action('wooaioc_display_catalogue_item_description', $product); ?>
                     </td>
                     <td class="product-price responsive-border" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
-                        <?php echo $product->get_price_html(); ?>
+                        <?php echo $stored_product['catalogue_price_html']; ?>
                     </td>
                     <td class="product-quantity responsive-border" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
                         <?php
@@ -269,7 +274,7 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                             ?>
                             <div class="quantity clearfix">
                                 <input type="button" value="-" class="minus">
-                                <input type="number" min="0" max=""step="1" size="4" class="catalogue-item-qty input-text qty text" inputmode="numeric">
+                                <input type="number" min="0" max=""step="1" size="4" class="catalogue-item-qty input-text qty text" inputmode="numeric" value="1">
                                 <input type="button" value="+" class="plus">
                             </div>
                             <?php
@@ -562,3 +567,53 @@ function wooaioc_add_to_cart() {
 
 add_action('wp_ajax_nopriv_wooaioc_add_to_cart', 'wooaioc_add_to_cart');
 add_action('wp_ajax_wooaioc_add_to_cart', 'wooaioc_add_to_cart');
+
+function wooaioc_load_global_currency_rule($load) {
+    return true;
+}
+
+function wooaioc_load_catalogue() {
+    $catalogue_tree = get_transient('wooaiocatalogue_catalogue_tree');
+
+    $download_catalogue_label = apply_filters('wooaioc_download_catalogue_label', __('Download catalogue', 'woo-all-in-one-catalogue'));
+
+    ob_start();
+    if (!empty($catalogue_tree)) {
+        ?>
+        <div class="catalogue-action-container">
+            <a href="<?php echo get_home_url() . '/wooaioc-download-catalogue/excel'; ?>" class="button"><?php echo $download_catalogue_label; ?></a>
+        </div>
+        <div class="catalogue-container">
+            <table id="wooaioc-catalogue-table" class="wooaioc-catalogue-table shop_table table table-hover table-sm shop_table_responsive">
+                <?php
+
+                foreach ($catalogue_tree as $catalogue_item) {
+                    wooaioc_display_catalogue_item($catalogue_item);
+                }
+
+                ?>
+            </table>
+        </div>
+        <div class="catalogue-action-container">
+            <a href="<?php echo get_home_url() . '/wooaioc-download-catalogue/excel'; ?>" class="button"><?php echo $download_catalogue_label; ?></a>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="catalogue-container">
+            <h3><?php echo __('No products found', 'woo-all-in-one-catalogue'); ?></h3>
+        </div>
+        <?php
+    }
+    $html = ob_get_clean();
+
+    $data = array(
+        'success' => true,
+        'html' => $html,
+    );
+
+    wp_send_json( $data );
+}
+
+add_action('wp_ajax_nopriv_wooaioc_load_catalogue', 'wooaioc_load_catalogue');
+add_action('wp_ajax_wooaioc_load_catalogue', 'wooaioc_load_catalogue');

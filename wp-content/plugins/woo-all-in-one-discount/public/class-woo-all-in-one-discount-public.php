@@ -104,7 +104,17 @@ class Woo_All_In_One_Discount_Public {
      * Set discount rules globally
      */
 	public function set_global_discount_for_user() {
-        if (is_admin()) return;
+        $do_load = false;
+
+        if (!is_admin()) {
+            $do_load = true;
+        }
+
+        $do_load = apply_filters('wooaiodiscount_load_global_discount_for_user', $do_load);
+
+        if (!$do_load) {
+            return;
+        }
 
         global $wooaiodiscount_product_rules;
         global $wooaiodiscount_user_rules;

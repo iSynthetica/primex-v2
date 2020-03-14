@@ -67,7 +67,16 @@ function wooaiocurrency_reset_currency_rules() {
 }
 
 function wooaiocurrency_currency($currency) {
-    if (is_admin()) {
+
+    $do_load = false;
+
+    if (!is_admin()) {
+        $do_load = true;
+    }
+
+    $do_load = apply_filters('wooaiocurrency_load_global_currency_rule', $do_load);
+
+    if (!$do_load) {
         return $currency;
     }
 
@@ -118,7 +127,15 @@ function wooaiocurrency_variation_prices( $prices ) {
 }
 
 function wooaiocurrency_set_global_currency_rule($return = false) {
-    if (is_admin()) {
+    $do_load = false;
+
+    if (!is_admin()) {
+        $do_load = true;
+    }
+
+    $do_load = apply_filters('wooaiocurrency_load_global_currency_rule', $do_load);
+
+    if (!$do_load) {
         return;
     }
 
