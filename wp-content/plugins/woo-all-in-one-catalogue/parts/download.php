@@ -4,7 +4,12 @@ require WOOAIOCATALOGUE_PATH . '/vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-$catalogue_tree = wooaioc_get_product_categories_tree();
+$catalogue_tree = get_transient('wooaiocatalogue_catalogue_tree');
+
+if (empty($catalogue_tree)) {
+    $catalogue_tree = wooaioc_get_product_categories_tree();
+}
+
 $catalogue_page_title = __('Catalogue', 'woo-all-in-one-catalogue') . ' ' . date('d-m-Y', time());
 
 $spreadsheet = new Spreadsheet();

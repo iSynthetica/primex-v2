@@ -193,15 +193,11 @@ function wooaioc_get_product_categories_tree($parent = 0) {
                 $tree[$cat->term_id]['products'] = array();
 
                 foreach ($products as $product) {
-                    $product->catalogue_price_html = $product->get_price_html();
                     $product_type = $product->get_type();
 
-                    $stored_product = array(
-                        'id' => $product->get_id(),
-                        'catalogue_price_html' => $product->get_price_html(),
-                    );
-
-                    $tree[$cat->term_id]['products'][$product->get_id()] = $stored_product;
+                    if ('grouped' === $product_type) {
+                        continue;
+                    }
 
                     if ('variable' === $product_type) {
                         $available_variations = $product->get_available_variations();
@@ -218,6 +214,15 @@ function wooaioc_get_product_categories_tree($parent = 0) {
                                 $tree[$cat->term_id]['products'][$variation_product->get_id()] = $stored_product;
                             }
                         }
+                    } else {
+                        $product->catalogue_price_html = $product->get_price_html();
+
+                        $stored_product = array(
+                            'id' => $product->get_id(),
+                            'catalogue_price_html' => $product->get_price_html(),
+                        );
+
+                        $tree[$cat->term_id]['products'][$product->get_id()] = $stored_product;
                     }
                 }
             }
@@ -262,9 +267,15 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
                             <?php echo $product->get_name() ?>
                         </a>
                     </td>
-                    <td class="product-short-description responsive-hide">
-                        <?php do_action('wooaioc_display_catalogue_item_description', $product); ?>
-                    </td>
+                    <?php
+                    if (false) {
+                        ?>
+                        <td class="product-short-description responsive-hide">
+                            <?php do_action('wooaioc_display_catalogue_item_description', $product); ?>
+                        </td>
+                        <?php
+                    }
+                    ?>
                     <td class="product-price responsive-border" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
                         <?php echo $stored_product['catalogue_price_html']; ?>
                     </td>
@@ -302,7 +313,10 @@ function wooaioc_display_catalogue_item($item, $depth = 0) {
 }
 
 function wooaioc_get_columns_catalogue_item() {
-    return array(
+    if (function_exists('run_woo_all_in_one_discount')) {
+        global $wooaiodiscount_current_user_rule;
+
+        $fields = array(
             'A' => array(
                 'width' => '8',
                 'title' => __('SKU', 'woo-all-in-one-catalogue'),
@@ -324,12 +338,51 @@ function wooaioc_get_columns_catalogue_item() {
                 'field' => 'price',
                 'format' => 'money'
             ),
-            'E' => array(
+        );
+
+        if (!empty($wooaiodiscount_current_user_rule["base_discount"]["discount_label"])) {
+            $fields['D']['title'] = $wooaiodiscount_current_user_rule["base_discount"]["discount_label"] . ' ' . html_entity_decode(get_woocommerce_currency_symbol());
+        }
+
+        if (
+            $wooaiodiscount_current_user_rule["before_discount"]["show_before_discount"] === 'yes' &&
+            !empty($wooaiodiscount_current_user_rule["before_discount"]["discount"]) &&
+            !empty($wooaiodiscount_current_user_rule["before_discount"]["discount_label"])
+        ) {
+            $fields['E'] = array(
                 'width' => '16',
-                'title' => __('Wholesale Price', 'woo-all-in-one-catalogue') . ' ' . get_woocommerce_currency_symbol(),
-                'field' => 'wholesale_price',
+                'title' => $wooaiodiscount_current_user_rule["before_discount"]["discount_label"] . ' ' . html_entity_decode(get_woocommerce_currency_symbol()),
+                'field' => 'before_discount_price',
+                'format' => 'money'
+            );
+        }
+
+        return $fields;
+    } else {
+        return array(
+            'A' => array(
+                'width' => '8',
+                'title' => __('SKU', 'woo-all-in-one-catalogue'),
+                'field' => 'sku',
             ),
-    );
+            'B' => array(
+                'width' => '32',
+                'title' => __('Product Title', 'woo-all-in-one-catalogue'),
+                'field' => 'name',
+            ),
+            'C' => array(
+                'width' => '55',
+                'title' => __('Product Description', 'woo-all-in-one-catalogue'),
+                'field' => 'description',
+            ),
+            'D' => array(
+                'width' => '16',
+                'title' => __('Price', 'woo-all-in-one-catalogue') . ' ' . get_woocommerce_currency_symbol(),
+                'field' => 'price',
+                'format' => 'money'
+            ),
+        );
+    }
 }
 
 function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
@@ -373,7 +426,8 @@ function wooaioc_add_row_catalogue_item($item, $spreadsheet, $row) {
     );
 }
 
-function wooaioc_get_row_product_item($product, $spreadsheet, $row) {
+function wooaioc_get_row_product_item($product_stored, $spreadsheet, $row) {
+    $product = wc_get_product($product_stored['id']);
     $columns = wooaioc_get_columns_catalogue_item();
     $columns_letters = array_keys($columns);
     $first_letter = $columns_letters[0];
@@ -383,6 +437,7 @@ function wooaioc_get_row_product_item($product, $spreadsheet, $row) {
     foreach ($columns as $letter => $column) {
         $cell = $letter.$row;
         $value = wooaioc_get_product_item_value($product, $column['field']);
+
         $spreadsheet->getActiveSheet()->setCellValue($cell, $value)
                     ->getStyle($cell)->applyFromArray(wooaioc_get_row_style('product_table_body'));
     }
@@ -399,12 +454,22 @@ function wooaioc_get_product_item_value($product, $field) {
         case 'name':
             return $product_data['name'];
         case 'description':
-            return $product_data['description'];
+            return sanitize_textarea_field($product_data['description']);
         case 'price':
-            $regular_price = $product->get_regular_price();
-            $sale_price = $product->get_sale_price();
             $price = $product->get_price();
             return $price;
+        case 'before_discount_price':
+            if (function_exists('run_woo_all_in_one_discount')) {
+                global $wooaiodiscount_current_user_rule;
+                wooaiodiscount_reset_discount_rules();
+                wooaiodiscount_set_before_discount_rules();
+                $price = $product->get_price();
+                wooaiodiscount_reset_before_discount_rules();
+                wooaiodiscount_set_discount_rules();
+                return $price;
+            } else {
+                return '';
+            }
         default:
             return '';
     }
