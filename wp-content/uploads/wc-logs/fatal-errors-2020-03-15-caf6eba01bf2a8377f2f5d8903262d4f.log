@@ -1,0 +1,10 @@
+2020-03-15T14:06:35+00:00 CRITICAL Uncaught Error: Using $this when not in object context in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php:357
+Stack trace:
+#0 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php(275): wooaioc_get_attributes(Object(WC_Product_Simple))
+#1 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/parts/import.php(8): wooaioc_get_products()
+#2 /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php(850): include('/var/www/tsvito...')
+#3 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(288): wooaioc_api('')
+#4 /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#5 /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#6 /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php(13): do_ в /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-catalogue/includes/functions.php на строке 357
+

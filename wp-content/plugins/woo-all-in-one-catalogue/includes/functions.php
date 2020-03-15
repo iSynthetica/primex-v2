@@ -155,6 +155,259 @@ function wooaioc_locate_template( $template_name, $template_path = '', $default_
     return $template;
 }
 
+function wooaioc_get_categories_tree($parent = 0) {
+    $tree = array();
+
+    $next = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'parent' => $parent
+    ));
+
+    if (!empty($next)) {
+        foreach ($next as $cat) {
+            $cat_stored = array(
+                'id' => $cat->term_id,
+                'name' => $cat->name,
+            );
+
+            $tree[$cat->term_id] = array(
+                'category' => $cat_stored,
+                'children' => wooaioc_get_categories_tree($cat->term_id)
+            );
+        }
+    }
+
+    return $tree;
+}
+
+function wooaioc_display_xml_category_item($category, $parent_id = 0) {
+    if (empty($parent_id)) {
+        echo "\t\t\t\t".'<category id="'.$category['category']['id'].'">'.$category['category']['name'].'</category>'.PHP_EOL;
+    } else {
+        echo "\t\t\t\t".'<category id="'.$category['category']['id'].'" parentId="'.$parent_id.'">'.$category['category']['name'].'</category>'.PHP_EOL;
+    }
+
+    if (!empty($category['children'])) {
+        foreach ($category['children'] as $cat_children) {
+            wooaioc_display_xml_category_item($cat_children, $category['category']['id']);
+        }
+    }
+}
+
+function wooaioc_get_products() {
+    $args = array(
+        'limit'    => -1,
+        'status'    => 'publish',
+    );
+
+    $_products = wc_get_products( $args );
+    $products = array();
+
+    foreach ($_products as $_product) {
+        $product_type = $_product->get_type();
+
+        if ('grouped' === $product_type || 'external' === $product_type) {
+            continue;
+        }
+
+        if ('variable' === $product_type) {
+            $available_variations = $_product->get_available_variations();
+            $parent_product_id = $_product->get_id();
+
+            if (!empty($available_variations)) {
+                foreach ($available_variations as $variation) {
+                    $variation_product = wc_get_product($variation['variation_id']);
+
+                    $product_id = $variation_product->get_id();
+
+                    $products[$product_id] = array(
+                        'id' => $product_id,
+                        'price' => $variation_product->get_price(),
+                        'name' => $variation_product->get_name(),
+                        'type' => 'variation',
+                        'vendor' => 'Prime-X',
+                        'url' => get_permalink($parent_product_id),
+                    );
+
+                    $product_sku = $variation_product->get_sku();
+
+                    if (!empty($product_sku)) {
+                        $products[$product_id]['sku'] = $product_sku;
+                    }
+
+                    $product_images = wooaioc_get_images( $variation_product );
+
+                    if (!empty($product_images)) {
+                        $products[$product_id]['images'] = $product_images;
+                    }
+
+                    $product_attributes = wooaioc_get_attributes( $variation_product );
+
+                    if (!empty($product_attributes)) {
+                        $products[$product_id]['attributes'] = $product_attributes;
+                    }
+                }
+            }
+        } else {
+            $product_id = $_product->get_id();
+
+            $products[$product_id] = array(
+                'id' => $product_id,
+                'price' => $_product->get_price(),
+                'name' => $_product->get_name(),
+                'type' => $_product->get_type(),
+                'vendor' => 'Prime-X',
+                'url' => get_permalink($product_id),
+            );
+
+            $product_sku = $_product->get_sku();
+
+            if (!empty($product_sku)) {
+                $products[$product_id]['sku'] = $product_sku;
+            }
+
+            $product_images = wooaioc_get_images( $_product );
+
+            if (!empty($product_images)) {
+                $products[$product_id]['images'] = $product_images;
+            }
+
+            $product_attributes = wooaioc_get_attributes( $_product );
+
+            if (!empty($product_attributes)) {
+                $products[$product_id]['attributes'] = $product_attributes;
+            }
+        }
+
+    }
+
+    return $products;
+}
+
+function wooaioc_get_images( $product ) {
+    $images        = $attachment_ids = array();
+    $product_image = $product->get_image_id();
+
+    // Add featured image.
+    if ( ! empty( $product_image ) ) {
+        $attachment_ids[] = $product_image;
+    }
+
+    // Add gallery images.
+    $attachment_ids = array_merge( $attachment_ids, $product->get_gallery_image_ids() );
+
+    // Build image data.
+    foreach ( $attachment_ids as $position => $attachment_id ) {
+
+        $attachment_post = get_post( $attachment_id );
+
+        if ( is_null( $attachment_post ) ) {
+            continue;
+        }
+
+        $attachment = wp_get_attachment_image_src( $attachment_id, 'full' );
+
+        if ( ! is_array( $attachment ) ) {
+            continue;
+        }
+
+        $images[] = array(
+            'id'         => (int) $attachment_id,
+            'src'        => current( $attachment ),
+            'title'      => get_the_title( $attachment_id ),
+        );
+    }
+
+    // Set a placeholder image if the product has no images set.
+    if ( empty( $images ) ) {
+
+        $images[] = array(
+            'id'         => 0,
+            'src'        => wc_placeholder_img_src(),
+            'title'      => __( 'Placeholder', 'woocommerce' ),
+        );
+    }
+
+    return $images;
+}
+
+function wooaioc_get_attributes( $product ) {
+
+    $attributes = array();
+
+    if ( $product->is_type( 'variation' ) ) {
+        // variation attributes
+        foreach ( $product->get_variation_attributes() as $attribute_name => $attribute ) {
+
+            // taxonomy-based attributes are prefixed with `pa_`, otherwise simply `attribute_`
+            $attributes[] = array(
+                'name'   => wc_attribute_label( str_replace( 'attribute_', '', $attribute_name ) ),
+                'slug'   => str_replace( 'attribute_', '', wc_attribute_taxonomy_slug( $attribute_name ) ),
+                'option' => $attribute,
+            );
+        }
+    } else {
+        foreach ( $product->get_attributes() as $attribute ) {
+            $attributes[] = array(
+                'name'      => wc_attribute_label( $attribute['name'] ),
+                'slug'      => wc_attribute_taxonomy_slug( $attribute['name'] ),
+                'position'  => (int) $attribute['position'],
+                'visible'   => (bool) $attribute['is_visible'],
+                'variation' => (bool) $attribute['is_variation'],
+                'options'   => wooaioc_get_attribute_options( $product->get_id(), $attribute ),
+            );
+        }
+    }
+
+    return $attributes;
+}
+
+function wooaioc_get_attribute_options( $product_id, $attribute ) {
+    if ( isset( $attribute['is_taxonomy'] ) && $attribute['is_taxonomy'] ) {
+        return wc_get_product_terms( $product_id, $attribute['name'], array( 'fields' => 'names' ) );
+    } elseif ( isset( $attribute['value'] ) ) {
+        return array_map( 'trim', explode( '|', $attribute['value'] ) );
+    }
+
+    return array();
+}
+
+function wooaioc_display_xml_product_item($product) {
+    echo "\t\t\t\t".'<offer id="'.$product['id'].'" available="true">'.PHP_EOL;
+    echo "\t\t\t\t\t".'<url>'.$product['url'].'</url>'.PHP_EOL;
+    echo "\t\t\t\t\t".'<price>'.$product['price'].'</price>'.PHP_EOL;
+    echo "\t\t\t\t\t".'<stock_quantity>100</stock_quantity>'.PHP_EOL;
+
+    if (!empty($product['images'])) {
+        foreach ($product['images'] as $image) {
+            if (!empty($image['src'])) {
+                echo "\t\t\t\t\t".'<picture>'.$image['src'].'</picture>'.PHP_EOL;
+            }
+        }
+    }
+
+    echo "\t\t\t\t\t".'<currencyId>UAH</currencyId>'.PHP_EOL;
+    echo "\t\t\t\t\t".'<name>'.sanitize_text_field($product['name']).'</name>'.PHP_EOL;
+    echo "\t\t\t\t\t".'<type>'.$product['type'].'</type>'.PHP_EOL;
+
+    if (!empty($product['sku'])) {
+        echo "\t\t\t\t\t".'<param name="Артикул">'.$product['sku'].'</param>'.PHP_EOL;
+    }
+
+    if (!empty($product['attributes'])) {
+        foreach ($product['attributes'] as $attribute) {
+            if (!empty($attribute['name']) && !empty($attribute['options'])) {
+                foreach ($attribute['options'] as $option) {
+                    echo "\t\t\t\t\t".'<param name="'.$attribute['name'].'">'.$option.'</param>'.PHP_EOL;
+                }
+            }
+        }
+    }
+    echo "\t\t\t\t\t".'<vendor>Abc clothes</vendor>'.PHP_EOL;
+
+    echo "\t\t\t\t".'</offer>'.PHP_EOL;
+}
+
 function wooaioc_get_product_categories_tree($parent = 0) {
     $tree = array();
 
@@ -176,6 +429,7 @@ function wooaioc_get_product_categories_tree($parent = 0) {
                 'order'       => 'DESC',
                 'post_type'   => 'product',
                 'suppress_filters' => false,
+                'status'    => 'publish',
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'product_cat',
@@ -572,6 +826,17 @@ function wooaioc_rewrite_rule() {
     );
 
     add_rewrite_tag('%file_format%', '(.*)');
+
+
+    add_rewrite_rule(
+        '^wooaioc-api/(.*)/([^/]*)/?',
+        'index.php?api_catalogue=1&api_version=$matches[1]&api_format=$matches[2]',
+        'top'
+    );
+
+    add_rewrite_tag('%api_catalogue%', '(.*)');
+    add_rewrite_tag('%api_version%', '(.*)');
+    add_rewrite_tag('%api_format%', '(.*)');
 }
 
 function wooaioc_download_catalogues($item, $depth = 0) {
@@ -584,6 +849,30 @@ function wooaioc_download_catalogues($item, $depth = 0) {
     }
 }
 add_action('template_redirect', 'wooaioc_download_catalogues');
+
+function wooaioc_api() {
+    $api_catalogue = get_query_var('api_catalogue');
+    $api_version = get_query_var('api_version');
+
+    if (!empty($api_catalogue) && !empty($api_version)) {
+        $api = 'api_v' . $api_version;
+
+        if (file_exists(WOOAIOCATALOGUE_PATH . '/includes/'.$api.'.php')) {
+            include_once WOOAIOCATALOGUE_PATH . '/includes/'.$api.'.php';
+
+            $content = wooaioc_api_get_content();
+        } else {
+            include_once WOOAIOCATALOGUE_PATH . '/includes/no-api.php';
+
+            $content = wooaioc_api_get_content();
+        }
+
+        include WOOAIOCATALOGUE_PATH . '/parts/import.php';
+
+        die;
+    }
+}
+add_action('template_redirect', 'wooaioc_api');
 
 function wooaioc_add_to_cart() {
     ob_start();
