@@ -1,0 +1,150 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+#wooaio-discount-create-action {
+    margin-bottom: 15px;
+}
+
+.wooaio-discount-create-closed #open-create-discount-rule {
+    display: inline-block;
+}
+
+.wooaio-discount-create-closed #close-create-discount-rule {
+    display: none;
+}
+
+.wooaio-discount-create-closed #wooaio-discount-create-form {
+    display: none;
+}
+
+.wooaio-discount-create-opened #open-create-discount-rule {
+    display: none;
+}
+
+.wooaio-discount-create-opened #close-create-discount-rule {
+    display: inline-block;
+}
+
+.wooaio-discount-create-opened #wooaio-discount-create-form {
+    display: block;
+}
+
+.wooaio-discount-item {
+    margin-bottom: 10px;
+}
+.wooaio-discount-item:after {
+    display: table;
+    content: ' ';
+    clear: both;
+}
+.wooaio-discount-item > div {
+    float: left;
+    width: 28%;
+}
+.wooaio-discount-item > div:last-child {
+    float: right;
+    width: 68%;
+}
+.wooaio-discount-item input[type=text],
+.wooaio-discount-item input[type=number],
+.wooaio-discount-item textarea,
+.wooaio-discount-item select {
+    width: 100%;
+}
+.multiselect-container {
+    padding: 10px;
+}
+.multiselect-container > div {
+    max-height: 250px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+}
+.multiselect-container > div ul {
+    margin: 0;
+}
+.multiselect-container > div ul li {
+    margin: 0;
+    padding: 0;
+}
+.multiselect-container > div ul li fieldset {
+    margin: 1px;
+    padding: 2px;
+    background-color: #fff;
+}
+.multiselect-container > div ul li ul fieldset {
+    padding-left: 25px;
+}
+.apply_by_container > div {
+    display: none;
+}
+.apply_by_categories .by_categories_container {
+    display: block;
+}
+.apply_separate_products .separate_products_container {
+    display: block;
+}
+
+.wooaio-discount-summary-amount-item .summary-container {
+    display: block;
+}
+
+.wooaio-discount-edit-amount-item .summary-container {
+    display: none;
+}
+
+.wooaio-discount-summary-amount-item .edited-container {
+    display: none;
+}
+
+.wooaio-discount-edit-amount-item .edited-container {
+    display: block;
+}
+.summary-container p {
+    margin: 5px 10px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1;
+}
+.wooaio-discount-amount-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding: 3px 0;
+}
+
+.wooaio-currency-rate-item.summary-view-item .summary-container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.summary-view-item .edited-container{
+    display: none;
+}
+
+.wooaio-currency-rate-item.summary-view-item .currency-rate-item-update,
+.wooaio-currency-rate-item.summary-view-item .currency-rate-item-change-cancel {
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.edit-view-item .summary-container{
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .currency-rate-item-edit{
+    display: none;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container.apply_for_specified_categories .specified_categories_container{
+    display: block;
+}
+
+.wooaio-currency-rate-item.edit-view-item .edited-container.apply_for_specified_products .specified_products_container{
+    display: block;
+}

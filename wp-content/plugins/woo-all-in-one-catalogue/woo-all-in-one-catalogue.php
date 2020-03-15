@@ -29,6 +29,7 @@ require_once( 'includes/core.php' );
 require_once( 'includes/functions.php' );
 require_once( 'includes/wooaioc-template-hooks.php' );
 require_once( 'includes/wooaioc-template-functions.php' );
+require_once( 'admin/admin-core.php' );
 
 function wooaioc_woocommerce_notice() {
     echo '<div class="error"><p><strong>' . sprintf( esc_html__( 'Woo All In One Catalogue requires Woocommerce plugin to be installed and active. You can download %s here.', 'woo-product-reviews-shrtcd' ), '<a href="https://woocommerce.com/" target="_blank">Woocommerce</a>' ) . '</strong></p></div>';
