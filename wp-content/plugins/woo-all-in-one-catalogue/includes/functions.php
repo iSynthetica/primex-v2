@@ -249,6 +249,8 @@ function wooaioc_get_products($cat_id = 0) {
                         'manage_stock' => $variation_product->get_manage_stock(),
                         'stock_quantity' => $variation_product->get_stock_quantity(),
                         'stock_status' => $variation_product->get_stock_status(),
+                        'description' => $_product->get_description(),
+                        'short_description' => $_product->get_short_description(),
                         'vendor' => 'Prime-X',
                         'url' => get_permalink($parent_product_id),
                     );
@@ -283,6 +285,8 @@ function wooaioc_get_products($cat_id = 0) {
                 'manage_stock' => $_product->get_manage_stock(),
                 'stock_quantity' => $_product->get_stock_quantity(),
                 'stock_status' => $_product->get_stock_status(),
+                'description' => $_product->get_description(),
+                'short_description' => $_product->get_short_description(),
                 'vendor' => 'Prime-X',
                 'url' => get_permalink($product_id),
             );
@@ -428,6 +432,12 @@ function wooaioc_display_xml_product_item($product, $cat_id = 0) {
 
     if (!empty($cat_id)) {
         echo "\t\t\t\t\t".'<categoryId>'.$cat_id.'</categoryId>'.PHP_EOL;
+    }
+
+    if (!empty($product['description'])) {
+        echo "\t\t\t\t\t".'<description><![CDATA['.wpautop($product['description']).']]></description>'.PHP_EOL;
+    } elseif (!empty($product['short_description'])) {
+        echo "\t\t\t\t\t".'<description><![CDATA['.wpautop($product['short_description']).']]></description>'.PHP_EOL;
     }
 
     if (!empty($product['images'])) {
