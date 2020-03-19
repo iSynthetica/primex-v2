@@ -172,7 +172,8 @@ function wooaioc_get_categories_tree($parent = 0) {
 
             $tree[$cat->term_id] = array(
                 'category' => $cat_stored,
-                'children' => wooaioc_get_categories_tree($cat->term_id)
+                'children' => wooaioc_get_categories_tree($cat->term_id),
+                'products' => wooaioc_get_products($cat->term_id)
             );
         }
     }
@@ -194,11 +195,31 @@ function wooaioc_display_xml_category_item($category, $parent_id = 0) {
     }
 }
 
-function wooaioc_get_products() {
-    $args = array(
-        'limit'    => -1,
-        'status'    => 'publish',
-    );
+function wooaioc_get_products($cat_id = 0) {
+    if (!empty($cat_id)) {
+        $args = array(
+            'numberposts' => '-1',
+            'orderby'     => 'date',
+            'order'       => 'DESC',
+            'post_type'   => 'product',
+            'suppress_filters' => false,
+            'status'    => 'publish',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $cat_id,
+                    'operator' => 'IN',
+                    "include_children" => false
+                )
+            ),
+        );
+    } else {
+        $args = array(
+            'limit'    => -1,
+            'status'    => 'publish',
+        );
+    }
 
     $_products = wc_get_products( $args );
     $products = array();
@@ -225,6 +246,9 @@ function wooaioc_get_products() {
                         'price' => $variation_product->get_price(),
                         'name' => $variation_product->get_name(),
                         'type' => 'variation',
+                        'manage_stock' => $variation_product->get_manage_stock(),
+                        'stock_quantity' => $variation_product->get_stock_quantity(),
+                        'stock_status' => $variation_product->get_stock_status(),
                         'vendor' => 'Prime-X',
                         'url' => get_permalink($parent_product_id),
                     );
@@ -256,6 +280,9 @@ function wooaioc_get_products() {
                 'price' => $_product->get_price(),
                 'name' => $_product->get_name(),
                 'type' => $_product->get_type(),
+                'manage_stock' => $_product->get_manage_stock(),
+                'stock_quantity' => $_product->get_stock_quantity(),
+                'stock_status' => $_product->get_stock_status(),
                 'vendor' => 'Prime-X',
                 'url' => get_permalink($product_id),
             );
@@ -372,11 +399,36 @@ function wooaioc_get_attribute_options( $product_id, $attribute ) {
     return array();
 }
 
-function wooaioc_display_xml_product_item($product) {
+function wooaioc_display_xml_product_category_item($category) {
+    if (!empty($category['products'])) {
+        foreach ($category['products'] as $product) {
+            wooaioc_display_xml_product_item($product, $category['category']['id']);
+        }
+    }
+
+    if (!empty($category['children'])) {
+        foreach ($category['children'] as $category_children) {
+            wooaioc_display_xml_product_category_item($category_children);
+        }
+    }
+}
+
+function wooaioc_display_xml_product_item($product, $cat_id = 0) {
     echo "\t\t\t\t".'<offer id="'.$product['id'].'" available="true">'.PHP_EOL;
     echo "\t\t\t\t\t".'<url>'.$product['url'].'</url>'.PHP_EOL;
     echo "\t\t\t\t\t".'<price>'.$product['price'].'</price>'.PHP_EOL;
-    echo "\t\t\t\t\t".'<stock_quantity>100</stock_quantity>'.PHP_EOL;
+//    echo "\t\t\t\t\t".'<manage_stock>'.$product['manage_stock'].'</manage_stock>'.PHP_EOL;
+//    echo "\t\t\t\t\t".'<stock_status>'.$product['stock_status'].'</stock_status>'.PHP_EOL;
+
+    if (!empty($product['stock_quantity'])) {
+        echo "\t\t\t\t\t".'<stock_quantity>'.$product['stock_quantity'].'</stock_quantity>'.PHP_EOL;
+    } else {
+        echo "\t\t\t\t\t".'<stock_quantity>250</stock_quantity>'.PHP_EOL;
+    }
+
+    if (!empty($cat_id)) {
+        echo "\t\t\t\t\t".'<categoryId>'.$cat_id.'</categoryId>'.PHP_EOL;
+    }
 
     if (!empty($product['images'])) {
         foreach ($product['images'] as $image) {
@@ -387,23 +439,38 @@ function wooaioc_display_xml_product_item($product) {
     }
 
     echo "\t\t\t\t\t".'<currencyId>UAH</currencyId>'.PHP_EOL;
-    echo "\t\t\t\t\t".'<name>'.sanitize_text_field($product['name']).'</name>'.PHP_EOL;
-    echo "\t\t\t\t\t".'<type>'.$product['type'].'</type>'.PHP_EOL;
+    //echo "\t\t\t\t\t".'<type>'.$product['type'].'</type>'.PHP_EOL;
 
     if (!empty($product['sku'])) {
         echo "\t\t\t\t\t".'<param name="Артикул">'.$product['sku'].'</param>'.PHP_EOL;
     }
 
+    $brand_attributes = array('brand_cam');
+
+    $vendor = 'Prime-X';
+
     if (!empty($product['attributes'])) {
         foreach ($product['attributes'] as $attribute) {
-            if (!empty($attribute['name']) && !empty($attribute['options'])) {
-                foreach ($attribute['options'] as $option) {
-                    echo "\t\t\t\t\t".'<param name="'.$attribute['name'].'">'.$option.'</param>'.PHP_EOL;
+            if (!empty($attribute['name']) && !empty($attribute['slug']) && !empty($attribute['options'])) {
+                if (in_array($attribute['slug'], $brand_attributes)) {
+                    $vendor = $attribute['options'][0];
+                } else {
+                    foreach ($attribute['options'] as $option) {
+                        echo "\t\t\t\t\t".'<param name="'.$attribute['name'].'">'.$option.'</param>'.PHP_EOL;
+                    }
                 }
             }
         }
     }
-    echo "\t\t\t\t\t".'<vendor>Abc clothes</vendor>'.PHP_EOL;
+    echo "\t\t\t\t\t".'<vendor>'.$vendor.'</vendor>'.PHP_EOL;
+    $vendor_name = ' ' . $vendor;
+
+    $name = sanitize_text_field($product['name']);
+
+    if (false !== strpos($name, $vendor)) {
+        $vendor_name = '';
+    }
+    echo "\t\t\t\t\t".'<name>'.sanitize_text_field($product['name']) . $vendor_name. '</name>'.PHP_EOL;
 
     echo "\t\t\t\t".'</offer>'.PHP_EOL;
 }

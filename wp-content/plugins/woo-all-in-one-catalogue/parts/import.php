@@ -5,7 +5,7 @@
 // echo $content;
 
 $categories_tree = wooaioc_get_categories_tree();
-$products = wooaioc_get_products();
+//$products = wooaioc_get_products();
 
 header('Content-Type: text/xml');
 //$dom = new DOMDocument('1.0', "UTF-8");
@@ -38,12 +38,17 @@ if (!empty($categories_tree)) {
 // Show categories - End
 
 // Show products - Start
-if (!empty($products)) {
+if (!empty($products) || !empty($categories_tree)) {
     echo "\t\t\t".'<offers>'.PHP_EOL;
 
-    foreach ($products as $product) {
-        wooaioc_display_xml_product_item($product);
+//    foreach ($products as $product) {
+//        wooaioc_display_xml_product_item($product);
+//    }
+
+    foreach ($categories_tree as $category) {
+        wooaioc_display_xml_product_category_item($category);
     }
+
     echo "\t\t\t".'</offers>'.PHP_EOL;
 }
 // Show products - End
