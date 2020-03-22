@@ -174,6 +174,7 @@ if ( ! function_exists( 'br_upload_image' ) ) {
         }
         $result .= '</div>';
 
+        do_action('berocket_enqueue_media');
         return $result;
     }
 }
@@ -226,6 +227,7 @@ if ( ! function_exists( 'br_fontawesome_image' ) ) {
         }
         $result .= '</div>';
 
+        do_action('berocket_enqueue_media');
         return $result;
     }
 }
@@ -414,6 +416,7 @@ if ( ! function_exists( 'berocket_font_select_upload' ) ) {
         }
         $result .= '</div>';
 
+        do_action('berocket_enqueue_media');
         return $result;
     }
 }

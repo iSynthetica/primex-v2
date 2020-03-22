@@ -10,7 +10,7 @@ $count_sql = "SELECT COUNT(*) AS count
 ";
 
 $count = $wpdb->get_row( $count_sql, ARRAY_A );
-$limit = 250;
+$limit = 100;
 $page = !(empty($_GET['import_page'])) ? sanitize_text_field($_GET['import_page']) : 1;
 
 if (!empty($count)) {

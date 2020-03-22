@@ -101,6 +101,7 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
                 add_action( 'admin_init', array( $this->cc, 'admin_init' ) );
                 add_action( 'admin_menu', array( $this->cc, 'admin_menu' ) );
                 add_action( 'admin_enqueue_scripts', array( $this->cc, 'admin_enqueue_scripts' ) );
+                add_action( 'berocket_enqueue_media', array( $this, 'wp_enqueue_media' ) );
 
                 add_action( 'wp_ajax_br_' . $this->cc->info[ 'plugin_name' ] . '_settings_save', array(
                     $this->cc,
@@ -905,7 +906,8 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
          *
          * @return void
          */
-        public static function admin_enqueue_scripts() {
+        public static function admin_enqueue_scripts() {}
+        public static function wp_enqueue_media () {
             if ( function_exists( 'wp_enqueue_media' ) ) {
                 wp_enqueue_media();
             } else {

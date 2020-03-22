@@ -692,8 +692,11 @@ class BeRocket_AAPF_group_filters extends BeRocket_custom_post_class {
 
                 }
 
-                echo '<a href="#toggle-filters" class="berocket_element_above_products_is_hide_toggle berocket_ajax_filters_toggle' . ( ( ! empty( $group_options[ 'group_is_hide_theme' ] ) ) ? ' theme-' . $group_options[ 'group_is_hide_theme' ] : '' ) . $extra_class . '"><span><i></i><b></b></span>' . __( 'SHOW FILTERS', 'BeRocket_AJAX_domain' ) . '</a>';
+                echo '<a href="#toggle-filters" class="berocket_element_above_products_is_hide_toggle berocket_ajax_filters_toggle' . ( ( ! empty( $group_options[ 'group_is_hide_theme' ] ) ) ? ' theme-' . $group_options[ 'group_is_hide_theme' ] : '' ) . ( ( ! empty( $group_options['group_is_hide_icon_theme'] ) ) ? ' icon-theme-' . $group_options['group_is_hide_icon_theme'] : '' ) . $extra_class . '"><span><i></i><b></b><s></s></span>' . __( 'SHOW FILTERS', 'BeRocket_AJAX_domain' ) . '</a>';
                 echo '<div class="berocket_element_above_products berocket_element_above_products_is_hide br_is_hidden ' . $extra_class . '">';
+                if( ! empty($options['styles_in_footer']) ) {
+                    wp_enqueue_style('berocket_aapf_widget-themes');
+                }
             }
 
             the_widget( 'BeRocket_new_AAPF_Widget', $atts);

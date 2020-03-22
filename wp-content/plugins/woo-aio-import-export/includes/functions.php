@@ -126,6 +126,10 @@ function wooaioie_add_term($term_data, $parent_id = 0, $import_id = 'product_cat
         );
 
         $insert_data = wp_insert_term($title, $taxonomy, $args);
+        if (is_wp_error($insert_data) || empty($insert_data['term_id'])) {
+            return false;
+        }
+
         $created_id = $insert_data['term_id'];
         add_term_meta( $created_id, '_import_' . $import_id, $term_data['term_taxonomy_id'], true );
     }
@@ -166,6 +170,7 @@ function wooaioie_add_term_meta($term_id, $term_metas) {
 }
 
 function wooaioie_create_single_product($product_value) {
+    $start = time();
     error_log('TASK STARTED ========================================= ');
     global $wpdb;
 
@@ -397,6 +402,9 @@ function wooaioie_create_single_product($product_value) {
 //        print_r($product_value);
 //        error_log(ob_get_clean());
 
+         $end = time();
+         $seconds = $end - $start;
+         error_log($seconds);
         error_log('TASK FINISHED ========================================= ');
     }
 }

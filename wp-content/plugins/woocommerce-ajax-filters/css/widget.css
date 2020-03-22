@@ -1273,7 +1273,7 @@ ul.berocket_aapf_widget li > span > input + .berocket_label_widgets::before {
 }
 .berocket_element_above_products_is_hide_toggle {
     height: 20px;
-    width: 200px !important;;
+    width: 200px !important;
     margin: 40px 0;
     display: inline-block;
     position: relative;
@@ -1290,48 +1290,7 @@ ul.berocket_aapf_widget li > span > input + .berocket_label_widgets::before {
     left: 0;
     width: 17px;
     height: 2px;
-    background: #ababab;
     display: block;
-    transition: all 0.2s;
-}
-.berocket_element_above_products_is_hide_toggle span {
-    top: 13px;
-}
-.berocket_element_above_products_is_hide_toggle span:before {
-    content: "";
-    top: -6px;
-}
-.berocket_element_above_products_is_hide_toggle span:after {
-    content: "";
-    bottom: -6px;
-}
-.berocket_element_above_products_is_hide_toggle:hover span,
-.berocket_element_above_products_is_hide_toggle:hover span:before,
-.berocket_element_above_products_is_hide_toggle:hover span:after,
-.berocket_element_above_products_is_hide_toggle.active span,
-.berocket_element_above_products_is_hide_toggle.active span:before,
-.berocket_element_above_products_is_hide_toggle.active span:after {
-    background: #2a2a2a;
-}
-.berocket_element_above_products_is_hide_toggle:hover span:before {
-    width: 14px;
-}
-.berocket_element_above_products_is_hide_toggle:hover span:after {
-    width: 11px;
-}
-
-.berocket_element_above_products_is_hide_toggle.active span{
-    background: transparent;
-}
-.berocket_element_above_products_is_hide_toggle.active span:before {
-    transform: rotate(45deg);
-    width: 17px;
-    top:0;
-}
-.berocket_element_above_products_is_hide_toggle.active span:after {
-    transform: rotate(135deg);
-    width: 17px;
-    bottom: 0;
 }
 
 /* CUSTOM SIDEBAR */
@@ -1341,7 +1300,7 @@ body {
 body.berocket_ajax_filters_sidebar_active {
     margin-left: 200px;
 }
-.berocket_ajax_filters_sidebar_toggle {
+.berocket_ajax_filters_toggle {
     height: 26px;
     width: 200px !important;
     margin: 40px 0;
@@ -1354,56 +1313,7 @@ body.berocket_ajax_filters_sidebar_active {
     color: #2a2a2a;
     font-weight: 600;
     font-size: 16px;
-}
-.berocket_ajax_filters_sidebar_toggle span,
-.berocket_ajax_filters_sidebar_toggle span:before,
-.berocket_ajax_filters_sidebar_toggle span:after {
-    position: absolute;
-    left: 0;
-    width: 17px;
-    height: 2px;
-    background: #ababab;
-    display: block;
-    transition: all 0.2s;
-}
-.berocket_ajax_filters_sidebar_toggle span {
-    top: 12px;
-}
-.berocket_ajax_filters_sidebar_toggle span:before {
-    content: "";
-    top: -6px;
-}
-.berocket_ajax_filters_sidebar_toggle span:after {
-    content: "";
-    bottom: -6px;
-}
-.berocket_ajax_filters_sidebar_toggle:hover span,
-.berocket_ajax_filters_sidebar_toggle:hover span:before,
-.berocket_ajax_filters_sidebar_toggle:hover span:after,
-.berocket_ajax_filters_sidebar_toggle.active span,
-.berocket_ajax_filters_sidebar_toggle.active span:before,
-.berocket_ajax_filters_sidebar_toggle.active span:after {
-    background: #2a2a2a;
-}
-.berocket_ajax_filters_sidebar_toggle:hover span:before {
-    width: 14px;
-}
-.berocket_ajax_filters_sidebar_toggle:hover span:after {
-    width: 11px;
-}
-
-.berocket_ajax_filters_sidebar_toggle.active span {
-    background: transparent;
-}
-.berocket_ajax_filters_sidebar_toggle.active span:before {
-    transform: rotate(45deg);
-    width: 17px;
-    top:0;
-}
-.berocket_ajax_filters_sidebar_toggle.active span:after {
-    transform: rotate(135deg);
-    width: 17px;
-    bottom: 0;
+    border-color: #ababab;
 }
 
 #berocket-ajax-filters-sidebar {

@@ -471,6 +471,10 @@ td.br_colorpicker_field.colorpicker_removed:after {
 .colpick.colpick_hex.colpick_hex_ns {
     z-index: 1000;
 }
+
+.berocket_row_with_slider th {
+    vertical-align: middle;
+}
 .berocket_filter_groups table{
     width: 100%;
     table-layout: fixed;
@@ -486,7 +490,7 @@ td.br_colorpicker_field.colorpicker_removed:after {
     overflow-y: hidden;
     overflow-x: auto;
     white-space: nowrap;
-    width: 970px;
+    width: 960px;
     max-width: 100%;
     display: flex;
     align-items: center;
@@ -511,6 +515,7 @@ td.br_colorpicker_field.colorpicker_removed:after {
     align-items: center;
     text-align: center;
     justify-content: center;
+    transition: all 0.2s;
 }
 .berocket_group_is_hide_theme_option_slider div label:hover {
     border-color: #e8ebf1;
@@ -521,4 +526,20 @@ td.br_colorpicker_field.colorpicker_removed:after {
 .berocket_group_is_hide_theme_option_slider div label img {
     padding: 0;
     margin: 0;
+}
+.berocket_group_is_hide_theme_option_slider.icon_size div {
+    width: 88px;
+}
+.berocket_group_is_hide_theme_option_slider.icon_size div label{
+    width: 62px;
+}
+
+.berocket_group_is_hide_theme_option_slider.slider_shadow {
+    height: 160px;
+}
+.berocket_group_is_hide_theme_option_slider.slider_shadow div label{
+    height: 151px;
+}
+.berocket_group_is_hide_theme_option_slider.slider_shadow div label img{
+    mac-height: 151px;
 }

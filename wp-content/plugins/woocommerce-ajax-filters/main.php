@@ -203,11 +203,6 @@ class BeRocket_AAPF extends BeRocket_Framework {
         if ( ! function_exists('is_network_admin') || ! is_network_admin() ) {
             if( $this->check_framework_version() ) {
                 if ( $this->init_validation() ) {
-                    if(! empty($_GET['settings-updated']) ) {
-                        wp_cache_delete($this->values[ 'settings_name' ], 'berocket_framework_option');
-                        delete_option( 'rewrite_rules' );
-                        flush_rewrite_rules();
-                    }
                     $last_version = get_option('br_filters_version');
                     if( $last_version === FALSE ) $last_version = 0;
                     if ( version_compare($last_version, BeRocket_AJAX_filters_version, '<') ) {
@@ -1240,6 +1235,11 @@ jQuery(document).on('change', '.br_selected_area_show', br_selected_area_show);
         return $html;
     }
     public function admin_init () {
+        if(! empty($_GET['settings-updated']) && berocket_isset($_GET['page']) == 'br-product-filters' ) {
+            wp_cache_delete($this->values[ 'settings_name' ], 'berocket_framework_option');
+            delete_option( 'rewrite_rules' );
+            flush_rewrite_rules();
+        }
         parent::admin_init();
         add_action('berocket_fix_WC_outofstock', array($this, 'fix_WC_outofstock'), 10, 1);
         $this->create_berocket_term_table();
