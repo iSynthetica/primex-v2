@@ -296,3 +296,6 @@
 [05-Jun-2020 13:59:02 UTC] PHP  14. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
 [05-Jun-2020 13:59:02 UTC] PHP  15. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:311
 [05-Jun-2020 13:59:02 UTC] PHP  16. wooaio_turbosms_order_created() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:287
+[05-Jun-2020 14:20:32 UTC] Start: 1591366832
+[05-Jun-2020 14:20:33 UTC] End: 1591366833
+[05-Jun-2020 14:20:33 UTC] Duration: 1
