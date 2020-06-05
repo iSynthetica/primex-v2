@@ -272,3 +272,27 @@
 [05-Jun-2020 13:17:28 UTC] PHP   7. WP_Filesystem_Direct->chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:283
 [05-Jun-2020 13:17:28 UTC] PHP   8. chmod() /var/www/tsvitokha/primex2.0/public_html/wp-admin/includes/class-wp-filesystem-direct.php:168
 [05-Jun-2020 13:21:41 UTC] База данных WordPress возвратила ошибку Table 'tsvitokha_primex20.tsvt_yoast_indexable' doesn't exist в ответ на запрос UPDATE tsvt_yoast_indexable SET permalink = NULL WHERE object_type = 'post' AND object_sub_type = 'attachment', выполненный require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, wpseo_init, WPSEO_Upgrade->__construct, array_walk, WPSEO_Upgrade->run_upgrade_routine, WPSEO_Upgrade->upgrade_141, WPSEO_Upgrade->reset_permalinks_of_attachments_for_141
+[05-Jun-2020 13:54:33 UTC] Start: 1591365273
+[05-Jun-2020 13:54:33 UTC] End: 1591365273
+[05-Jun-2020 13:54:33 UTC] Duration: 0
+[05-Jun-2020 13:57:42 UTC] Start: 1591365463
+[05-Jun-2020 13:57:43 UTC] End: 1591365463
+[05-Jun-2020 13:57:43 UTC] Duration: 0
+[05-Jun-2020 13:59:02 UTC] PHP Notice:  Undefined variable: text in /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woo-all-in-one-turbosms/includes/woo-functions.php on line 15
+[05-Jun-2020 13:59:02 UTC] PHP Stack trace:
+[05-Jun-2020 13:59:02 UTC] PHP   1. {main}() /var/www/tsvitokha/primex2.0/public_html/index.php:0
+[05-Jun-2020 13:59:02 UTC] PHP   2. require() /var/www/tsvitokha/primex2.0/public_html/index.php:17
+[05-Jun-2020 13:59:02 UTC] PHP   3. require_once() /var/www/tsvitokha/primex2.0/public_html/wp-blog-header.php:19
+[05-Jun-2020 13:59:02 UTC] PHP   4. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/template-loader.php:13
+[05-Jun-2020 13:59:02 UTC] PHP   5. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[05-Jun-2020 13:59:02 UTC] PHP   6. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:311
+[05-Jun-2020 13:59:02 UTC] PHP   7. WC_AJAX::do_wc_ajax() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:287
+[05-Jun-2020 13:59:02 UTC] PHP   8. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:89
+[05-Jun-2020 13:59:02 UTC] PHP   9. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[05-Jun-2020 13:59:02 UTC] PHP  10. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:311
+[05-Jun-2020 13:59:02 UTC] PHP  11. WC_AJAX::checkout() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:287
+[05-Jun-2020 13:59:02 UTC] PHP  12. WC_Checkout->process_checkout() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-ajax.php:464
+[05-Jun-2020 13:59:02 UTC] PHP  13. do_action() /var/www/tsvitokha/primex2.0/public_html/wp-content/plugins/woocommerce/includes/class-wc-checkout.php:1138
+[05-Jun-2020 13:59:02 UTC] PHP  14. WP_Hook->do_action() /var/www/tsvitokha/primex2.0/public_html/wp-includes/plugin.php:478
+[05-Jun-2020 13:59:02 UTC] PHP  15. WP_Hook->apply_filters() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:311
+[05-Jun-2020 13:59:02 UTC] PHP  16. wooaio_turbosms_order_created() /var/www/tsvitokha/primex2.0/public_html/wp-includes/class-wp-hook.php:287
