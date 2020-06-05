@@ -9,7 +9,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 /**
  * Adapted from https://github.com/tareq1988/wordpress-settings-api-class
- * 
+ *
  */
 /**
  * weDevs Settings API wrapper class
@@ -54,7 +54,7 @@ class SettingsAPI
     private  $prefix ;
     /*
      * Constructor
-     * 
+     *
      * @param string $prefix - unique prefix for CSS classes and other names
      */
     public function __construct( $name = '' )
@@ -82,7 +82,7 @@ class SettingsAPI
     /**
      * Set settings sections
      *
-     * @param array   $sections setting sections array
+     * @param array $sections setting sections array
      */
     function set_sections( $sections )
     {
@@ -93,7 +93,7 @@ class SettingsAPI
     /**
      * Add a single section
      *
-     * @param array   $section
+     * @param array $section
      */
     function add_section( $section )
     {
@@ -104,7 +104,7 @@ class SettingsAPI
     /**
      * Set settings fields
      *
-     * @param array   $fields settings fields array
+     * @param array $fields settings fields array
      */
     function set_fields( $fields )
     {
@@ -144,14 +144,10 @@ class SettingsAPI
             if ( isset( $section['desc'] ) && !empty($section['desc']) ) {
                 $section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
                 $callback = create_function( '', 'echo "' . str_replace( '"', '\\"', $section['desc'] ) . '";' );
+            } elseif ( isset( $section['callback'] ) ) {
+                $callback = $section['callback'];
             } else {
-                
-                if ( isset( $section['callback'] ) ) {
-                    $callback = $section['callback'];
-                } else {
-                    $callback = null;
-                }
-            
+                $callback = null;
             }
             
             add_settings_section(
@@ -196,7 +192,7 @@ class SettingsAPI
     /**
      * Get field description for display
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     public function get_field_description( $args )
     {
@@ -222,7 +218,7 @@ class SettingsAPI
     /**
      * Displays a text field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_text( $args )
     {
@@ -251,7 +247,7 @@ class SettingsAPI
     /**
      * Displays a url field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_url( $args )
     {
@@ -261,7 +257,7 @@ class SettingsAPI
     /**
      * Displays a number field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_number( $args )
     {
@@ -271,7 +267,7 @@ class SettingsAPI
     /**
      * Displays a checkbox for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_checkbox( $args )
     {
@@ -298,7 +294,7 @@ class SettingsAPI
     /**
      * Displays a multicheckbox a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_multicheck( $args )
     {
@@ -334,7 +330,7 @@ class SettingsAPI
     /**
      * Displays a multicheckbox a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_radio( $args )
     {
@@ -371,7 +367,7 @@ class SettingsAPI
     /**
      * Displays a selectbox for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_select( $args )
     {
@@ -404,7 +400,7 @@ class SettingsAPI
     /**
      * Displays a selectize multiple select for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_selectize( $args )
     {
@@ -415,12 +411,14 @@ class SettingsAPI
             $args
         );
         $options = ( !empty($args['options']) && is_array( $args['options'] ) ? $args['options'] : array() );
+        $nonce = wp_create_nonce( 'dgwt_wcas_get_custom_fields' );
         $html = sprintf(
-            '<input type="select-multiple" data-options="%4$s" class="dgwt-wcas-selectize" autocomplete="off" id="%1$s[%2$s]" name="%1$s[%2$s]" value="%3$s"/>',
+            '<input type="select-multiple" data-options="%4$s" class="dgwt-wcas-selectize" autocomplete="off" id="%1$s[%2$s]" name="%1$s[%2$s]" value="%3$s" data-security="%5$s"/>',
             $this->name,
             $args['id'],
             $value,
-            http_build_query( $options )
+            http_build_query( $options ),
+            $nonce
         );
         $html .= $this->get_field_description( $args );
         echo  $html ;
@@ -429,7 +427,7 @@ class SettingsAPI
     /**
      * Displays a textarea for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_textarea( $args )
     {
@@ -454,7 +452,8 @@ class SettingsAPI
     /**
      * Displays a textarea for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
+     *
      * @return string
      */
     function callback_html( $args )
@@ -473,7 +472,7 @@ class SettingsAPI
     /**
      * Displays a rich text textarea for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_wysiwyg( $args )
     {
@@ -496,7 +495,7 @@ class SettingsAPI
     /**
      * Displays a file upload field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_file( $args )
     {
@@ -520,7 +519,7 @@ class SettingsAPI
     /**
      * Displays a password field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_password( $args )
     {
@@ -540,7 +539,7 @@ class SettingsAPI
     /**
      * Displays a color picker field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_color( $args )
     {
@@ -561,7 +560,7 @@ class SettingsAPI
     /**
      * Displays a color picker field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_desc( $args )
     {
@@ -579,7 +578,7 @@ class SettingsAPI
     /**
      * Displays a color picker field for a settings field
      *
-     * @param array   $args settings field args
+     * @param array $args settings field args
      */
     function callback_datepicker( $args )
     {
@@ -645,9 +644,10 @@ class SettingsAPI
     /**
      * Get the value of a settings field
      *
-     * @param string  $option  settings field name
-     * @param string  $default default text if it's not found
-     * @param bool  $not_empty allow empty value
+     * @param string $option settings field name
+     * @param string $default default text if it's not found
+     * @param bool $not_empty allow empty value
+     *
      * @return string
      */
     function get_option( $option, $default = '', $allow_empty = true )
@@ -738,144 +738,149 @@ class SettingsAPI
     {
         ?>
 		<script>
-		    jQuery( document ).ready( function ( $ ) {
+			jQuery(document).ready(function ($) {
 
-		        function markActiveGroup($group){
+				function markActiveGroup($group) {
 
-		            var name = $group.attr('id').replace('dgwt_wcas_', '');
+					var name = $group.attr('id').replace('dgwt_wcas_', '');
 
-		            $group.addClass( 'dgwt-wcas-group-active' );
-                    $group.closest('.js-dgwt-wcas-settings-body').attr('data-dgwt-wcas-active', name)
+					$group.addClass('dgwt-wcas-group-active');
+					$group.closest('.js-dgwt-wcas-settings-body').attr('data-dgwt-wcas-active', name)
 
-                }
+				}
 
-		        //Initiate Color Picker
-                if ($('.wp-color-picker-field').length > 0) {
-                    $('.wp-color-picker-field').wpColorPicker({
-                        change: function (event, ui) {
-                            window.DGWT_WCAS_SEARCH_PREVIEW.onColorChangeHandler($(event.target), ui.color.toString());
-                        },
-                    });
-                }
+				//Initiate Color Picker
+				if ($('.wp-color-picker-field').length > 0) {
+					$('.wp-color-picker-field').wpColorPicker({
+						change: function (event, ui) {
+							window.DGWT_WCAS_SEARCH_PREVIEW.onColorChangeHandler($(event.target), ui.color.toString());
+						},
+					});
+				}
 
-		        // Switches option sections
-		        $( '.<?php 
+				// Switches option sections
+				$('.<?php 
         echo  $this->prefix ;
-        ?>group' ).hide();
-		        var activetab = '';
-		        var maybe_active = '';
+        ?>group').hide();
+				var activetab = '';
+				var maybe_active = '';
 
-		        if ( typeof ( localStorage ) != 'undefined' ) {
-		            maybe_active = localStorage.getItem( '<?php 
+				if (typeof (localStorage) != 'undefined') {
+					maybe_active = localStorage.getItem('<?php 
         echo  $this->prefix ;
-        ?>settings-active-tab' );
+        ?>settings-active-tab');
 
-		            if ( maybe_active ) {
+					if (maybe_active) {
 
-		                // Check if tabs exists
-		                $( '.<?php 
+						// Check if tabs exists
+						$('.<?php 
         echo  $this->prefix ;
-        ?>nav-tab-wrapper a:not(.js-nav-tab-minor)' ).each( function () {
+        ?>nav-tab-wrapper a:not(.js-nav-tab-minor)').each(function () {
 
-		                    if ( $( this ).attr( 'href' ) === maybe_active ) {
-		                        activetab = maybe_active;
-		                    }
-		                } );
+							if ($(this).attr('href') === maybe_active) {
+								activetab = maybe_active;
+							}
+						});
 
-		            }
-		        }
+					}
+				}
 
-		        if ( activetab != '' && $( activetab ).length ) {
-		            $( activetab ).fadeIn();
-                    markActiveGroup($( activetab ));
-		        } else {
-		            $( '.<?php 
+				if (activetab != '' && $(activetab).length) {
+					$(activetab).fadeIn();
+					markActiveGroup($(activetab));
+				} else {
+					$('.<?php 
         echo  $this->prefix ;
-        ?>group:first' ).fadeIn();
-                    markActiveGroup($( '.<?php 
+        ?>group:first').fadeIn();
+					markActiveGroup($('.<?php 
         echo  $this->prefix ;
-        ?>group:first' ));
-		        }
-		        $( '.<?php 
+        ?>group:first'));
+				}
+				$('.<?php 
         echo  $this->prefix ;
-        ?>group .collapsed' ).each( function () {
-		            $( this ).find( 'input:checked' ).parent().parent().parent().nextAll().each(
-		                function () {
-		                    if ( $( this ).hasClass( 'last' ) ) {
-		                        $( this ).removeClass( 'hidden' );
-		                        return false;
-		                    }
-		                    $( this ).filter( '.hidden' ).removeClass( 'hidden' );
-		                } );
-		        } );
+        ?>group .collapsed').each(function () {
+					$(this).find('input:checked').parent().parent().parent().nextAll().each(
+						function () {
+							if ($(this).hasClass('last')) {
+								$(this).removeClass('hidden');
+								return false;
+							}
+							$(this).filter('.hidden').removeClass('hidden');
+						});
+				});
 
-		        if ( activetab != '' && $( activetab + '-tab' ).length ) {
-		            $( activetab + '-tab' ).addClass( 'nav-tab-active' );
-		        } else {
-		            $( '.<?php 
+				if (activetab != '' && $(activetab + '-tab').length) {
+					$(activetab + '-tab').addClass('nav-tab-active');
+				} else {
+					$('.<?php 
         echo  $this->prefix ;
-        ?>nav-tab-wrapper a:first' ).addClass( 'nav-tab-active' );
-		        }
-		        $( '.<?php 
+        ?>nav-tab-wrapper a:first').addClass('nav-tab-active');
+				}
+				$('.<?php 
         echo  $this->prefix ;
-        ?>nav-tab-wrapper a:not(.js-nav-tab-minor)' ).click( function ( evt ) {
+        ?>nav-tab-wrapper a:not(.js-nav-tab-minor)').click(function (evt) {
 
-		            if ( typeof ( localStorage ) != 'undefined' ) {
-		                localStorage.setItem( '<?php 
+					if (typeof (localStorage) != 'undefined') {
+						localStorage.setItem('<?php 
         echo  $this->prefix ;
-        ?>settings-active-tab', $( this ).attr( 'href' ) );
-		            }
+        ?>settings-active-tab', $(this).attr('href'));
+					}
 
-		            $( '.<?php 
+					$('.<?php 
         echo  $this->prefix ;
-        ?>nav-tab-wrapper a' ).removeClass( 'nav-tab-active' );
+        ?>nav-tab-wrapper a').removeClass('nav-tab-active');
 
-		            $( this ).addClass( 'nav-tab-active' ).blur();
-		            var clicked_group = $( this ).attr( 'href' );
+					$(this).addClass('nav-tab-active').blur();
+					var clicked_group = $(this).attr('href');
 
 
-		            $( '.<?php 
+					$('.<?php 
         echo  $this->prefix ;
-        ?>group' ).hide();
-		            $( clicked_group ).fadeIn();
-                    markActiveGroup($( clicked_group ));
-		            evt.preventDefault();
-		        } );
+        ?>group').hide();
+					$(clicked_group).fadeIn();
+					markActiveGroup($(clicked_group));
+					evt.preventDefault();
+				});
 
-		        $( '.<?php 
+				$('.<?php 
         echo  $this->prefix ;
-        ?>browse' ).on( 'click', function ( event ) {
-		            event.preventDefault();
+        ?>browse').on('click', function (event) {
+					event.preventDefault();
 
-		            var self = $( this );
+					var self = $(this);
 
-		            // Create the media frame.
-		            var file_frame = wp.media.frames.file_frame = wp.media( {
-		                title: self.data( 'uploader_title' ),
-		                button: {
-		                    text: self.data( 'uploader_button_text' ),
-		                },
-		                multiple: false
-		            } );
+					// Create the media frame.
+					var file_frame = wp.media.frames.file_frame = wp.media({
+						title: self.data('uploader_title'),
+						button: {
+							text: self.data('uploader_button_text'),
+						},
+						multiple: false
+					});
 
-		            file_frame.on( 'select', function () {
-		                attachment = file_frame.state().get( 'selection' ).first().toJSON();
+					file_frame.on('select', function () {
+						attachment = file_frame.state().get('selection').first().toJSON();
 
-		                self.prev( '.<?php 
+						self.prev('.<?php 
         echo  $this->prefix ;
-        ?>url' ).val( attachment.url );
-		            } );
+        ?>url').val(attachment.url);
+					});
 
-		            // Finally, open the modal
-		            file_frame.open();
-		        } );
-		    } );
+					// Finally, open the modal
+					file_frame.open();
+				});
+			});
 		</script>
 
 		<style type="text/css">
 			/** WordPress 3.8 Fix **/
-			.form-table th { padding: 20px 10px; }
-			#wpbody-content .metabox-holder { padding-top: 5px; }
+			.form-table th {
+				padding: 20px 10px;
+			}
+
+			#wpbody-content .metabox-holder {
+				padding-top: 5px;
+			}
 		</style>
 		<?php 
     }

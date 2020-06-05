@@ -2,134 +2,147 @@
 
 namespace DgoraWcas\Integrations\Themes;
 
-class ThemesCompatibility
-{
-    private $themeName = '';
-    private $theme = null;
-    private $supportActive = false;
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-    public function __construct()
-    {
-        $this->setCurrentTheme();
+class ThemesCompatibility {
+	private $themeName = '';
+	private $theme = null;
+	private $supportActive = false;
 
-        $this->loadCompatibilities();
-    }
+	public function __construct() {
+		$this->setCurrentTheme();
 
-    private function setCurrentTheme()
-    {
-        $name = '';
+		$this->loadCompatibilities();
+	}
 
-        $theme = wp_get_theme();
+	private function setCurrentTheme() {
+		$name = '';
 
-        if (is_object($theme) && is_a($theme, 'WP_Theme')) {
-            $template     = $theme->get_template();
-            $stylesheet   = $theme->get_stylesheet();
-            $isChildTheme = $template !== $stylesheet;
-            $name         = sanitize_title($theme->Name);
+		$theme = wp_get_theme();
 
-            if ($isChildTheme) {
-                $name = $template;
-            }
+		if ( is_object( $theme ) && is_a( $theme, 'WP_Theme' ) ) {
+			$template     = $theme->get_template();
+			$stylesheet   = $theme->get_stylesheet();
+			$isChildTheme = $template !== $stylesheet;
+			$name         = sanitize_title( $theme->Name );
 
-            $this->theme = $theme;
-        }
+			if ( $isChildTheme ) {
+				$name = strtolower( $template );
+			}
 
-        $this->themeName = $name;
+			$this->theme = $theme;
+		}
 
-    }
+		$this->themeName = $name;
 
-    /**
-     *  All supported themes
-     *
-     * @return array
-     */
-    public function supportedThemes()
-    {
-        return array(
-            'storefront' => array(
-                'slug' => 'storefront',
-                'name' => 'Storefront',
-            ),
-            'flatsome'   => array(
-                'slug' => 'flatsome',
-                'name' => 'Flatsome',
-            ),
-            'astra'   => array(
-                'slug' => 'astra',
-                'name' => 'Astra',
-            )
-        );
-    }
+	}
 
-    /**
-     * Load class with compatibilities logic for current theme
-     *
-     * @return void
-     */
-    private function loadCompatibilities()
-    {
+	/**
+	 *  All supported themes
+	 *
+	 * @return array
+	 */
+	public function supportedThemes() {
+		return array(
+			'storefront' => array(
+				'slug' => 'storefront',
+				'name' => 'Storefront',
+			),
+			'flatsome'   => array(
+				'slug' => 'flatsome',
+				'name' => 'Flatsome',
+			),
+			'astra'      => array(
+				'slug' => 'astra',
+				'name' => 'Astra',
+			),
+			'thegem'     => array(
+				'slug' => 'thegem',
+				'name' => 'TheGem',
+			),
+			'impreza'    => array(
+				'slug' => 'impreza',
+				'name' => 'Impreza',
+			),
+			'woodmart'   => array(
+				'slug' => 'woodmart',
+				'name' => 'Woodmart',
+			),
+			'enfold'   => array(
+				'slug' => 'enfold',
+				'name' => 'Enfold',
+			)
+		);
+	}
 
-        foreach ($this->supportedThemes() as $theme) {
-            if ($theme['slug'] === $this->themeName) {
+	/**
+	 * Load class with compatibilities logic for current theme
+	 *
+	 * @return void
+	 */
+	private function loadCompatibilities() {
 
-                $this->supportActive = true;
+		foreach ( $this->supportedThemes() as $theme ) {
+			if ( $theme['slug'] === $this->themeName ) {
 
-                $class = '\\DgoraWcas\\Integrations\\Themes\\';
+				$this->supportActive = true;
 
-                if (isset($theme['className'])) {
-                    $class .= $theme['className'] . '\\' . $theme['className'];
-                } else {
-                    $class .= $theme['name'] . '\\' . $theme['name'];
-                }
+				$class = '\\DgoraWcas\\Integrations\\Themes\\';
 
-                new $class;
+				if ( isset( $theme['className'] ) ) {
+					$class .= $theme['className'] . '\\' . $theme['className'];
+				} else {
+					$class .= $theme['name'] . '\\' . $theme['name'];
+				}
 
-                break;
-            }
-        }
-    }
+				new $class;
 
-    /**
-     * Check if current theme is supported
-     *
-     * @return bool
-     */
-    public function isCurrentThemeSupported()
-    {
-        return $this->supportActive;
-    }
+				break;
+			}
+		}
+	}
 
-    /**
-     * Get current theme onfo
-     *
-     * @return object
-     */
-    public function getTheme()
-    {
-        return $this->theme;
-    }
+	/**
+	 * Check if current theme is supported
+	 *
+	 * @return bool
+	 */
+	public function isCurrentThemeSupported() {
+		return $this->supportActive;
+	}
 
-    /**
-     * Get current theme onfo
-     *
-     * @return object
-     */
-    public function getThemeImageSrc()
-    {
-        $src = '';
+	/**
+	 * Get current theme onfo
+	 *
+	 * @return object
+	 */
+	public function getTheme() {
+		return $this->theme;
+	}
 
-        if ( ! empty($this->theme)) {
+	/**
+	 * Get current theme onfo
+	 *
+	 * @return object
+	 */
+	public function getThemeImageSrc() {
+		$src = '';
 
-            foreach (array('png', 'jpg') as $ext) {
-                if (empty($src) && file_exists($this->theme->get_template_directory() . '/screenshot.' . $ext)) {
-                    $src = $this->theme->get_template_directory_uri() . '/screenshot.' . $ext;
-                    break;
-                }
-            }
+		if ( ! empty( $this->theme ) ) {
 
-        }
+			foreach ( array( 'png', 'jpg' ) as $ext ) {
+				if ( empty( $src ) && file_exists( $this->theme->get_template_directory() . '/screenshot.' . $ext ) ) {
+					$src = $this->theme->get_template_directory_uri() . '/screenshot.' . $ext;
+					break;
+				}
+			}
 
-        return ! empty($src) ? esc_url($src) : '';
-    }
+		}
+
+		return ! empty( $src ) ? esc_url( $src ) : '';
+	}
 
 }

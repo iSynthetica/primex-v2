@@ -58,21 +58,14 @@ class DetailsBox
                 if ( $type === 'taxonomy' ) {
                     $termID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
                     $taxonomy = ( !empty($parts[2]) ? sanitize_key( $parts[2] ) : '' );
-                } else {
-                    
-                    if ( $type === 'product' ) {
-                        $postType = 'product';
-                        $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
-                        $variationID = ( !empty($parts[2]) ? absint( $parts[2] ) : 0 );
-                    } else {
-                        
-                        if ( $type === 'post' ) {
-                            $postType = ( !empty($parts[2]) ? $parts[2] : 0 );
-                            $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
-                        }
-                    
-                    }
-                
+                } elseif ( $type === 'product' ) {
+                    $postType = 'product';
+                    $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
+                    $variationID = ( !empty($parts[2]) ? absint( $parts[2] ) : 0 );
+                    //@TODO handle variations
+                } elseif ( $type === 'post' ) {
+                    $postType = ( !empty($parts[2]) ? $parts[2] : 0 );
+                    $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
                 }
                 
                 // Get product details
@@ -83,6 +76,7 @@ class DetailsBox
                         'objectID' => $item['objectID'],
                         'html'     => $productDetails['html'],
                         'imageSrc' => $productDetails['imageSrc'],
+                        'price'    => $productDetails['price'],
                     );
                 }
                 
@@ -114,6 +108,7 @@ class DetailsBox
         $details = array(
             'html'     => '',
             'imageSrc' => '',
+            'price'    => '',
         );
         if ( !$product->isCorrect() ) {
             return $details;
@@ -134,7 +129,6 @@ class DetailsBox
             'stockAvailability' => $product->getStockAvailability(),
             'wooObject'         => $product->getWooObject(),
         );
-        $details['imageSrc'] = $product->getThumbnailSrc( $thumbSize );
         if ( $product->isType( 'simple' ) && $wooProduct->is_purchasable() && $wooProduct->is_in_stock() && !$wooProduct->is_sold_individually() && apply_filters( 'dgwt/wcas/suggestion_details/show_quantity', true ) ) {
             $vars['showQuantity'] = true;
         }
@@ -153,6 +147,8 @@ class DetailsBox
             $productID,
             $product
         );
+        $details['imageSrc'] = $vars->imageSrc;
+        $details['price'] = $vars->priceHtml;
         return $details;
     }
     

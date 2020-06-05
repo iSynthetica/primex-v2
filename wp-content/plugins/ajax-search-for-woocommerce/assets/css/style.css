@@ -4,6 +4,7 @@
 
 .dgwt-wcas-search-wrapp {
     position: relative;
+	line-height: 100%;
     display: block;
     color: #444;
     min-width: 230px;
@@ -43,6 +44,7 @@
     border: 1px solid #ddd;
     border-top: none;
     padding: 0;
+	margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -89,6 +91,7 @@
     justify-content: space-between;
     align-items: center;
     resize: vertical;
+	width: 100%;
 }
 
 .dgwt-wcas-suggestion.dgwt-wcas-suggestion-more {
@@ -254,6 +257,7 @@ a.dgwt-wcas-product-details-readmore:hover {
 .dgwt-wcas-search-form {
     margin: 0;
     padding: 0;
+	width: 100%;
 }
 
 .dgwt-wcas-sp del {
@@ -876,6 +880,11 @@ input[type="submit"].dgwt-wcas-search-submit, button.dgwt-wcas-search-submit {
     outline: 0;
     background: #fff;
     box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.06);
+	-webkit-transition: all 150ms ease-in;
+	-moz-transition: all 150ms ease-in;
+	-ms-transition: all 150ms ease-in;
+	-o-transition: all 150ms ease-in;
+	transition: all 150ms ease-in;
 }
 
 .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input::placeholder {
@@ -923,6 +932,8 @@ input[type="submit"].dgwt-wcas-search-submit, button.dgwt-wcas-search-submit {
     cursor: pointer;
     height: 40px;
     min-width: 50px;
+	line-height: 100%;
+	min-height: 100%;
     right: 0;
     left: auto;
     top: 0;
@@ -1089,7 +1100,8 @@ body:not(.dgwt-wcas-is-details) .dgwt-wcas-suggestion:last-child {
     padding: 10px 40px 10px 15px;
 }
 
-.dgwt-wcas-overlay-mobile-on, .dgwt-wcas-overlay-mobile-on body {
+.dgwt-wcas-overlay-mobile-on,
+.dgwt-wcas-overlay-mobile-on body {
     overflow: hidden;
 }
 
@@ -1135,6 +1147,56 @@ body:not(.dgwt-wcas-is-details) .dgwt-wcas-suggestion:last-child {
     right: auto !important;
 }
 
+
+@keyframes dgwt-wcas-preloader-price-anim {
+	0% { background: rgba(128, 128, 128, 0.03) }
+	50% { background: rgba(128, 128, 128, 0.1) }
+	100% { background: rgba(128, 128, 128, 0.03) }
+}
+
+.dgwt-wcas-preloader-price-inner div:nth-child(1) {
+	left: 0px;
+	animation-delay: -0.1s
+}
+
+.dgwt-wcas-preloader-price-inner div:nth-child(2) {
+	left: 13px;
+	animation-delay: -0.2s
+}
+
+.dgwt-wcas-preloader-price-inner div:nth-child(3) {
+	left: 26px;
+	animation-delay: -0.3s
+}
+
+.dgwt-wcas-preloader-price {
+	width: 34px;
+	height: 10px;
+	display: inline-block;
+	overflow: hidden;
+	background: none;
+}
+.dgwt-wcas-preloader-price-inner {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform: translateZ(0) scale(1);
+	backface-visibility: hidden;
+	transform-origin: 0 0; /* see note above */
+}
+.dgwt-wcas-preloader-price-inner div {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: rgba(128, 128, 128, 0.05);
+	animation: dgwt-wcas-preloader-price-anim 0.8s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+
 .dgwt-wcas-om-bar .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
     display: none;
 }
@@ -1142,6 +1204,10 @@ body:not(.dgwt-wcas-is-details) .dgwt-wcas-suggestion:last-child {
 .dgwt-wcas-om-bar .dgwt-wcas-search-wrapp-mobile {
     width: calc(100% - 45px);
     max-width: none;
+	margin: 0;
+}
+.dgwt-wcas-overlay-mobile .dgwt-wcas-search-form {
+	width: 100%;
 }
 
 .dgwt-wcas-overlay-mobile {
@@ -1179,6 +1245,12 @@ body:not(.dgwt-wcas-is-details) .dgwt-wcas-suggestion:last-child {
     position: absolute;
     overflow-y: auto;
     border: none;
+	margin: 0;
+	display: block;
+}
+
+.dgwt-wcas-overlay-mobile-on .dgwt-wcas-suggestion {
+	width: 100%;
 }
 
 .dgwt-wcas-overlay-mobile-on .dgwt-wcas-enable-mobile-form {
@@ -1245,6 +1317,85 @@ body .dgwt-wcas-content-wrapp .rood {
     display: none;
 }
 
+/*------------------------------------------------------
+ Icon instead of search bar
+---------------------------------------------------------*/
+
+.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon {
+	min-width: unset;
+}
+
+.dgwt-wcas-layout-icon-flexible .dgwt-wcas-search-form {
+	opacity: 0;
+}
+.dgwt-wcas-layout-icon-flexible-loaded .dgwt-wcas-search-form {
+	opacity: 1;
+}
+.dgwt-wcas-search-icon-arrow {
+	display: none;
+}
+
+html:not(.dgwt-wcas-overlay-mobile-on) .dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon .dgwt-wcas-search-form {
+	opacity: 0;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: calc(100% + 8px);
+	min-width: 500px;
+	/*box-shadow: 0 0 10px 30px rgba(255,255,255,0.8);*/
+	z-index: 1000;
+}
+
+.dgwt-wcas-overlay-mobile .dgwt-wcas-search-icon,
+.dgwt-wcas-overlay-mobile .dgwt-wcas-search-icon-arrow {
+	display: none;
+}
+
+html:not(.dgwt-wcas-overlay-mobile-on) .dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon.dgwt-wcas-layout-icon-open .dgwt-wcas-search-form {
+	display: block;
+	opacity: 1;
+}
+.dgwt-wcas-search-icon {
+	width: 20px;
+	height: auto;
+	cursor: pointer;
+}
+.dgwt-wcas-ico-magnifier-handler {
+	margin-bottom: -0.2em;
+	width:100%;
+}
+.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon.dgwt-wcas-layout-icon-open .dgwt-wcas-search-icon {
+	opacity: 0.6;
+}
+
+.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon.dgwt-wcas-layout-icon-open .dgwt-wcas-sf-wrapp .dgwt-wcas-ico-magnifier {
+	display: none;
+}
+.dgwt-wcas-search-wrapp.dgwt-wcas-layout-icon.dgwt-wcas-layout-icon-open.dgwt-wcas-no-submit .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+	padding-left: 15px;
+}
+.dgwt-wcas-layout-icon-open .dgwt-wcas-search-icon-arrow {
+	display: block;
+	position: absolute;
+	top: calc(100% + 2px);
+	left: 0;
+	z-index: 5;
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border: 1px solid #ddd;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+
+}
+
+.dgwt-wcas-layout-icon-flexible:not(.dgwt-wcas-layout-icon) .dgwt-wcas-search-icon,
+.dgwt-wcas-layout-icon-flexible:not(.dgwt-wcas-layout-icon) .dgwt-wcas-search-icon-arrow {
+	display: none;
+}
 /*------------------------------------------------------
  Style with headings
 ---------------------------------------------------------*/

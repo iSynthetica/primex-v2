@@ -130,6 +130,82 @@
 
     };
 
+	var CONDITIONAL_LAYOUT_SETTINGS = {
+		layoutSelect: "select[id*='search_layout']",
+		overlayMobile: "input[id*='enable_mobile_overlay']",
+		mobileBreakpoint: "input[id*='mobile_breakpoint']",
+		$select: null,
+		$overlayMobileEl: null,
+		$mobileBreakpointEl: null,
+		setConditions: function () {
+			var _this = this,
+				currentVal = _this.$select.find('option:selected').val(),
+				hasAdvSettings = $('.js-dgwt-wcas-adv-settings-toggle').hasClass('woocommerce-input-toggle--enabled');
+
+			_this.hideOption(_this.$overlayMobileEl);
+			_this.hideOption(_this.$mobileBreakpointEl);
+
+			switch (currentVal) {
+				case 'icon':
+					break;
+				case 'icon-flexible':
+
+					if (hasAdvSettings) {
+						_this.showOption(_this.$mobileBreakpointEl);
+					}
+
+					break;
+				default:
+
+					if (hasAdvSettings) {
+
+						_this.showOption(_this.$overlayMobileEl);
+
+						if (_this.$overlayMobileEl.is(':checked')) {
+							_this.showOption(_this.$mobileBreakpointEl);
+						}
+					}
+
+					break;
+			}
+		},
+		hideOption: function($el){
+			$el.closest('tr').hide();
+		},
+		showOption: function($el){
+			$el.closest('tr').show();
+		},
+		registerListeners: function () {
+			var _this = this;
+
+			_this.$select.on('change', function () {
+				_this.setConditions();
+			});
+
+			_this.$overlayMobileEl.on('change', function () {
+				_this.setConditions();
+			});
+
+		},
+		init: function () {
+			var _this = this,
+				$sel = $(_this.layoutSelect);
+
+			if ($sel.length > 0) {
+				_this.$select = $sel;
+				_this.$overlayMobileEl = $(_this.overlayMobile);
+				_this.$mobileBreakpointEl = $(_this.mobileBreakpoint);
+				_this.registerListeners();
+
+				setTimeout(function(){
+				    _this.setConditions();
+				}, 400);
+			}
+
+		}
+
+	};
+
     var AJAX_BUILD_INDEX = {
         actionTriggerClass: 'js-ajax-build-index',
         actionStopTriggerClass: 'js-ajax-stop-build-index',
@@ -279,201 +355,39 @@
         }
     };
 
-    var AJAX_CLOSE_BACKWARD_COMPATIBILITY = {
-        actionTriggerClass: 'js-dgwt-wcas-bc-wipe-all',
-        switchLeftLabelClass: 'js-dgwt-wcas-switch-left',
-        switchRightLabelClass: 'js-dgwt-wcas-switch-right',
-        switcherClass: 'js-dgwt-wcas-switcher',
-        remindMeLaterClass: 'js-dgwt-wcas-bc-remind-me',
-        applyChanges: function () {
-            var _this = this;
-
-
-            jQuery(document).on('click', '.' + _this.actionTriggerClass, function (e) {
-                e.preventDefault();
-
-                var $btn = $(this);
-
-                $btn.attr('disabled', 'disabled');
-                jQuery.ajax({
-                    url: ajaxurl,
-                    type: 'post',
-                    data: {
-                        action: 'dgwt_wcas_bc_keep_latest',
-                    },
-                    success: function (response) {
-
-                        if (typeof response.success != 'undefined' && response.success) {
-
-                            $('.dgwt_wcas_basic-tab').click();
-
-                            $('.js-dgwt-wcas-bc-notice').fadeOut(400, function () {
-                                $(this).remove();
-                            });
-                        }
-                    },
-                    complete: function () {
-                        $btn.removeAttr('disabled');
-                    }
-                });
-            })
-
-        },
-        switchAjaxRequest: function (state, visualChange) {
-            var _this = this,
-                $switcher = $('.dgwt-wcas-bc-switcher'),
-                $errorNotice = $('.dgwt-wcas-bc-error'),
-                $successNotice = $('.dgwt-wcas-bc-success'),
-                $spinner = $('.js-dgwt-wcas-bc-spinner');
-
-            $switcher.addClass('dgwt-wcas-non-events');
-            $spinner.removeClass('dgwt-wcas-hidden');
-            $errorNotice.addClass('dgwt-wcas-hidden');
-            $successNotice.addClass('dgwt-wcas-hidden');
-
-            state = state === 'enable' ? 'enable' : 'disable';
-
-            jQuery.ajax({
-                url: ajaxurl,
-                type: 'post',
-                data: {
-                    action: 'dgwt_wcas_bc_toggle',
-                    state: state
-                },
-                success: function (response) {
-
-                    if (typeof response.success != 'undefined' && response.success) {
-                        visualChange();
-                        if (state === 'disable') {
-                            _this.flashStepsContainer();
-                        }
-                        setTimeout(function () {
-                            $successNotice.removeClass('dgwt-wcas-hidden');
-                        }, 500);
-                        setTimeout(function () {
-                            $successNotice.addClass('dgwt-wcas-hidden');
-                        }, 2000);
-
-
-                    } else {
-                        $switcher.removeClass('dgwt-wcas-non-events');
-                        $spinner.addClass('dgwt-wcas-hidden');
-                        $errorNotice.removeClass('dgwt-wcas-hidden');
-                    }
-
-                },
-                error: function () {
-                    $errorNotice.removeClass('dgwt-wcas-hidden');
-                },
-                complete: function () {
-                    $switcher.removeClass('dgwt-wcas-non-events');
-                    $spinner.addClass('dgwt-wcas-hidden');
-                }
-            });
-
-        },
-        enableBC: function () {
-            var _this = this;
-
-            _this.switchAjaxRequest('enable', function () {
-                $('.' + _this.switcherClass).attr('checked', true);
-                $('.' + _this.switchLeftLabelClass).addClass('dgwt-wcas-toggler--is-active');
-                $('.' + _this.switchRightLabelClass).removeClass("dgwt-wcas-toggler--is-active");
-                $('.dgwt-wcas-toggle').addClass('dgwt-wcas-toggle--mute');
-
-                $('.js-dgwt-wcas-todo-old').removeClass('dgwt-wcas-hidden');
-                $('.js-dgwt-wcas-todo-latest').addClass('dgwt-wcas-hidden');
-            });
-
-
-        },
-        disableBC: function () {
-            var _this = this;
-
-            _this.switchAjaxRequest('disable', function () {
-                $('.' + _this.switcherClass).attr('checked', false);
-                $('.' + _this.switchRightLabelClass).addClass('dgwt-wcas-toggler--is-active');
-                $('.' + _this.switchLeftLabelClass).removeClass("dgwt-wcas-toggler--is-active");
-                $('.dgwt-wcas-toggle').removeClass('dgwt-wcas-toggle--mute');
-
-                $('.js-dgwt-wcas-todo-old').addClass('dgwt-wcas-hidden');
-                $('.js-dgwt-wcas-todo-latest').removeClass('dgwt-wcas-hidden');
-            });
-
-        },
-        remindMeLater: function () {
-            jQuery.ajax({
-                url: ajaxurl,
-                type: 'post',
-                data: {
-                    action: 'dgwt_wcas_bc_remind_me_later',
-                },
-                success: function (response) {
-
-                    if (typeof response.success != 'undefined' && response.success) {
-                        $('.js-dgwt-wcas-bc-notice').fadeOut(400, function () {
-                            $(this).remove();
-                        });
-                    }
-
-                }
-            });
-        },
-        flashStepsContainer: function () {
-            var _this = this,
-                $container = $('.dgwt-wcas-bc-todo-wrapp');
-            $container.addClass('dgwt-wcas-anim-shake');
-            setTimeout(function () {
-                $container.removeClass('dgwt-wcas-anim-shake');
-            }, 2000)
-        },
-        switchListeners: function () {
-            var _this = this;
-
-            $('.' + _this.switchLeftLabelClass).on('click', function () {
-                _this.enableBC();
-            });
-
-            $('.' + _this.switchRightLabelClass).on('click', function () {
-                _this.disableBC();
-            });
-
-            $('.' + _this.switcherClass).on('click', function (e) {
-                e.preventDefault();
-
-                if ($('.' + _this.switcherClass).is(':checked')) {
-                    _this.enableBC();
-                } else {
-                    _this.disableBC();
-                }
-
-            });
-
-            $('.' + _this.remindMeLaterClass).on('click', function (e) {
-                e.preventDefault();
-
-                _this.remindMeLater();
-            });
-
-        },
-        init: function () {
-            var _this = this;
-            _this.applyChanges();
-            _this.switchListeners();
-        }
-    };
-
     var SELECTIZE = {
         init: function () {
             var _this = this;
+
+            if ($('.dgwt-wcas-selectize').length > 0) {
+                $.ajax({
+                    url: ajaxurl,
+                    data: {
+                        action: 'dgwt_wcas_settings_list_custom_fields',
+                        _wpnonce: $('.dgwt-wcas-selectize').data('security')
+
+                    },
+                    success: function (res) {
+
+                        if(typeof res != 'undefined' && typeof res.data != 'undefined') {
+                            _this.initSelectize(res.data);
+                        }
+                    }
+                });
+            }
+
+        },
+        initSelectize: function (loadedOptions) {
+
             var $inputs = $('.dgwt-wcas-selectize');
+
 
             if ($inputs.length > 0) {
                 $inputs.each(function () {
 
                     var $input = $(this);
                     var optionsRaw = $input.data('options');
-                    var options = [];
+                    var options = loadedOptions;
 
                     if (optionsRaw.length > 0) {
                         optionsRaw = JSON.parse('["' + decodeURI(optionsRaw.replace(/&/g, "\",\"").replace(/=/g, "\",\"")) + '"]');
@@ -495,24 +409,41 @@
                     $(this).selectize({
                         persist: false,
                         maxItems: null,
-                        valueField: 'value',
+                        valueField: 'key',
                         labelField: 'label',
                         searchField: ['value', 'label'],
+                        options: options,
                         create: function (input) {
                             return {
-                                value: input,
-                                label: input
+                                value: input.key,
+                                label: input.label
                             }
                         },
-                        options: options,
+                        load: function (query, callback) {
+                            if (!query.length) return callback();
+
+                            $.ajax({
+                                url: ajaxurl,
+                                data: {
+                                    action: 'dgwt_wcas_settings_list_custom_fields',
+                                    _wpnonce: $input.data('security')
+
+                                },
+                                error: function () {
+                                    callback();
+                                },
+                                success: function (res) {
+                                    callback(res.data);
+                                }
+                            });
+                        }
                     });
 
                 });
             }
 
-
         }
-    }
+    };
 
     var TOOLTIP = {
         init: function () {
@@ -627,6 +558,7 @@
                             setTimeout(function () {
                                 $options.removeClass(_this.transClass);
                                 CHECKBOX_SETTINGS_TOGGLE.refresh();
+								CONDITIONAL_LAYOUT_SETTINGS.setConditions();
                             }, 500)
 
                         }, 500);
@@ -1451,10 +1383,9 @@
 
         RADIO_SETTINGS_TOGGLE.init();
         CHECKBOX_SETTINGS_TOGGLE.init();
+		CONDITIONAL_LAYOUT_SETTINGS.init();
 
         automateSettingsColspan();
-
-        AJAX_CLOSE_BACKWARD_COMPATIBILITY.init();
 
         AJAX_BUILD_INDEX.init();
         SELECTIZE.init();

@@ -4,13 +4,13 @@
  * Plugin Name: AJAX Search for WooCommerce
  * Plugin URI: https://ajaxsearch.pro?utm_source=wp-admin&utm_medium=referral&utm_campaign=author_uri&utm_gen=utmdc
  * Description: The most popular WooCommerce product search. Gives your users a well-designed advanced AJAX search bar with live search suggestions.
- * Version: 1.6.3
+ * Version: 1.7.1
  * Author: Damian Góra
  * Author URI: https://ajaxsearch.pro?utm_source=wp-admin&utm_medium=referral&utm_campaign=author_uri&utm_gen=utmdc
  * Text Domain: ajax-search-for-woocommerce
  * Domain Path: /languages
  * WC requires at least: 3.3
- * WC tested up to: 4.0
+ * WC tested up to: 4.1
  *
  */
 // Exit if accessed directly
@@ -28,9 +28,14 @@ if ( !class_exists( 'DGWT_WC_Ajax_Search' ) && !function_exists( 'dgoraAsfwFs' )
         private static  $instance ;
         private  $tnow ;
         public  $engine = 'native' ;
+        /**
+         * @var \DgoraWcas\Settings
+         */
         public  $settings ;
         public  $multilingual ;
-        public  $backwardCompatibility ;
+        /**
+         * @var \DgoraWcas\Integrations\Themes\ThemesCompatibility
+         */
         public  $themeCompatibility ;
         public  $brands ;
         public  $nativeSearch ;
@@ -83,8 +88,7 @@ if ( !class_exists( 'DGWT_WC_Ajax_Search' ) && !function_exists( 'dgoraAsfwFs' )
                     $regenerateImages->init();
                 }
                 
-                new \DgoraWcas\Conflicts\Solver();
-                self::$instance->backwardCompatibility = new \DgoraWcas\BackwardCompatibility();
+                new \DgoraWcas\Integrations\Solver();
             }
             
             self::$instance->tnow = time();
@@ -232,6 +236,7 @@ if ( !class_exists( 'DGWT_WC_Ajax_Search' ) && !function_exists( 'dgoraAsfwFs' )
             $this->define( 'DGWT_WCAS_SETTINGS_KEY', 'dgwt_wcas_settings' );
             $this->define( 'DGWT_WCAS_SEARCH_ACTION', 'dgwt_wcas_ajax_search' );
             $this->define( 'DGWT_WCAS_RESULT_DETAILS_ACTION', 'dgwt_wcas_result_details' );
+            $this->define( 'DGWT_WCAS_GET_PRICES_ACTION', 'dgwt_wcas_get_prices' );
             $this->define( 'DGWT_WCAS_WC_AJAX_ENDPOINT', true );
             $this->define( 'DGWT_WCAS_DEBUG', false );
         }

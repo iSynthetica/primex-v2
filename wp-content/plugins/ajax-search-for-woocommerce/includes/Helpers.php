@@ -77,9 +77,9 @@ class Helpers
             $classes[] = esc_html( $args['class'] );
         }
         
-        if ( !empty($args['type']) ) {
-            $type = esc_html( $args['type'] );
-            $classes[] = 'js-dgwt-wcas-' . $type . ' dgwt-wcas-' . $type;
+        if ( !empty($args['layout']) ) {
+            $type = esc_html( $args['layout'] );
+            $classes[] = 'js-dgwt-wcas-layout-' . $type . ' dgwt-wcas-layout-' . $type;
         }
         
         return implode( ' ', $classes );
@@ -97,16 +97,16 @@ class Helpers
         $svg = '';
         ob_start();
         ?>
-        <svg version="1.1" class="<?php 
+		<svg version="1.1" class="<?php 
         echo  $class ;
         ?>" xmlns="http://www.w3.org/2000/svg"
-             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
+		     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		     viewBox="0 0 51.539 51.361" enable-background="new 0 0 51.539 51.361" xml:space="preserve">
 		<path d="M51.539,49.356L37.247,35.065c3.273-3.74,5.272-8.623,5.272-13.983c0-11.742-9.518-21.26-21.26-21.26
 			  S0,9.339,0,21.082s9.518,21.26,21.26,21.26c5.361,0,10.244-1.999,13.983-5.272l14.292,14.292L51.539,49.356z M2.835,21.082
 			  c0-10.176,8.249-18.425,18.425-18.425s18.425,8.249,18.425,18.425S31.436,39.507,21.26,39.507S2.835,31.258,2.835,21.082z"/>
 	</svg>
-        <?php 
+		<?php 
         $svg .= ob_get_clean();
         return apply_filters( 'dgwt/wcas/form/magnifier_ico', $svg );
     }
@@ -119,6 +119,9 @@ class Helpers
     public static function searchFormAction()
     {
         $url = esc_url( home_url( '/' ) );
+        if ( Multilingual::isPolylang() ) {
+            $url = esc_url( pll_home_url() );
+        }
         return apply_filters( 'dgwt/wcas/form/action', $url );
     }
     
@@ -457,7 +460,11 @@ class Helpers
                 $posBonus = (100 - $pos * 100 / strlen( $string )) / 2;
                 $score += $posBonus;
             }
-        
+            
+            // Bonus for exact match
+            if ( $string === $searched ) {
+                $score += $args['score_containing'];
+            }
         }
         
         return $score;
@@ -631,10 +638,6 @@ class Helpers
     {
         global  $wpdb ;
         $customFields = array();
-        $customFieldsTrans = get_transient( 'dgwt_wcas_searchable_custom_fields' );
-        if ( !empty($customFieldsTrans) && is_array( $customFieldsTrans ) ) {
-            return $customFieldsTrans;
-        }
         $exludedMetaKeys = array(
             '_sku',
             '_wp_old_date',
@@ -664,13 +667,15 @@ class Helpers
                 if ( !in_array( $metaKey, $exludedMetaKeys ) && self::keyIsValid( $metaKey ) ) {
                     $label = $metaKey;
                     //@TODO Recognize labels based on meta key or publci known as Yoast SEO etc.
-                    $customFields[$metaKey] = $label;
+                    $customFields[] = array(
+                        'label' => $label,
+                        'key'   => $label,
+                    );
                 }
             
             }
         }
         $customFields = array_reverse( $customFields );
-        set_transient( 'dgwt_wcas_searchable_custom_fields', $customFields, 60 * 60 * 24 );
         return $customFields;
     }
     
@@ -906,6 +911,7 @@ class Helpers
      * Repair HTML. Close unclosed tags.
      *
      * @param $html
+     *
      * @return string
      */
     public static function closeTags( $html )
@@ -929,6 +935,122 @@ class Helpers
         
         }
         return $html;
+    }
+    
+    /**
+     * Check if we should override default search query
+     *
+     * @param \WP_Query $query The WP_Query instance
+     *
+     * @return bool
+     */
+    public static function isSearchQuery( $query )
+    {
+        $enabled = true;
+        if ( !(!empty($query) && is_object( $query ) && is_a( $query, 'WP_Query' )) ) {
+            return false;
+        }
+        if ( !$query->is_main_query() || isset( $query->query_vars['s'] ) && !isset( $_GET['dgwt_wcas'] ) || !isset( $query->query_vars['s'] ) || !$query->is_search() || $query->get( 'post_type' ) && is_string( $query->get( 'post_type' ) ) && $query->get( 'post_type' ) !== 'product' ) {
+            $enabled = false;
+        }
+        return $enabled;
+    }
+    
+    /**
+     * Check if this is a product search page
+     *
+     * @return bool
+     */
+    public static function isProductSearchPage()
+    {
+        if ( isset( $_GET['dgwt_wcas'] ) && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' && isset( $_GET['s'] ) ) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Restore the search phrase so that it can be used in the template.
+     *
+     * @param \WP_Post[] $posts Array of post objects.
+     * @param \WP_Query $query The WP_Query instance (passed by reference).
+     *
+     * @return mixed
+     */
+    public static function rollbackSearchPhrase( $posts, $query )
+    {
+        if ( !$query->get( 'dgwt_wcas', false ) ) {
+            return $posts;
+        }
+        $query->set( 's', $query->get( 'dgwt_wcas', '' ) );
+        return $posts;
+    }
+    
+    /**
+     * Clear default search query if our engine is active
+     *
+     * @param string $search Search SQL for WHERE clause.
+     * @param \WP_Query $query The current WP_Query object.
+     *
+     * @return string
+     */
+    public static function clearSearchQuery( $search, $query )
+    {
+        if ( !$query->get( 'dgwt_wcas', false ) ) {
+            return $search;
+        }
+        return '';
+    }
+    
+    /**
+     * Get formatted search layout settings
+     *
+     * @return object
+     */
+    public static function getLayoutSettings()
+    {
+        $breakpoint = DGWT_WCAS()->settings->getOption( 'mobile_breakpoint', 992 );
+        $layout = array(
+            'layout'                 => DGWT_WCAS()->settings->getOption( 'search_layout', 'classic' ),
+            'mobile_overlay'         => ( DGWT_WCAS()->settings->getOption( 'enable_mobile_overlay' ) === 'on' ? true : false ),
+            'mobile_overlay_wrapper' => apply_filters( 'dgwt/wcas/scripts/mobile_overlay_wrapper', 'body' ),
+            'breakpoint'             => apply_filters( 'dgwt/wcas/scripts/mobile_breakpoint', $breakpoint ),
+        );
+        if ( in_array( $layout['layout'], array( 'icon', 'icon-flexible' ) ) ) {
+            $layout['mobile_overlay'] = true;
+        }
+        return (object) $layout;
+    }
+    
+    /**
+     * Checking the current code is run by the object of the given class
+     *
+     * @param string $class_name Class name
+     * @param int $backtrace_limit The number of stack frames that is tested backwards.
+     *
+     * @return bool
+     */
+    public static function is_running_inside_class( $class_name, $backtrace_limit = 10 )
+    {
+        if ( empty($class_name) ) {
+            return false;
+        }
+        if ( intval( $backtrace_limit ) <= 0 ) {
+            $backtrace_limit = 10;
+        }
+        $result = false;
+        $backtrace = debug_backtrace( 0, $backtrace_limit );
+        if ( !empty($backtrace) ) {
+            foreach ( $backtrace as $item ) {
+                
+                if ( isset( $item['class'] ) && $item['class'] === $class_name ) {
+                    $result = true;
+                    break;
+                }
+            
+            }
+        }
+        return $result;
     }
 
 }

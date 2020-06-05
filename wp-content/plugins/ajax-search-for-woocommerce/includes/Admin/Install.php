@@ -33,7 +33,6 @@ class Install
         }
         self::saveActivationDate();
         self::createOptions();
-        self::backwardCompatibility();
         // Update plugin version
         update_option( 'dgwt_wcas_version', DGWT_WCAS_VERSION );
     }
@@ -75,50 +74,6 @@ class Install
         if ( empty($date) ) {
             update_option( 'dgwt_wcas_activation_date', time() );
         }
-    }
-    
-    /**
-     * Set options for backward compatibility
-     *
-     * @return void
-     */
-    private static function backwardCompatibility()
-    {
-        $lastVersion = get_option( 'dgwt_wcas_version' );
-        // New install? stop it
-        if ( empty($lastVersion) ) {
-            return;
-        }
-        $bcVersion = get_option( 'dgwt_wcas_backward_compatibility_version' );
-        $backwardCompatibility = get_option( 'dgwt_wcas_backward_compatibility' );
-        if ( DGWT_WCAS_VERSION === $bcVersion ) {
-            return;
-        }
-        // If backward compatibility version is not set, last plugin version should be last stable version.
-        
-        if ( empty($bcVersion) ) {
-            $lastStableVersion = $lastVersion;
-        } else {
-            $lastStableVersion = $bcVersion;
-        }
-        
-        // Current version is larger that 1.1.7? Update options
-        
-        if ( version_compare( $lastStableVersion, '1.1.7', '<=' ) ) {
-            if ( empty($bcVersion) ) {
-                update_option( 'dgwt_wcas_backward_compatibility_version', '1.1.7' );
-            }
-            if ( empty($backwardCompatibility) ) {
-                update_option( 'dgwt_wcas_backward_compatibility', 'on' );
-            }
-        }
-        
-        // For the next backward compatibility
-        //        if(
-        //            version_compare($lastStableVersion, 'x.x.x', '<=')
-        //            && version_compare($lastStableVersion, 'x.x.x', '>')
-        //            ) {
-        //        }
     }
     
     /**

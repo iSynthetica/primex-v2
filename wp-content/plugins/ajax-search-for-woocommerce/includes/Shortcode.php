@@ -3,68 +3,66 @@
 namespace DgoraWcas;
 
 // Exit if accessed directly
-if ( ! defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-class Shortcode
-{
+class Shortcode {
 
-    public static function register()
-    {
+	public static function register() {
 
-        add_shortcode('wcas-search-form', array(__CLASS__, 'addBody'));
+		add_shortcode( 'wcas-search-form', array( __CLASS__, 'addBody' ) );
 
-    }
+	}
 
-    /**
-     * Register Woo Ajax Search shortcode
-     *
-     * @param array $atts bool show_details_box
-     */
-    public static function addBody($atts)
-    {
+	/**
+	 * Register Woo Ajax Search shortcode
+	 *
+	 * @param array $atts bool show_details_box
+	 */
+	public static function addBody( $atts ) {
 
-        $searchArgs = shortcode_atts(array(
-            'class'       => '',
-            'type'        => '',
-            'details_box' => 'hide'
-        ), $atts, 'wcas-search-form');
+		$searchArgs = shortcode_atts( array(
+			'class'       => '',
+			'layout'      => DGWT_WCAS()->settings->getOption( 'search_layout' ),
+			'details_box' => 'hide'
+		), $atts, 'wcas-search-form' );
 
-        $searchArgs['class'] .= empty($search_args['class']) ? 'woocommerce' : ' woocommerce';
+		$searchArgs['class'] .= empty( $search_args['class'] ) ? 'woocommerce' : ' woocommerce';
 
-        $args = apply_filters('dgwt/wcas/shortcode/args', $searchArgs);
+		$args = apply_filters( 'dgwt/wcas/shortcode/args', $searchArgs );
 
-        return self::getForm($args);
-    }
+		return self::getForm( $args );
+	}
 
-    /**
-     * Display search form
-     *
-     * @param array args
-     *
-     * @return string
-     */
+	/**
+	 * Display search form
+	 *
+	 * @param array args
+	 *
+	 * @return string
+	 */
 
-    public static function getForm($args)
-    {
+	public static function getForm( $args ) {
 
-        // Enqueue required scripts
-        wp_enqueue_script('woocommerce-general');
-        wp_enqueue_script('jquery-dgwt-wcas');
+		// Enqueue required scripts
+		wp_enqueue_script( 'jquery-dgwt-wcas' );
+		if ( DGWT_WCAS()->settings->getOption( 'show_details_box' ) === 'on' ) {
+			wp_enqueue_script( 'woocommerce-general' );
+		}
 
-        ob_start();
-        $filename = apply_filters('dgwt/wcas/form/partial_path', DGWT_WCAS_DIR . 'partials/search-form.php');
-        if (file_exists($filename)) {
-            include $filename;
+		ob_start();
+		$filename = apply_filters( 'dgwt/wcas/form/partial_path', DGWT_WCAS_DIR . 'partials/search-form.php' );
+		if ( file_exists( $filename ) ) {
+			include $filename;
 
-            if (function_exists('opcache_invalidate')) {
-                @opcache_invalidate($filename, true);
-            }
-        }
-        $html = ob_get_clean();
+			if ( function_exists( 'opcache_invalidate' ) ) {
+				@opcache_invalidate( $filename, true );
+			}
+		}
+		$html = ob_get_clean();
 
-        return apply_filters('dgwt/wcas/form/html', $html, $args);
-    }
+		return apply_filters( 'dgwt/wcas/form/html', $html, $args );
+	}
 
 }

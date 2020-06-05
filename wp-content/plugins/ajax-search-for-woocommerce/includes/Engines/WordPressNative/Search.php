@@ -29,6 +29,11 @@ class Search
      * array
      */
     private  $groups = array() ;
+    /**
+     * Buffer for post IDs uses for search results page
+     * @var null
+     */
+    private  $postsIDsBuffer = null ;
     public function __construct()
     {
         add_filter(
@@ -55,18 +60,32 @@ class Search
             501,
             2
         );
-        add_filter(
-            'pre_get_posts',
-            array( $this, 'overwriteSearchPage' ),
-            109900,
-            1
-        );
-        add_filter(
-            'posts_search',
-            array( $this, 'disableSearchFiltersOnPostsIn' ),
-            10,
-            2
-        );
+        // Search results page
+        add_action( 'init', function () {
+            
+            if ( apply_filters( 'dgwt/wcas/override_search_results_page', true ) ) {
+                add_filter( 'pre_get_posts', array( $this, 'overwriteSearchPage' ), 900001 );
+                add_filter(
+                    'posts_search',
+                    array( 'DgoraWcas\\Helpers', 'clearSearchQuery' ),
+                    1000,
+                    2
+                );
+                add_filter(
+                    'the_posts',
+                    array( 'DgoraWcas\\Helpers', 'rollbackSearchPhrase' ),
+                    1000,
+                    2
+                );
+                add_filter(
+                    'dgwt/wcas/search_page/result_post_ids',
+                    array( $this, 'getProductIds' ),
+                    10,
+                    2
+                );
+            }
+        
+        } );
         // Search results ajax action
         
         if ( DGWT_WCAS_WC_AJAX_ENDPOINT ) {
@@ -189,6 +208,9 @@ class Search
                 $productsSlots = ( $this->flexibleLimits ? $this->totalLimit : $this->groups['product']['limit'] );
                 foreach ( $orderedProducts as $post ) {
                     $product = new Product( $post );
+                    if ( !$product->isCorrect() ) {
+                        continue;
+                    }
                     $scoreDebug = '';
                     if ( defined( 'DGWT_WCAS_DEBUG' ) && DGWT_WCAS_DEBUG ) {
                         $scoreDebug = ' (score:' . (int) $post->score . ')';
@@ -565,55 +587,65 @@ class Search
         return $where;
     }
     
+    /**
+     * Disable cache results and narrowing search results to those from our engine
+     *
+     * @param \WP_Query $query
+     */
     public function overwriteSearchPage( $query )
     {
-        if ( $query->is_search() ) {
+        if ( !Helpers::isSearchQuery( $query ) ) {
+            return;
+        }
+        /**
+         * Disable cache: `cache_results` defaults to false but can be enabled
+         */
+        $query->set( 'cache_results', false );
+        if ( !empty($query->query['cache_results']) ) {
+            $query->set( 'cache_results', true );
+        }
+        $query->set( 'dgwt_wcas', $query->query_vars['s'] );
+        $phrase = $query->query_vars['s'];
+        $orderby = 'post__in';
+        $order = 'desc';
+        if ( !empty($query->query_vars['orderby']) ) {
+            $orderby = ( $query->query_vars['orderby'] === 'relevance' ? 'post__in' : $query->query_vars['orderby'] );
+        }
+        if ( !empty($query->query_vars['order']) ) {
+            $order = strtolower( $query->query_vars['order'] );
+        }
+        $baseUrl = home_url() . strtok( $_SERVER["REQUEST_URI"], '?' ) . \WC_AJAX::get_endpoint( DGWT_WCAS_SEARCH_ACTION );
+        $url = add_query_arg( array(
+            's'      => $phrase,
+            'remote' => 1,
+        ), $baseUrl );
+        $postIn = array();
+        $correctResponse = false;
+        $r = wp_remote_retrieve_body( wp_remote_get( $url, array(
+            'timeout' => 120,
+        ) ) );
+        $decR = json_decode( $r );
+        if ( json_last_error() == JSON_ERROR_NONE ) {
             
-            if ( isset( $query->query_vars['s'] ) && isset( $_REQUEST['dgwt_wcas'] ) && strlen( $query->query_vars['s'] ) >= 3 ) {
-                $s = $query->query_vars['s'];
-                $baseUrl = home_url() . strtok( $_SERVER["REQUEST_URI"], '?' ) . \WC_AJAX::get_endpoint( DGWT_WCAS_SEARCH_ACTION );
-                $url = add_query_arg( array(
-                    's'      => $s,
-                    'remote' => 1,
-                ), $baseUrl );
-                $ids = array();
-                $correctResponse = false;
-                $r = wp_remote_retrieve_body( wp_remote_get( $url, array(
-                    'timeout' => 120,
-                ) ) );
-                $decR = json_decode( $r );
-                if ( json_last_error() == JSON_ERROR_NONE ) {
-                    
-                    if ( is_object( $decR ) && property_exists( $decR, 'suggestions' ) && is_array( $decR->suggestions ) ) {
-                        $correctResponse = true;
-                        foreach ( $decR->suggestions as $suggestion ) {
-                            $ids[] = $suggestion->ID;
-                        }
-                    }
-                
+            if ( is_object( $decR ) && property_exists( $decR, 'suggestions' ) && is_array( $decR->suggestions ) ) {
+                $correctResponse = true;
+                foreach ( $decR->suggestions as $suggestion ) {
+                    $postIn[] = $suggestion->ID;
                 }
-                
-                if ( $correctResponse ) {
-                    $query->set( 'orderby', 'post__in' );
-                    $query->set( 'post__in', $ids );
-                }
-            
             }
         
         }
-    }
+        
+        if ( $correctResponse ) {
+            // Save for later use
+            $this->postsIDsBuffer = $postIn;
+            $query->set( 'orderby', $orderby );
+            $query->set( 'order', $order );
+            $query->set( 'post__in', $postIn );
+            // Resetting the key 's' to disable the default search logic.
+            $query->set( 's', '' );
+        }
     
-    public function disableSearchFiltersOnPostsIn( $search, $query )
-    {
-        
-        if ( isset( $_REQUEST['s'] ) && isset( $_REQUEST['dgwt_wcas'] ) ) {
-            $post__in = $query->get( 'post__in' );
-            if ( !empty($post__in) ) {
-                $search = '';
-            }
-        }
-        
-        return $search;
     }
     
     /**
@@ -792,6 +824,21 @@ class Search
             'limit' => 7,
         );
         return apply_filters( 'dgwt/wcas/search_groups', $groups );
+    }
+    
+    /**
+     * Allow to get the ID of products that have been found
+     *
+     * @param integer[] $postsIDs
+     *
+     * @return mixed
+     */
+    public function getProductIds( $postsIDs )
+    {
+        if ( $this->postsIDsBuffer !== null ) {
+            return $this->postsIDsBuffer;
+        }
+        return $postsIDs;
     }
 
 }

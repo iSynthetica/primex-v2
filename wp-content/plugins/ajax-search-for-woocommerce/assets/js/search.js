@@ -40,30 +40,46 @@
                     div.setAttribute('unselectable', 'on');
                     return div;
                 },
-                highlight: function (suggestionValue, phrase) {
+				highlight: function (suggestionValue, phrase) {
 
-                    if (dgwt_wcas.is_premium) {
-                        var i;
-                        var tokens = phrase.split(/ /);
+					if (dgwt_wcas.is_premium) {
+						var i,
+							tokens = phrase.split(/ /),
+							highlighted = false;
 
-                        if (tokens) {
-                            tokens = tokens.sort(function (a, b) {
-                                return b.length - a.length;
-                            });
-                            for (i = 0; i < tokens.length; i++) {
-                                if (tokens[i] && tokens[i].length > 1) {
-                                    var pattern = '(' + utils.escapeRegExChars(tokens[i].trim()) + ')';
-                                    suggestionValue = suggestionValue.replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>');
-                                }
-                            }
-                        }
-                    } else {
-                        var pattern = '(' + utils.escapeRegExChars(phrase) + ')';
-                        suggestionValue = suggestionValue.replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>');
-                    }
+						if (tokens) {
+							tokens = tokens.sort(function (a, b) {
+								return b.length - a.length;
+							});
 
-                    return suggestionValue;
-                },
+							for (i = 0; i < tokens.length; i++) {
+								if (tokens[i] && tokens[i].length > 1) {
+
+									var token = tokens[i].replace(/[\^\@]/g, '');
+
+									if (token.length > 0) {
+										var pattern = '(' + utils.escapeRegExChars(token.trim()) + ')';
+
+										suggestionValue = suggestionValue.replace(new RegExp(pattern, 'gi'), '\^\^$1\@\@');
+										highlighted = true;
+									}
+								}
+							}
+						}
+
+						if (highlighted) {
+							suggestionValue = suggestionValue.replace(/\^\^/g, '<strong>');
+							suggestionValue = suggestionValue.replace(/@@/g, '<\/strong>');
+						}
+
+
+					} else {
+						var pattern = '(' + utils.escapeRegExChars(phrase) + ')';
+						suggestionValue = suggestionValue.replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>');
+					}
+
+					return suggestionValue;
+				},
                 debounce: function (func, wait) {
                     var timeout,
                         debounceID = new Date().getUTCMilliseconds();
@@ -152,6 +168,7 @@
         that.timeoutId = null;
         that.cachedResponse = {};
         that.cachedDetails = {};
+        that.cachedPrices = {};
         that.detailsRequestsSent = [];
         that.onChangeTimeout = null;
         that.onChange = null;
@@ -160,6 +177,8 @@
         that.detailsContainer = null;
         that.autoAligmentprocess = null;
         that.noSuggestionsContainer = null;
+        that.latestActivateSource = '';
+        that.actionTriggerSource = '';
         that.options = $.extend(true, {}, DgwtWcasAutocompleteSearch.defaults, options);
         that.classes = {
             selected: 'dgwt-wcas-suggestion-selected',
@@ -197,6 +216,7 @@
         showDescription: false,
         showSaleBadge: false,
         showFeaturedBadge: false,
+        dynamicPrices: false,
         saleBadgeText: 'sale',
         featuredBadgeText: 'featured',
         minChars: 3,
@@ -219,6 +239,7 @@
         searchInputClass: 'dgwt-wcas-search-input',
         preloaderClass: 'dgwt-wcas-preloader',
         closeTrigger: 'dgwt-wcas-close',
+        formClass: 'dgwt-wcas-search-form',
         tabDisabled: false,
         dataType: 'text',
         currentRequest: null,
@@ -277,6 +298,7 @@
             that.registerEventsSearchBar();
             that.registerEventsSuggestions();
             that.registerEventsDetailsPanel();
+			that.registerIconHandler();
             that.registerEventsFixedMenu();
 
             that.fixPositionCapture = function () {
@@ -371,13 +393,40 @@
             var that = this;
 
             // Click close icon
-            $(document).on('click.autocomplete', '.' + that.options.closeTrigger, function () {
-                var that = utils.getActiveInstance();
-                that.hide();
-                that.clear(false);
-                $(this).removeClass(that.options.closeTrigger);
-                $(this).closest('.' + that.options.searchFormClass).find('.' + that.options.searchInputClass).val('').focus();
-            });
+			$(document).on('click.autocomplete', '.' + that.options.closeTrigger, function () {
+				var that = utils.getActiveInstance();
+				that.hide();
+				that.clear(false);
+				$(this).removeClass(that.options.closeTrigger);
+				$(this).closest('.' + that.options.searchFormClass).find('.' + that.options.searchInputClass).val('').focus();
+			});
+
+			// Extra tasks on submit
+			that.el.closest('.' + that.options.formClass).on('submit.autocomplete', function (e) {
+
+				// If variation suggestion exist, click it instead submit search results page
+				if (that.suggestions.length > 0) {
+
+					$.each(that.suggestions, function (i, suggestion) {
+
+						if (
+							typeof suggestion.type != 'undefined'
+							&& suggestion.type == 'product_variation'
+						) {
+							that.select(i);
+							e.preventDefault();
+							return false;
+						}
+					});
+
+				}
+			});
+
+			// Position preloader
+			$(window).on('load', function () {
+				that.positionPreloader();
+			});
+
 
             that.el.on('keydown.autocomplete', function (e) {
                 that.onKeyPress(e);
@@ -413,16 +462,23 @@
             $(document).on('mouseenter.autocomplete', suggestionSelector, function () {
                 var that = utils.getActiveInstance();
 
+                if(typeof that == 'undefined'){
+                	return;
+				}
+
                 var currentIndex = $(this).data('index');
                 var selector = '.dgwt-wcas-suggestion[data-index="' + currentIndex + '"]';
+
+                var timeOffset = that.canShowDetailsBox() ? 100 : 1;
 
                 if (that.selectedIndex != currentIndex) {
                     utils.mouseHoverDebounce(function () {
                         if (that.selectedIndex !== currentIndex) {
+							that.latestActivateSource = 'mouse';
                             that.getDetails(that.suggestions[currentIndex]);
                             that.activate(currentIndex);
                         }
-                    }, selector, 100);
+                    }, selector, timeOffset);
 
                 }
             });
@@ -430,6 +486,7 @@
             // Redirect to the new URL after click a suggestions
             $(document).on('click.autocomplete', suggestionSelector, function () {
                 var that = utils.getActiveInstance();
+				that.actionTriggerSource = 'click';
                 that.select($(this).data('index'));
             });
 
@@ -461,6 +518,80 @@
             });
 
         },
+		registerIconHandler: function () {
+			var that = this,
+				$formWrapper = that.getFormWrapper();
+			var $form = $formWrapper.find('.' + that.options.formClass);
+
+			$formWrapper.on('click', '.js-dgwt-wcas-search-icon-handler', function (e) {
+
+				var $input = $formWrapper.find('.' + that.options.searchInputClass);
+
+				if ($formWrapper.hasClass('dgwt-wcas-layout-icon-open')) {
+
+					that.hide();
+					$form.hide(true);
+
+					$formWrapper.removeClass('dgwt-wcas-layout-icon-open');
+
+
+				} else {
+					var $arrow = $formWrapper.find('.dgwt-wcas-search-icon-arrow');
+					$form.hide();
+					$arrow.hide();
+					$formWrapper.addClass('dgwt-wcas-layout-icon-open');
+					that.positionIconSearchMode($formWrapper);
+
+					$form.fadeIn(200, function () {
+						$arrow.show();
+						that.positionPreloader($formWrapper);
+						$input.focus();
+					});
+
+				}
+
+
+			});
+
+			if ($('.js-dgwt-wcas-initialized').length == 0 && $('.js-dgwt-wcas-search-icon-handler').length > 0) {
+
+				$(document).click(function (event) {
+
+					if ($('.dgwt-wcas-layout-icon-open').length) {
+
+						var $target = $(event.target);
+
+						if (!($target.closest('.' + that.options.searchFormClass).length > 0
+							|| $target.closest('.' + that.options.containerClass).length > 0
+							|| $target.closest('.' + that.options.containerDetailsClass).length > 0
+						)) {
+							var activeInstance = utils.getActiveInstance();
+
+							if (typeof activeInstance != 'undefined') {
+								var $formWrapper = activeInstance.getFormWrapper();
+								var $form = $formWrapper.find('.' + that.options.formClass);
+
+								$form.hide();
+								activeInstance.hide(true);
+								$form.css({'left': '0'});
+							}
+
+							that.hideIconModeSearch();
+						}
+
+					}
+				});
+			}
+
+			$(window).on('resize.autocomplete', function () {
+				that.applyFlexibleMode();
+			});
+
+			$(window).on('load', function () {
+				that.applyFlexibleMode();
+			});
+
+		},
         registerEventsFixedMenu: function () {
             var that = this;
 
@@ -494,10 +625,6 @@
 
                 var $formWrapper = that.getFormWrapper();
 
-                if ($formWrapper.hasClass('js-dgwt-wcas-icon-mobile')) {
-                    $formWrapper.prepend('<div class="dgwt-wcas-icon-handler">' + dgwt_wcas.magnifier_icon + '</div>');
-                }
-
                 $formWrapper.prepend('<div class="js-dgwt-wcas-enable-mobile-form dgwt-wcas-enable-mobile-form"></div>');
 
                 var $el = $formWrapper.find('.js-dgwt-wcas-enable-mobile-form');
@@ -509,6 +636,23 @@
             }
 
         },
+		applyFlexibleMode: function () {
+			var that = this;
+			var $flexibleSearch = $('.js-dgwt-wcas-layout-icon-flexible');
+
+			if ($flexibleSearch.length) {
+
+				if (that.isMobileMode()) {
+					$flexibleSearch.addClass('js-dgwt-wcas-layout-icon');
+					$flexibleSearch.addClass('dgwt-wcas-layout-icon');
+				} else {
+					$flexibleSearch.removeClass('js-dgwt-wcas-layout-icon');
+					$flexibleSearch.removeClass('dgwt-wcas-layout-icon');
+				}
+
+				$flexibleSearch.addClass('dgwt-wcas-layout-icon-flexible-loaded');
+			}
+		},
         onFocus: function () {
             var that = this;
             $('.' + this.options.searchFormClass).removeClass('dgwt-wcas-active');
@@ -524,6 +668,10 @@
                 options = that.options,
                 value = that.el.val(),
                 query = that.getQuery(value);
+
+            if(that.isMobileMode()){
+            	return;
+			}
 
             // If user clicked on a suggestion, hide() will
             // be canceled, otherwise close suggestions
@@ -585,6 +733,7 @@
         clearCache: function () {
             this.cachedResponse = {};
             this.cachedDetails = {};
+            this.cachedPrices = {};
             this.badQueries = [];
         },
         clear: function (cache) {
@@ -891,16 +1040,16 @@
                         return;
                     }
                     break;
-                case keys.RETURN:
-                    that.hide();
-                    return;
-                    /*if (that.selectedIndex === -1) {
-                        that.hide();
-                        return;
-                    }
-                    that.select(that.selectedIndex);*/
-                    break;
-                case keys.UP:
+				case keys.RETURN:
+
+					if (that.selectedIndex === -1) {
+						that.hide();
+						return;
+					}
+					that.actionTriggerSource = 'enter';
+					that.select(that.selectedIndex);
+					break;
+				case keys.UP:
                     that.moveUp();
                     break;
                 case keys.DOWN:
@@ -1034,6 +1183,8 @@
                 options.params['l'] = dgwt_wcas.current_lang;
             }
 
+			options.params = that.applyCustomParams(options.params);
+
             that.preloader('show', 'form', 'dgwt-wcas-inner-preloader');
             searchForm.addClass('dgwt-wcas-processing');
 
@@ -1088,6 +1239,7 @@
                     var that = ajaxDebounceState.object,
                         ajaxSettings = ajaxDebounceState.ajaxSettings;
 
+
                     that.currentRequest = $.ajax(ajaxSettings).done(function (data) {
                         var result;
                         that.currentRequest = null;
@@ -1113,12 +1265,14 @@
 
                         that.options.onSearchComplete.call(that.element, q, result.suggestions);
 
+						that.updatePrices();
 
                     }).fail(function (jqXHR, textStatus, errorThrown) {
                         that.options.onSearchError.call(that.element, q, jqXHR, textStatus, errorThrown);
                     });
 
-                }, options.debounceWaitMs);
+
+				}, options.debounceWaitMs);
 
 
             } else {
@@ -1204,8 +1358,12 @@
 
                         if (typeof result.items != 'undefined') {
                             for (var i = 0; i < result.items.length; i++) {
-                                var cacheKey = result.items[i]['objectID'];
-                                that.cachedDetails[cacheKey] = {html: result.items[i]['html']};
+								var cacheKey = result.items[i]['objectID'];
+								that.cachedDetails[cacheKey] = {html: result.items[i]['html']}
+
+								if (typeof result.items[i]['price'] != 'undefined' && result.items[i]['price'].length > 0) {
+									that.cachedPrices[cacheKey] = result.items[i]['price'];
+								}
 
                                 // Preload images
                                 if (typeof result.items[i]['imageSrc'] != 'undefined' && result.items[i]['imageSrc'].length > 0) {
@@ -1228,6 +1386,8 @@
                         }
                         that.fixPositionCapture();
                         that.fixHeight();
+
+                        that.updatePrices(true);
                     },
                     error: function (jqXHR, exception) {
 
@@ -1242,6 +1402,137 @@
 
             $(document).trigger('dgwtWcasDetailsPanelLoaded', that);
         },
+		updatePrices: function (noAjax) {
+			var that = this,
+				i, j,
+				productsToLoad = [];
+
+			if (!(that.options.showPrice && that.options.dynamicPrices)) {
+				return;
+			}
+
+			if (that.suggestions.length == 0) {
+				return;
+			}
+
+			for (i = 0; i < that.suggestions.length; i++) {
+
+				if (
+					typeof that.suggestions[i].type != 'undefined'
+					&& (that.suggestions[i].type == 'product' || that.suggestions[i].type == 'product_variation')
+				) {
+					var key = 'product__' + that.suggestions[i].post_id;
+
+					if (typeof that.cachedPrices[key] != 'undefined') {
+
+						that.updatePrice(i, that.cachedPrices[key]);
+
+					} else {
+
+						that.applyPreloaderForPrice(i);
+
+						productsToLoad.push(that.suggestions[i].post_id);
+					}
+				}
+
+			}
+
+
+			if (!noAjax && productsToLoad.length > 0) {
+
+				var data = {
+					action: typeof dgwt_wcas.action_get_prices == 'undefined' ? 'dgwt_wcas_get_prices' : dgwt_wcas.action_get_prices,
+					items: productsToLoad
+				};
+
+				$.ajax({
+					data: data,
+					type: 'post',
+					url: dgwt_wcas.ajax_prices_endpoint,
+					success: function (response) {
+
+						if (typeof response.success != 'undefined' && response.success && response.data.length > 0) {
+							for (i = 0; i < response.data.length; i++) {
+
+								var postID = response.data[i].id,
+									price = response.data[i].price;
+
+								if (that.suggestions.length > 0) {
+									for (j = 0; j < that.suggestions.length; j++) {
+										if (
+											typeof that.suggestions[j].type != 'undefined'
+											&& (that.suggestions[j].type == 'product' || that.suggestions[j].type == 'product_variation')
+											&& that.suggestions[j].post_id == postID
+										) {
+
+											var key = 'product__' + postID;
+
+											that.cachedPrices[key] = price;
+
+											that.updatePrice(j, price);
+
+										}
+									}
+								}
+							}
+						}
+
+					},
+					error: function (jqXHR, exception) {
+
+					},
+				});
+
+			}
+
+		},
+		updatePrice: function (index, price) {
+			var that = this;
+
+			if(typeof that.suggestions[index] != 'undefined'){
+
+				that.suggestions[index].price = price;
+
+				var $price = $('.dgwt-wcas-suggestions-wrapp').find('[data-index="' + index + '"] .dgwt-wcas-sp');
+
+				if($price.length){
+					$price.html(price);
+				}
+			}
+
+		},
+		applyCustomParams: function(params){
+			var that = this;
+
+			// Custom params (global)
+			if (typeof dgwt_wcas.custom_params == 'object') {
+				var cp = dgwt_wcas.custom_params;
+				for (var property in cp) {
+					params[property] = cp[property];
+				}
+			}
+
+			// Custom params (local)
+			var inputCustomParams = that.el.data('custom-params');
+
+			if(typeof inputCustomParams === 'object'){
+				for (var property in inputCustomParams) {
+					params[property] = inputCustomParams[property];
+				}
+			}
+
+        	return params;
+		},
+		applyPreloaderForPrice: function(index){
+			var that = this;
+
+			if(typeof that.suggestions[index] != 'undefined'){
+				var $price = $('.dgwt-wcas-suggestions-wrapp').find('[data-index="' + index + '"] .dgwt-wcas-sp');
+				if($price.length){
+					$price.html('<div class="dgwt-wcas-preloader-price"><div class="dgwt-wcas-preloader-price-inner"> <div></div><div></div><div></div></div></div>');
+				}
+			}
+		},
         prepareSuggestionObjectID: function (suggestion) {
             var objectID = '';
 
@@ -1303,6 +1594,7 @@
                 return;
             }
 
+			that.latestActivateSource = 'system';
             that.getDetails(suggestions[index]);
             that.activate(index);
         },
@@ -1322,8 +1614,9 @@
 
             return false;
         },
-        hide: function () {
+        hide: function (clear) {
             var that = this,
+				$formWrapper = that.getFormWrapper(),
                 $container = that.getSuggestionsContainer(),
                 $containerDetails = that.getDetailsContainer();
 
@@ -1352,8 +1645,53 @@
                 that.autoAligmentprocess = null;
             }
 
-            that.signalHint(null);
-        },
+			if (typeof clear == 'boolean' && clear) {
+
+				$formWrapper.find('.' + that.options.searchInputClass).val('');
+				var $close = $formWrapper.find('.' + that.options.closeTrigger);
+				if ($close.length) {
+					$close.removeClass(that.options.closeTrigger);
+				}
+
+				that.currentValue = '';
+				that.suggestions = [];
+
+			}
+
+			that.signalHint(null);
+		},
+		positionIconSearchMode: function ($formWrapper) {
+			var that = this,
+				side = 'right',
+				formLeftValue = -20;
+
+			var $form = $formWrapper.find('.' + that.options.formClass);
+			var formWidth = $form.width(),
+				windowWidth = $(window).width();
+
+			var iconLeftOffset = $formWrapper[0].getBoundingClientRect().left;
+			var formLeftOffset = $form[0].getBoundingClientRect().left;
+
+			// Is the icon on left or right side of screen?
+			if (iconLeftOffset + 10 < windowWidth / 2) {
+				side = 'left';
+			}
+
+			var iconLeftRatio = (iconLeftOffset + 10) / windowWidth;
+
+			formLeftValue = Math.floor(-1 * (formWidth * iconLeftRatio));
+
+			$form.css({'left': formLeftValue + 'px'});
+
+		},
+		hideIconModeSearch: function () {
+
+			var $openedElements = $('.dgwt-wcas-layout-icon-open');
+
+			if ($openedElements.length > 0) {
+				$openedElements.removeClass('dgwt-wcas-layout-icon-open');
+			}
+		},
         hideAfterClickOutsideListener: function () {
             var that = this;
             if (!that.isMobileMode()) {
@@ -1666,6 +2004,24 @@
             }
 
         },
+		positionPreloader: function ($formWrapper) {
+
+        	var $submit = typeof $formWrapper == 'object' ? $formWrapper.find('.dgwt-wcas-search-submit') : $('.dgwt-wcas-search-submit');
+
+			if ($submit.length > 0) {
+				$submit.each(function () {
+
+					var $preloader = $(this).closest('.dgwt-wcas-search-wrapp').find('.dgwt-wcas-preloader');
+
+					if (dgwt_wcas.is_rtl == 1) {
+						$preloader.css('left', (6 + $(this).outerWidth()) + 'px');
+					} else {
+						$preloader.css('right', $(this).outerWidth() + 'px');
+					}
+				});
+			}
+
+		},
         findBestHint: function () {
             var that = this,
                 value = that.el.val().toLowerCase(),
@@ -1720,7 +2076,7 @@
                 container = that.getDetailsContainer();
             }
 
-            // Disable preloader and check if container exist  
+            // Disable preloader and check if container exist
 
             if (dgwt_wcas.show_preloader != 1 || container.length == 0) {
                 return;
@@ -1832,6 +2188,8 @@
                 return;
             }
 
+			that.latestActivateSource = 'key';
+
             if (that.selectedIndex === 0) {
                 that.getSuggestionsContainer().children('.' + that.classes.suggestion).first().removeClass(that.classes.selected);
                 that.selectedIndex = -1;
@@ -1841,7 +2199,7 @@
                 return;
             }
 
-            that.adjustScroll(that.selectedIndex - 1);
+            that.adjustScroll(that.selectedIndex - 1, 'up');
         },
         moveDown: function () {
             var that = this;
@@ -1850,14 +2208,30 @@
                 return;
             }
 
-            that.adjustScroll(that.selectedIndex + 1);
+			that.latestActivateSource = 'key';
+
+            that.adjustScroll(that.selectedIndex + 1, 'down');
         },
-        adjustScroll: function (index) {
-            var that = this,
-                activeItem = that.activate(index);
+        adjustScroll: function (index, direction) {
+            var that = this;
+
+
+            if(that.suggestions[index].type === 'headline'){
+            	index = direction === 'down' ? index + 1 : index - 1;
+			}
+
+			if(typeof that.suggestions[index] == 'undefined'){
+				return;
+			}
+
+            var activeItem = that.activate(index);
 
             that.getDetails(that.suggestions[index]);
 
+            if(that.suggestions[index].type === 'more_products'){
+
+            	return;
+			}
 
             if (!activeItem || that.canShowDetailsBox()) {
                 return;
@@ -1885,7 +2259,7 @@
                 // that event, so that correct suggestion can be selected
                 // when clicking on suggestion with a mouse
                 that.ignoreValueChange = true;
-                that.el.val(that.getValue(that.suggestions[index].value));
+                //that.el.val(that.getValue(that.suggestions[index].value));
             }
             that.signalHint(null);
         },
@@ -1894,10 +2268,11 @@
                 onSelectCallback = that.options.onSelect,
                 suggestion = that.suggestions[index];
 
-            if (typeof suggestion.type != 'undefined' && suggestion.type === 'more_products') {
-                that.el.closest('form').trigger('submit');
-                return;
-            }
+			if ((typeof suggestion.type != 'undefined' && suggestion.type === 'more_products')
+				|| (that.actionTriggerSource === 'enter' && that.latestActivateSource != 'key')) {
+				that.el.closest('form').trigger('submit');
+				return;
+			}
 
             that.currentValue = that.getValue(suggestion.value);
 
@@ -2015,6 +2390,9 @@
                 if ($clonedForm.length > 0) {
                     $closeBtn.removeClass('dgwt-wcas-close');
                 }
+
+				that.hide();
+
             }, 150);
 
 
@@ -2098,24 +2476,6 @@
 
     (function () {
 
-        /*-----------------------------------------------------------------
-        /* Positioning search preloader
-        /*------------------------------------------------------------------*/
-        $(window).on('load', function () {
-            if ($('.dgwt-wcas-search-submit').length > 0) {
-                $('.dgwt-wcas-search-submit').each(function () {
-
-                    var $preloader = $(this).closest('.dgwt-wcas-search-wrapp').find('.dgwt-wcas-preloader');
-
-                    if (dgwt_wcas.is_rtl == 1) {
-                        $preloader.css('left', (6 + $(this).outerWidth()) + 'px');
-                    } else {
-                        $preloader.css('right', $(this).outerWidth() + 'px');
-                    }
-                });
-            }
-        });
-
         // RUN
         $(document).ready(function () {
             "use strict";
@@ -2145,6 +2505,7 @@
                 showSKU: dgwt_wcas.show_sku == 1 ? true : false,
                 showSaleBadge: dgwt_wcas.show_sale_badge == 1 ? true : false,
                 showFeaturedBadge: dgwt_wcas.show_featured_badge == 1 ? true : false,
+                dynamicPrices: typeof dgwt_wcas.dynamic_prices != 'undefined' && dgwt_wcas.dynamic_prices ? true : false,
                 saleBadgeText: dgwt_wcas.labels.sale_badge,
                 featuredBadgeText: dgwt_wcas.labels.featured_badge,
                 isRtl: dgwt_wcas.is_rtl == 1 ? true : false,

@@ -3,9 +3,9 @@ Contributors: damian-gora
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LD2ALVRLXPZPC
 Tags: woocommerce search, ajax search, search by sku, product search, woocommerce
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.5
-Stable tag: 1.6.3
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,7 @@ Who doesn’t love instant, as-you-type suggestions? In 2020, customers simply e
 &#9989; **Grouping instant search results by type** – displaying e.g. first matching categories, then matching products
 &#9989; **Google Analytics** support
 &#9989; **WPML** compatible
+&#9989; **Polylang** compatible
 &#9989; **Personalization** of search bar and autocomplete suggestions - labels, colors, preloader, image and more
 
 = Try the PRO version =
@@ -135,6 +136,32 @@ You can read more and compare Pro and Free features here: [feature comparison](h
 
 == Changelog ==
 
+= 1.7.1, May 17, 2020 =
+* FIX: Selecting suggestions issue
+
+= 1.7.0, May 17, 2020 =
+* ADD: Icon search instead of search bar (beta)
+* ADD: Improvements on search results pages
+* ADD: Integration with native WooCommerce filters
+* ADD: Integration with Advanced AJAX Product Filters plugin by BeRocket
+* ADD: Integration with WOOF – Products Filter for WooCommerce plugin by realmag777
+* ADD: Integration with Product Filters for WooCommerce plugin by Automattic developed by Nexter
+* ADD: Integration with Woo Product Filter plugin by WooBeWoo
+* ADD: Integration with WooCommerce Product Table plugin by Barn2 media
+* ADD: Support for TheGem theme
+* ADD: Support for Impreza theme
+* ADD: Support for Medicor theme
+* ADD: Support for WoodMart theme
+* ADD: Support for Polylang
+* ADD: New filter and action hooks
+* ADD: Dynamically loaded prices for WPML Multi-currency feature
+* FIX: Mobile search - don't hide suggestions on blur
+* FIX: Bug related to highlight keywords. For some cases it displayed &lt;strong&gt; tag.
+* FIX: Delay on mouse hover effect
+* FIX: Minor CSS improvements
+* FIX: Broken mobile view on cart page in some cases
+
+
 = 1.6.3, March 11, 2020 =
 * ADD: Details panel - display stock quantity
 * FIX: Better support for the Elementor including popups and sticky menu
@@ -150,6 +177,8 @@ You can read more and compare Pro and Free features here: [feature comparison](h
 = 1.6.2, February 18, 2020 =
 * ADD: Details Panel - new layout for product overview and other UX improvements
 * ADD: Automatically regenerates images after first plugin activation
+
+
 * FIX: Highlighted no results suggestion
 * FIX: Better security
 
@@ -160,6 +189,7 @@ You can read more and compare Pro and Free features here: [feature comparison](h
 * ADD: Details panel - show "more products..." link for taxonomy type suggestion
 * ADD: Add &lt;form&gt; to quantity elements in a details panel
 * ADD: New filters and actions hook
+
 * FIX: Issue related to colors in plugin settings
 * FIX: Suggestions groups - improved limits
 * FIX: Pricing for taxonomy term in a details panel
@@ -170,6 +200,7 @@ You can read more and compare Pro and Free features here: [feature comparison](h
 * FIX: Storefront mobile search - more time for input autofocus
 * FIX: Disable quantity for Astra Pro theme - there were broken buttons
 * FIX: Minor CSS improvements
+
 * CHANGE:  Decrease debounce time for better speed effect
 * CHANGE: Updated Freemius SDK v2.3.2
 

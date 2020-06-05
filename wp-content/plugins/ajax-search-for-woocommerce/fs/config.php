@@ -1,5 +1,9 @@
 <?php
 
+// Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 // Create a helper function for easy SDK access.
 function dgoraAsfwFs()
 {

@@ -19,7 +19,7 @@ class Requirements
     {
         $allow = false;
         $plugins = $this->getIncompatiblePlugins();
-        if ( $this->checkPHPVersion() && $this->checkPHPExtensions() && empty($plugins['langs']) && empty($plugins['other']) && $this->checkMultisite() ) {
+        if ( $this->checkPHPVersion() && $this->checkPHPExtensions() && empty($plugins['langs']) && empty($plugins['other']) ) {
             $allow = true;
         }
         return $allow;
@@ -90,10 +90,6 @@ class Requirements
         if ( class_exists( 'GTranslate' ) ) {
             $plugins['langs'][] = 'GTranslate';
         }
-        // Polylang
-        if ( defined( 'POLYLANG_VERSION' ) ) {
-            $plugins['langs'][] = 'Polylang';
-        }
         if ( !empty($plugins['langs']) ) {
             foreach ( $plugins['langs'] as $plugin ) {
                 $this->notices[] = sprintf( __( 'You use the %s plugin. The Ajax Search for WooCommerce PRO does not support multilingual yet.', 'ajax-search-for-woocommerce' ), $plugin );
@@ -104,23 +100,6 @@ class Requirements
             $plugins['other'][] = 'WooCommerce Product Sort and Display';
         }
         return $plugins;
-    }
-    
-    /**
-     * Check Multisite
-     *
-     * @return bool
-     */
-    private function checkMultisite()
-    {
-        $pass = true;
-        
-        if ( is_multisite() ) {
-            $pass = false;
-            $this->notices[] = __( 'Your WordPress use the multisite. The Ajax Search for WooCommerce PRO does not support multisite yet.', 'ajax-search-for-woocommerce' );
-        }
-        
-        return $pass;
     }
     
     /**
