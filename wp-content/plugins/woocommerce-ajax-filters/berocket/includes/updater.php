@@ -91,16 +91,16 @@ if ( ! class_exists( 'BeRocket_updater' ) ) {
                 self::$error_log[ 'plugins' ]             = self::$plugin_info;
                 self::$error_log[ 'memory_limit' ]        = ini_get( 'memory_limit' );
                 self::$error_log[ 'WP_DEBUG' ]            = 'WP_DEBUG:' . ( defined( 'WP_DEBUG' ) ? ( WP_DEBUG ? 'true' : 'false' ) : 'false' ) . '; WP_DEBUG_DISPLAY:' . ( defined( 'WP_DEBUG_DISPLAY' ) ? ( WP_DEBUG_DISPLAY ? 'true' : 'false' ) : 'false' );
-
+                $error_log = unserialize(preg_replace('/R:\d+/', 's:18:"RECURSION DETECTED"', serialize(self::$error_log)));
                 ?>
                 <script>
-                    console.log(<?php echo json_encode( self::$error_log ); ?>);
+                    console.log(<?php echo json_encode( $error_log ); ?>);
                 </script>
                 <?php
             }
             if( ! empty($_GET['BRvercheck']) ) {
                 $plugin_versions = array();
-                foreach($plugin_info as $plugin_i) {
+                foreach(self::$plugin_info as $plugin_i) {
                     $plugin_versions[$plugin_i['plugin_name']] = array('name' => $plugin_i['name'], 'version' => $plugin_i['version']);
                 }
                 ?>

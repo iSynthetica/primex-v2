@@ -24,6 +24,19 @@ if( ! class_exists('BeRocket_tooltip_display') ) {
             if( ! is_array($options) ) {
                 $options = array();
             }
+            $options = array_merge(array(
+                'allowHTML' => 'true'
+            ), $options);
+            foreach($options as $option_name => $option_value) {
+                if( in_array($option_name, array('content', 'placement', 'animation')) ) {
+                    $option_value = json_encode($option_value);
+                } elseif( is_bool($option_value) ) {
+                    $option_value = ($option_value ? 'true' : 'false');
+                } else {
+                    $option_value = $option_value;
+                }
+                $options[$option_name] = $option_value;
+            }
             self::$elements[$max_id] = array(
                 'options'       => $options,
                 'html'          => $html,
@@ -32,21 +45,6 @@ if( ! class_exists('BeRocket_tooltip_display') ) {
             return $max_id;
         }
         public function wp_footer() {
-            if( count(self::$elements) ) {
-                $themes = array();
-                foreach(self::$elements as $element) {
-                    if( ! empty($element['options']['theme']) ) {
-                        $themes[$element['options']['theme']] = true;
-                    }
-                }
-                foreach($themes as $theme_name => $import_it) {
-                    wp_register_style(
-                        'berocket_framework_popup_theme-'.$theme_name,
-                        plugins_url( '../assets/popup/themes/berocket-'.$theme_name.'.css', __FILE__ )
-                    );
-                    wp_enqueue_style( 'berocket_framework_popup_theme-'.$theme_name );
-                }
-            }
             if( self::$load_tippy ) {
                 wp_register_script(
                     'berocket_framework_tippy',
@@ -77,10 +75,22 @@ if( ! class_exists('BeRocket_tooltip_display') ) {
                 foreach(self::$elements as $element_i => $element) {
                     $element_id = 'br_tooltip_'.$element_i;
                     //ADD BLOCK WITH CONTENT
-                    $element['options']['content'] = $element['html'];
+                    $element['options']['content'] = json_encode($element['html']);
                     //ADD SCRIPT TO INIT POPUP
+                    $options = array();
+                    foreach($element['options'] as $option_name => $option_value) {
+                        $options[] = json_encode($option_name).':'. $option_value;
+                    }
+                    $options = '{'.implode(',', $options).'}';
                     $page_elements['page_load'] .= '
-                    tippy("'.$element['selector'].'", '.json_encode($element['options']).');';
+                    function '.$element_id.'_init () {
+                        if( document.querySelector("'.$element['selector'].'") != null && typeof(document.querySelector("'.$element['selector'].'")._tippy) == "undefined" ) {
+                            tippy("'.$element['selector'].'", '.$options.');
+                        }
+                    }
+                    '.$element_id.'_init();';
+                    $page_elements['ajax_update'] .= '
+                    '.$element_id.'_init();';
                 }
                 $page_elements = apply_filters('BeRocket_tooltip_tippy_page_elements', $page_elements, self::$elements);
                 echo $page_elements['html_content'];

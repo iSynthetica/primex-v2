@@ -6,7 +6,9 @@ if( ! class_exists('BeRocket_popup_display') ) {
         function __construct() {
             add_action('wp_footer', array($this, 'wp_footer'), 9);
             add_action('wp_footer', array($this, 'wp_footer2'), 90000);
-            $open_types = array('click', 'page_open', 'scroll_px', 'scroll_block', 'leave_page');
+            add_action('admin_footer', array($this, 'wp_footer'), 9);
+            add_action('admin_footer', array($this, 'wp_footer2'), 90000);
+            $open_types = array('click', 'page_open', 'scroll_px', 'scroll_block', 'leave_page', 'event');
             foreach($open_types as $open_type) {
                 add_filter('BeRocket_popup_open_type_'.$open_type, array($this, 'popup_open_type_'.$open_type), 10, 5);
             }
@@ -162,6 +164,15 @@ if( ! class_exists('BeRocket_popup_display') ) {
                     jQuery("#'.$element_id.'").data("leave_page_'.$element_i.'", true);
                 }
             });';
+            return $page_elements;
+        }
+        function popup_open_type_event($page_elements, $popup_open, $element, $element_i, $element_id) {
+            if( ! empty($popup_open['event']) ) {
+                $page_elements['page_load'] .= '
+                jQuery(document).on("'.$popup_open['event'].'", function () {
+                    jQuery("#'.$element_id.'").br_popup().open_popup();
+                });';
+            }
             return $page_elements;
         }
     }

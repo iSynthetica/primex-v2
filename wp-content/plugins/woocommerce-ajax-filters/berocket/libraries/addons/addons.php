@@ -126,7 +126,7 @@ if( ! class_exists('BeRocket_framework_addons') ) {
                 $html_array = apply_filters( 'BeRocket_style_addon_library_additional_html_' . $this->hook_name, $html_array, $addon_info, $item, $options, $settings_name );
                 $elements[($checked ? 'active' : 'inactive')]['html'][$addon_info['addon_file']] = implode($html_array);
                 if( ! empty($addon_info['tooltip']) ) {
-                    BeRocket_tooltip_display::add_tooltip(array('boundary' => 'window', 'arrow' => true, 'interactive' => true, 'placement' => 'top'), $addon_info['tooltip'], '#berocket_addon_label_'.$addon_i);
+                    BeRocket_tooltip_display::add_tooltip(array('appendTo'  => 'document.body', 'arrow' => true, 'interactive' => true, 'placement' => 'top'), $addon_info['tooltip'], '#berocket_addon_label_'.$addon_i);
                 }
             }
             foreach($elements as $element) {

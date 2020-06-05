@@ -130,7 +130,7 @@ if ( ! class_exists('BeRocket_framework_templates') ) {
                 $elements[ 'main' ][ 'html' ][ $template_info[ 'template_file' ] ] = implode($html_array);
                 if ( ! empty( $template_info[ 'tooltip' ] ) ) {
                     BeRocket_tooltip_display::add_tooltip( array(
-                        'boundary'    => 'window',
+                        'appendTo'    => 'document.body',
                         'arrow'       => true,
                         'interactive' => true,
                         'placement'   => 'top'
