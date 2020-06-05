@@ -1,8 +1,8 @@
 
 # BEGIN WordPress
-# Строки между `BEGIN WordPress` и `END WordPress` были созданы автоматически.
-# Они могут быть изменены только фильтрами WordPress.
-# Все изменения между этими отметками будут перезаписаны.
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
@@ -11,7 +11,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
-php_value max_execution_time 600
 
 # END WordPress

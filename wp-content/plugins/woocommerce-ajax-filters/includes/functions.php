@@ -558,9 +558,9 @@ if( ! function_exists( 'br_aapf_args_converter' ) ) {
         $_POST['price'] = array();
         $_POST['price_ranges'] = array();
         $filters = array();
-        if ( preg_match( "~\|~", $_GET['filters'] ) ) {
+        if ( ! empty($_GET['filters' ]) && preg_match( "~\|~", $_GET['filters'] ) ) {
             $filters = explode( "|", $_GET['filters'] );
-        } elseif( $_GET['filters' ]) {
+        } elseif( ! empty($_GET['filters' ]) ) {
             $filters[0] = $_GET['filters'];
         }
 

@@ -2,8 +2,8 @@
 Contributors: templateinvaders
 Tags: woocommerce, wishlist, woocommerce wishlist, e-commerce, ecommerce
 Requires at least: 4.7
-Tested up to: 5.3
-Stable tag: 1.16.2
+Tested up to: 5.4
+Stable tag: 1.18.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Plugin URI:  https://wordpress.org/plugins/ti-woocommerce-wishlist/
@@ -37,10 +37,9 @@ WooCommerce Wishlist is a simple but powerful tool that can help you to convert 
 + Share wishlist on social channels (Facebook, Twitter, Pinterest, Google+, WhatsApp, email)
 + Fully Customizable Appearance
 + Custom CSS styles
-+ Responsive & Retina Ready
 + Translation ready
 + [WPML](https://wpml.org/?aid=9393&affiliate_key=9xzbMQnIyxHE) Support
-+ Product variations Support
++ Cache friendly
 
 = Premium Features =
 
@@ -164,6 +163,39 @@ Yes you can! Join in on our [GitHub repository](https://github.com/TemplateInvad
 
 
 == Changelog ==
+*Release Date - 14 April 2020*
+
+* Fixed an issue with REST API requests error for plain permalinks structure
+
+= 1.18.1 =
+*Release Date - 14 April 2020*
+
+* Fixed a JavaScript error for variable products with a default variation
+
+= 1.18.0 =
+*Release Date - 14 April 2020*
+
+* Improved cache compatibility for 'add to wishlist' button states and wishlist products counter
+* Wishlist products counter updating moved from WooCommerce AJAX fragments to a custom solution
+* Added option to add wishlist products counter to multiple WordPress menus from plugin settings
+* Added filter 'tinvwl_add_to_menu' to allow disabling wishlist products counter from 3rd party code
+* Added filter 'tinvwl_addtowishlist_not_allowed' for validation of  product addition to wishlist from a 3rd party code
+
+= 1.17.1 =
+*Release Date - 02 April 2020*
+
+* Fixed PHP fatal error for WP Rocket integration
+
+= 1.17.0 =
+*Release Date - 29 March 2020*
+
+* WordPress 5.4 support
+* WooCommerce 4.0.x support
+* Added tool for export and import plugin settings
+* Added to share buttons translated title
+* REST API tweak: empty wishlist returns 200 response code and empty array now
+
+
 = 1.16.2 =
 *Release Date - 27 January 2020*
 

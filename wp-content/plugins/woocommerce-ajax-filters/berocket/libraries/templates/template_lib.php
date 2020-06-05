@@ -33,11 +33,11 @@ if ( ! class_exists('BeRocket_framework_template_lib') ) {
         }
 
         function init_active() {
-            if ( ! empty( $this->css_file_name ) && file_exists( dirname( $this->absolute_file ) . '/' . $this->css_file_name . '.css' ) ) {
+            if ( ! empty( $this->css_file_name ) && file_exists( dirname( $this->absolute_file ) . DIRECTORY_SEPARATOR . $this->css_file_name . '.css' ) ) {
                 add_action( 'wp_footer', array( $this, 'enqueue_styles' ), 5 );
             }
 
-            if ( ! empty( $this->js_file_name ) && file_exists( dirname( $this->absolute_file ) . '/' . $this->js_file_name . '.js' ) ) {
+            if ( ! empty( $this->js_file_name ) && file_exists( dirname( $this->absolute_file ) . DIRECTORY_SEPARATOR . $this->js_file_name . '.js' ) ) {
                 add_action( 'wp_footer', array( $this, 'enqueue_scripts' ), 5 );
             }
         }

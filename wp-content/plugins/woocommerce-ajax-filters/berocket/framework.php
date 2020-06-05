@@ -35,7 +35,7 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     load_plugin_textdomain('BeRocket_domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
     class BeRocket_Framework {
-        public static $framework_version = '2.5.5.4';
+        public static $framework_version = '2.5.5.5';
         public static $settings_name = '';
         public $addons;
         public $libraries;
@@ -160,6 +160,12 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
 
         public function sanitize_comment_cookies() {
             if( ! empty($this->post) ) {
+                if( ! empty($_POST[ $this->cc->values[ 'settings_name' ] ]['addons']) ) {
+                    $this->post['addons'] = $_POST[ $this->cc->values[ 'settings_name' ] ]['addons'];
+                }
+                if( ! empty($_POST[ $this->cc->values[ 'settings_name' ] ]['template']) ) {
+                    $this->post['template'] = $_POST[ $this->cc->values[ 'settings_name' ] ]['template'];
+                }
                 $_POST[ $this->cc->values[ 'settings_name' ] ] = $this->post;
             }
         }

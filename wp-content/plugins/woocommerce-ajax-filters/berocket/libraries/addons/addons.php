@@ -32,23 +32,23 @@ if( ! class_exists('BeRocket_framework_addons') ) {
             $addons_exist = $this->get_addons();
             if( ! empty($this->options['addons']) && is_array($this->options['addons']) ) {
                 foreach($this->options['addons'] as $addon) {
-                    if( ! empty($addon) && in_array($addon, $addons_exist) && file_exists($this->info['plugin_dir'].'/addons'.$addon) ) {
-                        include_once($this->info['plugin_dir'].'/addons'.$addon);
+                    if( ! empty($addon) && in_array($addon, $addons_exist) && file_exists($this->info['plugin_dir']. DIRECTORY_SEPARATOR . 'addons'.$addon) ) {
+                        include_once($this->info['plugin_dir']. DIRECTORY_SEPARATOR . 'addons'.$addon);
                     }
                 }
             }
         }
         function get_addons() {
             $addon_files = array();
-            if( is_dir($this->info['plugin_dir'].'/addons/') ) {
-                foreach (glob($this->info['plugin_dir'].'/addons/*.php') as $filename) {
-                    $addon_files[] = str_replace($this->info['plugin_dir'].'/addons', '', $filename);
+            if( is_dir($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons'.DIRECTORY_SEPARATOR) ) {
+                foreach (glob($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons'.DIRECTORY_SEPARATOR.'*.php') as $filename) {
+                    $addon_files[] = str_replace($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons', '', $filename);
                 }
-                foreach(glob($this->info['plugin_dir'].'/addons/*', GLOB_ONLYDIR ) as $path) {
+                foreach(glob($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons'.DIRECTORY_SEPARATOR.'*', GLOB_ONLYDIR ) as $path) {
                     $dir_name = basename($path);
-                    $filename = $path.'/'.$dir_name.'.php';
+                    $filename = $path. DIRECTORY_SEPARATOR .$dir_name.'.php';
                     if( file_exists($filename) ) {
-                        $addon_files[] = str_replace($this->info['plugin_dir'].'/addons', '', $filename);
+                        $addon_files[] = str_replace($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons', '', $filename);
                     }
                 }
             }
@@ -57,8 +57,8 @@ if( ! class_exists('BeRocket_framework_addons') ) {
         function get_addons_info() {
             $addons = $this->get_addons();
             foreach($addons as $addon) {
-                if( file_exists($this->info['plugin_dir'].'/addons/'.$addon) ) {
-                    include_once($this->info['plugin_dir'].'/addons/'.$addon);
+                if( file_exists($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons'.DIRECTORY_SEPARATOR.$addon) ) {
+                    include_once($this->info['plugin_dir'].DIRECTORY_SEPARATOR.'addons'.DIRECTORY_SEPARATOR.$addon);
                 }
             }
             $addon_info = apply_filters('berocket_addons_info_'.$this->hook_name, array());

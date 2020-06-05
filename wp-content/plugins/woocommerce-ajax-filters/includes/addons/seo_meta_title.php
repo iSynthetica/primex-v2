@@ -101,18 +101,26 @@ if( ! class_exists('BeRocket_AAPF_addon_woocommerce_seo_title') ) {
         public $page_title = '';
         public $ready_elements =  array('title' => false, 'description' => false, 'header' => false);
         function __construct() {
+            if( ! is_admin() ) {
+                add_action('wp', array($this, 'plugins_loaded'), 99999999);
+            }
+        }
+        function plugins_loaded() {
             add_action('get_header', array($this, 'get_header'));
             add_filter('document_title_parts', array($this, 'document_title_parts'));
             add_filter('wpseo_title', array($this, 'wpseo_title'), 10, 1);
+            do_action('braapf_seo_meta_title', $this);
             $options = $this->get_options();
             if( ! empty($options['seo_element_header']) ) {
                 add_filter('the_title', array($this, 'the_title'), 10, 2);
                 add_filter('woocommerce_page_title', array($this, 'woocommerce_page_title'), 10, 2);
+                do_action('braapf_seo_meta_header', $this);
             }
             if( ! empty($options['seo_element_description']) ) {
                 add_filter('wpseo_metadesc', array($this, 'meta_description'));
                 add_filter('aioseop_description_full', array($this, 'meta_description'));
                 add_action('wp_head', array($this, 'wp_head_description'), 9000);
+                do_action('braapf_seo_meta_description', $this);
             }
             if( ! function_exists($options['seo_meta_title_visual']) ) {
                 $options['seo_meta_title_visual'] = 'BeRocket_AAPF_wcseo_title_visual1';
@@ -247,13 +255,15 @@ if( ! class_exists('BeRocket_AAPF_addon_woocommerce_seo_title') ) {
             remove_action('wp_head', array($this, 'wp_head_description'));
             $description = $this->get_filters_string($description, 'description');
             $this->ready_elements['description'] = true;
-            return $description;
+            return trim($description);
         }
         function wp_head_description() {
             if( ! $this->ready_elements['description'] ) {
                 $description = $this->page_title;
-                $description = $this->get_filters_string($description, 'description');
-                echo '<meta name="description" content="'.$description.'">';
+                $description = trim($this->get_filters_string($description, 'description'));
+                if( ! empty($description) ) {
+                    echo '<meta name="description" content="'.$description.'">';
+                }
             }
         }
         function get_options() {

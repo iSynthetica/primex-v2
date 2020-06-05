@@ -33,23 +33,23 @@ if ( ! class_exists('BeRocket_framework_templates') ) {
 
         function load_template() {
             if ( ! empty( $this->options[ 'template' ] ) ) {
-                if( file_exists($this->info[ 'plugin_dir' ] . '/style_templates' . $this->options[ 'template' ]) ) {
-                    include_once( $this->info[ 'plugin_dir' ] . '/style_templates' . $this->options[ 'template' ] );
+                if( file_exists($this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . $this->options[ 'template' ]) ) {
+                    include_once( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . $this->options[ 'template' ] );
                 }
             }
         }
 
         function get_templates() {
             $template_files = array();
-            if ( is_dir( $this->info[ 'plugin_dir' ] . '/templates/' ) ) {
-                foreach ( glob( $this->info[ 'plugin_dir' ] . '/style_templates/*.php' ) as $filename ) {
-                    $template_files[] = str_replace( $this->info[ 'plugin_dir' ] . '/style_templates', '', $filename );
+            if ( is_dir( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR ) ) {
+                foreach ( glob( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . DIRECTORY_SEPARATOR . '*.php' ) as $filename ) {
+                    $template_files[] = str_replace( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates', '', $filename );
                 }
-                foreach ( glob( $this->info[ 'plugin_dir' ] . '/style_templates/*', GLOB_ONLYDIR ) as $path ) {
+                foreach ( glob( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . DIRECTORY_SEPARATOR . '*', GLOB_ONLYDIR ) as $path ) {
                     $dir_name = basename( $path );
-                    $filename = $path . '/' . $dir_name . '.php';
+                    $filename = $path . DIRECTORY_SEPARATOR . $dir_name . '.php';
                     if ( file_exists( $filename ) ) {
-                        $template_files[] = str_replace( $this->info[ 'plugin_dir' ] . '/style_templates', '', $filename );
+                        $template_files[] = str_replace( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates', '', $filename );
                     }
                 }
             }
@@ -66,8 +66,8 @@ if ( ! class_exists('BeRocket_framework_templates') ) {
         function get_templates_info() {
             $templates = $this->get_templates();
             foreach ( $templates as $template ) {
-                if( file_exists($this->info[ 'plugin_dir' ] . '/style_templates' . $template) ) {
-                    include_once( $this->info[ 'plugin_dir' ] . '/style_templates' . $template );
+                if( file_exists($this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . $template) ) {
+                    include_once( $this->info[ 'plugin_dir' ] . DIRECTORY_SEPARATOR . 'style_templates' . $template );
                 }
             }
             $template_info = apply_filters( 'berocket_templates_info_' . $this->hook_name, array() );

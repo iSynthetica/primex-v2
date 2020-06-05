@@ -160,8 +160,12 @@ if( ! class_exists('BeRocket_conditions') ) {
         public static function condition_product($html, $name, $options) {
             $def_options = array('product' => array());
             $options = array_merge($def_options, $options);
+            $products_select = br_products_selector( $name . '[product]', $options['product']);
+            if( ! empty($options['is_example']) ) {
+                $products_select = str_replace('data-name', 'data-data-name', $products_select);
+            }
             $html .= static::supcondition($name, $options) . '
-            <div class="br_framework_settings">' . br_products_selector( $name . '[product]', $options['product']).'</div>';
+            <div class="br_framework_settings">' . $products_select . '</div>';
             return $html;
         }
 

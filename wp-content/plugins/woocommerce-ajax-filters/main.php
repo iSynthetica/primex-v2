@@ -369,6 +369,9 @@ class BeRocket_AAPF extends BeRocket_Framework {
         if( defined( 'WCJ_PLUGIN_FILE' ) ) {
             include(plugin_dir_path( __FILE__ ) . "includes/compatibility/woojetpack.php");
         }
+        if( class_exists('RankMath') ) {
+            include(plugin_dir_path( __FILE__ ) . "includes/compatibility/rank_math_seo.php");
+        }
         $option = $this->get_option();
         if ( ! empty($option['products_per_page']) ) {
             add_filter( 'loop_shop_per_page', array($this, 'products_per_page_set'), 9999 );
@@ -1787,7 +1790,9 @@ jQuery(document).on('change', '.br_selected_area_show', br_selected_area_show);
         }
         $query_vars['post__not_in'] = array_merge($query_vars['post__not_in'], apply_filters('berocket_add_out_of_stock_variable', array(), $custom_terms, berocket_isset($_POST['limits_arr'])));
         $query_vars['post__in'] = apply_filters( 'loop_shop_post_in', $query_vars['post__in']);
-        $query_vars['post__in'] = array_diff($query_vars['post__in'], $query_vars['post__not_in']);
+        if( is_array($query_vars['post__in']) ) {
+            $query_vars['post__in'] = array_diff($query_vars['post__in'], $query_vars['post__not_in']);
+        }
         if ( br_woocommerce_version_check('3.6') && ! empty($_POST['price']) ) {
             $query_vars['berocket_price'] = $_POST['price'];
         }
