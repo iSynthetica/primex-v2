@@ -149,7 +149,17 @@ function snth_phones_header() {
             ?>
             <li>
                 <div class="he-text">
-                    <?php echo $item['label'] ?>
+                    <?php
+                    if (!empty($item['link'])) {
+                        ?>
+                        <a href="<?php echo $item['link']; ?>">
+                            <?php echo $item['label']; ?>
+                        </a>
+                        <?php
+                    } else {
+                        echo $item['label'];
+                    }
+                    ?>
                 </div>
             </li>
             <?php
