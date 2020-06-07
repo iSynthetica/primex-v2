@@ -120,8 +120,11 @@ function snth_wc_template_loop_product_quick_view_start() {
 }
 
 function snth_wc_template_loop_quick_view() {
-    global $post;
+    global $post, $product;
     $short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+    $attachment_ids = array();
+    $attachment_ids[] = $product->get_image_id();
+    $attachment_ids = array_merge($attachment_ids, $product->get_gallery_image_ids());
 
     if ( ! $short_description ) {
         return;
@@ -132,17 +135,52 @@ function snth_wc_template_loop_quick_view() {
     </button>
 
     <div class="modal-content" style="display: none;">
+
         <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
+                </div>
+            </div>
+
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
+
         <div class="modal-body">
-            <div class="woocommerce-product-details__short-description">
-                <?php echo $short_description; // WPCS: XSS ok. ?>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <?php
+                    if (!empty($attachment_ids)) {
+                        ?>
+                        <div style="padding: 0 15px 25px 15px">
+                            <div class="product-modal-desc-images owl-carousel">
+                                <?php
+                                foreach ( $attachment_ids as $attachment_id ) {
+                                    $index = 0;
+                                    ?>
+                                    <div class="item">
+                                        <?php
+                                        echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', snth_wc_get_gallery_image_html( $attachment_id, $index, true ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                                        ?>
+                                    </div>
+                                    <?php
+                                    $index++;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="woocommerce-product-details__short-description">
+                        <?php echo $short_description; // WPCS: XSS ok. ?>
+                    </div>
+                    <?php woocommerce_template_loop_add_to_cart(); ?>
+                </div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <?php woocommerce_template_loop_add_to_cart(); ?>
         </div>
     </div>
     <?php
@@ -295,13 +333,21 @@ function snth_display_catalogue_item_description($product) {
         </button>
 
         <div class="modal-content" style="display: none;">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel"><?php echo $product->get_name(); ?></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="woocommerce-product-details__short-description">
-                    <?php echo $short_description; // WPCS: XSS ok. ?>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    pictures
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"><?php echo $product->get_name(); ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="woocommerce-product-details__short-description">
+                            <?php echo $short_description; // WPCS: XSS ok. ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
