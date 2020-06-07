@@ -16017,7 +16017,8 @@ a img {
   border: none; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 iframe {
   border: none !important; }
