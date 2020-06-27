@@ -214,7 +214,7 @@ msgstr "Комментарии"
 msgid "Comments are closed."
 msgstr "Обсуждение закрыто."
 
-#: functions.php:492 inc/starter-content.php:176 inc/starter-content.php:186
+#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:492
 msgid "Primary"
 msgstr "Основное"
 
@@ -231,7 +231,7 @@ msgstr "Редактировать <span class=\"screen-reader-text\">%s</span>"
 msgid "Footer Menu"
 msgstr "Меню подвала"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Pages:"
 msgstr "Страницы:"
 
@@ -239,7 +239,7 @@ msgstr "Страницы:"
 msgid "Footer"
 msgstr "Подвал"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Page"
 msgstr "Страница"
 

@@ -420,7 +420,7 @@ function berocket_display_block_messages(element, next_elements) {
             styles.top += 'padding:0;';
         }
         if( jQuery('#wpcontent').length ) {
-            var bottom_height = parseInt(jQuery('#wpcontent').outerHeight()) - top_end;
+            var bottom_height = (parseInt(jQuery('#wpcontent').outerHeight()) - top_end) + 100;
             styles.bottom += 'height:'+(bottom_height + 40)+'px;';
         } else {
             styles.bottom += "bottom:0;";
@@ -433,7 +433,7 @@ function berocket_display_block_messages(element, next_elements) {
         }
         //Create hide blocks
         var html = '<div class="berocket_display_block_messages_hide top" style="'+styles.top+'"></div>';
-        html += '<div class="berocket_display_block_messages_hide bottom" style="'+styles.bottom+'"></div>';
+        html += '<div class="berocket_display_block_messages_hide bottom" data-top_end="'+top_end+'" style="'+styles.bottom+'"></div>';
         html += '<div class="berocket_display_block_messages_hide left" style="'+styles.left+'"></div>';
         html += '<div class="berocket_display_block_messages_hide right" style="'+styles.right+'"></div>';
         if( typeof(element.text) == 'undefined' || element.disable_inside ) {
@@ -457,6 +457,13 @@ function berocket_display_block_messages(element, next_elements) {
         return false;
     }
 }
+setInterval(function(){
+    if( jQuery('.berocket_display_block_messages_hide.bottom').length && jQuery('#wpcontent').length ) {
+        var top_end = parseInt(jQuery('.berocket_display_block_messages_hide.bottom').data('top_end'));
+        var bottom_height = (parseInt(jQuery('#wpcontent').outerHeight()) - top_end) + 100;
+        jQuery('.berocket_display_block_messages_hide.bottom').css('height', bottom_height+'px');
+    }
+}, 500);
 function berocket_display_block_message_reload_last() {
     berocket_display_block_messages_remove();
     berocket_display_block_messages(berocket_block_messages_element_last, berocket_block_messages_elements);

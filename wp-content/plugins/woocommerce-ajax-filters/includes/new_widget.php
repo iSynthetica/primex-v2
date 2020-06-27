@@ -21,10 +21,7 @@ class BeRocket_new_AAPF_Widget extends WP_Widget
             $new_args = array_merge($new_args, $sidebar);
             $before_widget = $new_args['before_widget'];
         }
-        $custom_class = trim(br_get_value_from_array($filters, 'custom_class'));
-        $custom_class_instance = trim(br_get_value_from_array($instance, 'custom_class'));
-        $custom_class = $custom_class . ' ' . $custom_class_instance;
-        $new_args['custom_class'] = $custom_class;
+        $new_args['custom_class'] = trim(br_get_value_from_array($filters, 'custom_class'));
         $i = 1;
         ob_start();
         $custom_vars = array();
@@ -52,10 +49,16 @@ class BeRocket_new_AAPF_Widget extends WP_Widget
         $widget_html = ob_get_clean();
         if( ! empty($widget_html) ) {
             if( ! empty($instance['title']) ) {
-                echo '<h3 class="berocket_ajax_group_filter_title">' . $instance['title'] . '</h3>';
+                if( empty($new_args['title_class']) || ! is_array($new_args['title_class']) || count($new_args['title_class']) == 0 ) {
+                    $new_args['title_class'] = array();
+                }
+                $new_args['title_class'][] = 'berocket_ajax_group_filter_title';
+                echo '<h3 class="'.implode(' ', $new_args['title_class']).'">' . $instance['title'] . '</h3>';
             }
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'displayed', 'Must be displayed on the page');
             echo $widget_html;
         } else {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'empty_filter_code', 'Filters inside do not return any HTML code');
             return false;
         }
     }
@@ -63,20 +66,34 @@ class BeRocket_new_AAPF_Widget extends WP_Widget
         if( empty($instance['group_id']) || get_post_status($instance['group_id']) != 'publish' ) {
             return false;
         }
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $br_options = $BeRocket_AAPF->get_option();
+        if( ! empty($br_options['filters_turn_off']) ) {
+            return false;
+        }
         $current_language = apply_filters( 'wpml_current_language', NULL );
         $instance['group_id'] = apply_filters( 'wpml_object_id', $instance['group_id'], 'page', true, $current_language );
         $BeRocket_AAPF_group_filters = BeRocket_AAPF_group_filters::getInstance();
         $filters = $BeRocket_AAPF_group_filters->get_option($instance['group_id']);
+        global $braapf_parameters;
+        if( $braapf_parameters['do_not_display_filters'] ) {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'disabled', 'Custom parameter do_not_display_filters');
+            return false;
+        }
         if( empty($filters) ) {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'empty_options', 'Options data from database empty');
             return false;
         }
         if( has_term('isdisabled', 'berocket_taxonomy_data', intval($instance['group_id'])) ) {
-            return false;
-        }
-        if( ! empty($filters['data']) && ! BeRocket_conditions::check($filters['data'], $BeRocket_AAPF_group_filters->hook_name) ) {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'disabled', 'Disabled by user');
             return false;
         }
         if( empty($filters['filters']) || ! is_array($filters['filters']) || ! count($filters['filters']) ) {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'without_filters', 'Do not have any filters');
+            return false;
+        }
+        if( apply_filters('braapf_check_widget_by_instance_group', (! empty($filters['data']) && ! BeRocket_conditions::check($filters['data'], $BeRocket_AAPF_group_filters->hook_name) ) ) ) {
+            braapf_is_filters_displayed_debug($instance['group_id'], 'group', 'condition_restriction', 'Disabled for this page by conditions');
             return false;
         }
         return true;
@@ -85,22 +102,17 @@ class BeRocket_new_AAPF_Widget extends WP_Widget
         $instance = $old_instance;
         $instance['group_id'] = strip_tags( @ $new_instance['group_id'] );
         $instance['title'] = strip_tags( @ $new_instance['title'] );
-        $instance['custom_class'] = strip_tags( @ $new_instance['custom_class'] );
         return $instance;
     }
     public function form($instance) {
         wp_enqueue_script( 'berocket_aapf_widget-admin' );
         wp_enqueue_script('jquery-color');
-        $instance = wp_parse_args( (array) $instance, array( 'group_id' => '', 'title' => '', 'custom_class' => '') );
+        $instance = wp_parse_args( (array) $instance, array( 'group_id' => '', 'title' => '') );
         echo '<a href="' . admin_url('edit.php?post_type=br_filters_group') . '">' . __('Manage groups', 'BeRocket_AJAX_domain') . '</a>';
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title'); ?></label>
             <input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>">
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('custom_class'); ?>"><?php _e('Custom CSS class', 'BeRocket_AJAX_domain'); ?></label>
-            <input type="text" id="<?php echo $this->get_field_id('custom_class'); ?>" name="<?php echo $this->get_field_name('custom_class'); ?>" value="<?php echo $instance['custom_class']; ?>">
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('group_id'); ?>"><?php _e('Group', 'BeRocket_AJAX_domain'); ?></label><br>
@@ -136,6 +148,8 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
             array("description" => __("AJAX Product Filters. Single Filter", 'BeRocket_AJAX_domain')));
     }
     public function widget($args, $instance) {
+        global $bapf_unique_id;
+        $bapf_unique_id++;
         if( ! self::check_widget_by_instance($instance) ) {
             return true;
         }
@@ -149,14 +163,11 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
             $filter_data = array();
         }
         if( ! empty($args['filter_data']) && is_array($args['filter_data']) ) {
+            if( ! empty($filter_data['widget_collapse']) ) {
+                $args['filter_data']['widget_collapse'] = $filter_data['widget_collapse'];
+            }
             $filter_data = array_merge($filter_data, $args['filter_data']);
         }
-        $custom_class = trim(br_get_value_from_array($filter_data, 'custom_class'));
-        $custom_class_args = trim(br_get_value_from_array($args, 'custom_class'));
-        $custom_class = $custom_class . ' ' . $custom_class_args;
-        $custom_class_instance = trim(br_get_value_from_array($instance, 'custom_class'));
-        $custom_class = $custom_class . ' ' . $custom_class_instance;
-        $custom_class = trim($custom_class);
         if ( empty($instance['br_wp_footer']) ) {
             global $br_widget_ids;
             if ( ! isset( $br_widget_ids ) ) {
@@ -173,21 +184,35 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
             $additional_class = array();
         }
         if( ! empty($filter_data['is_hide_mobile']) ) {
-            $additional_class[] = 'berocket_hide_single_widget_on_mobile';
+            $additional_class[] = 'bapf_sngl_hd_mobile';
         }
         if( ! empty($filter_data['hide_group']['tablet']) ) {
-            $additional_class[] = 'berocket_hide_single_widget_on_tablet';
+            $additional_class[] = 'bapf_sngl_hd_tablet';
         }
         if( ! empty($filter_data['hide_group']['desktop']) ) {
-            $additional_class[] = 'berocket_hide_single_widget_on_desktop';
+            $additional_class[] = 'bapf_sngl_hd_desktop';
         }
         if( ! empty($filter_data['reset_hide']) && $filter_data['widget_type'] == 'reset_button' ) {
             $additional_class[] = $filter_data['reset_hide'];
         }
         $additional_class[] = 'berocket_single_filter_widget';
         $additional_class[] = 'berocket_single_filter_widget_' . esc_html($instance['filter_id']);
-        $additional_class[] = $custom_class;
+        $additional_class[] = trim(br_get_value_from_array($args, 'custom_class'));
         $additional_class = array_unique($additional_class);
+        ob_start();
+        new BeRocket_AAPF_Widget($filter_data, $args);
+        $element_displayed = trim(ob_get_clean());
+        if( empty($element_displayed) ) {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'displayed_empty', 'Must be displayed, but empty');
+        }
+        if( ! apply_filters('BeRocket_AAPF_widget_old_display_conditions', true, $filter_data, $instance, $args) ) {
+            $element_displayed = '';
+        }
+        if( empty($element_displayed) ) {
+            $additional_class[] = 'bapf_mt_none';
+        } else {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'displayed', 'Must be displayed on the page');
+        }
         if( ! empty($filter_data['widget_type']) && ($filter_data['widget_type'] == 'update_button' || $filter_data['widget_type'] == 'reset_button' ) ) {
             $search_berocket_hidden_clickable = array_search('berocket_hidden_clickable', $additional_class);
             if( $search_berocket_hidden_clickable !== FALSE ) {
@@ -199,26 +224,35 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
         } else {
             $additional_class_esc = implode(' ', $additional_class);
             $additional_class_esc = esc_html($additional_class_esc);
+            echo '<div class="' . $additional_class_esc . '" data-id="' . esc_html($instance['filter_id']) . '" style="'.htmlentities(br_get_value_from_array($args, 'inline_style')).'"'.htmlentities(br_get_value_from_array($args, 'additional_data_inline')).'>';
             if( ! empty($args['widget_inline_style']) ) {
-                $classes_arr = $additional_class_esc;
+                $classes_arr = trim($additional_class_esc);
                 $classes_arr = explode(' ', preg_replace('!\s+!', ' ', $classes_arr));
                 $classes_arr = '.' . implode('.', $classes_arr);
-                $classes_arr .= ' .berocket_aapf_widget';
+                $classes_arr .= ' .bapf_body';
                 $classes_arr = esc_html($classes_arr);
                 echo '<style>';
                 echo $classes_arr;
-                echo '{' . htmlentities($args['widget_inline_style'], ENT_HTML5) . '}';
+                echo '{' . esc_html($args['widget_inline_style']) . '}';
                 echo '</style>';
             }
-            echo '<div class="' . $additional_class_esc . '" data-id="' . esc_html($instance['filter_id']) . '" style="'.htmlentities(br_get_value_from_array($args, 'inline_style')).'"'.htmlentities(br_get_value_from_array($args, 'additional_data_inline')).'>';
         }
-        if( apply_filters('BeRocket_AAPF_widget_old_display_conditions', true, $filter_data, $instance, $args) ) {
-            the_widget( 'BeRocket_AAPF_widget', $filter_data, $args);
-        }
+        echo $element_displayed;
         echo '</div>';
     }
     public static function check_widget_by_instance($instance) {
         if( empty($instance['filter_id']) || get_post_status($instance['filter_id']) != 'publish' ) {
+            if( empty($instance['filter_id']) ) {
+                braapf_is_filters_displayed_debug('000', 'filter', 'empty_ID', 'Some filter has empty ID');
+            } else {
+                braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'not_published', 'Filter not published');
+            }
+            return false;
+        }
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $br_options = $BeRocket_AAPF->get_option();
+        if( ! empty($br_options['filters_turn_off']) ) {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'disabled', 'Disabled by user in global settings');
             return false;
         }
         $current_language = apply_filters( 'wpml_current_language', NULL );
@@ -227,13 +261,20 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
         $filter_post = get_post($filter_id);
         $BeRocket_AAPF_single_filter = BeRocket_AAPF_single_filter::getInstance();
         $filter_data = $BeRocket_AAPF_single_filter->get_option($filter_id);
-        if( has_term('isdisabled', 'berocket_taxonomy_data', intval($instance['filter_id'])) ) {
+        global $braapf_parameters;
+        if( $braapf_parameters['do_not_display_filters'] ) {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'disabled', 'Custom parameter do_not_display_filters');
             return false;
         }
-        if( ! empty($filter_data['data']) && ! BeRocket_conditions::check($filter_data['data'], $BeRocket_AAPF_single_filter->hook_name) ) {
+        if( has_term('isdisabled', 'berocket_taxonomy_data', intval($instance['filter_id'])) ) {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'disabled', 'Disabled by user');
             return false;
         }
         if( empty($filter_data) || empty($filter_post) ) {
+            return false;
+        }
+        if( apply_filters('braapf_check_widget_by_instance_single', (! empty($filter_data['data']) && ! BeRocket_conditions::check($filter_data['data'], $BeRocket_AAPF_single_filter->hook_name) ) ) ) {
+            braapf_is_filters_displayed_debug($instance['filter_id'], 'filter', 'condition_restriction', 'Disabled for this page by conditions');
             return false;
         }
         return true;
@@ -242,19 +283,13 @@ class BeRocket_new_AAPF_Widget_single extends WP_Widget
         $instance = $old_instance;
         $instance['filter_id'] = strip_tags( $new_instance['filter_id'] );
         $instance['filter_id'] = intval($instance['filter_id']);
-        $instance['custom_class'] = strip_tags( $new_instance['custom_class'] );
-        $instance['custom_class'] = sanitize_text_field($instance['custom_class']);
         return $instance;
     }
     public function form($instance) {
         wp_enqueue_script( 'berocket_aapf_widget-admin' );
-        $instance = wp_parse_args( (array) $instance, array( 'filter_id' => '', 'custom_class' => '') );
+        $instance = wp_parse_args( (array) $instance, array( 'filter_id' => '') );
         echo '<a href="' . admin_url('edit.php?post_type=br_product_filter') . '">' . __('Manage filters', 'BeRocket_AJAX_domain') . '</a>';
         ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('custom_class'); ?>"><?php _e('Custom CSS class', 'BeRocket_AJAX_domain'); ?></label>
-            <input type="text" id="<?php echo $this->get_field_id('custom_class'); ?>" name="<?php echo $this->get_field_name('custom_class'); ?>" value="<?php echo $instance['custom_class']; ?>">
-        </p>
         <p class="berocketwizard_aapf_single_widget_filter_id">
             <label for="<?php echo $this->get_field_id('filter_id'); ?>"><?php _e('Filter', 'BeRocket_AJAX_domain'); ?></label><br>
             <?php

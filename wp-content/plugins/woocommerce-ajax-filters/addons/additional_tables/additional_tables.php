@@ -42,7 +42,12 @@ class BeRocket_aapf_variations_tables_addon extends BeRocket_framework_addon_lib
                 $this->activate();
                 $create_position = $this->get_current_create_position();
                 if( $create_position < $this->last_postion ) {
-                    $this->activate_hooks();
+                    add_action('admin_init', array($this, 'activate_hooks'));
+                }
+                add_action( "admin_footer", array( $this, 'destroy_table_wc_regeneration' ) );
+            } elseif(is_admin()) {
+                if( ! empty($create_position) ) {
+                    add_action( "admin_footer", array( $this, 'destroy_table_wc_regeneration' ) );
                 }
             }
         } else {
@@ -82,17 +87,17 @@ class BeRocket_aapf_variations_tables_addon extends BeRocket_framework_addon_lib
         if( $current_position == -1 ) {
             $current_position = $this->get_current_create_position();
         }
-        if( empty($current_position) ) {
+        if( empty($current_position) && $brajax ) {
             $this->create_table_braapf_term_taxonomy_hierarchical();
-        } elseif( $current_position == 2 ) {
+        } elseif( $current_position == 2 && $brajax ) {
             $this->create_table_braapf_product_stock_status_parent();
         } elseif( $current_position == 3 && $brajax ) {
             $this->insert_table_braapf_product_stock_status_parent();
-        } elseif( $current_position == 4 ) {
+        } elseif( $current_position == 4 && $brajax ) {
             $this->create_table_braapf_product_variation_attributes();
         } elseif( $current_position == 5 && $brajax ) {
             $this->insert_table_braapf_product_variation_attributes();
-        } elseif( $current_position == 6 ) {
+        } elseif( $current_position == 6 && $brajax ) {
             $this->create_table_braapf_variation_attributes();
         } elseif( $current_position == 7 && $brajax ) {
             $this->insert_table_braapf_variation_attributes();
@@ -116,22 +121,41 @@ class BeRocket_aapf_variations_tables_addon extends BeRocket_framework_addon_lib
         }
     }
     function activate_hooks() {
-        add_action('berocket_create_table_braapf_product_stock_status_parent', array($this, 'insert_table_braapf_product_stock_status_parent'), 10, 3);
-        add_action('berocket_create_table_braapf_product_variation_attributes', array($this, 'insert_table_braapf_product_variation_attributes'), 10, 3);
-        add_action('berocket_create_table_braapf_variation_attributes', array($this, 'insert_table_braapf_variation_attributes'), 10);
-        //Notices
+        if( ! wc_update_product_lookup_tables_is_running() ) {
+            add_action('berocket_create_table_braapf_product_stock_status_parent', array($this, 'insert_table_braapf_product_stock_status_parent'), 10, 3);
+            add_action('berocket_create_table_braapf_product_variation_attributes', array($this, 'insert_table_braapf_product_variation_attributes'), 10, 3);
+            add_action('berocket_create_table_braapf_variation_attributes', array($this, 'insert_table_braapf_variation_attributes'), 10);
+            //Notices
+            add_action( "wp_ajax_braapf_additional_table_status", array( $this, 'get_global_status_ajax' ) );
+            add_action( "wp_footer", array( $this, 'script_update' ) );
+            add_action( "admin_footer", array( $this, 'script_update' ) );
+        }
         add_filter('berocket_display_additional_notices', array($this, 'status_notice'));
-        add_action( "wp_ajax_braapf_additional_table_status", array( $this, 'get_global_status_ajax' ) );
-        add_action( "wp_footer", array( $this, 'script_update' ) );
-        add_action( "admin_footer", array( $this, 'script_update' ) );
     }
     function status_notice($notices) {
-        $current_status = $this->get_current_global_status();
+        if( ! function_exists('wc_update_product_lookup_tables_is_running') ) {
+            $text = __('WooCommerce do not have needed table for Additional Table add-on. Add-on required WooCommerce 3.6 or newer', 'BeRocket_AJAX_domain');
+        } elseif( wc_update_product_lookup_tables_is_running() ) { 
+            $text = __('WooCommerce <strong>Product lookup tables</strong> right now regenerating', 'BeRocket_AJAX_domain');
+        } else {
+            $current_status = $this->get_current_global_status();
+            $text = sprintf(__('Additional tables are generating. They will be used after generation is completed. Current status is <strong><span class="braapf_additional_table_status">%d</span>%s</strong>', 'BeRocket_AJAX_domain'), $current_status, '%');
+            $current_position = $this->get_current_create_position();
+            if( $current_position == 3 ) {
+                $run_data = $this->get_current_create_position_data();
+                if ( ! empty($run_data) && is_array($run_data) && isset($run_data['min_id']) && isset($run_data['max_id']) 
+                    && ( intval($run_data['max_id']) - intval($run_data['min_id']) ) > 1000000 ) {
+                    $url = admin_url('admin.php?page=wc-status&tab=tools');
+                    global $wpdb;
+                    $text .= '<p>' . __('Seems you have some issue with Product lookup tables. Please try to remove all data from table', 'BeRocket_AJAX_domain') . ' <strong>'.$wpdb->prefix.'wc_product_meta_lookup</strong> ' . __('and regenerate it in ', 'BeRocket_AJAX_domain'). '<a href="'.$url.'">WooCommerce -> Status -> Tools</a></p>';
+                }
+            }
+        }
         $notices[] = array(
             'start'         => 0,
             'end'           => 0,
             'name'          => $this->plugin_name.'_additional_table_status',
-            'html'          => '<strong>BeRocket AJAX Product Filters</strong> '.sprintf(__('Additional tables are generating. They will be used after generation is completed. Current status is <strong><span class="braapf_additional_table_status">%d</span>%s</strong>', 'BeRocket_AJAX_domain'), $current_status, '%'),
+            'html'          => '<strong>BeRocket AJAX Product Filters</strong> '.$text,
             'righthtml'     => '',
             'rightwidth'    => 0,
             'nothankswidth' => 0,
@@ -544,6 +568,13 @@ class BeRocket_aapf_variations_tables_addon extends BeRocket_framework_addon_lib
             'status' => 0,
             'run' => false,
         ));
+    }
+    function destroy_table_wc_regeneration() {
+        if ( wc_update_product_lookup_tables_is_running() ) {
+            delete_option('BeRocket_aapf_additional_tables_addon_position');
+            delete_option('BeRocket_aapf_additional_tables_addon_position_data');
+            $this->deactivate();
+        }
     }
 }
 new BeRocket_aapf_variations_tables_addon();

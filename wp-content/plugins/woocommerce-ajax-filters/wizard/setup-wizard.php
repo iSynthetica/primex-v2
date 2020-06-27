@@ -48,8 +48,7 @@ if( ! class_exists('BeRocket_Setup_Wizard') ) {
                 call_user_func( $this->steps[ $this->step ]['handler'], $this );
             }
             wp_admin_css();
-            wp_register_style( 'wizard-setup', plugins_url( 'admin.css', __FILE__ ) );
-            wp_enqueue_style( 'wizard-setup' );
+            BeRocket_AAPF::wp_enqueue_style( 'wizard-setup' );
             BeRocket_Framework::register_font_awesome('fa5');
             wp_enqueue_style( 'font-awesome-5' );
 

@@ -4,11 +4,14 @@
  */
 
 $this->extend('../layout');
-$fs_help = esc_url( apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/filesystem') );
+$help = apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/settings');
+$fs_help = apply_filters('loco_external','https://localise.biz/wordpress/plugin/manual/filesystem');
 /* @var Loco_data_Settings $opts */
+/* @var Loco_data_Settings $dflt */
 ?> 
 
     <form action="" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="<?php $nonce->e('name')?>" value="<?php $nonce->e('value')?>" />
         <table class="form-table">
             <tbody>
                 <tr>
@@ -101,9 +104,9 @@ $fs_help = esc_url( apply_filters('loco_external','https://localise.biz/wordpres
                         <fieldset>
                             <p>
                                 <label for="loco--pot_alias">
-                                    <?php esc_html_e('Look for non-standard names:','loco-translate')?> 
+                                    < ?php esc_html_e('Look for non-standard names:','loco-translate')? > 
                                 </label>
-                                <input type="text"  size="40" name="opts[pot_alias]" id="loco--pot_alias" value="<?php echo esc_attr( implode(' ',$opts->pot_alias) )?>" />
+                                <input type="text"  size="40" name="opts[pot_alias]" id="loco--pot_alias" value="< ?php echo esc_attr( implode(' ',$opts->pot_alias) )? >" />
                             </p>
                         </fieldset>
                     </td>
@@ -123,22 +126,25 @@ $fs_help = esc_url( apply_filters('loco_external','https://localise.biz/wordpres
                                 </label>
                             </p>
                             <p><?php
+                                /* @var Loco_mvc_ViewParams $verbose */
                                 esc_html_e('Modification of installed files','loco-translate');?>:
                                 <select name="opts[fs_protect]" id="loco--fs-protect">
-                                    <option value="0"><?php
-                                        esc_html_e('Allow','loco-translate');
-                                    ?></option>
-                                    <option value="1"<?php echo 1 === $opts->fs_protect?' selected':''?>><?php
-                                        esc_html_e('Allow (with warning)','loco-translate');
-                                    ?></option>
-                                    <option value="2"<?php echo 2 === $opts->fs_protect?' selected':''?>><?php
-                                        esc_html_e('Disallow','loco-translate');
-                                    ?></option>
+                                    <option value="0"><?php $verbose->e(0)?></option>
+                                    <option value="1"<?php echo 1 === $opts->fs_protect?' selected':''?>><?php $verbose->e(1)?></option>
+                                    <option value="2"<?php echo 2 === $opts->fs_protect?' selected':''?>><?php $verbose->e(2)?></option>
+                                </select>
+                            </p>
+                            <p><?php
+                                esc_html_e('Editing of POT (template) files','loco-translate');?>:
+                                <select name="opts[pot_protect]" id="loco--pot-protect">
+                                    <option value="0"><?php $verbose->e(0)?></option>
+                                    <option value="1"<?php echo 1 === $opts->pot_protect?' selected':''?>><?php $verbose->e(1)?></option>
+                                    <option value="2"<?php echo 2 === $opts->pot_protect?' selected':''?>><?php $verbose->e(2)?></option>
                                 </select>
                             </p>
                             <p>
                                 <span class="description">
-                                    <a href="<?php echo $fs_help?>" target="_blank"><?php
+                                    <a href="<?php self::e($fs_help)?>" target="_blank"><?php
                                         esc_html_e('About file system access','loco-translate')?></a>
                                 </span>
                             </p>
@@ -152,7 +158,7 @@ $fs_help = esc_url( apply_filters('loco_external','https://localise.biz/wordpres
                             <legend class="screen-reader-text">
                                 <span><?php esc_html_e('Allow full access to these roles','loco-translate')?></span>
                             </legend><?php 
-                            /* @var $cap Loco_mvc_ViewParams */
+                            /* @var Loco_mvc_ViewParams[] $caps */
                             foreach( $caps as $cap ):?> 
                             <p>
                                 <label>
@@ -168,6 +174,6 @@ $fs_help = esc_url( apply_filters('loco_external','https://localise.biz/wordpres
         </table>
         <p class="submit">
             <input type="submit" class="button-primary" value="<?php esc_html_e('Save settings','loco-translate')?>" />
-            <input type="hidden" name="<?php $nonce->e('name')?>" value="<?php $nonce->e('value')?>" />
+            <a class="button button-link" href="<?php self::e($help)?>" target="_blank"><?php esc_html_e('Documentation','loco-translate')?></a>
         </p>
     </form>

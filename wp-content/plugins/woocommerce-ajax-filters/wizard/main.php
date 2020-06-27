@@ -29,7 +29,7 @@ if( ! class_exists('BeRocket_selector_wizard_woocommerce') ) {
         }
         public function javascript($translating_text = array()) {
             wp_enqueue_script( 'jquery' );
-            wp_enqueue_script( 'berocket_wizard_autoselect', plugins_url( 'wizard.js', __FILE__ ), array( 'jquery' ) );
+            BeRocket_AAPF::wp_enqueue_script( 'berocket_wizard_autoselect' );
             $translating_text = array_merge(array(
                 'creating_products' => __('Creating products', 'BeRocket_domain'),
                 'getting_selectors' => __('Gettings selectors', 'BeRocket_domain'),
@@ -42,8 +42,7 @@ if( ! class_exists('BeRocket_selector_wizard_woocommerce') ) {
                 'berocket_wizard_autoselect',
                 $translating_text
             );
-            wp_register_style( 'berocket_wizard_autoselect', plugins_url( 'wizard.css', __FILE__ ) );
-            wp_enqueue_style( 'berocket_wizard_autoselect' );
+            BeRocket_AAPF::wp_enqueue_style( 'berocket_wizard_autoselect' );
         }
         
         public function category_link($link) {
@@ -135,12 +134,12 @@ if( ! class_exists('BeRocket_selector_wizard_woocommerce') ) {
         
         public function remove_products_ended() {
             add_action('pre_get_posts', array($this, 'products_per_page_more'), 999999999999999);
-            $args = array("post_type" => "product", "s" => 'BeRocketSelectorsTest', 'posts_per_page'   => 100);
+            $args = array("post_type" => "product", "s" => 'BeRocketSelectorsTest', 'posts_per_page'   => 100, 'fields' => 'ids');
             $query = get_posts( $args );
             if( is_array($query) ) {
                 echo count($query);
                 foreach($query as $product) {
-                    wp_delete_post($product->ID, true);
+                    wp_delete_post($product, true);
                 }
             }
             $term = get_term_by('name', 'BeRocketSelectors', 'product_cat');

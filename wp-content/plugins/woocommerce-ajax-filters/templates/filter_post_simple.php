@@ -18,28 +18,7 @@ $custom_taxonomies = array_combine($custom_taxonomies, $custom_taxonomies);
         <label class="br_admin_center"><?php _e('Filter By', 'BeRocket_AJAX_domain') ?></label>
         <select id="<?php echo 'filter_type'; ?>" name="<?php echo $post_name.'[filter_type]'; ?>" class="berocket_aapf_widget_admin_filter_type_select br_select_menu_left">
             <?php
-            $filter_type_array = array(
-                'attribute' => array(
-                    'name' => __('Attribute', 'BeRocket_AJAX_domain'),
-                    'sameas' => 'attribute',
-                ),
-                'tag' => array(
-                    'name' => __('Tag', 'BeRocket_AJAX_domain'),
-                    'sameas' => 'tag',
-                ),
-                'all_product_cat' => array(
-                    'name' => __('Product Category', 'BeRocket_AJAX_domain'),
-                    'sameas' => 'custom_taxonomy',
-                    'attribute' => 'product_cat',
-                ),
-            );
-            if ( function_exists('wc_get_product_visibility_term_ids') ) {
-                $filter_type_array['_rating'] = array(
-                    'name' => __('Rating', 'BeRocket_AJAX_domain'),
-                    'sameas' => '_rating',
-                );
-            }
-            $filter_type_array = apply_filters('berocket_filter_filter_type_array', $filter_type_array, $instance);
+            $filter_type_array = braapf_single_filter_edit_elements::get_all_filter_type_array(array());
             if( ! array_key_exists($instance['filter_type'], $filter_type_array) ) {
                 foreach($filter_type_array as $filter_type_key => $filter_type_val) {
                     $instance['filter_type'] = $filter_type_key;
@@ -64,7 +43,6 @@ $custom_taxonomies = array_combine($custom_taxonomies, $custom_taxonomies);
     <div class="br_admin_half_size_right berocket_aapf_widget_admin_filter_type_ berocket_aapf_widget_admin_filter_type_attribute" <?php if ( $instance['filter_type'] and $instance['filter_type'] != 'attribute') echo 'style="display: none;"'; ?>>
         <label class="br_admin_center"><?php _e('Attribute', 'BeRocket_AJAX_domain') ?></label>
         <select id="<?php echo 'attribute'; ?>" name="<?php echo $post_name.'[attribute]'; ?>" class="berocket_aapf_widget_admin_filter_type_attribute_select br_select_menu_right">
-            <option <?php if ( $instance['attribute'] == 'price' ) echo 'selected'; ?> value="price"><?php _e('Price', 'BeRocket_AJAX_domain') ?></option>
             <?php foreach ( $attributes as $k => $v ) { ?>
                 <option <?php if ( $instance['attribute'] == $k ) echo 'selected'; ?> value="<?php echo $k ?>"><?php echo $v ?></option>
             <?php } ?>

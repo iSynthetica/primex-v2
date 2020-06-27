@@ -4,8 +4,8 @@ Contributors: dholovnia, berocket
 Donate link: https://berocket.com/product/woocommerce-ajax-products-filter?utm_source=wordpress_org&utm_medium=donate&utm_campaign=ajax_filters
 Tags: filters, product filters, ajax product filters, ajax filter, ajax filter widget, color filter, size filter, product onsale filter, product preview, product category filter, product reset filter, product sort by filter, stock filter, product tag filter, price range filter, price box filter, advanced product filters, woocommerce filters, woocommerce product filters, woocommerce products filter, woocommerce ajax product filters, widget, plugin, woocommerce item filters, filters plugin, ajax filters plugin, filter woocommerce products, filter woocommerce products plugin, wc filters, wc filters products, wc products filters, wc ajax products filters, wc product filters, wc advanced product filters, woocommerce layered nav, woocommerce layered navigation, ajax filtered nav, ajax filtered navigation, price filter, ajax price filter, woocommerce product sorting, sidebar filter, sidebar ajax filter, taxonomy filter, category filter, attribute filter, attributes filter, woocommerce product sort, ajax products filter plugin for woocommerce, rocket, berocket, berocket woocommerce ajax products filter
 Requires at least: 5.0
-Tested up to: 5.4.1
-Stable tag: 1.4.2.3
+Tested up to: 5.4.2
+Stable tag: 1.5.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,26 +15,26 @@ WooCommerce AJAX Product Filters - Advanced product filtering ability for your W
 
 WooCommerce AJAX Product Filters - Advanced product filtering ability for your WooCommerce shop. Add unlimited filters with one widget.
 
-= New Feature in version 1.3 =
+= New Feature in version 1.5 =
 
-&#9989; New admin settings design
-&#9989; New filters post type and group with filters
-&#9989; Possibility to filter WooCommerce shortcode
-&#9989; Display filters on any pages(filters will work only on pages with products)
-&#9989; Condition to select pages where filters/groups must be displayed
-&#9989; Option to hide filters on mobile, tablet or desktop
-&#9989; Filter by Product Tags
-&#9989; Better work with variations
-&#9989; Hierarchical category tree
-&#9989; Color and image type of filters
-&#9989; SEO Title, Description and Header with added filters
-&#9989; Filters can be collapsed by clicking on title, option to collapse filter on start
-&#9989; Price Filter Custom Min and Max values
-&#9989; Option to Set Values for the Price Slider Manually
-&#9989; Add custom CSS on admin settings page
-&#9989; Show icons before/after widget title and/or before/after values
-&#9989; Scroll top position can be controlled by the admin
-&#9989; More functionality and Enhancements
+&#9989; New styles for filters: Checkbox, Select, Slider, Color, Image
+&#9989; New slider styles
+&#9989; New buttons styles
+&#9989; Selected filters area horizontal styles
+&#9989; Single selection for check
+&#9989; Select and Select2 can be displayed on same time
+&#9989; Collapse widget option with different settings
+&#9989; Less JavaScript and HTML code for same result.
+&#9989; More compatibility with themes and plugins
+&#9989; Better compatibility with Divi Builder, Beaver Builder, Elementor Builder
+&#9989; Relevanssi compatibility
+&#9989; More ways to customize filters and add additional functionality
+&#9989; Option to set how hierarchical attribute must be displayed
+&#9989; Separate admin title and frontend title
+&#9989; Back button in browser on AJAX
+&#9989; All JavaScript in one minified file
+&#9989; All CSS Styles in one minified file
+&#9989; Checked style for image element style
 
 = Features: =
 
@@ -76,9 +76,10 @@ WooCommerce AJAX Product Filters - Advanced product filtering ability for your W
 [Admin Demo](https://berocket.com/product/woocommerce-ajax-products-filter?utm_source=wordpress_org&utm_medium=admin_demo&utm_campaign=ajax_filters#try-admin) - Get access to this plugin's admin and try it from inside. Change things and watch how they work.
 
 = Premium plugin video =
-[youtube https://youtu.be/8gaMj-IxUj0]
-[youtube https://youtu.be/KMjHgOA-4gM]
-[youtube https://youtu.be/yo0vx5kSlLU]
+[youtube https://youtu.be/PQTXzp9Tpbc]
+[youtube https://youtu.be/Ltz82Zs5pl0]
+[youtube https://youtu.be/GA3O1F6YVNE]
+[youtube https://youtu.be/GPA77L0XBxM]
 *we don't have video with free plugin right now but we are working on it*
 
 = Compatibility with WooCommerce plugins =
@@ -183,6 +184,42 @@ You can try this plugin's admin side [here](https://berocket.com/product/woocomm
 ---
 
 == Changelog ==
+
+= 1.5.0.2 =
+* Fix - Link like WooCommerce add-on
+* Fix - Relevanssi script on page where it is not required
+* Fix - Max-Height instead Height for filter height limitation
+
+= 1.5.0.1 =
+* Enhancement - Change Cursor for some Elements
+* Fix - Collapse Icon and Description Icon Size
+* Fix - Remove error for deprecated price filter
+
+= 1.5 =
+* Enhancement - New styles for filters: Checkbox, Select, Slider, Color, Image
+* Enhancement - New slider styles
+* Enhancement - New buttons styles
+* Enhancement - Selected filters area horizontal styles
+* Enhancement - Single selection for check
+* Enhancement - Select and Select2 can be displayed on same time
+* Enhancement - Collapse widget option with different settings
+* Enhancement - Less JavaScript and HTML code for same result.
+* Enhancement - More compatibility with themes and plugins
+* Enhancement - Better compatibility with Divi Builder, Beaver Builder, Elementor Builder
+* Enhancement - Relevanssi compatibility
+* Enhancement - More ways to customize filters and add additional functionality
+* Enhancement - Option to set how hierarchical attribute must be displayed
+* Enhancement - Separate admin title and frontend title
+* Enhancement - Back button in browser on AJAX
+* Enhancement - All JavaScript in one minified file
+* Enhancement - All CSS Styles in one minified file
+* Enhancement - Checked style for image element style
+* Fix - Incompatibility with some themes
+* Fix - Some incompatibility with Windows server
+* Fix - Some incompatibility with MariaDB
+* Fix - Some issues with Nested Filters
+* Fix - A lot of small fixes
+
 
 = 1.4.2.3 =
 * Enhancement - Compatibility version: Wordpress 5.4.1 and WooCommerce 4.1

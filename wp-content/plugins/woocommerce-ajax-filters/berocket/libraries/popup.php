@@ -40,16 +40,17 @@ if( ! class_exists('BeRocket_popup_display') ) {
                     array( 'jquery' )
                 );
                 wp_register_style(
-                    'berocket_framework_popup',
-                    plugins_url( '../assets/popup/br_popup.css', __FILE__ )
-                );
-                wp_register_style(
                     'berocket_framework_popup-animate',
                     plugins_url( '../assets/popup/animate.css', __FILE__ )
                 );
+                wp_register_style(
+                    'berocket_framework_popup',
+                    plugins_url( '../assets/popup/br_popup.css', __FILE__ ),
+                    array('berocket_framework_popup-animate')
+                );
                 wp_enqueue_script( 'berocket_framework_popup' );
-                wp_enqueue_style( 'berocket_framework_popup' );
                 wp_enqueue_style( 'berocket_framework_popup-animate' );
+                wp_enqueue_style( 'berocket_framework_popup' );
             }
         }
         public function wp_footer2() {

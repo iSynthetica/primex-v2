@@ -7,6 +7,8 @@ if( ! class_exists('BeRocket_AAPF_addon_page_same_as_filter') ) {
             } elseif( $variant == 'leave' ) {
                 add_filter('berocket_aapf_widget_include_exclude_items', array($this, 'leave'), 100, 2);
                 add_filter('berocket_widget_load_template_name', array($this, 'leave_replace_template'), 10, 3);
+                add_filter('BeRocket_AAPF_template_single_item', array($this, 'checkbox_disable'), 10, 4);
+                add_filter('BeRocket_AAPF_template_full_content', array($this, 'select_disable'), 10, 4);
             }
         }
         function remove($terms, $instance) {
@@ -49,6 +51,36 @@ if( ! class_exists('BeRocket_AAPF_addon_page_same_as_filter') ) {
                 }
             }
             return $type;
+        }
+        function checkbox_disable($element, $term, $i, $berocket_query_var_title) {
+            if( $berocket_query_var_title['new_template'] == 'checkbox' && get_queried_object_id() != 0 ) {
+                $queried_object = get_queried_object();
+                if( $term->term_id == $queried_object->term_id ) {
+                    $element = BeRocket_AAPF_dynamic_data_template::create_element_arrays($element, array('attributes', 'class'));
+                    $element['attributes']['class'][] = 'bapf_disabled';
+                    $element['content']['checkbox']['attributes']['disabled'] = 'disabled';
+                    $element['content']['checkbox']['attributes']['checked'] = 'checked';
+                }
+            }
+            return $element;
+        }
+        function select_disable($template_content, $terms, $berocket_query_var_title) {
+            if( $berocket_query_var_title['new_template'] == 'select' && get_queried_object_id() != 0 ) {
+                $queried_object = get_queried_object();
+                if( $queried_object->taxonomy == $berocket_query_var_title['attribute'] ) {
+                    $new_list = array();
+                    foreach($terms as $i => $term) {
+                        if( $term->term_id == $queried_object->term_id ) {
+                            $new_list['element_'.$i] = $template_content['template']['content']['filter']['content']['list']['content']['element_'.$i];
+                        }
+                    }
+                    if( count($new_list) ) {
+                        $template_content['template']['content']['filter']['content']['list']['content'] = $new_list;
+                        $template_content['template']['content']['filter']['content']['list']['attributes']['disabled'] = 'disabled';
+                    }
+                }
+            }
+            return $template_content;
         }
     }
 }

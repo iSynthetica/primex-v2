@@ -669,10 +669,20 @@ if( ! class_exists('BeRocket_conditions') ) {
 
         public static function check_condition_product_stockquantity($show, $condition, $additional) {
             $product = $additional['product'];
-            if( method_exists($product, 'get_stock_quantity') ) {
-                $product_stock = $product->get_stock_quantity('edit');
+            if( method_exists($product, 'get_type') && $product->get_type() == 'variable' ) {
+                $variations = $product->get_available_variations();
+                $product_stock = 0;
+                foreach($variations as $variation){
+                    $variation_id = $variation['variation_id'];
+                    $variation_obj = new WC_Product_variation($variation_id);
+                    $product_stock += intval($variation_obj->get_stock_quantity('edit'));
+                }
             } else {
-                $product_stock = $product->stock;
+                if( method_exists($product, 'get_stock_quantity') ) {
+                    $product_stock = $product->get_stock_quantity('edit');
+                } else {
+                    $product_stock = $product->stock;
+                }
             }
             $backorder = true;
             if( ! empty($condition['backorder']) && $condition['backorder'] != 'any' ) {

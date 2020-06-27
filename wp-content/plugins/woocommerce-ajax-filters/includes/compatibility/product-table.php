@@ -19,6 +19,7 @@ class BeRocket_AAPF_compat_product_table {
         && ( function_exists( 'Barn2\Plugin\WC_Product_Table\wc_product_table' ) || (function_exists( 'wc_product_table' ) && version_compare(WC_Product_Table_Plugin::VERSION, '2.1.3', '>')) ) ) {
             add_filter('aapf_localize_widget_script', array( __CLASS__, 'aapf_localize_widget_script' ));
             add_action( 'wc_product_table_get_table', array( __CLASS__, 'wc_product_table_get_table' ), 10, 1 );
+            add_action( 'wp_footer', array( __CLASS__, 'set_scripts' ), 9000 );
             self::not_ajax_functions();
             $wcpt_shortcode_defaults = get_option('wcpt_shortcode_defaults');
             $wcpt_shortcode_defaults['berocket_ajax'] = '1';
@@ -49,7 +50,14 @@ class BeRocket_AAPF_compat_product_table {
     }
     public static function aapf_localize_widget_script($localize) {
         $localize['products_holder_id'] .= ( empty($localize['products_holder_id']) ? '' : ', ' ) . '.berocket_product_table_compat';
-        $localize['user_func']['after_update'] = 'if( typeof(jQuery(".berocket_product_table_compat .wc-product-table").productTable) == "function" && ! jQuery(".berocket_product_table_compat > .dataTables_wrapper").length ) {jQuery(".berocket_product_table_compat .wc-product-table").productTable();}' . $localize['user_func']['after_update'];
         return $localize;
+    }
+    public static function set_scripts() {
+        $html = '<script>function bapf_barn2_product_table_reinit() {
+            try {
+                if( typeof(jQuery(".berocket_product_table_compat .wc-product-table").productTable) == "function" && ! jQuery(".berocket_product_table_compat > .dataTables_wrapper").length ) {jQuery(".berocket_product_table_compat .wc-product-table").productTable();}
+            } catch(err){}
+        };jQuery(document).on("berocket_ajax_products_loaded", bapf_barn2_product_table_reinit);</script>';
+        echo $html;
     }
 }

@@ -15,20 +15,13 @@ class BeRocket_AAPF_display_filters_selected_area_type extends BeRocket_AAPF_dis
         parent::init();
     }
     public static function return_html($html, $additional) {
-        $br_options = self::get_option();
-        $style = br_get_value_from_array($additional, array('args', 'widget_inline_style'));
-        $set_query_var_title = array(
-            'title'          => $additional['options']['title'],
-            'uo'             => br_aapf_converter_styles( (empty($br_options['styles']) ? NULL : $br_options['styles']) ),
-            'is_hide_mobile' => ( empty($additional['options']['is_hide_mobile']) ? '' : $additional['options']['is_hide_mobile'] ),
-            'selected_area_show' => $additional['options']['selected_area_show'],
-            'hide_selected_arrow' => $additional['options']['hide_selected_arrow'],
-            'selected_is_hide' => $additional['options']['selected_is_hide'],
-            'style'             => $style,
-        );
-        set_query_var( 'berocket_query_var_title', $set_query_var_title );
+        $set_query_var_title = $additional['set_query_var_title'];
         ob_start();
-        br_get_template_part( 'widget_selected_area' );
+        if( ! empty($set_query_var_title['new_template']) ) {
+            $set_query_var_title = apply_filters('berocket_query_var_title_before_element', $set_query_var_title, $additional);
+            set_query_var( 'berocket_query_var_title', $set_query_var_title);
+            br_get_template_part('elements/'.$set_query_var_title['new_template']);
+        }
         return ob_get_clean();
     }
 }

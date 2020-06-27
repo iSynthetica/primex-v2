@@ -20,9 +20,6 @@ body.hide_scroll {
 	animation-fill-mode: none;
 	animation-play-state: running;
 }
-#br_popup.animated {
-    opacity: 0;
-}
 #br_popup .br_popup_wrapper {
 	max-height: 100%;
 	max-width: 100%;
@@ -50,9 +47,6 @@ body.hide_scroll {
 	animation-direction: normal;
 	animation-fill-mode: none;
 	animation-play-state: running;
-}
-#br_popup .br_popup_wrapper .popup_animation.animated {
-    opacity: 0;
 }
 #br_popup .br_popup_close {
 	position: absolute;

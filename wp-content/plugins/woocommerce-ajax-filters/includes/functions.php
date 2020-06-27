@@ -420,16 +420,7 @@ if( ! function_exists( 'br_aapf_args_parser' ) ){
 
         if ( ! empty($_POST['terms']) ) {
             foreach ( $_POST['terms'] as $post_key => $t ) {
-                if ( $t[4] == 'tag' && ! $br_options['tags_custom'] ) {
-                    if ( $tags ) {
-                        if ( $t[2] == 'OR' ) {
-                            $tags .= ',';
-                        } else {
-                            $tags .= '+';
-                        }
-                    }
-                    $tags .= $t[3];
-                } elseif ( $t[4] == 'attribute' && $t[0] != 'product_cat' && $t[0] != 'product_tag' ) {
+                if ( $t[4] == 'attribute' && $t[0] != 'product_cat' && $t[0] != 'product_tag' ) {
                     $taxonomies[ $t[0] ][]        = br_aapf_args_parser_check_terms($t[0], $t[1]);
                     $taxonomies_operator[ $t[0] ] = $t[2];
                 } elseif ( taxonomy_exists( $t[0] ) ) {
@@ -456,7 +447,7 @@ if( ! function_exists( 'br_aapf_args_parser' ) ){
                     $current_tax_query = array();
                     $current_tax_query['relation'] = $op;
                     $include_children = false;
-                    if( $k == 'product_cat' ) {
+                    if( in_array($k, array('product_cat', 'berocket_brand')) ) {
                         $include_children = true;
                     }
                     foreach($v as $v_i) {
@@ -547,21 +538,26 @@ if( ! function_exists( 'br_aapf_args_converter' ) ) {
     function br_aapf_args_converter($query) {
         $br_options = BeRocket_AAPF::get_aapf_option();
         do_action('br_aapf_args_converter_before', $query);
-        if( empty($br_options['seo_uri_decode']) ) {
-            $_GET['filters'] = urlencode($_GET['filters']);
-            $_GET['filters'] = str_replace('+', urlencode('+'), $_GET['filters']);
-            $_GET['filters'] = urldecode($_GET['filters']);
+        if(! empty($_GET['filters'])) {
+            if( empty($br_options['seo_uri_decode']) ) {
+                $_GET['filters'] = urlencode($_GET['filters']);
+                $_GET['filters'] = str_replace('+', urlencode('+'), $_GET['filters']);
+                $_GET['filters'] = urldecode($_GET['filters']);
+            }
         }
+        $filters_string = apply_filters('brapf_args_converter_get_string', (empty($_GET['filters']) ? '' : $_GET['filters']), $br_options, $query);
         $_POST['terms'] = array();
         $_POST['add_terms'] = array();
         $_POST['limits'] = array();
         $_POST['price'] = array();
         $_POST['price_ranges'] = array();
         $filters = array();
-        if ( ! empty($_GET['filters' ]) && preg_match( "~\|~", $_GET['filters'] ) ) {
-            $filters = explode( "|", $_GET['filters'] );
-        } elseif( ! empty($_GET['filters' ]) ) {
-            $filters[0] = $_GET['filters'];
+        if( empty($filters_string) ) {
+            $filters = array();
+        } elseif ( preg_match( "~\|~", $filters_string ) ) {
+            $filters = explode( "|", $filters_string );
+        } elseif( $filters_string ) {
+            $filters[0] = $filters_string;
         }
 
         global $br_url_parser_middle_result;
@@ -633,10 +629,6 @@ if( ! function_exists( 'br_aapf_args_converter' ) ) {
                         break;
                     case 'slider':
                         list( $min, $max ) = explode( "_", $value );
-                        if( $attribute == '_date' ) {
-                            $min = substr($min, 0, 2).'/'.substr($min, 2, 2).'/'.substr($min, 4, 4);
-                            $max = substr($max, 0, 2).'/'.substr($max, 2, 2).'/'.substr($max, 4, 4);
-                        }
                         $operator = '';
                         break;
                     case 'price_range':
@@ -2117,7 +2109,7 @@ if ( ! function_exists( 'br_filters_old_wc_compatible' ) ) {
                 $query_vars = array();
             }
 
-            $query_vars[ 'posts__in' ] = apply_filters( 'loop_shop_post_in', array() );
+            $query_vars[ 'posts__in' ] = apply_filters( 'bapf_loop_shop_post_in', array() );
             $br_old_wp_query           = $query_vars;
         }
 
@@ -2241,6 +2233,16 @@ if ( ! function_exists( 'br_filters_query' ) ) {
         if ( ! empty( $post__in ) ) {
             $query[ 'where' ] .= " AND {$wpdb->posts}.ID IN (\"" . implode( '","', $post__in ) . "\")";
         }
+        if( $has_new_function ) {
+            $author = $WC_Query_get_main_query->get('author');
+            if( empty($author) ) {
+                $author = false;
+            }
+            if( $author != false ) {
+                $query['where'] .= " AND {$wpdb->posts}.post_author IN ({$author})";
+            }
+        }
+        
         /*if( function_exists('wc_get_product_visibility_term_ids') ) {
             $product_visibility_term_ids = wc_get_product_visibility_term_ids();
             $query[ 'where' ] .= " AND ( {$wpdb->posts}.ID NOT IN (SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id='" . $product_visibility_term_ids[ 'exclude-from-catalog' ] . "') ) ";
@@ -2293,7 +2295,7 @@ if( ! function_exists('berocket_add_filter_to_link') ) {
             $url_string,
             $query_string,
             $filters
-        ) );
+        ), $current_url );
 
         if ( empty( $options[ 'seo_uri_decode' ] ) ) {
             $filters = urlencode( $filters );
@@ -2304,18 +2306,21 @@ if( ! function_exists('berocket_add_filter_to_link') ) {
         if ( substr( $attribute, 0, 3 ) == 'pa_' ) {
             $attribute = substr( $attribute, 3 );
         }
-
-        if ( strpos( '|' . $filters, '|' . $attribute . '[' ) === false ) {
-            $filters      = ( empty( $filters ) ? '' : $filters . '|' ) . $attribute . '[' . implode( ( $slider ? '_' : ( $operator == 'OR' ? '-' : '+' ) ), $values ) . ']';
-            $filter_array = explode( '|', $filters );
+        $strip_symbols = apply_filters('brapf_TEMP_generate_url_strip_symbols', array('filters' => '|', 'before_val' => '[', 'after_val' => ']'));
+        $regex = '#(([^'.preg_quote($strip_symbols['filters']).']+?)'.preg_quote($strip_symbols['before_val']).'(.+?)'.preg_quote($strip_symbols['after_val']).')'.preg_quote($strip_symbols['filters']).'#';
+        
+        if ( strpos( $strip_symbols['filters'] . $filters, $strip_symbols['filters'] . $attribute . $strip_symbols['before_val'] ) === false ) {
+            $filters      = (( empty( $filters ) ? '' : $filters . $strip_symbols['filters'] ) . $attribute . $strip_symbols['before_val'] . implode( ( $slider ? '_' : ( $operator == 'OR' ? '-' : '+' ) ), $values ) . $strip_symbols['after_val']);
+            preg_match_all( $regex, $filters.$strip_symbols['filters'], $matches );
+            $filter_array = apply_filters('brapf_TEMP_generate_url_explode_filters', $matches[1], $filters);
         } else {
-            $filter_array = explode( '|', $filters );
+            preg_match_all( $regex, $filters.$strip_symbols['filters'], $matches );
+            $filter_array = apply_filters('brapf_TEMP_generate_url_explode_filters', $matches[1], $filters);
             global $br_url_parser_middle_result;
 
             foreach ( $filter_array as $filter_str_i => $filter_str ) {
-                if ( strpos( $filter_str, $attribute . '[' ) !== false ) {
-                    $filter_str = str_replace($attribute.'[', '', $filter_str);
-                    $filter_str = str_replace(']', '', $filter_str);
+                if ( strpos( $filter_str, $attribute . $strip_symbols['before_val'] ) !== false ) {
+                    $filter_str = str_replace(array($attribute.$strip_symbols['before_val'], $strip_symbols['after_val']), array('', ''), $filter_str);
                     if ( $slider ) {
                         $implode    = '_';
                         $filter_str = '';
@@ -2351,7 +2356,7 @@ if( ! function_exists('berocket_add_filter_to_link') ) {
                     }
 
                     if ( count( $filter_values ) ) {
-                        $filter_str                    = $attribute . '[' . implode( $implode, $filter_values ) . ']';
+                        $filter_str                    = $attribute . $strip_symbols['before_val'] . implode( $implode, $filter_values ) . $strip_symbols['after_val'];
                         $filter_array[ $filter_str_i ] = $filter_str;
                     } else {
                         unset( $filter_array[ $filter_str_i ] );
@@ -2362,13 +2367,12 @@ if( ! function_exists('berocket_add_filter_to_link') ) {
             }
         }
 
-        $implode = '|';
-        list( $filter_array, $implode ) = apply_filters( 'berocket_add_filter_to_link_filters_str', array(
+        list( $filter_array, $strip_symbols['filters'] ) = apply_filters( 'berocket_add_filter_to_link_filters_str', array(
             $filter_array,
-            $implode
+            $strip_symbols['filters']
         ) );
 
-        $filters = implode( $implode, $filter_array );
+        $filters = implode( $strip_symbols['filters'], $filter_array );
         list( $url_string, $query_string, $filters ) = apply_filters( 'berocket_add_filter_to_link_implode', array(
             $url_string,
             $query_string,
@@ -2382,7 +2386,6 @@ if( ! function_exists('berocket_add_filter_to_link') ) {
         if ( ! empty( $filters ) ) {
             $url_string = add_query_arg( 'filters', $filters, $url_string );
         }
-
         return $url_string;
     }
 }
@@ -2543,13 +2546,14 @@ if( ! function_exists('br_generate_child_relation') ) {
 }
 
 if ( ! function_exists('berocket_format_number') ) {
-    function berocket_format_number( $number, $format = false ) {
-        if ( ! $format ) {
-            $BeRocket_AAPF = BeRocket_AAPF::getInstance();
-            $br_options    = $BeRocket_AAPF->get_option();
-            $format        = $br_options['number_style'];
+    function berocket_format_number( $number, &$format = false ) {
+        if( ! isset($format) || ! is_array($format) ) {
+            $format = array(
+                'thousand_separate' =>wc_get_price_thousand_separator(), 
+                'decimal_separate'  => wc_get_price_decimal_separator(), 
+                'decimal_number'    => wc_get_price_decimals()
+            );
         }
-
         return number_format( $number, $format['decimal_number'], $format['decimal_separate'], $format['thousand_separate']);
     }
 }
@@ -2574,5 +2578,146 @@ if( ! function_exists('berocket_aapf_get_filter_types') ) {
             'tag_cloud' => array('value' => 'tag_cloud', 'text' => 'Tag cloud'),
         );
         return apply_filters( 'berocket_admin_filter_types_by_attr', array($berocket_admin_filter_types, $berocket_admin_filter_types_by_attr), $type );
+    }
+}
+if( ! function_exists('braapf_get_loader_element') ) {
+    function braapf_get_loader_element() {
+        $loader = array(
+            'template' => array(
+                'type'          => 'tag',
+                'tag'           => 'div',
+                'attributes'    => array(
+                    'class'     => array(
+                        'bapf_loader_page'
+                    ),
+                ),
+                'content' => array(
+                    'container' => array(
+                        'type'          => 'tag',
+                        'tag'           => 'div',
+                        'attributes'    => array(
+                            'class'     => array(
+                                'bapf_lcontainer'
+                            ),
+                        ),
+                        'content' => array(
+                            'loader' => array(
+                                'type'          => 'tag',
+                                'tag'           => 'span',
+                                'attributes'    => array(
+                                    'class'     => array(
+                                        'bapf_loader'
+                                    ),
+                                ),
+                                'content' => array(
+                                    'first' => array(
+                                        'type'          => 'tag',
+                                        'tag'           => 'span',
+                                        'attributes'    => array(
+                                            'class'     => array(
+                                                'bapf_lfirst'
+                                            ),
+                                        ),
+                                    ),
+                                    'second' => array(
+                                        'type'          => 'tag',
+                                        'tag'           => 'span',
+                                        'attributes'    => array(
+                                            'class'     => array(
+                                                'bapf_lsecond'
+                                            ),
+                                        ),
+                                    ),
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        );
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $options = $BeRocket_AAPF->get_option();
+        if( ! empty($options['ajax_load_icon']) ) {
+            $loader['template']['content']['container']['content']['loader'] = array(
+                'type'          => 'tag_open',
+                'tag'           => 'img',
+                'attributes'    => array(
+                    'class'     => array(
+                        'bapf_limg'
+                    ),
+                    'src'       => $options['ajax_load_icon'],
+                    'alt'       => __('Loading...', 'BeRocket_AJAX_domain')
+                ),
+            );
+        }
+        if( ! empty($options['ajax_load_text']) && is_array($options['ajax_load_text']) ) {
+            if( ! empty($options['ajax_load_text']['top']) ) {
+                $loader['template']['content']['container']['content']['text_above'] = array(
+                    'type'          => 'tag',
+                    'tag'           => 'span',
+                    'attributes'    => array(
+                        'class'     => array(
+                            'bapf_labove'
+                        ),
+                    ),
+                    'content' => array($options['ajax_load_text']['top'])
+                );
+            }
+            if( ! empty($options['ajax_load_text']['bottom']) ) {
+                $loader['template']['content']['container']['content']['text_below'] = array(
+                    'type'          => 'tag',
+                    'tag'           => 'span',
+                    'attributes'    => array(
+                        'class'     => array(
+                            'bapf_lbelow'
+                        ),
+                    ),
+                    'content' => array($options['ajax_load_text']['bottom'])
+                );
+            }
+            if( ! empty($options['ajax_load_text']['left']) ) {
+                $loader['template']['content']['container']['content']['text_before'] = array(
+                    'type'          => 'tag',
+                    'tag'           => 'span',
+                    'attributes'    => array(
+                        'class'     => array(
+                            'bapf_lbefore'
+                        ),
+                    ),
+                    'content' => array($options['ajax_load_text']['left'])
+                );
+            }
+            if( ! empty($options['ajax_load_text']['right']) ) {
+                $loader['template']['content']['container']['content']['text_after'] = array(
+                    'type'          => 'tag',
+                    'tag'           => 'span',
+                    'attributes'    => array(
+                        'class'     => array(
+                            'bapf_lafter'
+                        ),
+                    ),
+                    'content' => array($options['ajax_load_text']['right'])
+                );
+            }
+        }
+        return BeRocket_AAPF_Template_Build($loader);
+    }
+}
+if( ! function_exists('braapf_is_filters_displayed_debug') ) {
+    function braapf_is_filters_displayed_debug($id, $type, $status, $message) {
+        if( BeRocket_AAPF::$user_can_manage ) {
+            $temp = BeRocket_AAPF::$current_page_filters;
+            if( ! in_array($id, $temp['added']) ) {
+                $temp['added'][] = $id;
+                if( ! isset($temp[$type]) || ! is_array($temp[$type]) ) {
+                    $temp[$type] = array();
+                }
+                if( ! isset($temp[$type][$status]) || ! is_array($temp[$type][$status]) ) {
+                    $temp[$type][$status] = array();
+                }
+                $temp[$type][$status][$id] = $message;
+            }
+            BeRocket_AAPF::$current_page_filters = $temp;
+        }
     }
 }

@@ -5,9 +5,9 @@ if( ! class_exists('BeRocket_tooltip_display') ) {
         public static $load_tippy = false;
         function __construct() {
             add_action('wp_footer', array($this, 'wp_footer'), 9);
-            add_action('wp_footer', array($this, 'wp_footer2'), 90000);
+            add_action('wp_footer', array($this, 'wp_footer2'), 900000000);
             add_action('admin_footer', array($this, 'wp_footer'), 9);
-            add_action('admin_footer', array($this, 'wp_footer2'), 90000);
+            add_action('admin_footer', array($this, 'wp_footer2'), 900000000);
         }
         public static function include_assets() {
             self::$load_tippy = true;

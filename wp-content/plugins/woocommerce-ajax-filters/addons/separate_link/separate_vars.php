@@ -3,8 +3,10 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
     function __construct() {
         parent::__construct();
         if( ! is_admin() ) {
-            add_filter('berocket_aapf_is_filtered_page_check', array($this, 'php_parse_inside_test'));
+            add_filter('brapf_args_converter_get_string', array($this, 'php_parse_inside_filters'), 9000000);
+            add_filter('berocket_aapf_is_filtered_page_check', array($this, 'php_parse_inside_test'), 9000000);
             add_action('wp_footer', array($this, 'js_footer_new_func'));
+            add_action( 'braapf_wp_enqueue_script_after', array($this, 'js_generate_new'), 10, 1 );
         }
         $BeRocket_AAPF = BeRocket_AAPF::getInstance();
         $option = $BeRocket_AAPF->get_option();
@@ -12,6 +14,7 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
         if( ! empty( $option['use_links_filters'] ) ) {
             add_action( 'current_screen', array( $this, 'register_permalink_option' ), 50 );
         }
+        add_filter('aapf_localize_widget_script', array($this, 'localize_widget_script'), 900);
     }
     function register_permalink_option() {
         global $wp_settings_sections;
@@ -22,6 +25,9 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
     function brfr_data($data) {
         if( isset($data['SEO']['nice_urls']) ) {
             unset($data['SEO']['nice_urls']);
+        }
+        if( isset($data['SEO']['seo_uri_decode']) ) {
+            unset($data['SEO']['seo_uri_decode']);
         }
         $data['SEO']['default_operator_and'] = array(
                                 "label"     => __( 'Default operator for URLs', "BeRocket_AJAX_domain" ),
@@ -342,6 +348,13 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
     }
     function php_parse_inside_test($isset) {
         $link_data = $this->php_parse(array());
+        if( ! empty($link_data['taxonomy']) && is_array($link_data['taxonomy']) && count($link_data['taxonomy']) ) {
+            return true;
+        }
+        return $isset;
+    }
+    function php_parse_inside_filters($base_filters) {
+        $link_data = $this->php_parse(array());
         $filters = array();
         if( ! empty($link_data['taxonomy']) && is_array($link_data['taxonomy']) ) {
             foreach($link_data['taxonomy'] as $taxonomy) {
@@ -354,10 +367,9 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
         }
         if( count($filters) ) {
             $filters = implode('|', $filters);
-            $_GET['filters'] = $filters;
-            return true;
+            return $filters;
         }
-        return $isset;
+        return $base_filters;
     }
     function php_parse_inside($data, $args = array()) {
         $link_data = $this->get_query_vars_name();
@@ -436,6 +448,102 @@ class BeRocket_AAPF_lp_separate_vars extends BeRocket_AAPF_link_parser {
             }
         }
         return $link_data;
+    }
+    function js_generate_new($handle) {
+        if( $handle == 'berocket_aapf_widget-script' ) {
+            ob_start();
+            ?>
+//Link Like Woocommerce
+var braapf_get_current_filters_separate_link,
+braapf_glue_by_operator_separate_link,
+braapf_set_filters_to_link_separate_link,
+braapf_compat_filters_to_string_single_separate_link,
+braapf_compat_filters_result_separate_link;
+(function ($){
+    braapf_get_current_filters_separate_link = function(url_data) {
+        var new_queryargs = [];
+        var filters = '';
+        $.each(url_data.queryargs, function(i, val) {
+            if(val.name.substring(0, 3) == 'pa-') {
+                if( filters === '' ) {
+                    filters = '';
+                } else {
+                    filters = filters+'&';
+                }
+                filters = filters+val.name+'='+val.value;
+            } else {
+                new_queryargs.push(val);
+            }
+        });
+        url_data.filter = filters;
+        url_data.queryargs = new_queryargs;
+        return url_data;
+    }
+    braapf_glue_by_operator_separate_link = function(glue) {
+        return ',';
+    }
+    braapf_compat_filters_result_separate_link = function(filter, val) {
+        var operator_string = '';
+        if( typeof(val.operator) != 'undefined' && val.operator != the_ajax_script.default_operator ) {
+            
+            if( val.operator == 'slidr' ) {
+                var two_values = filter.values.split('_');
+                if( typeof(two_values[0]) != 'undefined' && typeof(two_values[1]) != 'undefined' ) {
+                    filter.val_from = 'pa-'+filter.taxonomy+'_from='+two_values[0];
+                    filter.val_to = 'pa-'+filter.taxonomy+'_to='+two_values[1];
+                }
+            } else {
+                operator_string = 'pa-'+filter.taxonomy+'_operator='+val.operator;
+            }
+        }
+        filter.operator = operator_string;
+        return filter;
+    }
+    braapf_compat_filters_to_string_single_separate_link = function(single_string, val, compat_filters, filter_mask, glue_between_taxonomy) {
+        if( typeof( val.val_from ) != 'undefined' ) {
+            single_string = val.val_from+'&'+ val.val_to;
+        } else if( val.operator.length ) {
+            single_string = single_string+'&'+val.operator;
+        }
+        return single_string;
+    }
+    braapf_set_filters_to_link_separate_link = function(url, url_data, parameters, url_without_query, query_get) {
+        if(url_data.filter.length) {
+            if( query_get.length ) {
+                query_get = '&'+query_get;
+            }
+            query_get = url_data.filter+query_get;
+            url = url_without_query+'?'+query_get;
+        }
+        return url;
+    }
+})(jQuery);
+berocket_remove_filter('get_current_url_data', braapf_get_current_filters);
+berocket_remove_filter('url_from_urldata_linkget', braapf_set_filters_to_link);
+
+//Remove filters
+berocket_add_filter('get_current_url_data', braapf_get_current_filters_separate_link);
+//Add filters
+berocket_add_filter('glue_by_operator', braapf_glue_by_operator_separate_link, 1);
+berocket_add_filter('compat_filters_result_single', braapf_compat_filters_result_separate_link, 20);
+berocket_add_filter('compat_filters_to_string_single', braapf_compat_filters_to_string_single_separate_link);
+berocket_add_filter('url_from_urldata_linkget', braapf_set_filters_to_link_separate_link);
+            <?php
+            $script = ob_get_clean();
+            wp_add_inline_script('berocket_aapf_widget-script', $script);
+            remove_action('wp_footer', array($this, 'js_footer_new_func'));
+            remove_action( 'braapf_wp_enqueue_script_after', array($this, 'js_generate_new'), 10, 1 );
+        }
+    }
+    function localize_widget_script($localization) {
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $options = $BeRocket_AAPF->get_option();
+        $localization['url_mask'] = 'pa-%t%=%v%';
+        $localization['url_split'] = '&';
+        $localization['nice_url'] = '';
+        $localization['seo_uri_decode'] = '';
+        $localization['default_operator'] = (empty($options['default_operator_and']) ? 'OR' : 'AND');
+        return $localization;
     }
 }
 new BeRocket_AAPF_lp_separate_vars();

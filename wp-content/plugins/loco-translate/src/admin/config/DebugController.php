@@ -102,8 +102,21 @@ class Loco_admin_config_DebugController extends Loco_admin_config_BaseController
         // Ajaxing:
         $this->enqueueScript('debug');
         $this->set( 'js', new Loco_mvc_ViewParams( array (
-            'nonces' => array( 'ping' => wp_create_nonce('ping') ),
+            'nonces' => array( 'ping' => wp_create_nonce('ping'), 'apis' => wp_create_nonce('apis') ),
         ) ) );
+        
+        // Third party API integrations:
+        $apis = array();
+        $jsapis = array();
+        foreach( Loco_api_Providers::export() as $api ){
+            $apis[] = new Loco_mvc_ViewParams($api);
+            $jsapis[] = $api;
+        }
+        if( $apis ){
+            $this->set('apis',$apis);
+            $jsconf = $this->get('js');
+            $jsconf['apis'] = $jsapis;
+        }
         
         // File system access
         $dir = new Loco_fs_Directory( loco_constant('LOCO_LANG_DIR') ) ;
@@ -142,6 +155,11 @@ class Loco_admin_config_DebugController extends Loco_admin_config_BaseController
             if( get_magic_quotes_runtime() ){
                 Loco_error_AdminNotices::add( new Loco_error_Debug('You have "magic_quotes_runtime" enabled. We recommend you disable this in PHP') );
             }
+        }
+        
+        // alert to third party plugins known to interfere with functioning of this plugin
+        if( class_exists('\\LocoAutoTranslateAddon\\LocoAutoTranslate',false) ){
+            Loco_error_AdminNotices::add( new Loco_error_Warning('Unoffical add-ons for Loco Translate may affect functionality. We cannot provide support when third party products are installed.') );
         }
 
         return $this->view('admin/config/debug', compact('breadcrumb','versions','encoding','memory','fs','debug') );

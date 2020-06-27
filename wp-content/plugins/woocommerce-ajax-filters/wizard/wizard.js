@@ -515,7 +515,7 @@ function berocket_wizard_autoselector_end_error() {
     }
     jQuery('.berocket_autoselector').prop('disabled', false);
     BeRocket_set_autoselector_load_position(100);
-    jQuery('.berocket_autoselector_load .berocket_autoselector_action').text('Error: '+$('.berocket_autoselector_load .berocket_autoselector_action').text());
+    jQuery('.berocket_autoselector_load .berocket_autoselector_action').text('Error: '+jQuery('.berocket_autoselector_load .berocket_autoselector_action').text());
     jQuery('.berocket_autoselect_spin').hide();
     jQuery('.berocket_autoselector_load .berocket_line').css('background-color', '#bb3333');
     jQuery('.berocket_autoselect_error').show();

@@ -1,7 +1,6 @@
 <wpml-config>  
     <admin-texts>
         <key name="br_filters_options">
-            <key name="no_products_message" />
             <key name="ub_product_text" />
             <key name="ub_product_button_text" />
             <key name="ajax_load_text">

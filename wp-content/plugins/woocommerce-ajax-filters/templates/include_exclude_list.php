@@ -17,7 +17,7 @@
 </div>
 </div>
 <script>
-    jQuery(document).ready(function() {
+    if( typeof(brjsf_accordion) == 'function' ) {
         brjsf_accordion(jQuery( ".br_accordion" ));
-    });
+    }
 </script>

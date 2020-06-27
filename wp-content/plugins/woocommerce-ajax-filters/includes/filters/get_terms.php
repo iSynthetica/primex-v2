@@ -48,22 +48,32 @@ class BeRocket_AAPF_get_terms {
             'depth'                 => 0,
             'operator'              => 'OR',
             'additional_tax_query'  => false,
+            'disable_recount'       => false,
         ), $additional), $args);
         if( empty($args['taxonomy']) || is_array($args['taxonomy']) ) {
             return get_terms($args);
         }
+        if( ! empty($args['taxonomy']) && is_array($args['taxonomy']) && count($args['taxonomy']) == 1 ) {
+            $args['taxonomy'] = array_pop($args['taxonomy']);
+        }
         $terms = self::filter_terms_for_current_pages($args, $additional);
+        if( ! empty($args['taxonomy']) && is_array($args['taxonomy']) && count($args['taxonomy']) == 1 ) {
+            $args['taxonomy'] = array_pop($args['taxonomy']);
+        }
         if( empty($terms) || is_wp_error($terms) || empty($args['taxonomy']) || is_array($args['taxonomy']) ) {
-            return $terms;
+            return apply_filters("berocket_aapf_get_terms_filter_after_not_correct", $terms, $args, $additional);
         }
         $terms = apply_filters("berocket_aapf_get_terms_filter_after", $terms, $args, $additional);
+        
         return $terms;
     }
     public static function get_terms_for_all_pages($args = array(), $additional = array()) {
         $md5_cache = md5(json_encode($additional).json_encode($args));
         $terms = self::get_cache('term_before_recount', $md5_cache, $args['taxonomy']);
         if( empty($terms) ) {
+            $taxonomy = $args['taxonomy'];
             $terms = get_terms($args);
+            $args['taxonomy'] = $taxonomy;
             if( ! empty($terms) && ! is_wp_error($terms) ) {
                 $terms = apply_filters("berocket_aapf_get_terms_filter", $terms, $args, $additional);
             }
@@ -89,6 +99,12 @@ class BeRocket_AAPF_get_terms {
                     $array_sort[] = floatval($term->name);
                 }
                 array_multisort($array_sort, SORT_ASC, SORT_NUMERIC, $terms);
+            } elseif( $additional['orderby'] == 'slug' || $additional['orderby'] == 'slug_num' ) {
+                $array_sort = array();
+                foreach($terms as $term) {
+                    $array_sort[] = floatval($term->slug);
+                }
+                array_multisort($array_sort, (berocket_isset($args['order']) == 'DESC'? SORT_DESC : SORT_ASC), ($additional['orderby'] == 'slug_num' ? SORT_NUMERIC : SORT_STRING), $terms);
             }
         }
         return $terms;
@@ -148,6 +164,7 @@ class BeRocket_AAPF_get_terms {
         return $terms;
     }
     public static function prepared_data($terms, $args = array(), $additional = array()) {
+        if( ! empty($additional['disable_recount']) ) return $terms;
         if( ! isset(self::$prepared_data['wc_query_data']) ) {
             self::$prepared_data['wc_query_data'] = array();
         }
@@ -181,6 +198,7 @@ class BeRocket_AAPF_get_terms {
         return $terms;
     }
     public static function show_all_values($terms, $args = array(), $additional = array()) {
+        if( ! empty($additional['disable_recount']) ) return $terms;
         $post__in = berocket_isset(self::$prepared_data['wc_query_data']['post__in'], false);
         $post__not_in = berocket_isset(self::$prepared_data['wc_query_data']['post__not_in'], false);
         $terms = apply_filters('berocket_aapf_recount_terms_apply', $terms, array(
@@ -197,6 +215,7 @@ class BeRocket_AAPF_get_terms {
         return $terms;
     }
     public static function hide_empty($terms, $args = array(), $additional = array()) {
+        if( ! empty($additional['disable_recount']) ) return $terms;
         foreach($terms as $term_id => $term) {
             if( $term->count == 0 ) {
                 unset($terms[$term_id]);
@@ -205,6 +224,7 @@ class BeRocket_AAPF_get_terms {
         return $terms;
     }
     public static function recount_products($terms, $args = array(), $additional = array()) {
+        if( ! empty($additional['disable_recount']) ) return $terms;
         $post__in = self::$prepared_data['wc_query_data']['post__in'];
         $post__not_in = self::$prepared_data['wc_query_data']['post__not_in'];
         $terms = apply_filters('berocket_aapf_recount_terms_apply', $terms, array(

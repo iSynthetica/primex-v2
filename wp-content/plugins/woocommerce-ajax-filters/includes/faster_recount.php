@@ -1,22 +1,22 @@
 <?php
 class BeRocket_AAPF_faster_attribute_recount {
     function __construct() {
-        add_filter('berocket_aapf_recount_terms_apply', array($this, 'recount_terms'), 10, 2);
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'search_query'), 50, 3);
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'date_query'), 60, 3);
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'wpml_query'), 70, 3);
+        add_filter('berocket_aapf_recount_terms_apply', array(__CLASS__, 'recount_terms'), 10, 2);
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'search_query'), 50, 3);
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'date_query'), 60, 3);
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'wpml_query'), 70, 3);
         //Child terms include for hierarchical taxonomy
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'child_include'), 50, 3);
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'child_include'), 50, 3);
         //Stock Status custom recount
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'stock_status_query'), 20, 3);
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'stock_status_query'), 20, 3);
         //Sale Status custom recount
-        add_filter('berocket_aapf_recount_terms_query', array($this, 'onsale_query'), 20, 3);
-        add_action('plugins_loaded', array($this, 'plugins_loaded'));
+        add_filter('berocket_aapf_recount_terms_query', array(__CLASS__, 'onsale_query'), 20, 3);
+        add_action('plugins_loaded', array(__CLASS__, 'plugins_loaded'));
     }
-    function plugins_loaded() {
-        do_action('berocket_aapf_recount_terms_initialized', $this);
+    static function plugins_loaded() {
+        do_action('berocket_aapf_recount_terms_initialized', __CLASS__);
     }
-    function recount_terms($terms = FALSE, $taxonomy_data = array()) {
+    static function recount_terms($terms = FALSE, $taxonomy_data = array()) {
         $taxonomy_data = apply_filters('berocket_recount_taxonomy_data', array_merge(array(
             'taxonomy'      => '',
             'operator'      => 'OR',
@@ -31,12 +31,12 @@ class BeRocket_AAPF_faster_attribute_recount {
         global $braapf_recount_taxonomy_data;
         $braapf_recount_taxonomy_data = $taxonomy_data;
         do_action('berocket_term_recount_before_action', $terms, $taxonomy_data);
-        $result = $this->recount_terms_without_prepare($terms, $taxonomy_data);
+        $result = self::recount_terms_without_prepare($terms, $taxonomy_data);
         do_action('berocket_term_recount_after_action', $terms, $taxonomy_data);
         $braapf_recount_taxonomy_data = FALSE;
         return $result;
     }
-    function recount_terms_without_prepare($terms = FALSE, $taxonomy_data = array()) {
+    static function recount_terms_without_prepare($terms = FALSE, $taxonomy_data = array()) {
         if( BeRocket_AAPF::$debug_mode ) {
             if( empty(BeRocket_AAPF::$error_log['faster_recount_sql']) || ! is_array(BeRocket_AAPF::$error_log['faster_recount_sql']) ) {
                 BeRocket_AAPF::$error_log['faster_recount_sql'] = array();
@@ -45,7 +45,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         extract($taxonomy_data);
         global $wpdb;
         if( $terms === FALSE ) {
-            $terms = $this->get_terms($taxonomy);
+            $terms = self::get_terms($taxonomy);
         }
         if( empty($terms) || is_wp_error($terms) ) {
             if( BeRocket_AAPF::$debug_mode ) {
@@ -54,14 +54,35 @@ class BeRocket_AAPF_faster_attribute_recount {
             }
             return array();
         }
-        if( $tax_query === FALSE ) {
-            $tax_query  = WC_Query::get_main_tax_query();
-        }
-        if( $meta_query === FALSE ) {
-            $meta_query = WC_Query::get_main_meta_query();
+        $wc_main_query = WC_Query::get_main_query();
+        $author = false;
+        if( ! empty($wc_main_query) ) {
+            if( $tax_query === FALSE ) {
+                $tax_query  = WC_Query::get_main_tax_query();
+            }
+            if( $meta_query === FALSE ) {
+                $meta_query = WC_Query::get_main_meta_query();
+            }
+            $author = $wc_main_query->get('author');
+            if( empty($author) ) {
+                $author = false;
+            }
         }
         if( strtoupper($operator) == 'OR' || ! $use_filters ) {
-            $tax_query = $this->remove_all_berocket_tax_query($tax_query, ($use_filters ? $taxonomy : FALSE));
+            $tax_query = apply_filters(
+                'berocket_aapf_recount_remove_all_berocket_tax_query', 
+                self::remove_all_berocket_tax_query($tax_query, ($use_filters ? $taxonomy : FALSE)),
+                $terms,
+                $taxonomy_data,
+                $tax_query
+            );
+            $meta_query = apply_filters(
+                'berocket_aapf_recount_remove_all_berocket_meta_query', 
+                $meta_query,
+                $terms,
+                $taxonomy_data,
+                $meta_query
+            );
         }
         if( ! empty($taxonomy_data['additional_tax_query']) ) {
             if( empty($tax_query) ) {
@@ -92,7 +113,7 @@ class BeRocket_AAPF_faster_attribute_recount {
                 'select'    => "SELECT", 
                 'elements'  => array(
                     'term_count'    => "COUNT( DISTINCT {$wpdb->posts}.ID ) as term_count",
-                    'term_count_id' => "term_relationships.term_taxonomy_id as term_count_id",
+                    'term_count_id' => "MAX(term_relationships.term_taxonomy_id) as term_count_id",
                 ),
             ),
             'from'  => "FROM {$wpdb->posts}",
@@ -111,6 +132,9 @@ class BeRocket_AAPF_faster_attribute_recount {
             ),
             'group_by' => 'GROUP BY term_relationships.term_taxonomy_id',
         );
+        if( $author != false ) {
+            $query['where']['author'] = "AND {$wpdb->posts}.post_author IN ({$author})";
+        }
         $query             = apply_filters('berocket_aapf_recount_terms_query', $query, $taxonomy_data, $terms);
         $query['select']['elements']= implode(', ', $query['select']['elements']);
         $query['select']   = implode(' ', $query['select']);
@@ -132,8 +156,8 @@ class BeRocket_AAPF_faster_attribute_recount {
                 $term->count   = (isset($result[$term->term_taxonomy_id]) ? $result[$term->term_taxonomy_id] : 0);
             }
             $terms             = apply_filters('berocket_terms_after_recount', $terms, $query, $result);
-            if( ! $use_filters ) {
-                br_set_cache(md5(json_encode($taxonomy_data)), $terms, 'berocket_recount', DAY_IN_SECONDS);
+            if( apply_filters('berocket_recount_cache_use', (! $use_filters), $taxonomy_data) ) {
+                br_set_cache(md5(json_encode($query_imploded)), $terms, 'berocket_recount', DAY_IN_SECONDS);
             }
         } else {
             $terms = $terms_cache;
@@ -146,7 +170,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return apply_filters('berocket_terms_recount_return', $terms, $taxonomy_data, $query_imploded);
     }
-    function child_include($query, $taxonomy_data, $terms) {
+    static function child_include($query, $taxonomy_data, $terms) {
         global $wpdb;
         extract($taxonomy_data);
         if( $include_child ) {
@@ -171,17 +195,20 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $query;
     }
-    function search_query($query, $taxonomy_data, $terms) {
+    static function search_query($query, $taxonomy_data, $terms) {
         extract($taxonomy_data);
         if( ! empty($use_filters) ) {
-            $search = WC_Query::get_main_search_query_sql();
-            if ( $search ) {
-                $query['where']['search'] = 'AND ' . $search;
+            $wc_main_query = WC_Query::get_main_query();
+            if( ! empty($wc_main_query) ) {
+                $search = WC_Query::get_main_search_query_sql();
+                if ( $search ) {
+                    $query['where']['search'] = 'AND ' . $search;
+                }
             }
         }
         return $query;
     }
-    function date_query($query, $taxonomy_data, $terms) {
+    static function date_query($query, $taxonomy_data, $terms) {
         global $wpdb;
         extract($taxonomy_data);
         if( ! empty($use_filters) ) {
@@ -205,7 +232,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $query;
     }
-    function wpml_query($query, $taxonomy_data, $terms) {
+    static function wpml_query($query, $taxonomy_data, $terms) {
         global $wpdb;
         extract($taxonomy_data);
         if( defined( 'WCML_VERSION' ) && defined('ICL_LANGUAGE_CODE') ) {
@@ -214,7 +241,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $query;
     }
-    function remove_all_berocket_tax_query($tax_query, $taxonomy = FALSE, $inside = FALSE ) {
+    static function remove_all_berocket_tax_query($tax_query, $taxonomy = FALSE, $inside = FALSE ) {
         global $wpdb;
         if( is_array($tax_query) ) {
             $md5_exist = array();
@@ -228,7 +255,7 @@ class BeRocket_AAPF_faster_attribute_recount {
                     $md5_exist[] = md5(json_encode($value));
                 }
                 if( array_key_exists('relation', $value) ) {
-                    $value = $this->remove_all_berocket_tax_query($value, $taxonomy, true);
+                    $value = self::remove_all_berocket_tax_query($value, $taxonomy, true);
                     if( $value === FALSE ) {
                         unset($tax_query[$key]);
                     } else {
@@ -244,7 +271,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $tax_query;
     }
-    function get_all_taxonomies($taxonomy = FALSE) {
+    static function get_all_taxonomies($taxonomy = FALSE) {
         if( empty($taxonomy) ) {
             $attributes = wc_get_attribute_taxonomies();
             $taxonomy = array();
@@ -256,16 +283,16 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $taxonomy;
     }
-    function get_terms($taxonomy) {
+    static function get_terms($taxonomy) {
         if( ! empty($taxonomy) ) {
             $terms = get_terms(array('taxonomy' => $taxonomy) );
         } else {
-            $taxonomy = $this->get_all_taxonomies();
+            $taxonomy = self::get_all_taxonomies();
             $terms = get_terms(array('taxonomy' => $taxonomy) );
         }
         return $terms;
     }
-    function stock_status_query($query, $taxonomy_data, $terms) {
+    static function stock_status_query($query, $taxonomy_data, $terms) {
         global $wpdb;
         extract($taxonomy_data);
         if( $taxonomy == '_stock_status' ) {
@@ -284,7 +311,7 @@ class BeRocket_AAPF_faster_attribute_recount {
         }
         return $query;
     }
-    function onsale_query($query, $taxonomy_data, $terms) {
+    static function onsale_query($query, $taxonomy_data, $terms) {
         global $wpdb;
         extract($taxonomy_data);
         if( $taxonomy == '_sale' ) {

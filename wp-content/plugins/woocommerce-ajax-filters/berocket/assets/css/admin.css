@@ -1523,3 +1523,7 @@
 .br_framework_settings input[type=week]{
     padding: 0 0 0 2px;
 }
+.br_label_for {
+    display: inline-block;
+    margin-left: 10px;
+}

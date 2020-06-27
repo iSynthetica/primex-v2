@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-30 14:51:08+0000\n"
+"PO-Revision-Date: 2020-06-18 12:47:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "В корзине нет комментариев."
 msgid "File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s."
 msgstr "Файл пуст. Пожалуйста загрузите что-то более существенное. Эта ошибка также может проявляться при отключении загрузки файлов в %1$s или при определении %2$s менее чем в %3$s в %1$s."
 
-#: wp-admin/includes/class-wp-site-health.php:2296
+#: wp-admin/includes/class-wp-site-health.php:2302
 msgid "A test is unavailable"
 msgstr "Тест недоступен"
 
@@ -996,7 +996,7 @@ msgstr "Расширения PHP выполняют многие задачи н
 
 #: wp-admin/includes/dashboard.php:1739
 msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance."
-msgstr "PHP — язык программирования, на основе которого создан WordPress. Новые версии PHP и быстрее и безопаснее, поэтому обновление будет иметь положительный эффект для производительности сайта."
+msgstr "PHP — язык программирования, на основе которого создан WordPress. Новые версии PHP и быстрее и безопаснее, поэтому обновление окажет положительный эффект на производительность сайта."
 
 #: wp-admin/includes/class-wp-site-health.php:1352
 msgid "Get help resolving this issue."
@@ -2800,7 +2800,7 @@ msgid "Privacy Policy Page"
 msgstr "Страница политики конфиденциальности"
 
 #. translators: %s: Page title.
-#: wp-admin/includes/misc.php:1385
+#: wp-admin/includes/misc.php:1408
 msgid "%s (Draft)"
 msgstr "%s (Черновик)"
 
@@ -6065,7 +6065,7 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
 #. those are placeholders.
-#: wp-admin/includes/misc.php:1306
+#: wp-admin/includes/misc.php:1329
 msgid ""
 "Howdy ###USERNAME###,\n"
 "\n"
@@ -7634,7 +7634,7 @@ msgid "You cannot move this item to the Trash. %s is currently editing."
 msgstr "Вы не можете переместить этот элемент в корзину. Его сейчас редактирует %s."
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1075
+#: wp-admin/includes/misc.php:1098
 msgid "%s has taken over and is currently editing."
 msgstr "%s перехватил и сейчас редактирует этот материал."
 
@@ -7688,7 +7688,7 @@ msgid "The Documentation menu below the editor lists the PHP functions recognize
 msgstr "В меню &laquo;Документация&raquo; под редактором перечислены все функции, обнаруженные в файле плагина. При нажатии на кнопку &laquo;Поиск&raquo; откроется веб-страница с информацией об этой функции."
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1025
+#: wp-admin/includes/misc.php:1048
 #: wp-admin/includes/class-wp-posts-list-table.php:1003
 msgid "%s is currently editing"
 msgstr "%s сейчас редактирует этот материал"
@@ -8433,7 +8433,7 @@ msgstr[2] "Приостановленные <span class=\"count\">(%s)</span>"
 
 #. translators: New admin email address notification email subject. %s: Site
 #. title.
-#: wp-admin/includes/misc.php:1359
+#: wp-admin/includes/misc.php:1382
 msgid "[%s] New Admin Email Address"
 msgstr "[%s] Новый адрес администратора"
 
@@ -10970,7 +10970,7 @@ msgstr "Доступные виджеты"
 msgid "Error in displaying the widget settings form."
 msgstr "Ошибка при отображении формы настроек виджета."
 
-#: wp-admin/includes/misc.php:1195 wp-admin/includes/post.php:1941
+#: wp-admin/includes/misc.php:1218 wp-admin/includes/post.php:1941
 #: wp-admin/widgets.php:378
 msgid "Error while saving."
 msgstr "Ошибка при сохранении."
@@ -11113,7 +11113,7 @@ msgstr "Имя"
 msgid "Enable keyboard shortcuts for comment moderation."
 msgstr "Использовать горячие клавиши для проверки комментариев."
 
-#: wp-admin/includes/misc.php:924 wp-admin/user-edit.php:295
+#: wp-admin/includes/misc.php:947 wp-admin/user-edit.php:295
 msgid "Admin Color Scheme"
 msgstr "Цветовая схема"
 
@@ -13950,12 +13950,12 @@ msgid "Someone"
 msgstr "Кто-то"
 
 #. translators: %s: Date and time.
-#: wp-admin/includes/misc.php:1203
+#: wp-admin/includes/misc.php:1226
 msgid "Draft saved at %s."
 msgstr "Черновик сохранён в %s."
 
 #. translators: Draft saved date format, see https://www.php.net/date
-#: wp-admin/includes/misc.php:1199
+#: wp-admin/includes/misc.php:1222
 msgid "g:i:s a"
 msgstr "H:i:s"
 

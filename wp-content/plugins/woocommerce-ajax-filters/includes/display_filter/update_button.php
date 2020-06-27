@@ -11,16 +11,20 @@ class BeRocket_AAPF_display_filters_update_button_type extends BeRocket_AAPF_dis
         parent::init();
     }
     public static function return_html($html, $additional) {
-        $br_options = self::get_option();
-        $set_query_var_title = array(
-            'title'          => $additional['options']['title'],
-            'uo'             => br_aapf_converter_styles( (empty($br_options['styles']) ? NULL : $br_options['styles']) ),
-            'is_hide_mobile' => ( empty($additional['options']['is_hide_mobile']) ? '' : $additional['options']['is_hide_mobile'] )
-        );
-        set_query_var( 'berocket_query_var_title', $set_query_var_title );
+        $set_query_var_title = $additional['set_query_var_title'];
         ob_start();
-        br_get_template_part( 'widget_update_button' );
+        if( ! empty($set_query_var_title['new_template']) ) {
+            add_filter('BeRocket_AAPF_template_full_element_content', array(__CLASS__, 'add_button_class'), 1, 2);
+            $set_query_var_title = apply_filters('berocket_query_var_title_before_element', $set_query_var_title, $additional);
+            set_query_var( 'berocket_query_var_title', $set_query_var_title);
+            br_get_template_part('elements/'.$set_query_var_title['new_template']);
+            remove_filter('BeRocket_AAPF_template_full_element_content', array(__CLASS__, 'add_button_class'), 1, 2);
+        }
         return ob_get_clean();
+    }
+    public static function add_button_class($template_content, $berocket_query_var_title) {
+        $template_content['template']['content']['filter']['content']['button']['attributes']['class']['main'] = 'bapf_update';
+        return $template_content;
     }
 }
 new BeRocket_AAPF_display_filters_update_button_type();

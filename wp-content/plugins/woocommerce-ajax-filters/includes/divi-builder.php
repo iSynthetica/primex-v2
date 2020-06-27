@@ -2,6 +2,7 @@
 function berocket_filter_et_builder_ready() {
     if( class_exists('ET_Builder_Module') ) {
         class ET_Builder_Module_br_filter_single extends ET_Builder_Module {
+            public $vb_support = 'partial';
             function init() {
                 $this->name       = __( 'Single Filter', 'BeRocket_AJAX_domain' );
                 $this->slug       = 'et_pb_br_filter_single';
@@ -35,7 +36,10 @@ function berocket_filter_et_builder_ready() {
             function render( $atts, $content = null, $function_name ) {
                 $html = '';
                 if( ! empty($atts['filter_id']) ) {
-                    $html = do_shortcode('[br_filter_single filter_id='.$atts['filter_id'].']');
+                    $html .= trim(do_shortcode('[br_filter_single filter_id='.$atts['filter_id'].']'));
+                }
+                if(empty($html) && defined('DOING_AJAX') && berocket_isset($_REQUEST['action']) == 'et_fb_ajax_render_shortcode') {
+                    $html .= '<h3 style="background-color:gray;color:white;">'.__('BeRocket Filter', 'BeRocket_AJAX_domain').'</h3>';
                 }
 
                 return $html;
@@ -55,6 +59,7 @@ function berocket_filter_et_builder_ready() {
         }
         new ET_Builder_Module_br_filter_single;
         class ET_Builder_Module_br_filters_group extends ET_Builder_Module {
+            public $vb_support = 'partial';
             function init() {
                 $this->name       = __( 'Group Filter', 'BeRocket_AJAX_domain' );
                 $this->slug       = 'et_pb_br_filters_group';
@@ -88,7 +93,10 @@ function berocket_filter_et_builder_ready() {
             function render( $atts, $content = null, $function_name ) {
                 $html = '';
                 if( ! empty($atts['group_id']) ) {
-                    $html = do_shortcode('[br_filters_group group_id='.$atts['group_id'].']');
+                    $html .= trim(do_shortcode('[br_filters_group group_id='.$atts['group_id'].']'));
+                }
+                if(empty($html) && defined('DOING_AJAX') && berocket_isset($_REQUEST['action']) == 'et_fb_ajax_render_shortcode') {
+                    $html .= '<h3 style="background-color:gray;color:white;">'.__('BeRocket Filter', 'BeRocket_AJAX_domain').'</h3>';
                 }
 
                 return $html;

@@ -17,18 +17,18 @@ class BeRocket_framework_settings_fields {
         add_filter('berocket_framework_item_content_products', array($this, 'products'), 10, 6);
     }
     function text($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= '<label>' . $field_item['label_be_for']
+        $html .= '<label>' . '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>'
               . '<input type="text" name="' . $field_name
               . '" value="' . htmlentities($value) . '"' . $class . $extra . '/>'
-              . $field_item['label_for'] . '</label>';
+              . '<span class="br_label_for">' . $field_item['label_for'] . '</span></label>';
         return $html;
     }
     function number($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= '<label>' . $field_item['label_be_for']
+        $html .= '<label>' . '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>'
               . '<input type="number" name="' . $field_name
               . '" value="' . $value . '"' . $class . $extra
               . ( empty($field_item['min']) ? '' : ' min="' . $field_item['min'] . '"' ) . ( empty($field_item['max']) ? '' : ' max="' . $field_item['max'] . '"' ) . '/>'
-              . $field_item['label_for'] . '</label>';
+              . '<span class="br_label_for">' . $field_item['label_for'] . '</span></label>';
         return $html;
     }
     function radio($html, $field_item, $field_name, $value, $class, $extra, $option_values, $option_deault_values) {
@@ -50,7 +50,7 @@ class BeRocket_framework_settings_fields {
         return $html;
     }
     function selectbox($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= '<label>' . $field_item['label_be_for']
+        $html .= '<label>' . '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>'
              . '<select name="' . $field_name
              . '"' . $class . $extra . '>';
         if ( isset($field_item['options']) and is_array($field_item['options']) and count( $field_item['options'] ) ) {
@@ -62,45 +62,45 @@ class BeRocket_framework_settings_fields {
         } else {
             $html .= "<option>Options data is corrupted!</option>";
         }
-        $html .= '</select>' . $field_item['label_for'] . '</label>';
+        $html .= '</select>' . '<span class="br_label_for">' . $field_item['label_for'] . '</span></label>';
         return $html;
     }
     function textarea($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'] . '<textarea name="' . $field_name
-              . '"' . $class . $extra . '>'. htmlentities($value) . '</textarea>' . $field_item['label_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>' . '<textarea name="' . $field_name
+              . '"' . $class . $extra . '>'. htmlentities($value) . '</textarea>' . '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
     function color($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>';
         if( empty($value) ) {
             $value = $field_item['value'];
         }
         $html .= br_color_picker( $field_name, $value, ( isset($field_item['value']) ? $field_item['value'] : '' ), $field_item);
-        $html .= $field_item['label_for'];
+        $html .= '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
     function image($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>';
         $html .= br_upload_image( $field_name, $value, $field_item);
-        $html .= $field_item['label_for'];
+        $html .= '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
     function faimage($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>';
         $html .= br_fontawesome_image( $field_name, $value, $field_item);
-        $html .= $field_item['label_for'];
+        $html .= '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
     function fontawesome($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>';
         $html .= br_select_fontawesome( $field_name, $value, $field_item);
-        $html .= $field_item['label_for'];
+        $html .= '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
     function products($html, $field_item, $field_name, $value, $class, $extra) {
-        $html .= $field_item['label_be_for'];
+        $html .= '<span class="br_label_be_for">' . $field_item['label_be_for'] . '</span>';
         $html .= br_products_selector( $field_name, $value, $field_item);
-        $html .= $field_item['label_for'];
+        $html .= '<span class="br_label_for">' . $field_item['label_for'] . '</span>';
         return $html;
     }
 }
