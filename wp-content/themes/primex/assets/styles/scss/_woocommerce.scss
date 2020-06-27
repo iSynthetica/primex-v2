@@ -268,3 +268,11 @@ table.woocommerce-grouped-product-list {
         height: auto;
     }
 }
+
+#product-modal-desc {
+    .modal-header {
+        .product-price {
+            text-align: right;
+        }
+    }
+}

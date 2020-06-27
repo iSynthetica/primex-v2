@@ -28542,6 +28542,9 @@ table.woocommerce-grouped-product-list {
 .wpgs--with-images img {
   height: auto; }
 
+#product-modal-desc .modal-header .product-price {
+  text-align: right; }
+
 .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li {
   margin-bottom: 0.375rem; }
   .berocket_aapf_widget-wrapper ul.berocket_aapf_widget > li .berocket_label_widgets {

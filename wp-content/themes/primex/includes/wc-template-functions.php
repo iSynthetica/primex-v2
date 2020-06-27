@@ -137,9 +137,14 @@ function snth_wc_template_loop_quick_view() {
     <div class="modal-content" style="display: none;">
 
         <div class="modal-header">
-            <div class="row">
-                <div class="col-12">
+            <div class="row" style="width: 100%;">
+                <div class="col-12 col-md-6">
                     <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'product-price' ) );?>">
+                        <?php echo $product->get_price_html(); ?>
+                    </div>
                 </div>
             </div>
 
