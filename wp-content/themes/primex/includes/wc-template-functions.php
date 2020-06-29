@@ -138,13 +138,8 @@ function snth_wc_template_loop_quick_view() {
 
         <div class="modal-header">
             <div class="row" style="width: 100%;">
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <h4 class="modal-title" id="myModalLabel"><?php echo $post->post_title; ?></h4>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'product-price' ) );?>">
-                        <?php echo $product->get_price_html(); ?>
-                    </div>
                 </div>
             </div>
 
@@ -182,6 +177,10 @@ function snth_wc_template_loop_quick_view() {
                 <div class="col-12 col-md-6">
                     <div class="woocommerce-product-details__short-description">
                         <?php echo $short_description; // WPCS: XSS ok. ?>
+                    </div>
+
+                    <div class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'product-price' ) );?>">
+                        <?php echo $product->get_price_html(); ?>
                     </div>
                     <?php woocommerce_template_loop_add_to_cart(); ?>
                 </div>
