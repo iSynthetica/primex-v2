@@ -65,6 +65,27 @@ class Woo_All_In_One_Coupon_Public_Ajax {
             $data[sanitize_text_field($form_data['name'])] = $form_data['value'];
         }
 
+        if (!empty($data["recaptchaResponse"])) {
+            $recaptchaResponse = $data["recaptchaResponse"];
+
+            unset($data["recaptchaResponse"]);
+
+            // call curl to POST request
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => GRC_V3_SKEY, 'response' => $recaptchaResponse)));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $arrResponse = json_decode($response, true);
+
+            if (!empty($arrResponse['score']) && $arrResponse['score'] < 0.5) {
+                $response = array('messageHtml' => wooaiocoupon_get_form_messages(array(__("Sorry, your behaivour is bot like. We can't generate coupon.", 'woo-all-in-one-coupon')), 'error'));
+                wooaio_ajax_response('error', $response);
+            }
+        }
+
         $validation = Woo_All_In_One_Coupon_Form::validate_form($data);
 
         if (!empty($validation['error'])) {

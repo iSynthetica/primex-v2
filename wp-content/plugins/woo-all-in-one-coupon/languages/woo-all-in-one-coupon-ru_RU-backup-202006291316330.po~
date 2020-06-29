@@ -1,23 +1,23 @@
 msgid ""
 msgstr ""
 "Language: ru_RU\n"
-"POT-Creation-Date: 2020-02-12 17:07+0000\n"
+"POT-Creation-Date: 2020-06-29 13:15+0000\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
-"PO-Revision-Date: 2020-02-12 17:12+0000\n"
+"PO-Revision-Date: 2020-06-29 13:16+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: Woo All In One Coupons\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Synthetica <syntheticafreon@gmail.com>\n"
+"Last-Translator: \n"
 "Language-Team: Русский\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2"
+"X-Loco-Version: 2.4.0; wp-5.4.2"
 
 #: admin/class-woo-all-in-one-coupon-admin-ajax.php:59
 #: public/class-woo-all-in-one-coupon-public-ajax.php:57
-#: includes/lib/Woo_All_In_One_Coupon_Form.php:102
+#: includes/lib/Woo_All_In_One_Coupon_Form.php:106
 msgid "Cheating, huh!!!"
 msgstr "Хотите нас обмануть?"
 
@@ -34,17 +34,21 @@ msgstr "Купоны"
 msgid "Submit"
 msgstr "Отправить"
 
-#: public/class-woo-all-in-one-coupon-public-ajax.php:83
+#: public/class-woo-all-in-one-coupon-public-ajax.php:84
+msgid "Sorry, your behaivour is bot like. We can't generate coupon."
+msgstr ""
+
+#: public/class-woo-all-in-one-coupon-public-ajax.php:104
 msgid "Thank you, please check your email."
 msgstr "Спасибо, проверьте Вашу электронную почту."
 
-#: public/class-woo-all-in-one-coupon-public-ajax.php:88
+#: public/class-woo-all-in-one-coupon-public-ajax.php:109
 msgid "We can't generate coupon right now, please try again later."
 msgstr "Мы не можем сгенерировать купон сейчас, попробуйте сделать это позже."
 
 #: admin/partials/woo-all-in-one-coupon-admin-display.php:17
 msgid "Woocommerce Coupons"
-msgstr ""
+msgstr "Купоны Woocommerce"
 
 #: admin/partials/content-coupon-edit.php:8
 msgid "Coupon settings"
@@ -86,7 +90,11 @@ msgstr "Любой у кого есть код купона"
 msgid "Form description"
 msgstr "Описание для показа в форме"
 
-#: admin/partials/content-coupon-edit.php:82
+#: admin/partials/content-coupon-edit.php:75
+msgid "Email description"
+msgstr ""
+
+#: admin/partials/content-coupon-edit.php:91
 msgid "Update"
 msgstr "Сохранить"
 
@@ -112,7 +120,7 @@ msgctxt "default email subject for emails sent to the customer"
 msgid "[%s] - Your discount coupon"
 msgstr "[%s] - Ваш купон на скидку"
 
-#: templates/emails/wc-customer-coupon-request.php:20
+#: templates/emails/wc-customer-coupon-request.php:19
 #: templates/emails/plain/wc-customer-coupon-request.php:14
 msgid "Coupon Code"
 msgstr "Код купона"

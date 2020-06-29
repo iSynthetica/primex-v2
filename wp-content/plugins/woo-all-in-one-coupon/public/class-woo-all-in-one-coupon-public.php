@@ -71,10 +71,16 @@ class Woo_All_In_One_Coupon_Public {
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-all-in-one-coupon-public.js', array( 'jquery' ), $this->version, true );
 
-        wp_localize_script( $this->plugin_name, 'wooaiocouponJsObj', array(
+		$localize_array = array(
             'ajaxurl'       => admin_url( 'admin-ajax.php' ),
             'nonce'         => wp_create_nonce( 'snth_nonce' )
-        ) );
+        );
+
+		if (defined('GRC_V3_KEY')) {
+            $localize_array['grcV3Key'] = GRC_V3_KEY;
+        }
+
+        wp_localize_script( $this->plugin_name, 'wooaiocouponJsObj',  $localize_array);
 	}
 
 	public function add_shortcodes() {

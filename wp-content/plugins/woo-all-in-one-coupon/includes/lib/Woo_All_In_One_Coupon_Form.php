@@ -23,25 +23,29 @@ class Woo_All_In_One_Coupon_Form {
         $fields = Woo_All_In_One_Coupon_Form::get_form_fields();
         ob_start();
         ?>
+        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo GRC_V3_KEY; ?>"></script>
         <div class="wooaiocoupon_form_container">
             <form class="wooaioservice_form">
                 <?php do_action('wooaiocoupon_form_before_fields'); ?>
+                <div class="wooaiocoupon_fields_holder">
+                    <?php
+                    foreach ( $fields as $key => $field ) {
+                        $value = '';
 
-                <?php
-                foreach ( $fields as $key => $field ) {
-                    $value = '';
+                        if (!empty($fields_values[$key]['value'])) {
+                            $value = $fields_values[$key]['value'];
+                        }
 
-                    if (!empty($fields_values[$key]['value'])) {
-                        $value = $fields_values[$key]['value'];
+                        woocommerce_form_field( $key, $field, $value );
                     }
-
-                    woocommerce_form_field( $key, $field, $value );
-                }
-                ?>
+                    ?>
+                </div>
 
                 <?php do_action('wooaiocoupon_form_after_fields'); ?>
 
-                <?php wooaiocoupon_form_description_container($coupon_rule); ?>
+                <div class="wooaiocoupon_description_holder">
+                    <?php wooaiocoupon_form_description_container($coupon_rule); ?>
+                </div>
 
                 <?php wooaiocoupon_form_messages_container(); ?>
 
