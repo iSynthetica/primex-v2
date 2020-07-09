@@ -16,7 +16,8 @@ class BeRocket_AAPF_display_filters_reset_button_type extends BeRocket_AAPF_disp
         $set_query_var_title = array(
             'title'          => $additional['options']['title'],
             'uo'             => br_aapf_converter_styles( (empty($br_options['styles']) ? NULL : $br_options['styles']) ),
-            'is_hide_mobile' => ( empty($additional['options']['is_hide_mobile']) ? '' : $additional['options']['is_hide_mobile'] )
+            'is_hide_mobile' => ( empty($additional['options']['is_hide_mobile']) ? '' : $additional['options']['is_hide_mobile'] ),
+            'custom_css'     => berocket_isset($css_class),
         );
         set_query_var( 'berocket_query_var_title', $set_query_var_title );
         ob_start();

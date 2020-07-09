@@ -10,6 +10,9 @@
 .hide_products .berocket_aapf_widget_loading{
     -webkit-filter: none; -moz-filter: none; -o-filter: none; -ms-filter: none; filter: none;
 }
+.hide_products {
+    position:relative;
+}
 
 .berocket_aapf_widget .berocket_label_widgets{
     display: inline;
@@ -535,7 +538,7 @@ ul.berocket_aapf_widget li > span label:hover{
     z-index: 10000;
 }
 .berocket_aapf_widget_loading .berocket_aapf_widget_loading_image{
-    background: transparent url('../images/ajax-loader.gif') no-repeat center center;
+    background: transparent url('images/ajax-loader.gif') no-repeat center center;
     display: inline-block;
     float: left;
     height: 30px;
@@ -789,6 +792,7 @@ ul.berocket_aapf_widget li.berocket_tag_cloud_element > span label
     cursor: pointer;
 }
 @media only screen and (max-device-width: 767px) {
+    .bapf_sngl_hd_mobile,
     .berocket_aapf_hide_mobile {
         display: none !important;
     }

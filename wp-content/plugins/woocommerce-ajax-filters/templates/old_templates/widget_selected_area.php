@@ -1,5 +1,5 @@
 <?php extract($berocket_query_var_title); ?>
-<div class="<?php echo ( ! empty($is_hooked) ? 'berocket_aapf_selected_area_hook' : 'berocket_aapf_widget-wrapper' ); ?> berocket_aapf_selected_area_block">
+<div class="<?php echo ( ! empty($is_hooked) ? 'berocket_aapf_selected_area_hook' : 'berocket_aapf_widget-wrapper' ); ?> berocket_aapf_selected_area_block<?php if( ! empty($custom_css) ) echo ' '.esc_html($custom_css); ?>">
     <?php if ( empty($is_hooked) ) { ?>
     <div class="berocket_aapf_widget-title_div<?php if ( ! empty($is_hide_mobile) ) echo ' berocket_aapf_hide_mobile' ?>">
         <?php if ( empty($hide_selected_arrow) ) { ?>

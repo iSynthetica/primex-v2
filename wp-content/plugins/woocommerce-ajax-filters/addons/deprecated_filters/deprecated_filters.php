@@ -29,6 +29,11 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
         add_filter( 'brfr_data_ajax_filters', array($this, 'plugin_settings_page'), 50) ;
         add_filter( 'brfr_ajax_filters_old_design', array($this, 'section_old_design'), 50, 3) ;
         add_filter( 'ajax_filters_get_template_part', array($this, 'deprecated_template_get'), 10, 2 );
+        add_filter( 'aapf_localize_widget_script', array($this, 'js_data_fix'), 9000000 );
+        add_action( 'bapf_search_button_meta_box', array($this, 'search_box_settings'), 10, 2 );
+        add_filter( 'berocket_aapf_group_before_all', array($this, 'search_box_before_group_start'), 11, 2 );
+        add_filter( 'berocket_aapf_group_after_all', array($this, 'search_box_after_group_end'), 9, 2 );
+        add_filter( 'BeRocket_AAPF_getall_Template_Styles', array($this, 'remove_new_templates'), 9000000 );
         update_option('braapf_new_filters_converted', false);
     }
     function wp() {
@@ -73,6 +78,10 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
         wp_deregister_style('berocket_aapf_widget-style');
         wp_register_script( 'berocket_aapf_widget-script', plugins_url( 'widget.min.js', __FILE__ ), array( 'jquery', 'jquery-ui-slider', 'jquery-ui-datepicker' ), BeRocket_AJAX_filters_version );
         wp_register_style ( 'berocket_aapf_widget-style', plugins_url( 'widget.css', __FILE__ ), "", BeRocket_AJAX_filters_version );
+        add_action('wp_footer', array($this, 'footer_css'));
+    }
+    public function footer_css() {
+        $this->br_custom_user_css();
     }
     public function selected_area() {
         $set_query_var_title = array();
@@ -194,7 +203,8 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
         return $html;
     }
     function br_custom_user_css() {
-        $options     = $this->get_option();
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $options     = $BeRocket_AAPF->get_option();
         $replace_css = array(
             '#widget#'       => '.berocket_aapf_widget',
             '#widget-title#' => '.berocket_aapf_widget-title'
@@ -216,7 +226,7 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
             $result_css .= 'ul.berocket_aapf_widget li > span > input[type="checkbox"] + .berocket_label_widgets:before {display:inline-block;}';
             $result_css .= '.berocket_aapf_widget input[type="checkbox"] {display: none;}';
         }
-        $add_css = $this->convert_styles_to_string($options['styles_input']['checkbox']);
+        $add_css = $BeRocket_AAPF->convert_styles_to_string($options['styles_input']['checkbox']);
         if( ! empty($add_css) ) {
             $result_css .= 'ul.berocket_aapf_widget li > span > input[type="checkbox"] + .berocket_label_widgets:before {'.$add_css.'}';
         }
@@ -229,7 +239,7 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
             $result_css .= 'ul.berocket_aapf_widget li > span > input[type="radio"] + .berocket_label_widgets:before {display:inline-block;}';
             $result_css .= '.berocket_aapf_widget input[type="radio"] {display: none;}';
         }
-        $add_css = $this->convert_styles_to_string($options['styles_input']['radio']);
+        $add_css = $BeRocket_AAPF->convert_styles_to_string($options['styles_input']['radio']);
         if( ! empty($add_css) ) {
             $result_css .= 'ul.berocket_aapf_widget li > span > input[type="radio"] + .berocket_label_widgets:before {' . $add_css . '}';
         }
@@ -402,15 +412,17 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
             $result_css .= $options['styles_input']['pc_ub']['close_font_color_hover'].';';
             $result_css .= '}';
         }
-        $add_css = $this->convert_styles_to_string($options['styles_input']['onlyTitle_title']);
+        $add_css = $BeRocket_AAPF->convert_styles_to_string($options['styles_input']['onlyTitle_title']);
         if( ! empty($add_css) ) {
-            $result_css .= 'div.berocket_single_filter_widget.berocket_hidden_clickable .berocket_aapf_widget-title_div {'.$add_css.'}';
+            $result_css .= 'div.berocket_single_filter_widget.berocket_hidden_clickable .berocket_aapf_widget-title_div,
+            div.berocket_single_filter_widget.berocket_hidden_clickable .berocket_aapf_widget-title_div span {'.$add_css.'}';
         }
-        $add_css = $this->convert_styles_to_string($options['styles_input']['onlyTitle_titleopened']);
+        $add_css = $BeRocket_AAPF->convert_styles_to_string($options['styles_input']['onlyTitle_titleopened']);
         if( ! empty($add_css) ) {
-            $result_css .= 'div.berocket_single_filter_widget.berocket_hidden_clickable.berocket_single_filter_visible .berocket_aapf_widget-title_div {'.$add_css.'}';
+            $result_css .= 'div.berocket_single_filter_widget.berocket_hidden_clickable.berocket_single_filter_visible .berocket_aapf_widget-title_div,
+            div.berocket_single_filter_widget.berocket_hidden_clickable.berocket_single_filter_visible .berocket_aapf_widget-title_div span {'.$add_css.'}';
         }
-        $add_css = $this->convert_styles_to_string($options['styles_input']['onlyTitle_filter']);
+        $add_css = $BeRocket_AAPF->convert_styles_to_string($options['styles_input']['onlyTitle_filter']);
         if( ! empty($add_css) ) {
             $result_css .= 'div.berocket_single_filter_widget.berocket_hidden_clickable .berocket_aapf_widget {'.$add_css.'}';
         }
@@ -439,6 +451,92 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
             }
         }
         return $template;
+    }
+    function js_data_fix($data) {
+        $BeRocket_AAPF = BeRocket_AAPF::getInstance();
+        $br_options = apply_filters( 'berocket_aapf_listener_br_options', $BeRocket_AAPF->get_option() );
+        $data['load_image'] = '<div class="berocket_aapf_widget_loading"><div class="berocket_aapf_widget_loading_container">
+          <div class="berocket_aapf_widget_loading_top">' . ( ! empty( $br_options['ajax_load_text']['top'] ) ? $br_options['ajax_load_text']['top'] : '' ) . '</div>
+          <div class="berocket_aapf_widget_loading_left">' . ( ! empty( $br_options['ajax_load_text']['left'] ) ? $br_options['ajax_load_text']['left'] : '' ) . '</div>' .
+          ( ! empty( $br_options['ajax_load_icon'] ) ? '<img alt="" src="'.$br_options['ajax_load_icon'].'">' : '<div class="berocket_aapf_widget_loading_image"></div>' ) .
+          '<div class="berocket_aapf_widget_loading_right">' . ( ! empty( $br_options['ajax_load_text']['right'] ) ? $br_options['ajax_load_text']['right'] : '' ) . '</div>
+          <div class="berocket_aapf_widget_loading_bottom">' . ( ! empty( $br_options['ajax_load_text']['bottom'] ) ? $br_options['ajax_load_text']['bottom'] : '' ) . '</div>
+          </div></div>';
+        return $data;
+    }
+    function search_box_before_group_start($custom_vars, $filters) {
+        if( ! empty($filters['search_box']) ) {
+            $search_box_style = br_get_value_from_array($filters, 'search_box_style');
+            $search_box_url = br_get_value_from_array($filters, 'search_box_url');
+            $sb_style = '';
+            if ( $search_box_style['position'] == 'horizontal' ) {
+                $sb_count = count($filters['filters']);
+                if( $search_box_style['search_position'] == 'before_after' ) {
+                    $sb_count += 2;
+                } else {
+                    $sb_count++;
+                }
+                $search_box_width = (int)(100 / $sb_count);
+                $sb_style .= 'width:'.$search_box_width.'%;display:inline-block;padding: 4px;';
+            }
+            $search_box_button_class = 'search_box_button_class_'.rand();
+            if ( $search_box_style['search_position'] == 'before' || $search_box_style['search_position'] == 'before_after' ) {
+                echo '<div style="'.$sb_style.'"><a data-url="'.$search_box_url.'" class="'.$search_box_button_class.' berocket_search_box_button">'.$search_box_style['search_text'].'</a></div>';
+            }
+            $custom_vars['search_box_button_class'] = $search_box_button_class;
+        }
+        return $custom_vars;
+    }
+    function search_box_after_group_end($custom_vars, $filters) {
+        extract($custom_vars);
+        if( ! empty($filters['search_box']) ) {
+            if ( $search_box_style['search_position'] == 'after' || $search_box_style['search_position'] == 'before_after' ) {
+                echo '<div style="'.$sb_style.'">
+                <a data-url="'.$search_box_url.'" 
+                class="'.$search_box_button_class.' berocket_search_box_button">
+                '.$search_box_style['search_text'].'</a></div>';
+            }
+        }
+        return $custom_vars;
+    }
+    function search_box_settings($post_name, $filters) {
+        ?>
+        <div>
+            <label><?php _e('Search button position', 'BeRocket_AJAX_domain') ?></label>
+            <select class="br_select_menu_left" name="<?php echo $post_name; ?>[search_box_style][search_position]">
+                <option value="before"<?php if( br_get_value_from_array($filters, array('search_box_style', 'search_position')) == 'before' ) echo ' selected'; ?>><?php _e('Before', 'BeRocket_AJAX_domain') ?></option>
+                <option value="after"<?php if( br_get_value_from_array($filters, array('search_box_style', 'search_position')) == 'after' ) echo ' selected'; ?>><?php _e('After', 'BeRocket_AJAX_domain') ?></option>
+                <option value="before_after"<?php if( br_get_value_from_array($filters, array('search_box_style', 'search_position')) == 'before_after' ) echo ' selected'; ?>><?php _e('Before and after', 'BeRocket_AJAX_domain') ?></option>
+            </select>
+        </div>
+        <div>
+            <label><?php _e('Search button text', 'BeRocket_AJAX_domain') ?></label>
+            <input type="text" class="br_admin_full_size" value="<?php echo br_get_value_from_array($filters, array('search_box_style', 'search_text')); ?>" name="<?php echo $post_name; ?>[search_box_style][search_text]">
+        </div>
+        <div>
+            <label><?php _e('Button background color', 'BeRocket_AJAX_domain') ?></label>
+            <div class="br_colorpicker_field" data-color="<?php echo br_get_value_from_array($filters, array('search_box_style', 'button_background'), '000000'); ?>"></div>
+            <input type="hidden" value="<?php echo br_get_value_from_array($filters, array('search_box_style', 'button_background')) ?>" name="<?php echo $post_name; ?>[search_box_style][button_background]">
+        </div>
+        <div>
+            <label><?php _e('Button background color on mouse over', 'BeRocket_AJAX_domain') ?></label>
+            <div class="br_colorpicker_field" data-color="<?php echo br_get_value_from_array($filters, array('search_box_style', 'button_background_over'), '000000'); ?>"></div>
+            <input type="hidden" value="<?php echo br_get_value_from_array($filters, array('search_box_style', 'button_background_over')) ?>" name="<?php echo $post_name; ?>[search_box_style][button_background_over]">
+        </div>
+        <div>
+            <label><?php _e('Button text color', 'BeRocket_AJAX_domain') ?></label>
+            <div class="br_colorpicker_field" data-color="<?php echo br_get_value_from_array($filters, array('search_box_style', 'text_color'), '000000') ?>"></div>
+            <input type="hidden" value="<?php echo br_get_value_from_array($filters, array('search_box_style', 'text_color')) ?>" name="<?php echo $post_name; ?>[search_box_style][text_color]">
+        </div>
+        <div>
+            <label><?php _e('Button text color on mouse over', 'BeRocket_AJAX_domain') ?></label>
+            <div class="br_colorpicker_field" data-color="<?php echo br_get_value_from_array($filters, array('search_box_style', 'text_color_over'), '000000') ?>"></div>
+            <input type="hidden" value="<?php echo br_get_value_from_array($filters, array('search_box_style', 'text_color_over')) ?>" name="<?php echo $post_name; ?>[search_box_style][text_color_over]">
+        </div>
+        <?php
+    }
+    function remove_new_templates() {
+        return array();
     }
 }
 new BeRocket_aapf_deprecated_compat_addon();

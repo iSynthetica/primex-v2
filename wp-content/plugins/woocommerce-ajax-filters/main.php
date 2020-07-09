@@ -219,7 +219,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
                         self::$error_log['1_settings'] = $option;
                     }
                     add_action( 'admin_init', array($this, 'register_admin_assets'));
-                    add_action( 'init', array($this, 'register_frontend_assets'));
+                    add_action( 'wp', array($this, 'register_frontend_assets'));
 
                     add_action( 'admin_init', array( $this, 'admin_init' ) );
                     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -442,7 +442,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
             "",
             $this->info['version'] );
         wp_register_style( 'berocket_aapf_widget-themes',
-            plugins_url( 'assets/frontend/css/themes.css', __FILE__ ),
+            plugins_url( (self::$concat_enqueue_files ? 'assets/frontend/css/themes.min.css' : 'assets/frontend/css/themes.css'), __FILE__ ),
             "" );
         if( self::$concat_enqueue_files && apply_filters('bapf_isoption_ajax_site', ! empty($option['ajax_site'])) ) {
             wp_register_script( 'berocket_aapf_widget-script',
@@ -476,7 +476,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
         }
     }
     public static function require_all_scripts($old = false) {
-        $scripts = array('berocket_aapf_widget-script', 'berocket_aapf_jquery-slider-fix', 'select2', 'berocket_aapf_widget-scroll-script');
+        $scripts = apply_filters('bapf_require_all_scripts_array', array('berocket_aapf_widget-script', 'berocket_aapf_jquery-slider-fix', 'select2', 'berocket_aapf_widget-scroll-script'), $old);
         foreach($scripts as $script) {
             if( $old ) {
                 wp_enqueue_script( $script );
@@ -1394,7 +1394,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
         return $html;
     }
     public function admin_init () {
-        if(! empty($_GET['settings-updated']) && berocket_isset($_GET['page']) == 'br-product-filters' ) {
+        if(! empty($_GET['settings-updated']) && br_get_value_from_array($_GET,'page') == 'br-product-filters' ) {
             wp_cache_delete($this->values[ 'settings_name' ], 'berocket_framework_option');
             delete_option( 'rewrite_rules' );
             flush_rewrite_rules();
@@ -1920,7 +1920,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
                 $query_vars[ 'post__in' ] = array_merge( $query_vars[ 'post__in' ], wc_get_product_ids_on_sale() );
             }
         }
-        $custom_terms = berocket_isset($_POST['terms']);
+        $custom_terms = br_get_value_from_array($_POST,'terms');
         if( ! empty($atts['attribute']) ) {
             if( ! empty($atts['terms']) ) {
                 $terms = explode(',',$atts['terms']);
@@ -1959,7 +1959,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
         }
         $query_vars['berocket_filtered'] = true;
         $this->save_shortcode_query_vars($query_vars);
-        $query_vars = apply_filters('berocket_filters_query_vars_already_filtered', $query_vars, berocket_isset($_POST['terms']), berocket_isset($_POST['limits_arr']));
+        $query_vars = apply_filters('berocket_filters_query_vars_already_filtered', $query_vars, br_get_value_from_array($_POST,'terms'), br_get_value_from_array($_POST,'limits_arr'));
         return $query_vars;
     }
     public function save_shortcode_query_vars($query_vars) {
@@ -2069,7 +2069,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
                     self::$error_log['8_query_out'] = $query;
                 }
             }
-            $query = apply_filters('berocket_filters_query_already_filtered', $query, berocket_isset($_POST['terms']), berocket_isset($_POST['limits_arr']));
+            $query = apply_filters('berocket_filters_query_already_filtered', $query, br_get_value_from_array($_POST, 'terms'), br_get_value_from_array($_POST, 'limits_arr'));
         }
 
         if ( ( ! is_admin() && $query->is_main_query() ) || $is_shortcode ) {
@@ -2365,9 +2365,11 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
     }
     function custom_user_css($handle) {
         if($handle == 'berocket_aapf_widget-style') {
-            wp_add_inline_style( 'berocket_aapf_widget-style', $this->br_custom_user_css());
-            remove_action('braapf_wp_enqueue_style_after', array($this, 'custom_user_css'), 10, 1);
+            add_action('wp_footer', array($this, 'footer_css'));
         }
+    }
+    public function footer_css() {
+        echo '<style>', $this->br_custom_user_css(), '</style>';
     }
     public function br_custom_user_css() {
         $options     = $this->get_option();

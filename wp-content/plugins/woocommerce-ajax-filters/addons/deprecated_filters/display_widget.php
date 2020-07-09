@@ -277,8 +277,8 @@ class BeRocket_AAPF_Widget {
             $br_widget_ids[] = array('instance' => $instance, 'args' => $args);
         }
 
-        $text_before_price = berocket_isset($instance['text_before_price']);
-        $text_after_price = berocket_isset($instance['text_after_price']);
+        $text_before_price = br_get_value_from_array($instance, 'text_before_price');
+        $text_after_price = br_get_value_from_array($instance, 'text_after_price');
         $text_before_price = apply_filters('aapf_widget_text_before_price', ( isset($text_before_price) ? $text_before_price : '' ) );
         $text_after_price = apply_filters('aapf_widget_text_after_price', ( isset($text_after_price) ? $text_after_price : '' ) );
         if( ! empty($text_before_price) || ! empty($text_after_price) ) {
@@ -645,6 +645,7 @@ class BeRocket_AAPF_Widget {
                 $set_query_var_title['number_style'] = '';
             }
         }
+        $set_query_var_title = apply_filters('berocket_query_var_title_before_widget_deprecated', $set_query_var_title, $type, $instance, $args, $terms);
         set_query_var( 'berocket_query_var_title', $set_query_var_title);
         br_get_template_part( 'old_templates/'.apply_filters('berocket_widget_load_template_name', $type, $instance, (empty($terms) ? '' : $terms)) );
 

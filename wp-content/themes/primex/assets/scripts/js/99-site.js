@@ -2,7 +2,6 @@
     var productImageOwlCarousel;
     var productThumbOwlCarousel;
     var datepicker = $( "input[date='date']" );
-
     $(document.body).on('click', '.product-modal-desc-open', function() {
         var parentQuickView = $(this).parents('.product-quick-view');
         var parentQuickViewContent = parentQuickView.find('.modal-content');
@@ -13,25 +12,13 @@
         $('#product-modal-desc').modal();
     });
 
-    $('#product-modal-desc').on('shown.bs.modal', function (e) {
-        console.log('Shown modal');
-        var descCarousel = $('#product-modal-desc').find('.product-modal-desc-images');
-
-        descCarousel.owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            items:1
-        });
-    })
-
     $(document.body).on('click', "#top-cart-trigger", function(e) {
         $('#page-menu').toggleClass('pagemenu-active', false);
         $('#top-cart').toggleClass('top-cart-open');
         e.stopPropagation();
         e.preventDefault();
 
-    });
+    }); 
 
     $(document.body).on('click', '#woocommerce-product-gallery__thumbnails a', function(e) {
         var sliderIndex = $(this).data('index');

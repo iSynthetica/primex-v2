@@ -949,17 +949,21 @@ berocket_custom_sidebar_open;
         }
     });
     $(document).on('bapf_ocolaps', '.bapf_sfilter.bapf_ocolaps, .bapf_sfilter.bapf_ccolaps', function(e) {
-        $(this).find('.bapf_body').first().show();
         $(this).removeClass('bapf_ocolaps').addClass('bapf_ccolaps');
-        if( $(this).find('.bapf_colaps_smb').length ) {
-            $(this).find('.bapf_colaps_smb').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        if( berocket_apply_filters('colaps_smb_open_apply', true, $(this)) ) {
+            $(this).find('.bapf_body').first().show();
+            if( $(this).find('.bapf_colaps_smb').length ) {
+                $(this).find('.bapf_colaps_smb').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+            }
         }
     });
     $(document).on('bapf_ccolaps', '.bapf_sfilter.bapf_ocolaps, .bapf_sfilter.bapf_ccolaps', function(e) {
-        $(this).find('.bapf_body').first().hide();
         $(this).addClass('bapf_ocolaps').removeClass('bapf_ccolaps');
-        if( $(this).find('.bapf_colaps_smb').length ) {
-            $(this).find('.bapf_colaps_smb').addClass('fa-chevron-down').removeClass('fa-chevron-up');
+        if( berocket_apply_filters('colaps_smb_close_apply', true, $(this)) ) {
+            $(this).find('.bapf_body').first().hide();
+            if( $(this).find('.bapf_colaps_smb').length ) {
+                $(this).find('.bapf_colaps_smb').addClass('fa-chevron-down').removeClass('fa-chevron-up');
+            }
         }
     });
     var braapf_collapse_status = {open:[], close:[]};

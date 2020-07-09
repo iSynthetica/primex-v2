@@ -723,6 +723,11 @@ if( ! function_exists( 'br_aapf_args_converter' ) ) {
             }
         }
         do_action('br_aapf_args_converter_after', $query);
+        foreach(array('terms', 'add_terms', 'limits', 'price', 'price_ranges', '', '') as $post_field) {
+            if( isset($_POST[$post_field]) && empty($_POST[$post_field]) ) {
+                unset($_POST[$post_field]);
+            }
+        }
     }
 }
 

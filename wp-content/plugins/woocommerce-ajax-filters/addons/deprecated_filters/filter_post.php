@@ -545,11 +545,6 @@ if( ! empty($instance['version']) ) {
                     <label class="br_admin_center" style="text-align: left;" for="<?php echo 'description'; ?>"><?php _e('Description', 'BeRocket_AJAX_domain') ?></label>
                     <textarea style="resize: none; width: 100%;" id="<?php echo 'description'; ?>" name="<?php echo $post_name.'[description]'; ?>"><?php echo $instance['description']; ?></textarea>
                 </div>
-                <div>
-                    <label class="br_admin_center" style="text-align: left;" for="<?php echo 'css_class'; ?>"><?php _e('CSS Class', 'BeRocket_AJAX_domain') ?> </label>
-                    <input id="<?php echo 'css_class'; ?>" type="text" name="<?php echo $post_name.'[css_class]'; ?>" value="<?php echo $instance['css_class']; ?>" class="berocket_aapf_widget_admin_css_class_input br_admin_full_size" />
-                    <small class="br_admin_center" style="font-size: 1em;"><?php _e('(use white space for multiple classes)', 'BeRocket_AJAX_domain') ?></small>
-                </div>
                 <?php echo br_get_value_from_array($instance, 'filter_type_attribute'); ?>
                 <div class="berocket_aapf_widget_admin_tag_cloud_block" <?php if ($instance['type'] != 'tag_cloud') echo 'style="display:none;"' ?>>
                     <div>
@@ -701,6 +696,11 @@ if( ! empty($instance['version']) ) {
             <option <?php if ( $instance['reset_hide'] == 'berocket_no_filters' ) echo 'selected'; ?> value="berocket_no_filters"><?php _e('Hide only when no filters on page', 'BeRocket_AJAX_domain'); ?></option>
             <option <?php if ( $instance['reset_hide'] == 'berocket_no_filters berocket_not_selected' ) echo 'selected'; ?> value="berocket_no_filters berocket_not_selected"><?php _e('Hide when no filters on page or page not filtered', 'BeRocket_AJAX_domain'); ?></option>
         </select>
+    </div>
+    <div>
+        <h3><label class="br_admin_center" style="text-align: left;" for="<?php echo 'css_class'; ?>"><?php _e('CSS Class', 'BeRocket_AJAX_domain') ?> </label></h3>
+        <input id="<?php echo 'css_class'; ?>" type="text" name="<?php echo $post_name.'[css_class]'; ?>" value="<?php echo $instance['css_class']; ?>" class="berocket_aapf_widget_admin_css_class_input br_admin_full_size" />
+        <small class="br_admin_center" style="font-size: 1em;"><?php _e('(use white space for multiple classes)', 'BeRocket_AJAX_domain') ?></small>
     </div>
     <script>
         if( typeof(br_widget_set) == 'function' )

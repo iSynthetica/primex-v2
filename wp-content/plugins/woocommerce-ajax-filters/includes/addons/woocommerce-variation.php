@@ -245,8 +245,10 @@ class BeRocket_AAPF_compat_woocommerce_variation {
         if( ! $use_filters ) return $query;
         $br_options = BeRocket_AAPF::get_aapf_option();
         if( ! empty($br_options['out_of_stock_variable_reload']) ) {
-            $new_post_terms = berocket_isset($_POST['terms']);
-            $new_post_limits = berocket_isset($_POST['limits_arr']);
+            $new_post_terms = br_get_value_from_array($_POST,'terms');
+            $new_post_limits = br_get_value_from_array($_POST,'limits_arr');
+            if( ! is_array($new_post_limits) ) $new_post_limits = array();
+            if( ! is_array($new_post_terms) ) $new_post_terms = array();
             if( is_array($new_post_terms) && count($new_post_terms) ) {
                 foreach($new_post_terms as $new_post_terms_i => $new_post_term) {
                     if( $new_post_term[0] == $taxonomy ) {

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="SemiColonWeb" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Магазин - Prime-X</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v13.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<link rel="next" href="https://prime-x.com.ua/shop/page/2/" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Магазин - Prime-X" />
+<meta property="og:description" content="Штатная камера заднего вида IL Trade. Характеристики:  сенсор - цветной, CMOS; угол обзора - 170 градусов; светочувствительность - 0,2 люкс; разрешение - 728*582 / 728*512; степень влагозащиты - IP68; количество TV-линий - 480; парковочные линии; PAL;" />
+<meta property="og:url" content="https://prime-x.com.ua/shop/" />
+<meta property="og:site_name" content="Prime-X" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="Штатная камера заднего вида IL Trade. Характеристики: сенсор - цветной, CMOS; угол обзора - 170 градусов; светочувствительность - 0,2 люкс; разрешение - 728*582 / 728*512; степень влагозащиты - IP68; количество TV-линий - 480; парковочные линии; PAL;" />
+<meta name="twitter:title" content="Магазин - Prime-X" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://prime-x.com.ua/#website","url":"https://prime-x.com.ua/","name":"Prime-X","description":"\u0415\u0449\u0451 \u043e\u0434\u0438\u043d \u0441\u0430\u0439\u0442 \u043d\u0430 WordPress","potentialAction":{"@type":"SearchAction","target":"https://prime-x.com.ua/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://prime-x.com.ua/shop/#webpage","url":"https://prime-x.com.ua/shop/","inLanguage":"ru-RU","name":"\u041c\u0430\u0433\u0430\u0437\u0438\u043d - Prime-X","isPartOf":{"@id":"https://prime-x.com.ua/#website"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://prime-x.com.ua/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-block-style-css'  href='https://prime-x.com.ua/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css?ver=2.5.11' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://prime-x.com.ua/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.6' type='text/css' media='all' />
+<link rel='stylesheet' id='berocket_aapf_widget-style-css'  href='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/css/widget.css?ver=1.4.1.7' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='google_fonts-css'  href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&#038;subset=cyrillic' type='text/css' media='all' />
+<link rel='stylesheet' id='site-css-css'  href='https://prime-x.com.ua/wp-content/themes/primex/assets/styles/style.min.css?ver=1581685744' type='text/css' media='all' />
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://prime-x.com.ua/wp-json/' />
+<style></style>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	</head>
+
+<body class="stretched">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+
+    <!-- Top Bar
+    ============================================= -->
+    <div id="top-bar">
+
+        <div class="container-fullwidth clearfix">
+
+            <div id="secondary-nav" class="col_half nobottommargin d-none d-md-block">
+
+                <!-- Top Links
+					============================================= -->
+                <div class="top-links"><ul><li id="menu-item-8577" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8577"><a href="https://prime-x.com.ua/about-us/">О нас</a></li>
+<li id="menu-item-8576" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8576"><a href="https://prime-x.com.ua/delivery/">Оплата и доставка</a></li>
+<li id="menu-item-8575" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8575"><a href="https://prime-x.com.ua/warranty/">Гарантия</a></li>
+<li id="menu-item-8578" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8578"><a href="http://primex-20.loc/my-account/my-custom-endpoint/">Ремонты</a></li>
+<li id="menu-item-8574" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8574"><a href="https://prime-x.com.ua/contacts/">Контакты</a></li>
+<li id="menu-item-8579" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-8579"><a href="#">Сотрудничество</a>
+<ul class="sub-menu">
+	<li id="menu-item-8573" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8573"><a href="https://prime-x.com.ua/autostores/">Автосалонам</a></li>
+	<li id="menu-item-8572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8572"><a href="https://prime-x.com.ua/netstores/">Интернет-магазинам</a></li>
+</ul>
+</li>
+</ul></div>
+            </div>
+
+            <div id="additional-nav" class="col_half col_last fright nobottommargin">
+
+                <!-- Top Links
+                ============================================= -->
+                <div class="top-links">
+                    <ul>
+                                <li><a href="#">USD</a>
+            <ul id="currency-switcher" class="sub-small">
+                <li><a class="change-currency" data-currency="UAH" href="#">UAH</a></li>            </ul>
+        </li>
+                                    <li id="my-account"><a href="#"><i class="fas fa-sign-in-alt"></i><span>Войти</span></a>
+                                <div class="top-link-section">
+                                    <form id="top-login" role="form">
+                                        <div class="input-group" id="top-login-username">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="icon-user"></i></div>
+                                            </div>
+                                            <input type="email" class="form-control" placeholder="Email address" required="">
+                                        </div>
+                                        <div class="input-group" id="top-login-password">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class="icon-key"></i></div>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Password" required="">
+                                        </div>
+                                        <label class="checkbox">
+                                            <input type="checkbox" value="remember-me"> Remember me
+                                        </label>
+                                        <button class="btn btn-danger btn-block" type="submit">Sign in</button>
+                                    </form>
+                                </div>
+                            </li>
+                                                </ul>
+                </div><!-- .top-links end -->
+
+            </div>
+
+        </div>
+
+    </div><!-- #top-bar end -->
+
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="sticky-style-2">
+
+        <div class="container-fullwidth clearfix">
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="https://prime-x.com.ua" class="standard-logo" data-dark-logo="https://prime-x.com.ua/wp-content/themes/primex/assets/images/logo.png"><img src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/logo.png" alt="Primex Logo"></a>
+                <a href="https://prime-x.com.ua" class="retina-logo" data-dark-logo="https://prime-x.com.ua/wp-content/themes/primex/assets/images/logo.png"><img src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/logo.png" alt="Primex Logo"></a>
+            </div><!-- #logo end -->
+
+                <ul class="header-extras header-phones">
+                <li>
+                <div class="he-text">
+                    +38(044) 390-27-44                </div>
+            </li>
+                        <li>
+                <div class="he-text">
+                    +38(050) 182-17-37                </div>
+            </li>
+                        <li>
+                <div class="he-text">
+                    +38(067) 734-84-03                </div>
+            </li>
+                </ul>
+    
+        </div>
+
+        <div id="header-wrap">
+
+            
+<!-- Primary Navigation
+============================================= -->
+<nav id="primary-menu" class="style-2">
+    <div class="container clearfix">
+        <div id="primary-menu-trigger"><i class="icon-hamburger-menu fas fa-bars"></i></div>
+
+        <ul><li id="menu-item-8189"><a href="https://prime-x.com.ua/product-category/massage/"><div>Массаж</div></a></li>
+<li id="menu-item-8190"><a href="https://prime-x.com.ua/product-category/ledheadlight/"><div>LED свет</div></a>
+<ul>
+	<li id="menu-item-8191"><a href="https://prime-x.com.ua/product-category/ledheadlight/mseries/"><div>Prime-X серия M</div></a></li>
+	<li id="menu-item-8192"><a href="https://prime-x.com.ua/product-category/ledheadlight/zseries/"><div>Prime-X серия Z</div></a></li>
+	<li id="menu-item-8193"><a href="https://prime-x.com.ua/product-category/ledheadlight/led_accessories/"><div>Аксессуары</div></a></li>
+	<li id="menu-item-8194"><a href="https://prime-x.com.ua/product-category/ledheadlight/gabarity/"><div>Габариты</div></a></li>
+</ul>
+</li>
+<li id="menu-item-8195"><a href="https://prime-x.com.ua/product-category/radio2din/"><div>Магнитолы 2DIN</div></a>
+<ul>
+	<li id="menu-item-8196"><a href="https://prime-x.com.ua/product-category/radio2din/universal2din/"><div>Универсальные Android</div></a></li>
+	<li id="menu-item-8197"><a href="https://prime-x.com.ua/product-category/radio2din/universalwince/"><div>Универсальные WinCE</div></a></li>
+</ul>
+</li>
+<li id="menu-item-8198"><a href="https://prime-x.com.ua/product-category/mirrors/"><div>Зеркала</div></a>
+<ul>
+	<li id="menu-item-8199"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_monitor/"><div>Зеркала с монитором</div></a></li>
+	<li id="menu-item-8200"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_android/"><div>Зеркало Android</div></a></li>
+	<li id="menu-item-8201"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_registrator/"><div>Зеркало-регистратор</div></a></li>
+	<li id="menu-item-8202"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_bracket/"><div>Крепление для зеркал 043D, 043-102</div></a></li>
+	<li id="menu-item-8203"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_bracket_dk/"><div>Крепление для зеркал 043DK, 107, 108</div></a></li>
+	<li id="menu-item-8204"><a href="https://prime-x.com.ua/product-category/mirrors/mirror_bracket_050d/"><div>Крепление для зеркал Prime-X</div></a></li>
+</ul>
+</li>
+<li id="menu-item-8205"><a href="https://prime-x.com.ua/product-category/cameras/"><div>Камеры</div></a>
+<ul>
+	<li id="menu-item-8206"><a href="https://prime-x.com.ua/product-category/cameras/%d0%b0%d0%ba%d1%81%d0%b5%d1%81%d1%81%d1%83%d0%b0%d1%80%d1%8b-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b0%d0%bc%d0%b5%d1%80/"><div>Аксессуары для камер</div></a></li>
+	<li id="menu-item-8207"><a href="https://prime-x.com.ua/product-category/cameras/v_ruchku_bagazhnika/"><div>в ручку багажника</div></a></li>
+	<li id="menu-item-8208"><a href="https://prime-x.com.ua/product-category/cameras/v_stop_signal/"><div>В стоп сигнал</div></a></li>
+	<li id="menu-item-8209"><a href="https://prime-x.com.ua/product-category/cameras/cam_universal/"><div>Универсальные камеры</div></a></li>
+	<li id="menu-item-8210"><a href="https://prime-x.com.ua/product-category/cameras/cam_standart/"><div>Штатные камеры (задние)</div></a></li>
+	<li id="menu-item-8211"><a href="https://prime-x.com.ua/product-category/cameras/cam_oem_front/"><div>Штатные камеры (передние)</div></a></li>
+</ul>
+</li>
+<li id="menu-item-8213"><a href="https://prime-x.com.ua/product-category/monitors/"><div>Мониторы</div></a></li>
+<li id="menu-item-8212"><a href="https://prime-x.com.ua/product-category/for_truck/"><div>Для грузовиков</div></a></li>
+<li id="menu-item-8216"><a href="https://prime-x.com.ua/catalogue/"><div>Каталог</div></a></li>
+</ul>
+        <!-- Top Cart
+        ============================================= -->
+            <div id="top-cart">
+        <a href="#" id="top-cart-trigger"><i class="fas fa-shopping-cart"></i><span>0</span></a>
+        <div class="top-cart-content">
+            <div class="top-cart-title">
+                <h4>Корзина</h4>
+            </div>
+            <div class="top-cart-items">
+                            </div>
+            <div class="top-cart-action clearfix">
+                <span class="fleft top-checkout-price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>0.00</span></span>
+                <a href="https://prime-x.com.ua/cart/" class="button button-3d button-small nomargin fright">
+                    В корзину                </a>
+            </div>
+        </div>
+    </div><!-- #top-cart end -->
+    
+        <!-- Top Search
+        ============================================= -->
+                    <div id="top-search">
+                <a href="#" id="top-search-trigger"><i class="fas fa-search"></i><i class="fas fa-times"></i></a>
+                <!--        <form action="search.html" method="get">-->
+                <!--            <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">-->
+                <!--        </form>-->
+                
+<form role="search" method="get" class="search-form" action="https://prime-x.com.ua/">
+	<input type="text" id="ajax-search-field" class="search-field form-control" placeholder="Поиск &hellip;" value="" name="s" />
+</form>
+            </div><!-- #top-search end -->
+                </div>
+</nav><!-- #primary-menu end -->
+
+        </div>
+
+    </header><!-- #header end -->
+
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>Shop</h1>
+                        <ol class="breadcrumb"><li class="breadcrumb-item"><a href="https://prime-x.com.ua/" itemprop="item">Главная</a></li></ol>        </div>
+    </section><!-- #page-title end -->
+    
+
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+                            <div class="postcontent nobottommargin clearfix">
+                    <div class="woocommerce-notices-wrapper"></div><p class="woocommerce-result-count">
+	Отображение 1&ndash;16 из 510</p>
+<form class="woocommerce-ordering" method="get">
+	<select name="orderby" class="orderby" aria-label="Заказ в магазине">
+					<option value="menu_order"  selected='selected'>Исходная сортировка</option>
+					<option value="popularity" >По популярности</option>
+					<option value="rating" >По рейтингу</option>
+					<option value="date" >Сортировка по более позднему</option>
+					<option value="price" >Цены: по возрастанию</option>
+					<option value="price-desc" >Цены: по убыванию</option>
+			</select>
+	<input type="hidden" name="paged" value="1" />
+	</form>
+<div id="shop" class="shop product-3 grid-container clearfix columns-4" data-layout="fitRows">
+<div class="product clearfix type-product post-6832 status-publish first instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade111111/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/111111il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 11-1111, FORD</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6832" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6832" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 11-1111, FORD&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade111111/">
+                &#8220;IL Trade&#8221; 11-1111, FORD            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6832" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6832" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 11-1111, FORD&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7038 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1111/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1111il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1111, MERCEDES</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7038" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7038" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1111, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1111/">
+                &#8220;IL Trade&#8221; 1111, MERCEDES            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7038" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7038" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1111, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7033 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1112/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1112il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1112, MERCEDES</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7033" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7033" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1112, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1112/">
+                &#8220;IL Trade&#8221; 1112, MERCEDES            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7033" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7033" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1112, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6897 status-publish last instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade122222/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/122222il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-2222, HYUNDAI / KIA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6897" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6897" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-2222, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade122222/">
+                &#8220;IL Trade&#8221; 12-2222, HYUNDAI / KIA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6897" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6897" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-2222, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6903 status-publish first instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade123333/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/123333-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-3333, HYUNDAI</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6903" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6903" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-3333, HYUNDAI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade123333/">
+                &#8220;IL Trade&#8221; 12-3333, HYUNDAI            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6903" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6903" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-3333, HYUNDAI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6906 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade124444/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/124444il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-4444, HYUNDAI / KIA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6906" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6906" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-4444, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade124444/">
+                &#8220;IL Trade&#8221; 12-4444, HYUNDAI / KIA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6906" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6906" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-4444, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6912 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade125555/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/125555il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-5555, HYUNDAI</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6912" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6912" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-5555, HYUNDAI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade125555/">
+                &#8220;IL Trade&#8221; 12-5555, HYUNDAI            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6912" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6912" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-5555, HYUNDAI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6891 status-publish last instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade126666/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/126666il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-6666, HYUNDAI / KIA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6891" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6891" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-6666, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade126666/">
+                &#8220;IL Trade&#8221; 12-6666, HYUNDAI / KIA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6891" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6891" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-6666, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7094 status-publish first instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade127777/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/127777il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 12-7777, RENAULT</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade. Характеристики: сенсор &#8211; цветной, CMOS; угол обзора &#8211; 170 градусов; светочувствительность &#8211; 0,2 люкс; разрешение &#8211; 728*582 / 728*512; степень влагозащиты &#8211; IP68; количество TV-линий &#8211; 480; парковочные линии; PAL;</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7094" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7094" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-7777, RENAULT&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade127777/">
+                &#8220;IL Trade&#8221; 12-7777, RENAULT            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7094" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7094" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 12-7777, RENAULT&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6918 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade130001/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/130001il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 13-0001, HYUNDAI / KIA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6918" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6918" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 13-0001, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade130001/">
+                &#8220;IL Trade&#8221; 13-0001, HYUNDAI / KIA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6918" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6918" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 13-0001, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6924 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade130002/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/130002il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 13-0002, HYUNDAI / KIA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6924" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6924" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 13-0002, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade130002/">
+                &#8220;IL Trade&#8221; 13-0002, HYUNDAI / KIA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6924" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6924" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 13-0002, HYUNDAI / KIA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7223 status-publish last instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1313/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1313il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1313, MERCEDES</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade. Характеристики: сенсор &#8211; цветной, CMOS; угол обзора &#8211; 170 градусов; светочувствительность &#8211; 0,2 люкс; разрешение &#8211; 728*582 / 728*512; степень влагозащиты &#8211; IP68; количество TV-линий &#8211; 480; парковочные линии; PAL;</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7223" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7223" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1313, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1313/">
+                &#8220;IL Trade&#8221; 1313, MERCEDES            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7223" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7223" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1313, MERCEDES&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7099 status-publish first instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1321/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1321il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1321, RENAULT</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade. Характеристики: сенсор &#8211; цветной, CMOS; угол обзора &#8211; 170 градусов; светочувствительность &#8211; 0,2 люкс; разрешение &#8211; 728*582 / 728*512; степень влагозащиты &#8211; IP68; количество TV-линий &#8211; 480; парковочные линии; PAL;</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7099" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7099" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1321, RENAULT&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1321/">
+                &#8220;IL Trade&#8221; 1321, RENAULT            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7099" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7099" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1321, RENAULT&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6792 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1325/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1325il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1325, CHEVROLET</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6792" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6792" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1325, CHEVROLET&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1325/">
+                &#8220;IL Trade&#8221; 1325, CHEVROLET            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6792" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6792" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1325, CHEVROLET&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-7163 status-publish instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1327/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1327il-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1327, SUZUKI</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade. Характеристики: сенсор &#8211; цветной, CMOS; угол обзора &#8211; 170 градусов; светочувствительность &#8211; 0,2 люкс; разрешение &#8211; 728*582 / 728*512; степень влагозащиты &#8211; IP68; количество TV-линий &#8211; 480; парковочные линии; PAL;</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7163" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7163" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1327, SUZUKI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1327/">
+                &#8220;IL Trade&#8221; 1327, SUZUKI            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=7163" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="7163" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1327, SUZUKI&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+<div class="product clearfix type-product post-6852 status-publish last instock product_cat-cam_standart has-post-thumbnail taxable shipping-taxable purchasable product-type-simple">
+	    <div class="product-image">
+    <a href="https://prime-x.com.ua/product/iltrade1329/">
+    <img width="300" height="300" src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/blank.svg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" sizes="(max-width: 300px) 100vw, 300px" data-lazyload="https://prime-x.com.ua/wp-content/uploads/2019/12/1329il_2-300x300.jpg" />    </a>
+    </div>
+        <div class="product-quick-view">
+        <button class="button button-border button-mini button-border-thin btn-block button-reveal product-modal-desc-open">
+        <i class="fas fa-info"></i><span>Быстрый просмотр</span>
+    </button>
+
+    <div class="modal-content" style="display: none;">
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">"IL Trade" 1329, HONDA</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="woocommerce-product-details__short-description">
+                <p>Штатная камера заднего вида IL Trade.</p>
+<p>Характеристики:</p>
+<ul>
+<li>сенсор &#8211; цветной, CMOS;</li>
+<li>угол обзора &#8211; 170 градусов;</li>
+<li>светочувствительность &#8211; 0,2 люкс;</li>
+<li>разрешение &#8211; 728*582 / 728*512;</li>
+<li>степень влагозащиты &#8211; IP68;</li>
+<li>количество TV-линий &#8211; 480;</li>
+<li>парковочные линии;</li>
+<li>PAL;</li>
+</ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6852" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6852" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1329, HONDA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+        </div>
+    </div>
+        </div>
+        <div class="product-desc center">
+        <div class="product-title">
+        <h3>
+            <a href="https://prime-x.com.ua/product/iltrade1329/">
+                &#8220;IL Trade&#8221; 1329, HONDA            </a>
+        </h3>
+    </div>
+        <div class="product-price">
+        
+	<span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&#36;</span>23.00</span></span>
+    </div>
+        </div>
+        <div class="product-add-to-cart center">
+    <a href="?add-to-cart=6852" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart button-reveal" data-product_id="6852" data-product_sku="" aria-label="Добавить &quot;&quot;IL Trade&quot; 1329, HONDA&quot; в корзину" rel="nofollow"><i class="fas fa-cart-plus"></i><span>В корзину</span></a>    </div>
+</div>
+</div>
+<nav aria-label="Page navigation" class="page-navigation woocommerce-pagination topmargin-sm"><ul class="pagination justify-content-center pagination-rounded "><li class="page-item active"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="https://prime-x.com.ua/shop/page/2/">2</a></li><li class="page-item"><a class="page-link" href="https://prime-x.com.ua/shop/page/3/">3</a></li><li class="page-item disabled"><span class="page-link">&hellip;</span></li><li class="page-item"><a class="page-link" href="https://prime-x.com.ua/shop/page/32/">32</a></li><li class="page-item"><a class="page-link" href="https://prime-x.com.ua/shop/page/2/"><i class="fas fa-angle-right"></i></a></li></ul></nav><!--// end .pagination -->                </div>
+
+                <div class="sidebar nobottommargin col_last clearfix">
+                    <aside id="secondary" role="complementary" class="sidebar-widgets-wrap">
+    <div id="custom_html-9" class="widget_text widget widget_custom_html"><h4 class="widgettitle">Фильтр товаров</h4><div class="textwidget custom-html-widget"><div class="berocket_single_filter_widget berocket_single_filter_widget_9147 " data-id="9147" style=""><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget-wrapper berocket_aapf_selected_area_block">
+        <div class="berocket_aapf_widget-title_div">
+                    <span class="berocket_aapf_widget_show hide_button mobile_hide"><i class="fa fa-angle-left "></i></span>
+                <h3 class="widget-title berocket_aapf_widget-title" style=""><span>Выбранные фильтры</span></h3>
+    </div>
+        <div class="berocket_aapf_widget berocket_aapf_widget_selected_area berocket_aapf_widget_selected_area_hide" style="display:block;"></div>
+</div>
+</div></div>
+<div class="berocket_no_filters berocket_not_selected berocket_single_filter_widget berocket_single_filter_widget_9153 " data-id="9153"><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget">
+    <input value="Очистить" class="button button-reveal button-small btn-block berocket_aapf_reset_button" type="button" />
+</div>
+</div></div>
+<div class="berocket_single_filter_widget berocket_single_filter_widget_9148 " data-id="9148" style=""><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget-wrapper brw-brand_cam ">
+        <div class="berocket_aapf_widget-title_div">
+                    <span class="berocket_aapf_widget_show hide_button mobile_hide"><i class="fa fa-angle-left "></i></span>
+                        <h3 class="widget-title berocket_aapf_widget-title" style=""><span>Бренд</span></h3>    </div>
+    <ul class='berocket_aapf_widget berocket_style_block roundpcs pcs            '
+        style='' data-scroll_theme='light'
+        data-widget_id="berocket_aapf_widget-s3"
+        data-widget_id_number="s3"
+        data-child_parent=""
+                data-attribute='pa_brand_cam' data-type='checkbox'
+        data-count_show=''
+        data-cat_limit='0'>
+<li class="berocket_term_parent_0 berocket_term_depth_0 brw-brand_cam-il-trade "><span><input id='checkbox_461pa_brand_cam_2' class=" checkbox_461pa_brand_cam" type='checkbox' autocomplete="off" data-term_slug='il-trade' data-term_name='IL Trade' data-filter_type='attribute' data-term_id='461' data-operator='OR' data-term_ranges='461' data-taxonomy='pa_brand_cam' data-term_count='110'/><label data-for='checkbox_461pa_brand_cam' class="berocket_label_widgets">IL Trade</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-brand_cam-prime-x "><span><input id='checkbox_460pa_brand_cam_2' class=" checkbox_460pa_brand_cam" type='checkbox' autocomplete="off" data-term_slug='prime-x' data-term_name='Prime-X' data-filter_type='attribute' data-term_id='460' data-operator='OR' data-term_ranges='460' data-taxonomy='pa_brand_cam' data-term_count='232'/><label data-for='checkbox_460pa_brand_cam' class="berocket_label_widgets">Prime-X</label></span></li><li class="berocket_widget_show_values"style="display: none;">Показать значение(я)<span class="show_button fa"></span></li>    </ul>
+</div></div></div>
+<div class="berocket_single_filter_widget berocket_single_filter_widget_9152 " data-id="9152" style=""><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget-wrapper brw-car_company ">
+        <div class="berocket_aapf_widget-title_div">
+                    <span class="berocket_aapf_widget_show show_button mobile_hide"><i class="fa fa-angle-left "></i></span>
+                        <h3 class="widget-title berocket_aapf_widget-title" style=""><span>Марка авто</span></h3>    </div>
+    <ul class='berocket_aapf_widget berocket_style_none roundpcs pcs            '
+        style='' data-scroll_theme='light'
+        data-widget_id="berocket_aapf_widget-s4"
+        data-widget_id_number="s4"
+        data-child_parent=""
+                data-attribute='pa_car_company' data-type='checkbox'
+        data-count_show=''
+        data-cat_limit='0'>
+<li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-alfa-romeo "><span><input id='checkbox_450pa_car_company_3' class=" checkbox_450pa_car_company" type='checkbox' autocomplete="off" data-term_slug='alfa-romeo' data-term_name='Alfa Romeo' data-filter_type='attribute' data-term_id='450' data-operator='OR' data-term_ranges='450' data-taxonomy='pa_car_company' data-term_count='3'/><label data-for='checkbox_450pa_car_company' class="berocket_label_widgets">Alfa Romeo</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-audi "><span><input id='checkbox_419pa_car_company_3' class=" checkbox_419pa_car_company" type='checkbox' autocomplete="off" data-term_slug='audi' data-term_name='Audi' data-filter_type='attribute' data-term_id='419' data-operator='OR' data-term_ranges='419' data-taxonomy='pa_car_company' data-term_count='33'/><label data-for='checkbox_419pa_car_company' class="berocket_label_widgets">Audi</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-bentley "><span><input id='checkbox_457pa_car_company_3' class=" checkbox_457pa_car_company" type='checkbox' autocomplete="off" data-term_slug='bentley' data-term_name='Bentley' data-filter_type='attribute' data-term_id='457' data-operator='OR' data-term_ranges='457' data-taxonomy='pa_car_company' data-term_count='2'/><label data-for='checkbox_457pa_car_company' class="berocket_label_widgets">Bentley</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-bmw "><span><input id='checkbox_420pa_car_company_3' class=" checkbox_420pa_car_company" type='checkbox' autocomplete="off" data-term_slug='bmw' data-term_name='BMW' data-filter_type='attribute' data-term_id='420' data-operator='OR' data-term_ranges='420' data-taxonomy='pa_car_company' data-term_count='16'/><label data-for='checkbox_420pa_car_company' class="berocket_label_widgets">BMW</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-buick "><span><input id='checkbox_422pa_car_company_3' class=" checkbox_422pa_car_company" type='checkbox' autocomplete="off" data-term_slug='buick' data-term_name='Buick' data-filter_type='attribute' data-term_id='422' data-operator='OR' data-term_ranges='422' data-taxonomy='pa_car_company' data-term_count='1'/><label data-for='checkbox_422pa_car_company' class="berocket_label_widgets">Buick</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-chery "><span><input id='checkbox_445pa_car_company_3' class=" checkbox_445pa_car_company" type='checkbox' autocomplete="off" data-term_slug='chery' data-term_name='Chery' data-filter_type='attribute' data-term_id='445' data-operator='OR' data-term_ranges='445' data-taxonomy='pa_car_company' data-term_count='7'/><label data-for='checkbox_445pa_car_company' class="berocket_label_widgets">Chery</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-chevrolet "><span><input id='checkbox_421pa_car_company_3' class=" checkbox_421pa_car_company" type='checkbox' autocomplete="off" data-term_slug='chevrolet' data-term_name='Chevrolet' data-filter_type='attribute' data-term_id='421' data-operator='OR' data-term_ranges='421' data-taxonomy='pa_car_company' data-term_count='19'/><label data-for='checkbox_421pa_car_company' class="berocket_label_widgets">Chevrolet</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-citroen "><span><input id='checkbox_423pa_car_company_3' class=" checkbox_423pa_car_company" type='checkbox' autocomplete="off" data-term_slug='citroen' data-term_name='Citroen' data-filter_type='attribute' data-term_id='423' data-operator='OR' data-term_ranges='423' data-taxonomy='pa_car_company' data-term_count='28'/><label data-for='checkbox_423pa_car_company' class="berocket_label_widgets">Citroen</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-daewoo "><span><input id='checkbox_444pa_car_company_3' class=" checkbox_444pa_car_company" type='checkbox' autocomplete="off" data-term_slug='daewoo' data-term_name='Daewoo' data-filter_type='attribute' data-term_id='444' data-operator='OR' data-term_ranges='444' data-taxonomy='pa_car_company' data-term_count='7'/><label data-for='checkbox_444pa_car_company' class="berocket_label_widgets">Daewoo</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-fiat "><span><input id='checkbox_449pa_car_company_3' class=" checkbox_449pa_car_company" type='checkbox' autocomplete="off" data-term_slug='fiat' data-term_name='Fiat' data-filter_type='attribute' data-term_id='449' data-operator='OR' data-term_ranges='449' data-taxonomy='pa_car_company' data-term_count='11'/><label data-for='checkbox_449pa_car_company' class="berocket_label_widgets">Fiat</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-ford "><span><input id='checkbox_418pa_car_company_3' class=" checkbox_418pa_car_company" type='checkbox' autocomplete="off" data-term_slug='ford' data-term_name='Ford' data-filter_type='attribute' data-term_id='418' data-operator='OR' data-term_ranges='418' data-taxonomy='pa_car_company' data-term_count='31'/><label data-for='checkbox_418pa_car_company' class="berocket_label_widgets">Ford</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-geely "><span><input id='checkbox_424pa_car_company_3' class=" checkbox_424pa_car_company" type='checkbox' autocomplete="off" data-term_slug='geely' data-term_name='Geely' data-filter_type='attribute' data-term_id='424' data-operator='OR' data-term_ranges='424' data-taxonomy='pa_car_company' data-term_count='23'/><label data-for='checkbox_424pa_car_company' class="berocket_label_widgets">Geely</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-greatwall "><span><input id='checkbox_425pa_car_company_3' class=" checkbox_425pa_car_company" type='checkbox' autocomplete="off" data-term_slug='greatwall' data-term_name='Great Wall' data-filter_type='attribute' data-term_id='425' data-operator='OR' data-term_ranges='425' data-taxonomy='pa_car_company' data-term_count='5'/><label data-for='checkbox_425pa_car_company' class="berocket_label_widgets">Great Wall</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-honda "><span><input id='checkbox_426pa_car_company_3' class=" checkbox_426pa_car_company" type='checkbox' autocomplete="off" data-term_slug='honda' data-term_name='Honda' data-filter_type='attribute' data-term_id='426' data-operator='OR' data-term_ranges='426' data-taxonomy='pa_car_company' data-term_count='33'/><label data-for='checkbox_426pa_car_company' class="berocket_label_widgets">Honda</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-hyundai "><span><input id='checkbox_427pa_car_company_3' class=" checkbox_427pa_car_company" type='checkbox' autocomplete="off" data-term_slug='hyundai' data-term_name='Hyundai' data-filter_type='attribute' data-term_id='427' data-operator='OR' data-term_ranges='427' data-taxonomy='pa_car_company' data-term_count='50'/><label data-for='checkbox_427pa_car_company' class="berocket_label_widgets">Hyundai</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-infiniti "><span><input id='checkbox_452pa_car_company_3' class=" checkbox_452pa_car_company" type='checkbox' autocomplete="off" data-term_slug='infiniti' data-term_name='Infiniti' data-filter_type='attribute' data-term_id='452' data-operator='OR' data-term_ranges='452' data-taxonomy='pa_car_company' data-term_count='10'/><label data-for='checkbox_452pa_car_company' class="berocket_label_widgets">Infiniti</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-jeep "><span><input id='checkbox_458pa_car_company_3' class=" checkbox_458pa_car_company" type='checkbox' autocomplete="off" data-term_slug='jeep' data-term_name='Jeep' data-filter_type='attribute' data-term_id='458' data-operator='OR' data-term_ranges='458' data-taxonomy='pa_car_company' data-term_count='2'/><label data-for='checkbox_458pa_car_company' class="berocket_label_widgets">Jeep</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-kia "><span><input id='checkbox_428pa_car_company_3' class=" checkbox_428pa_car_company" type='checkbox' autocomplete="off" data-term_slug='kia' data-term_name='Kia' data-filter_type='attribute' data-term_id='428' data-operator='OR' data-term_ranges='428' data-taxonomy='pa_car_company' data-term_count='39'/><label data-for='checkbox_428pa_car_company' class="berocket_label_widgets">Kia</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-lada "><span><input id='checkbox_429pa_car_company_3' class=" checkbox_429pa_car_company" type='checkbox' autocomplete="off" data-term_slug='lada' data-term_name='LADA' data-filter_type='attribute' data-term_id='429' data-operator='OR' data-term_ranges='429' data-taxonomy='pa_car_company' data-term_count='3'/><label data-for='checkbox_429pa_car_company' class="berocket_label_widgets">LADA</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-land-rover "><span><input id='checkbox_455pa_car_company_3' class=" checkbox_455pa_car_company" type='checkbox' autocomplete="off" data-term_slug='land-rover' data-term_name='Land Rover' data-filter_type='attribute' data-term_id='455' data-operator='OR' data-term_ranges='455' data-taxonomy='pa_car_company' data-term_count='3'/><label data-for='checkbox_455pa_car_company' class="berocket_label_widgets">Land Rover</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-lexus "><span><input id='checkbox_430pa_car_company_3' class=" checkbox_430pa_car_company" type='checkbox' autocomplete="off" data-term_slug='lexus' data-term_name='Lexus' data-filter_type='attribute' data-term_id='430' data-operator='OR' data-term_ranges='430' data-taxonomy='pa_car_company' data-term_count='19'/><label data-for='checkbox_430pa_car_company' class="berocket_label_widgets">Lexus</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-mazda "><span><input id='checkbox_431pa_car_company_3' class=" checkbox_431pa_car_company" type='checkbox' autocomplete="off" data-term_slug='mazda' data-term_name='Mazda' data-filter_type='attribute' data-term_id='431' data-operator='OR' data-term_ranges='431' data-taxonomy='pa_car_company' data-term_count='25'/><label data-for='checkbox_431pa_car_company' class="berocket_label_widgets">Mazda</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-mercedes "><span><input id='checkbox_432pa_car_company_3' class=" checkbox_432pa_car_company" type='checkbox' autocomplete="off" data-term_slug='mercedes' data-term_name='Mercedes' data-filter_type='attribute' data-term_id='432' data-operator='OR' data-term_ranges='432' data-taxonomy='pa_car_company' data-term_count='32'/><label data-for='checkbox_432pa_car_company' class="berocket_label_widgets">Mercedes</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-mg "><span><input id='checkbox_433pa_car_company_3' class=" checkbox_433pa_car_company" type='checkbox' autocomplete="off" data-term_slug='mg' data-term_name='MG' data-filter_type='attribute' data-term_id='433' data-operator='OR' data-term_ranges='433' data-taxonomy='pa_car_company' data-term_count='3'/><label data-for='checkbox_433pa_car_company' class="berocket_label_widgets">MG</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-mitsubishi "><span><input id='checkbox_434pa_car_company_3' class=" checkbox_434pa_car_company" type='checkbox' autocomplete="off" data-term_slug='mitsubishi' data-term_name='Mitsubishi' data-filter_type='attribute' data-term_id='434' data-operator='OR' data-term_ranges='434' data-taxonomy='pa_car_company' data-term_count='23'/><label data-for='checkbox_434pa_car_company' class="berocket_label_widgets">Mitsubishi</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-nissan "><span><input id='checkbox_435pa_car_company_3' class=" checkbox_435pa_car_company" type='checkbox' autocomplete="off" data-term_slug='nissan' data-term_name='Nissan' data-filter_type='attribute' data-term_id='435' data-operator='OR' data-term_ranges='435' data-taxonomy='pa_car_company' data-term_count='33'/><label data-for='checkbox_435pa_car_company' class="berocket_label_widgets">Nissan</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-opel "><span><input id='checkbox_436pa_car_company_3' class=" checkbox_436pa_car_company" type='checkbox' autocomplete="off" data-term_slug='opel' data-term_name='Opel' data-filter_type='attribute' data-term_id='436' data-operator='OR' data-term_ranges='436' data-taxonomy='pa_car_company' data-term_count='16'/><label data-for='checkbox_436pa_car_company' class="berocket_label_widgets">Opel</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-peugeot "><span><input id='checkbox_437pa_car_company_3' class=" checkbox_437pa_car_company" type='checkbox' autocomplete="off" data-term_slug='peugeot' data-term_name='Peugeot' data-filter_type='attribute' data-term_id='437' data-operator='OR' data-term_ranges='437' data-taxonomy='pa_car_company' data-term_count='20'/><label data-for='checkbox_437pa_car_company' class="berocket_label_widgets">Peugeot</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-porsche "><span><input id='checkbox_447pa_car_company_3' class=" checkbox_447pa_car_company" type='checkbox' autocomplete="off" data-term_slug='porsche' data-term_name='Porsche' data-filter_type='attribute' data-term_id='447' data-operator='OR' data-term_ranges='447' data-taxonomy='pa_car_company' data-term_count='7'/><label data-for='checkbox_447pa_car_company' class="berocket_label_widgets">Porsche</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-range-rover "><span><input id='checkbox_454pa_car_company_3' class=" checkbox_454pa_car_company" type='checkbox' autocomplete="off" data-term_slug='range-rover' data-term_name='Range Rover' data-filter_type='attribute' data-term_id='454' data-operator='OR' data-term_ranges='454' data-taxonomy='pa_car_company' data-term_count='6'/><label data-for='checkbox_454pa_car_company' class="berocket_label_widgets">Range Rover</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-renault "><span><input id='checkbox_438pa_car_company_3' class=" checkbox_438pa_car_company" type='checkbox' autocomplete="off" data-term_slug='renault' data-term_name='Renault' data-filter_type='attribute' data-term_id='438' data-operator='OR' data-term_ranges='438' data-taxonomy='pa_car_company' data-term_count='25'/><label data-for='checkbox_438pa_car_company' class="berocket_label_widgets">Renault</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-seat "><span><input id='checkbox_446pa_car_company_3' class=" checkbox_446pa_car_company" type='checkbox' autocomplete="off" data-term_slug='seat' data-term_name='Seat' data-filter_type='attribute' data-term_id='446' data-operator='OR' data-term_ranges='446' data-taxonomy='pa_car_company' data-term_count='12'/><label data-for='checkbox_446pa_car_company' class="berocket_label_widgets">Seat</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-skoda "><span><input id='checkbox_440pa_car_company_3' class=" checkbox_440pa_car_company" type='checkbox' autocomplete="off" data-term_slug='skoda' data-term_name='Skoda' data-filter_type='attribute' data-term_id='440' data-operator='OR' data-term_ranges='440' data-taxonomy='pa_car_company' data-term_count='26'/><label data-for='checkbox_440pa_car_company' class="berocket_label_widgets">Skoda</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-smart "><span><input id='checkbox_456pa_car_company_3' class=" checkbox_456pa_car_company" type='checkbox' autocomplete="off" data-term_slug='smart' data-term_name='Smart' data-filter_type='attribute' data-term_id='456' data-operator='OR' data-term_ranges='456' data-taxonomy='pa_car_company' data-term_count='3'/><label data-for='checkbox_456pa_car_company' class="berocket_label_widgets">Smart</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-ssangyong "><span><input id='checkbox_439pa_car_company_3' class=" checkbox_439pa_car_company" type='checkbox' autocomplete="off" data-term_slug='ssangyong' data-term_name='Ssang Yong' data-filter_type='attribute' data-term_id='439' data-operator='OR' data-term_ranges='439' data-taxonomy='pa_car_company' data-term_count='15'/><label data-for='checkbox_439pa_car_company' class="berocket_label_widgets">Ssang Yong</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-subaru "><span><input id='checkbox_441pa_car_company_3' class=" checkbox_441pa_car_company" type='checkbox' autocomplete="off" data-term_slug='subaru' data-term_name='Subaru' data-filter_type='attribute' data-term_id='441' data-operator='OR' data-term_ranges='441' data-taxonomy='pa_car_company' data-term_count='21'/><label data-for='checkbox_441pa_car_company' class="berocket_label_widgets">Subaru</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-suzuki "><span><input id='checkbox_448pa_car_company_3' class=" checkbox_448pa_car_company" type='checkbox' autocomplete="off" data-term_slug='suzuki' data-term_name='Suzuki' data-filter_type='attribute' data-term_id='448' data-operator='OR' data-term_ranges='448' data-taxonomy='pa_car_company' data-term_count='13'/><label data-for='checkbox_448pa_car_company' class="berocket_label_widgets">Suzuki</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-toyota "><span><input id='checkbox_442pa_car_company_3' class=" checkbox_442pa_car_company" type='checkbox' autocomplete="off" data-term_slug='toyota' data-term_name='Toyota' data-filter_type='attribute' data-term_id='442' data-operator='OR' data-term_ranges='442' data-taxonomy='pa_car_company' data-term_count='54'/><label data-for='checkbox_442pa_car_company' class="berocket_label_widgets">Toyota</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-volkswagen "><span><input id='checkbox_443pa_car_company_3' class=" checkbox_443pa_car_company" type='checkbox' autocomplete="off" data-term_slug='volkswagen' data-term_name='Volkswagen' data-filter_type='attribute' data-term_id='443' data-operator='OR' data-term_ranges='443' data-taxonomy='pa_car_company' data-term_count='58'/><label data-for='checkbox_443pa_car_company' class="berocket_label_widgets">Volkswagen</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-volvo "><span><input id='checkbox_451pa_car_company_3' class=" checkbox_451pa_car_company" type='checkbox' autocomplete="off" data-term_slug='volvo' data-term_name='Volvo' data-filter_type='attribute' data-term_id='451' data-operator='OR' data-term_ranges='451' data-taxonomy='pa_car_company' data-term_count='10'/><label data-for='checkbox_451pa_car_company' class="berocket_label_widgets">Volvo</label></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-car_company-zaz "><span><input id='checkbox_453pa_car_company_3' class=" checkbox_453pa_car_company" type='checkbox' autocomplete="off" data-term_slug='zaz' data-term_name='ZAZ' data-filter_type='attribute' data-term_id='453' data-operator='OR' data-term_ranges='453' data-taxonomy='pa_car_company' data-term_count='6'/><label data-for='checkbox_453pa_car_company' class="berocket_label_widgets">ZAZ</label></span></li>    </ul>
+</div></div></div>
+<div class="berocket_single_filter_widget berocket_single_filter_widget_9141 " data-id="9141" style=""><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget-wrapper brw-product_cat ">
+        <div class="berocket_aapf_widget-title_div">
+                    <span class="berocket_aapf_widget_show hide_button mobile_hide"><i class="fa fa-angle-left "></i></span>
+                        <h3 class="widget-title berocket_aapf_widget-title" style=""><span>Категории товаров</span></h3>    </div>
+    <ul class='berocket_aapf_widget berocket_style_block roundpcs pcs            '
+        style='' data-scroll_theme='light'
+        data-widget_id="berocket_aapf_widget-s5"
+        data-widget_id_number="s5"
+        data-child_parent=""
+                data-attribute='product_cat' data-type='checkbox'
+        data-count_show=''
+        data-cat_limit='0'>
+<li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-ledheadlight "><span><input id='checkbox_469product_cat_4' class=" checkbox_469product_cat" type='checkbox' autocomplete="off" data-term_slug='ledheadlight' data-term_name='LED свет' data-filter_type='custom_taxonomy' data-term_id='469' data-operator='OR' data-term_ranges='469' data-taxonomy='product_cat' data-term_count='65'/><label data-for='checkbox_469product_cat' class="berocket_label_widgets">LED свет</label><span data-term_id='469' class="br_child_toggle br_child_toggle_469"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_469 berocket_term_depth_1 brw-product_cat-mseries  berocket_hide_child_attributes"><span><input id='checkbox_472product_cat_4' class=" checkbox_472product_cat" type='checkbox' autocomplete="off" data-term_slug='mseries' data-term_name='Prime-X серия M' data-filter_type='custom_taxonomy' data-term_id='472' data-operator='OR' data-term_ranges='472' data-taxonomy='product_cat' data-term_count='4'/><label data-for='checkbox_472product_cat' class="berocket_label_widgets">Prime-X серия M</label><span data-term_id='472' class="br_child_toggle br_child_toggle_472"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_469 berocket_term_depth_1 brw-product_cat-zseries  berocket_hide_child_attributes"><span><input id='checkbox_473product_cat_4' class=" checkbox_473product_cat" type='checkbox' autocomplete="off" data-term_slug='zseries' data-term_name='Prime-X серия Z' data-filter_type='custom_taxonomy' data-term_id='473' data-operator='OR' data-term_ranges='473' data-taxonomy='product_cat' data-term_count='11'/><label data-for='checkbox_473product_cat' class="berocket_label_widgets">Prime-X серия Z</label><span data-term_id='473' class="br_child_toggle br_child_toggle_473"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_469 berocket_term_depth_1 brw-product_cat-led_accessories  berocket_hide_child_attributes"><span><input id='checkbox_471product_cat_4' class=" checkbox_471product_cat" type='checkbox' autocomplete="off" data-term_slug='led_accessories' data-term_name='Аксессуары' data-filter_type='custom_taxonomy' data-term_id='471' data-operator='OR' data-term_ranges='471' data-taxonomy='product_cat' data-term_count='24'/><label data-for='checkbox_471product_cat' class="berocket_label_widgets">Аксессуары</label><span data-term_id='471' class="br_child_toggle br_child_toggle_471"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_469 berocket_term_depth_1 brw-product_cat-gabarity  berocket_hide_child_attributes"><span><input id='checkbox_470product_cat_4' class=" checkbox_470product_cat" type='checkbox' autocomplete="off" data-term_slug='gabarity' data-term_name='Габариты' data-filter_type='custom_taxonomy' data-term_id='470' data-operator='OR' data-term_ranges='470' data-taxonomy='product_cat' data-term_count='13'/><label data-for='checkbox_470product_cat' class="berocket_label_widgets">Габариты</label><span data-term_id='470' class="br_child_toggle br_child_toggle_470"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-accessoriesradio "><span><input id='checkbox_485product_cat_4' class=" checkbox_485product_cat" type='checkbox' autocomplete="off" data-term_slug='accessoriesradio' data-term_name='Аксессуары для магнитол' data-filter_type='custom_taxonomy' data-term_id='485' data-operator='OR' data-term_ranges='485' data-taxonomy='product_cat' data-term_count='2'/><label data-for='checkbox_485product_cat' class="berocket_label_widgets">Аксессуары для магнитол</label><span data-term_id='485' class="br_child_toggle br_child_toggle_485"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-for_truck "><span><input id='checkbox_486product_cat_4' class=" checkbox_486product_cat" type='checkbox' autocomplete="off" data-term_slug='for_truck' data-term_name='Для грузовиков' data-filter_type='custom_taxonomy' data-term_id='486' data-operator='OR' data-term_ranges='486' data-taxonomy='product_cat' data-term_count='2'/><label data-for='checkbox_486product_cat' class="berocket_label_widgets">Для грузовиков</label><span data-term_id='486' class="br_child_toggle br_child_toggle_486"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-mirrors "><span><input id='checkbox_474product_cat_4' class=" checkbox_474product_cat" type='checkbox' autocomplete="off" data-term_slug='mirrors' data-term_name='Зеркала' data-filter_type='custom_taxonomy' data-term_id='474' data-operator='OR' data-term_ranges='474' data-taxonomy='product_cat' data-term_count='89'/><label data-for='checkbox_474product_cat' class="berocket_label_widgets">Зеркала</label><span data-term_id='474' class="br_child_toggle br_child_toggle_474"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_monitor  berocket_hide_child_attributes"><span><input id='checkbox_479product_cat_4' class=" checkbox_479product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_monitor' data-term_name='Зеркала с монитором' data-filter_type='custom_taxonomy' data-term_id='479' data-operator='OR' data-term_ranges='479' data-taxonomy='product_cat' data-term_count='8'/><label data-for='checkbox_479product_cat' class="berocket_label_widgets">Зеркала с монитором</label><span data-term_id='479' class="br_child_toggle br_child_toggle_479"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_android  berocket_hide_child_attributes"><span><input id='checkbox_475product_cat_4' class=" checkbox_475product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_android' data-term_name='Зеркало Android' data-filter_type='custom_taxonomy' data-term_id='475' data-operator='OR' data-term_ranges='475' data-taxonomy='product_cat' data-term_count='2'/><label data-for='checkbox_475product_cat' class="berocket_label_widgets">Зеркало Android</label><span data-term_id='475' class="br_child_toggle br_child_toggle_475"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_registrator  berocket_hide_child_attributes"><span><input id='checkbox_480product_cat_4' class=" checkbox_480product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_registrator' data-term_name='Зеркало-регистратор' data-filter_type='custom_taxonomy' data-term_id='480' data-operator='OR' data-term_ranges='480' data-taxonomy='product_cat' data-term_count='7'/><label data-for='checkbox_480product_cat' class="berocket_label_widgets">Зеркало-регистратор</label><span data-term_id='480' class="br_child_toggle br_child_toggle_480"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_bracket  berocket_hide_child_attributes"><span><input id='checkbox_476product_cat_4' class=" checkbox_476product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_bracket' data-term_name='Крепление для зеркал 043D, 043-102' data-filter_type='custom_taxonomy' data-term_id='476' data-operator='OR' data-term_ranges='476' data-taxonomy='product_cat' data-term_count='25'/><label data-for='checkbox_476product_cat' class="berocket_label_widgets">Крепление для зеркал 043D, 043-102</label><span data-term_id='476' class="br_child_toggle br_child_toggle_476"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_bracket_dk  berocket_hide_child_attributes"><span><input id='checkbox_478product_cat_4' class=" checkbox_478product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_bracket_dk' data-term_name='Крепление для зеркал 043DK, 107, 108' data-filter_type='custom_taxonomy' data-term_id='478' data-operator='OR' data-term_ranges='478' data-taxonomy='product_cat' data-term_count='17'/><label data-for='checkbox_478product_cat' class="berocket_label_widgets">Крепление для зеркал 043DK, 107, 108</label><span data-term_id='478' class="br_child_toggle br_child_toggle_478"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_474 berocket_term_depth_1 brw-product_cat-mirror_bracket_050d  berocket_hide_child_attributes"><span><input id='checkbox_477product_cat_4' class=" checkbox_477product_cat" type='checkbox' autocomplete="off" data-term_slug='mirror_bracket_050d' data-term_name='Крепление для зеркал Prime-X' data-filter_type='custom_taxonomy' data-term_id='477' data-operator='OR' data-term_ranges='477' data-taxonomy='product_cat' data-term_count='38'/><label data-for='checkbox_477product_cat' class="berocket_label_widgets">Крепление для зеркал Prime-X</label><span data-term_id='477' class="br_child_toggle br_child_toggle_477"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-cameras "><span><input id='checkbox_462product_cat_4' class=" checkbox_462product_cat" type='checkbox' autocomplete="off" data-term_slug='cameras' data-term_name='Камеры' data-filter_type='custom_taxonomy' data-term_id='462' data-operator='OR' data-term_ranges='462' data-taxonomy='product_cat' data-term_count='341'/><label data-for='checkbox_462product_cat' class="berocket_label_widgets">Камеры</label><span data-term_id='462' class="br_child_toggle br_child_toggle_462"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-cam_universal  berocket_hide_child_attributes"><span><input id='checkbox_466product_cat_4' class=" checkbox_466product_cat" type='checkbox' autocomplete="off" data-term_slug='cam_universal' data-term_name='Универсальные камеры' data-filter_type='custom_taxonomy' data-term_id='466' data-operator='OR' data-term_ranges='466' data-taxonomy='product_cat' data-term_count='19'/><label data-for='checkbox_466product_cat' class="berocket_label_widgets">Универсальные камеры</label><span data-term_id='466' class="br_child_toggle br_child_toggle_466"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-cam_standart  berocket_hide_child_attributes"><span><input id='checkbox_465product_cat_4' class=" checkbox_465product_cat" type='checkbox' autocomplete="off" data-term_slug='cam_standart' data-term_name='Штатные камеры (задние)' data-filter_type='custom_taxonomy' data-term_id='465' data-operator='OR' data-term_ranges='465' data-taxonomy='product_cat' data-term_count='256'/><label data-for='checkbox_465product_cat' class="berocket_label_widgets">Штатные камеры (задние)</label><span data-term_id='465' class="br_child_toggle br_child_toggle_465"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-cam_oem_front  berocket_hide_child_attributes"><span><input id='checkbox_464product_cat_4' class=" checkbox_464product_cat" type='checkbox' autocomplete="off" data-term_slug='cam_oem_front' data-term_name='Штатные камеры (передние)' data-filter_type='custom_taxonomy' data-term_id='464' data-operator='OR' data-term_ranges='464' data-taxonomy='product_cat' data-term_count='65'/><label data-for='checkbox_464product_cat' class="berocket_label_widgets">Штатные камеры (передние)</label><span data-term_id='464' class="br_child_toggle br_child_toggle_464"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-%d0%b0%d0%ba%d1%81%d0%b5%d1%81%d1%81%d1%83%d0%b0%d1%80%d1%8b-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b0%d0%bc%d0%b5%d1%80  berocket_hide_child_attributes"><span><input id='checkbox_463product_cat_4' class=" checkbox_463product_cat" type='checkbox' autocomplete="off" data-term_slug='аксессуары-для-камер' data-term_name='Аксессуары для камер' data-filter_type='custom_taxonomy' data-term_id='463' data-operator='OR' data-term_ranges='463' data-taxonomy='product_cat' data-term_count='4'/><label data-for='checkbox_463product_cat' class="berocket_label_widgets">Аксессуары для камер</label><span data-term_id='463' class="br_child_toggle br_child_toggle_463"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-v_ruchku_bagazhnika  berocket_hide_child_attributes"><span><input id='checkbox_467product_cat_4' class=" checkbox_467product_cat" type='checkbox' autocomplete="off" data-term_slug='v_ruchku_bagazhnika' data-term_name='в ручку багажника' data-filter_type='custom_taxonomy' data-term_id='467' data-operator='OR' data-term_ranges='467' data-taxonomy='product_cat' data-term_count='8'/><label data-for='checkbox_467product_cat' class="berocket_label_widgets">в ручку багажника</label><span data-term_id='467' class="br_child_toggle br_child_toggle_467"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_462 berocket_term_depth_1 brw-product_cat-v_stop_signal  berocket_hide_child_attributes"><span><input id='checkbox_468product_cat_4' class=" checkbox_468product_cat" type='checkbox' autocomplete="off" data-term_slug='v_stop_signal' data-term_name='В стоп сигнал' data-filter_type='custom_taxonomy' data-term_id='468' data-operator='OR' data-term_ranges='468' data-taxonomy='product_cat' data-term_count='5'/><label data-for='checkbox_468product_cat' class="berocket_label_widgets">В стоп сигнал</label><span data-term_id='468' class="br_child_toggle br_child_toggle_468"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-radio2din "><span><input id='checkbox_481product_cat_4' class=" checkbox_481product_cat" type='checkbox' autocomplete="off" data-term_slug='radio2din' data-term_name='Магнитолы 2DIN' data-filter_type='custom_taxonomy' data-term_id='481' data-operator='OR' data-term_ranges='481' data-taxonomy='product_cat' data-term_count='9'/><label data-for='checkbox_481product_cat' class="berocket_label_widgets">Магнитолы 2DIN</label><span data-term_id='481' class="br_child_toggle br_child_toggle_481"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_481 berocket_term_depth_1 brw-product_cat-universal2din  berocket_hide_child_attributes"><span><input id='checkbox_482product_cat_4' class=" checkbox_482product_cat" type='checkbox' autocomplete="off" data-term_slug='universal2din' data-term_name='Универсальные Android' data-filter_type='custom_taxonomy' data-term_id='482' data-operator='OR' data-term_ranges='482' data-taxonomy='product_cat' data-term_count='7'/><label data-for='checkbox_482product_cat' class="berocket_label_widgets">Универсальные Android</label><span data-term_id='482' class="br_child_toggle br_child_toggle_482"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_481 berocket_term_depth_1 brw-product_cat-universalwince  berocket_hide_child_attributes"><span><input id='checkbox_483product_cat_4' class=" checkbox_483product_cat" type='checkbox' autocomplete="off" data-term_slug='universalwince' data-term_name='Универсальные WinCE' data-filter_type='custom_taxonomy' data-term_id='483' data-operator='OR' data-term_ranges='483' data-taxonomy='product_cat' data-term_count='2'/><label data-for='checkbox_483product_cat' class="berocket_label_widgets">Универсальные WinCE</label><span data-term_id='483' class="br_child_toggle br_child_toggle_483"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-massage "><span><input id='checkbox_487product_cat_4' class=" checkbox_487product_cat" type='checkbox' autocomplete="off" data-term_slug='massage' data-term_name='Массаж' data-filter_type='custom_taxonomy' data-term_id='487' data-operator='OR' data-term_ranges='487' data-taxonomy='product_cat' data-term_count='1'/><label data-for='checkbox_487product_cat' class="berocket_label_widgets">Массаж</label><span data-term_id='487' class="br_child_toggle br_child_toggle_487"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><li class="berocket_term_parent_0 berocket_term_depth_0 brw-product_cat-monitors "><span><input id='checkbox_484product_cat_4' class=" checkbox_484product_cat" type='checkbox' autocomplete="off" data-term_slug='monitors' data-term_name='Мониторы' data-filter_type='custom_taxonomy' data-term_id='484' data-operator='OR' data-term_ranges='484' data-taxonomy='product_cat' data-term_count='3'/><label data-for='checkbox_484product_cat' class="berocket_label_widgets">Мониторы</label><span data-term_id='484' class="br_child_toggle br_child_toggle_484"><i class="fa fa-plus" aria-hidden="true"></i></span></span></li><style>
+        .br_child_toggle.br_child_toggle_469,.br_child_toggle.br_child_toggle_474,.br_child_toggle.br_child_toggle_462,.br_child_toggle.br_child_toggle_481 {
+            display: inline-block;
+        }
+        </style><li class="berocket_widget_show_values"style="display: none;">Показать значение(я)<span class="show_button fa"></span></li>    </ul>
+</div></div></div>
+<div class="berocket_single_filter_widget berocket_single_filter_widget_9149 " data-id="9149"><div class="widget widget_berocket_aapf_single"><div class="berocket_aapf_widget">
+    <button type="button" class="button button-reveal button-small btn-block berocket_aapf_widget_update_button">
+        <i class="fas fa-filter"></i>
+        <span>Применить</span>
+    </button>
+</div>
+</div></div></div></div><div id="custom_html-5" class="widget_text widget widget_custom_html"><h4 class="widgettitle">Получите промо купон на скидку 150 грн</h4><div class="textwidget custom-html-widget">        <div class="wooaiocoupon_form_container">
+            <form class="wooaioservice_form">
+                
+                <p class="  validate-required" id="coupon_name_field" data-priority="10"><span class="woocommerce-input-wrapper"><input type="text" class="input-text form-control" name="coupon_name" id="coupon_name" placeholder="Имя Фамилия *"  value=""  /></span></p><p class="  validate-required validate-email" id="coupon_email_field" data-priority="30"><span class="woocommerce-input-wrapper"><input type="email" class="input-text form-control" name="coupon_email" id="coupon_email" placeholder="Email *"  value=""  /></span></p><p class="  validate-phone" id="coupon_phone_field" data-priority="50"><span class="woocommerce-input-wrapper"><input type="tel" class="input-text form-control" name="coupon_phone" id="coupon_phone" placeholder="Телефон"  value=""  /></span></p>
+                
+                        <div class="wooaiocoupon_description">
+            <p>Заполните и отправьте форму и получите купон на скидку 100 грн. при покупке от 1000 грн.<br />
+Купон действителен в течении 5 дней с даты отправки формы и только для указанного Вами адреса электронной почты.</p>
+        </div>
+        
+                    <div class="wooaiocoupon_messages">
+
+    </div>
+    
+                    <div class="">
+    
+                    <button type="button" class="button wooaiocoupon_submit  btn-block button-reveal">
+        <i class="fas fa-percent"></i> <span>Get coupon</span>    </button>
+    
+                    </div>
+                </form>
+        </div>
+        </div></div></aside>
+                </div>
+                        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Footer
+============================================= -->
+<footer id="footer" class="dark">
+
+    <div class="container">
+
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap clearfix">
+
+            <div class="col_half">
+
+                <div class="widget clearfix">
+
+                    <img src="https://prime-x.com.ua/wp-content/themes/primex/assets/images/logo.png" alt="" class="footer-logo">
+
+                    <div id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p>«Визант-77» – растущая и эффективная компания, существующая на рынке Украины с 1997 года.</p>
+<p>Основное направление и специализация – разработка и реализация инновационного дополнительного оборудования для транспортных средств.</p></div></div>
+                    <div class="clearfix" style="padding: 10px 0;">
+                        <div class="col_half">
+                            <div id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><ul class="contact_details list-unstyled">
+	<li>
+		<i class="fa fa-phone"></i> +38(044)390-27-44
+	</li>
+	<li>
+		<i class="fa fa-phone"></i> +38(050)182-17-37
+	</li>
+	<li>
+		<i class="fa fa-phone"></i> +38(067)734-84-03
+	</li>
+</ul></div></div>                        </div>
+                        <div class="col_half col_last">
+                            <div id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><ul class="contact_details list-unstyled">
+	<li>
+		<i class="fa fa-map-marker"></i> г. Киев, пр-кт. Валерия Лобановского (Краснозвездный), <br>д. 119. оф. 138
+	</li>
+</ul></div></div>                        </div>
+                    </div>
+
+                            <a
+            href="https://www.facebook.com/"
+            class="social-icon si-small si-rounded topmargin-sm si-facebook-f display-on-both"
+            target="_blank"
+            rel="nofollow"
+        >
+            <i class="icon-facebook-f fab fa-facebook-f"></i>
+            <i class="icon-facebook-f fab fa-facebook-f"></i>
+        </a>
+                <a
+            href="https://vk.com/"
+            class="social-icon si-small si-rounded topmargin-sm si-vk display-on-both"
+            target="_blank"
+            rel="nofollow"
+        >
+            <i class="icon-vk fab fa-vk"></i>
+            <i class="icon-vk fab fa-vk"></i>
+        </a>
+                <a
+            href="https://ok.ru/"
+            class="social-icon si-small si-rounded topmargin-sm si-odnoklassniki display-on-both"
+            target="_blank"
+            rel="nofollow"
+        >
+            <i class="icon-odnoklassniki fab fa-odnoklassniki"></i>
+            <i class="icon-odnoklassniki fab fa-odnoklassniki"></i>
+        </a>
+                <a
+            href="https://www.youtube.com/"
+            class="social-icon si-small si-rounded topmargin-sm si-youtube display-on-both"
+            target="_blank"
+            rel="nofollow"
+        >
+            <i class="icon-youtube fab fa-youtube"></i>
+            <i class="icon-youtube fab fa-youtube"></i>
+        </a>
+                        </div>
+            </div>
+
+            <div class="col_one_fourth">
+                <div class="widget clearfix">
+                    <div id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories"><h4 class="widgettitle">Категории товаров</h4><ul class="product-categories"><li class="cat-item cat-item-469"><a href="https://prime-x.com.ua/product-category/ledheadlight/">LED свет</a> <span class="count">(65)</span></li>
+<li class="cat-item cat-item-485"><a href="https://prime-x.com.ua/product-category/accessoriesradio/">Аксессуары для магнитол</a> <span class="count">(2)</span></li>
+<li class="cat-item cat-item-486"><a href="https://prime-x.com.ua/product-category/for_truck/">Для грузовиков</a> <span class="count">(2)</span></li>
+<li class="cat-item cat-item-474"><a href="https://prime-x.com.ua/product-category/mirrors/">Зеркала</a> <span class="count">(89)</span></li>
+<li class="cat-item cat-item-462"><a href="https://prime-x.com.ua/product-category/cameras/">Камеры</a> <span class="count">(341)</span></li>
+<li class="cat-item cat-item-481"><a href="https://prime-x.com.ua/product-category/radio2din/">Магнитолы 2DIN</a> <span class="count">(9)</span></li>
+<li class="cat-item cat-item-487"><a href="https://prime-x.com.ua/product-category/massage/">Массаж</a> <span class="count">(1)</span></li>
+<li class="cat-item cat-item-484"><a href="https://prime-x.com.ua/product-category/monitors/">Мониторы</a> <span class="count">(3)</span></li>
+</ul></div>                </div>
+            </div>
+
+            <div class="col_one_fourth col_last">
+                <div class="widget clearfix">
+                                    </div>
+            </div>
+        </div><!-- .footer-widgets-wrap end -->
+    </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+
+        <div class="container clearfix">
+
+            <div class="col_full nobottommargin center">
+                <div class="copyrights-menu copyright-links clearfix">
+                    <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+                </div>
+                Prime-X &copy; 2013 - 2020 All Rights Reserved.
+            </div>
+
+        </div>
+
+    </div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop">
+    <i class="fas fa-angle-double-up"></i>
+</div>
+
+<div class="modal fade" id="product-modal-desc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-body">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel='stylesheet' id='jquery-ui-datepick-css'  href='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/css/jquery-ui.min.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='berocket_aapf_widget-scroll-style-css'  href='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/css/scrollbar/Scrollbar.min.css?ver=1.4.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='berocket_aapf_widget-themer-style-css'  href='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/css/styler/formstyler.css?ver=1.4.1.7' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/prime-x.com.ua\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.6'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wooaiocouponJsObj = {"ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","nonce":"93c5248714"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woo-all-in-one-coupon/public/js/woo-all-in-one-coupon-public.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woo-all-in-one-currency/public/js/jquery.cookie.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woo-all-in-one-currency/public/js/woo-all-in-one-currency-public.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043a\u043e\u0440\u0437\u0438\u043d\u044b","cart_url":"https:\/\/prime-x.com.ua\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.9.2'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_4eaadffbec42f2db96dfbeec1322bc52","fragment_name":"wc_fragments_4eaadffbec42f2db96dfbeec1322bc52","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var snthAjaxObj = {"ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/themes/primex/assets/scripts/scripts.min.js?ver=1581685744'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/wp-embed.min.js?ver=5.3.2'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/js/scrollbar/Scrollbar.concat.min.js?ver=1.4.1.7'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/js/styler/formstyler.js?ver=1.4.1.7'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+var the_ajax_script = {"nice_url_variable":"","nice_url_value_1":"","nice_url_value_2":"","nice_url_split":"","version":"1.4.1.7","number_style":["",".","2"],"current_language":"","current_page_url":"https:\/\/prime-x.com.ua\/shop","ajaxurl":"https:\/\/prime-x.com.ua\/wp-admin\/admin-ajax.php","product_cat":"-1","product_taxonomy":"-1","s":"","products_holder_id":"ul.products","result_count_class":".woocommerce-result-count","ordering_class":"form.woocommerce-ordering","pagination_class":".woocommerce-pagination","control_sorting":"1","seo_friendly_urls":"1","seo_uri_decode":"1","slug_urls":"","nice_urls":"","ub_product_count":"","ub_product_text":"","ub_product_button_text":"","berocket_aapf_widget_product_filters":"[]","user_func":{"before_update":"","on_update":"","after_update":""},"default_sorting":"menu_order","first_page":"1","scroll_shop_top":"","ajax_request_load":"1","ajax_request_load_style":"jquery","use_request_method":"get","no_products":"<p class='no-products woocommerce-info'>\u041d\u0435\u0442 \u0442\u043e\u0432\u0430\u0440\u043e\u0432, \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044e\u0449\u0438\u0445 \u0432\u0430\u0448\u0438\u043c \u043a\u0440\u0438\u0442\u0435\u0440\u0438\u044f\u043c<\/p>","recount_products":"1","pos_relative":"1","woocommerce_removes":"{\"result_count\":\"\",\"ordering\":\"\",\"pagination\":\"\",\"pagination_ajax\":\"\"}","description_show":"click","description_hide":"click","hide_sel_value":"","hide_o_value":"1","use_select2":"","hide_empty_value":"1","hide_button_value":"","scroll_shop_top_px":"-180","load_image":"<div class=\"berocket_aapf_widget_loading\"><div class=\"berocket_aapf_widget_loading_container\">\n                                                          <div class=\"berocket_aapf_widget_loading_top\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_left\"><\/div><div class=\"berocket_aapf_widget_loading_image\"><\/div><div class=\"berocket_aapf_widget_loading_right\"><\/div>\n                                                          <div class=\"berocket_aapf_widget_loading_bottom\"><\/div>\n                                                          <\/div><\/div>","translate":{"show_value":"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","hide_value":"\u0421\u043a\u0440\u044b\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435(\u044f)","unselect_all":"\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435","nothing_selected":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0432\u044b\u0431\u0440\u0430\u043d\u043e","products":"\u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b"},"trailing_slash":"1","pagination_base":"page"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/js/widget.min.js?ver=1.4.1.7'></script>
+<script type='text/javascript' src='https://prime-x.com.ua/wp-content/plugins/woocommerce-ajax-filters/js/jquery.ui.touch-punch.min.js?ver=1.4.1.7'></script>
+<script>
+            jQuery(document).on("berocket_aapf_time_to_fix_products_style", function() {
+                jQuery(the_ajax_script.products_holder_id).find("*").filter(function() {return jQuery(this).css("opacity") == "0";}).css("opacity", 1);
+            });
+            </script></body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using disk: enhanced 
+Content Delivery Network via N/A
+
+Served from: prime-x.com.ua @ 2020-02-14 16:09:04 by W3 Total Cache
+-->

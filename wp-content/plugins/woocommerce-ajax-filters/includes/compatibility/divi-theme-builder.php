@@ -10,7 +10,7 @@ if( ! class_exists('BeRocket_AAPF_compat_Divi_theme_builder') ) {
                 add_filter('braapf_check_widget_by_instance_single', array($this, 'disable_conditions'));
                 add_filter('braapf_check_widget_by_instance_group', array($this, 'disable_conditions'));
             }
-            if( berocket_isset($_GET['et_fb']) == 1 ) {
+            if( br_get_value_from_array($_GET,'et_fb') == 1 ) {
                 add_action('wp_footer', array($this, 'apply_styles'));
             }
         }
@@ -61,7 +61,7 @@ if( ! class_exists('BeRocket_AAPF_compat_Divi_theme_builder') ) {
             return false;
         }
         function enable_for_builder($enabled) {
-            if( berocket_isset($_GET['et_fb']) == 1 || (defined('DOING_AJAX') && berocket_isset($_REQUEST['action']) == 'et_fb_ajax_render_shortcode') ) {
+            if( br_get_value_from_array($_GET,'et_fb') == 1 || (defined('DOING_AJAX') && berocket_isset($_REQUEST['action']) == 'et_fb_ajax_render_shortcode') ) {
                 $enabled = true;
                 
             }

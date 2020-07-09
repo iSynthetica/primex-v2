@@ -9,6 +9,9 @@
     padding: 0!important;
     max-width: 100%;
 }
+.bapf_sfilter .bapf_body ul li ul {
+   margin-left: 15px;
+}
 /*JQUERY UI*/
 .bapf_slidr_main.ui-widget-content, .berocket_filter_price_slider.ui-widget-content{
     background: none repeat scroll 0 0 #b0b5b9;

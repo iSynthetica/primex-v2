@@ -1,0 +1,20 @@
+2020-06-07T13:17:54+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:18:13+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:18:28+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:19:00+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:19:44+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:22:15+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:26:14+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:28:00+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:29:34+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
+2020-06-07T13:30:02+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 4155591 bytes) в /home/primexcom/public_html/wp-includes/wp-db.php на строке 2024
+
