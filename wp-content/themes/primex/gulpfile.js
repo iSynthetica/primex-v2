@@ -69,6 +69,7 @@ const SOURCE = {
         VENDORS + '/infinite-scroll.js',
         VENDORS + '/jqueryui.js',
         VENDORS + '/jqueryvalidation.js',
+        VENDORS + '/jquery.matchHeight.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production
         'assets/scripts/js/**/*.js',

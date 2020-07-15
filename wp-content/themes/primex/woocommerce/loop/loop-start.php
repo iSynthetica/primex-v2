@@ -19,4 +19,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div id="shop" class="shop product-3 grid-container clearfix columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>" data-layout="fitRows">
+<div id="shop" class="shop product-3 grid-container-01 clearfix columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>" data-layout="fitRows">

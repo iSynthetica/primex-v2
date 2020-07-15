@@ -77,6 +77,14 @@
                 });
             });
         }
+        
+
+        $('.shop.product-3 .product .product-desc .product-title').matchHeight({
+            byRow: true,
+            property: 'height',
+            target: null,
+            remove: false
+        });
     });
 
     $(window).on('load', function () {});
