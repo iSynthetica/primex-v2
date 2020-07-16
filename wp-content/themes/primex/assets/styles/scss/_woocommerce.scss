@@ -261,3 +261,28 @@ table.woocommerce-grouped-product-list {
         padding: rem-calc(3);
     }
 }
+
+/* Fix image size */
+.wpgs--with-images {
+    img {
+        height: auto;
+    }
+}
+
+#product-modal-desc {
+    .modal-header {
+        .product-price {
+            text-align: right;
+        }
+    }
+}
+
+.tinvwl-loop-button-wrapper {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tinv-wishlist .tinvwl_add_to_wishlist_button.tinvwl-icon-heart.no-txt {
+    height: rem-calc(40);
+    color: #fff;
+}

@@ -16,7 +16,7 @@ if (empty($current_currency_rule)) {
     return;
 }
 
-var_dump($current_currency_rule);
+// var_dump($current_currency_rule);
 ?>
 <h3 class="wp-heading-inline">
     <?php _e('Currency Rule Edit', 'woo-all-in-one-currency'); ?>: <?php echo $current_currency_rule['title']; ?>
@@ -27,13 +27,19 @@ var_dump($current_currency_rule);
 <?php // var_dump($currency_rules); ?>
 
 <div id="poststuff">
-    <div id="general-settings-container" class="postbox">
-        <h2 class="hndle ui-sortable-handle"><span><?php _e('General Currency Settings', 'woo-all-in-one-currency'); ?></span></h2>
+    <?php
+    if (false) {
+        ?>
+        <div id="general-settings-container" class="postbox">
+            <h2 class="hndle ui-sortable-handle"><span><?php _e('General Currency Settings', 'woo-all-in-one-currency'); ?></span></h2>
 
-        <div class="inside">
+            <div class="inside">
 
+            </div>
         </div>
-    </div>
+        <?php
+    }
+    ?>
 
     <div id="currency-rate-settings-container" class="postbox">
         <h2 class="hndle ui-sortable-handle"><span><?php _e('Currency Rate Settings', 'woo-all-in-one-currency'); ?></span></h2>
