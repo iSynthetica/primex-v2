@@ -16017,7 +16017,8 @@ a img {
   border: none; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 iframe {
   border: none !important; }
@@ -26984,6 +26985,21 @@ body #side-panel.dark #side-panel-trigger-close a {
     display: inline-block;
     vertical-align: middle;
     margin: 0 0 0 5px !important; }
+
+.ui-widget-header {
+  background: none; }
+
+.ui-widget-content {
+  border: none;
+  background: none; }
+
+.ui-widget.ui-widget-content {
+  border-top: none;
+  border-left: none;
+  border-right: none; }
+
+ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a {
+  background: none; }
 
 /* ----------------------------------------------------------------
 	Responsive CSS
