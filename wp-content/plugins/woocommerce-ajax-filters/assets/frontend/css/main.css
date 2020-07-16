@@ -497,10 +497,10 @@ body.berocket_ajax_filters_sidebar_active {
     margin-top: 0!important;
     margin-bottom:0!important;
 }
-.bapf_sfilter.bapf_vpr_1 .bapf_body  ul,
-.bapf_sfilter.bapf_vpr_2 .bapf_body  ul,
-.bapf_sfilter.bapf_vpr_3 .bapf_body  ul,
-.bapf_sfilter.bapf_vpr_4 .bapf_body  ul {
+.bapf_sfilter.bapf_vpr_1 .bapf_body ul,
+.bapf_sfilter.bapf_vpr_2 .bapf_body ul,
+.bapf_sfilter.bapf_vpr_3 .bapf_body ul,
+.bapf_sfilter.bapf_vpr_4 .bapf_body ul {
     display: flex;
     flex-wrap: wrap;
 }
@@ -509,6 +509,7 @@ body.berocket_ajax_filters_sidebar_active {
 .bapf_sfilter.bapf_vpr_3 .bapf_body  ul > li,
 .bapf_sfilter.bapf_vpr_4 .bapf_body  ul > li {
     white-space: nowrap;
+    flex-grow: 1;
 }
 .bapf_sfilter.bapf_vpr_1 .bapf_body  ul > li {
     flex-basis:100%;
@@ -561,6 +562,7 @@ body.berocket_ajax_filters_sidebar_active {
 .bapf_sfilter .bapf_ochild,
 .bapf_sfilter .bapf_cchild {
     cursor: pointer;
+    padding: 0 5px;
 }
 
 #berocket-ajax-filters-sidebar .berocket_single_filter_widget.berocket_hidden_clickable .bapf_sfilter .bapf_head,
@@ -818,6 +820,29 @@ body.berocket_ajax_filters_sidebar_active {
 .bapf_hideckbox li input:checked + label a,
 .bapf_hideckbox li input:checked + label {
     color: #222;
+}
+.bapf_sfilter.bapf_clr_txt_left .bapf_body ul,
+.bapf_sfilter.bapf_clr_txt_right .bapf_body ul {
+    width: 100%;
+    flex-basis: 100%;
+}
+.bapf_sfilter.bapf_clr_txt_left .bapf_body ul li,
+.bapf_sfilter.bapf_clr_txt_right .bapf_body ul li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.bapf_sfilter.bapf_clr_txt_right .bapf_body ul li label,
+.bapf_sfilter.bapf_clr_txt_left .bapf_body ul li label {
+    display: flex!important;
+    flex-direction: row!important;
+    align-items: center!important;
+}
+.bapf_sfilter.bapf_clr_txt_right .bapf_body ul li label .bapf_img_span,
+.bapf_sfilter.bapf_clr_txt_right .bapf_body ul li label .bapf_clr_span,
+.bapf_sfilter.bapf_clr_txt_left .bapf_body ul li label .bapf_img_span,
+.bapf_sfilter.bapf_clr_txt_left .bapf_body ul li label .bapf_clr_span {
+    flex-shrink: 0;
 }
 .bapf_sfilter.bapf_button_berocket .bapf_button {
     font-size: 20px;

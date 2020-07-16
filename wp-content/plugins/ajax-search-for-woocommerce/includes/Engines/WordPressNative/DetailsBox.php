@@ -5,6 +5,7 @@ namespace DgoraWcas\Engines\WordPressNative;
 use  DgoraWcas\Post ;
 use  DgoraWcas\Product ;
 use  DgoraWcas\Helpers ;
+use  DgoraWcas\ProductVariation ;
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) {
     exit;
@@ -59,10 +60,12 @@ class DetailsBox
                     $termID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
                     $taxonomy = ( !empty($parts[2]) ? sanitize_key( $parts[2] ) : '' );
                 } elseif ( $type === 'product' ) {
-                    $postType = 'product';
+                    $postType = $type;
+                    $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
+                } elseif ( $type === 'product_variation' ) {
+                    $postType = $type;
                     $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
                     $variationID = ( !empty($parts[2]) ? absint( $parts[2] ) : 0 );
-                    //@TODO handle variations
                 } elseif ( $type === 'post' ) {
                     $postType = ( !empty($parts[2]) ? $parts[2] : 0 );
                     $postID = ( !empty($parts[1]) ? absint( $parts[1] ) : 0 );
@@ -70,8 +73,14 @@ class DetailsBox
                 
                 // Get product details
                 
-                if ( !empty($postID) && !empty($postType) && $postType === 'product' ) {
-                    $productDetails = $this->getProductDetails( $postID );
+                if ( !empty($postID) && !empty($postType) && in_array( $postType, array( 'product', 'product_variation' ) ) ) {
+                    
+                    if ( $postType === 'product_variation' ) {
+                        $productDetails = $this->getProductDetails( $postID, $variationID );
+                    } else {
+                        $productDetails = $this->getProductDetails( $postID );
+                    }
+                    
                     $items[] = array(
                         'objectID' => $item['objectID'],
                         'html'     => $productDetails['html'],
@@ -98,13 +107,20 @@ class DetailsBox
     /**
      * Prepare products details to the ajax output
      *
-     * @param object $product
+     * @param int $productID
+     * @param int $variationID
      *
      * @return array
      */
-    private function getProductDetails( $productID )
+    private function getProductDetails( $productID, $variationID = 0 )
     {
-        $product = new Product( $productID );
+        
+        if ( $variationID ) {
+            $product = new ProductVariation( $variationID );
+        } else {
+            $product = new Product( $productID );
+        }
+        
         $details = array(
             'html'     => '',
             'imageSrc' => '',
@@ -127,9 +143,13 @@ class DetailsBox
             'priceHtml'         => $product->getPriceHTML(),
             'showQuantity'      => false,
             'stockAvailability' => $product->getStockAvailability(),
+            'attributes'        => array(),
             'wooObject'         => $product->getWooObject(),
         );
-        if ( $product->isType( 'simple' ) && $wooProduct->is_purchasable() && $wooProduct->is_in_stock() && !$wooProduct->is_sold_individually() && apply_filters( 'dgwt/wcas/suggestion_details/show_quantity', true ) ) {
+        if ( $variationID ) {
+            $vars['attributes'] = $product->getVariationAttributes();
+        }
+        if ( ($product->isType( 'simple' ) || $product->isType( 'variation' )) && $wooProduct->is_purchasable() && $wooProduct->is_in_stock() && !$wooProduct->is_sold_individually() && apply_filters( 'dgwt/wcas/suggestion_details/show_quantity', true ) ) {
             $vars['showQuantity'] = true;
         }
         $vars = (object) apply_filters(
@@ -138,15 +158,27 @@ class DetailsBox
             $productID,
             $product
         );
+        $file = ( $variationID ? 'product-variation' : 'product' );
         ob_start();
-        include DGWT_WCAS_DIR . 'partials/details-panel/product.php';
+        include DGWT_WCAS_DIR . 'partials/details-panel/' . $file . '.php';
         $details['html'] = ob_get_clean();
-        $details['html'] = apply_filters(
-            'dgwt/wcas/suggestion_details/product/html',
-            $details['html'],
-            $productID,
-            $product
-        );
+        
+        if ( $variationID ) {
+            $details['html'] = apply_filters(
+                'dgwt/wcas/suggestion_details/product_variation/html',
+                $details['html'],
+                $variationID,
+                $product
+            );
+        } else {
+            $details['html'] = apply_filters(
+                'dgwt/wcas/suggestion_details/product/html',
+                $details['html'],
+                $productID,
+                $product
+            );
+        }
+        
         $details['imageSrc'] = $vars->imageSrc;
         $details['price'] = $vars->priceHtml;
         return $details;

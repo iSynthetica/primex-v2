@@ -10,16 +10,27 @@ class BeRocket_filtering_conditions_AAPF extends BeRocket_conditions {
         return $conditions;
     }
     public static function condition_attribute_filtering($html, $name, $options) {
-        return self::condition_product_attribute($html, $name, $options);
+        $html = self::condition_product_attribute($html, $name, $options);
+        $html .= '<label><input type="checkbox" '.(empty($options['is_example']) ? '' : 'data-').'name="' . $name . '[include_sub_attr]"'.(empty($options['include_sub_attr']) ? '' : ' checked').' value="1">'.__('Include sub-attributes', 'BeRocket_AJAX_domain').'</label>';
+        return $html;
     }
 
         public static function check_condition_attribute_filtering($show, $condition, $additional) {
             $selected_terms = br_get_selected_term($condition['attribute']);
-            $show = ( count($selected_terms) && (
-                $condition['values'][$condition['attribute']] === ''
-                ||
-                in_array($condition['values'][$condition['attribute']], $selected_terms)
-            ) );
+            $show = count($selected_terms) > 0;
+            if( $show && $condition['values'][$condition['attribute']] !== '' ) {
+                $show = in_array($condition['values'][$condition['attribute']], $selected_terms);
+                if( ! $show && ! empty($condition['include_sub_attr']) ) {
+                    $terms = get_term_children($condition['values'][$condition['attribute']], $condition['attribute']);
+                    $show = false;
+                    foreach($terms as $term) {
+                        if ( in_array($term, $selected_terms) ) {
+                            $show = true;
+                            break;
+                        }
+                    }
+                }
+            }
             if( $condition['equal'] == 'not_equal' ) {
                 $show = ! $show;
             }

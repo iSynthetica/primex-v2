@@ -35,7 +35,7 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     load_plugin_textdomain('BeRocket_domain', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
     class BeRocket_Framework {
-        public static $framework_version = '2.6.0.3';
+        public static $framework_version = '2.6.0.4';
         public static $settings_name = '';
         public $addons;
         public $libraries;
@@ -384,33 +384,30 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
             $javascript = br_get_value_from_array($options, array('javascript'));
             $is_admin = current_user_can($this->option_page_capability());
             if(is_array($javascript)) {
-                $html = '<script>';
+                $html = '';
                 foreach($javascript as $trigger => $script) {
-                    $function_name = strtolower($this->info['plugin_name'] . '_' . $trigger);
-                    $function_name = preg_replace("/[^a-z0-9_\s-]/", "", $function_name);
-                    $function_name = 'brjst_' . preg_replace("/[\s_-]+/", "_", $function_name);
-                    $html .= '
-                    function '.$function_name.'() {
-                        try {
-                            '.$script.'
-                        } catch(err){
-                    ';
-                    if( $is_admin ) {
-                        $html .= 'alert("You have some incorrect custom JavaScript code (Plugin: '.$this->info['full_name'].', Trigger: '.$trigger.')");
-                        console.log(err);';
-                    }
-                    $html .= '
+                    $script = trim($script);
+                    if( ! empty($script) ) {
+                        $function_name = strtolower($this->info['plugin_name'] . '_' . $trigger);
+                        $function_name = preg_replace("/[^a-z0-9_\s-]/", "", $function_name);
+                        $function_name = 'brjst_' . preg_replace("/[\s_-]+/", "_", $function_name);
+                        $html .= 'function '.$function_name.'(){try{'.$script.'}catch(err){';
+                        if( $is_admin ) {
+                            $html .= 'alert("You have some incorrect custom JavaScript code (Plugin: '.$this->info['full_name'].', Trigger: '.$trigger.')");';
+                            $html .= 'console.log(err);';
                         }
-                    };
-                    ';
-                    if( $trigger == 'load' ) {
-                        $html .='jQuery(document).ready('.$function_name.');';
-                    } else {
-                        $html .='jQuery(document).on("'.$trigger.'", '.$function_name.');';
+                        $html .= '}};';
+                        if( $trigger == 'load' ) {
+                            $html .='jQuery(document).ready('.$function_name.');';
+                        } else {
+                            $html .='jQuery(document).on("'.$trigger.'", '.$function_name.');';
+                        }
                     }
                 }
-                $html .= '</script>';
-                echo $html;
+                $html = trim($html);
+                if( ! empty($html) ) {
+                    echo '<script>', $html, '</script>';
+                }
             }
         }
 
@@ -1109,7 +1106,7 @@ if( ! class_exists( 'BeRocket_Framework' ) ) {
         $berocket_roles = apply_filters('BeRocket_admin_init_user_capabilities', array('manage_berocket', 'manage_berocket_account'));
         foreach($role_names as $role_name => $role_text) {
             $role_object = get_role( $role_name );
-            if( $role_object->has_cap( 'manage_options' ) ) {
+            if( $role_object->has_cap( 'manage_options' ) || $role_name == 'administrator' ) {
                 foreach($berocket_roles as $berocket_role) {
                     $role_object->add_cap( $berocket_role );
                 }

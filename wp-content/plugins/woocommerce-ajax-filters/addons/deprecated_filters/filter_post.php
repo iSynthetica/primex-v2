@@ -107,6 +107,7 @@ if( ! empty($instance['version']) ) {
                             break;
                         }
                     }
+                    if( isset($filter_type_array['price']) ) unset($filter_type_array['price']);
                     foreach($filter_type_array as $filter_type_key => $filter_type_val) {
                         echo '<option';
                         foreach($filter_type_val as $data_key => $data_val) {

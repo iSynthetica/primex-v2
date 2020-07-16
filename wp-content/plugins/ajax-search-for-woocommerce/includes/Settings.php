@@ -233,9 +233,16 @@ class Settings
         ),
             700  => array(
             'name'  => 'search_form',
-            'label' => __( 'Search form colors', 'ajax-search-for-woocommerce' ),
+            'label' => __( 'Colors', 'ajax-search-for-woocommerce' ),
             'type'  => 'head',
             'class' => 'dgwt-wcas-sgs-header js-dgwt-wcas-adv-settings',
+        ),
+            750  => array(
+            'name'    => 'search_icon_color',
+            'label'   => __( 'Search icon', 'ajax-search-for-woocommerce' ),
+            'type'    => 'color',
+            'class'   => 'js-dgwt-wcas-adv-settings',
+            'default' => '',
         ),
             800  => array(
             'name'    => 'bg_input_color',

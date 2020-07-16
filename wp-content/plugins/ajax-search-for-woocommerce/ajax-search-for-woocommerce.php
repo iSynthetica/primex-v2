@@ -4,13 +4,13 @@
  * Plugin Name: AJAX Search for WooCommerce
  * Plugin URI: https://ajaxsearch.pro?utm_source=wp-admin&utm_medium=referral&utm_campaign=author_uri&utm_gen=utmdc
  * Description: The most popular WooCommerce product search. Gives your users a well-designed advanced AJAX search bar with live search suggestions.
- * Version: 1.7.1
+ * Version: 1.7.2
  * Author: Damian Góra
  * Author URI: https://ajaxsearch.pro?utm_source=wp-admin&utm_medium=referral&utm_campaign=author_uri&utm_gen=utmdc
  * Text Domain: ajax-search-for-woocommerce
  * Domain Path: /languages
  * WC requires at least: 3.3
- * WC tested up to: 4.1
+ * WC tested up to: 4.3
  *
  */
 // Exit if accessed directly

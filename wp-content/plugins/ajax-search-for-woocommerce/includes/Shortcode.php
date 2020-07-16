@@ -22,10 +22,13 @@ class Shortcode {
 	 */
 	public static function addBody( $atts ) {
 
+		$layout = Helpers::getLayoutSettings();
+
 		$searchArgs = shortcode_atts( array(
-			'class'       => '',
-			'layout'      => DGWT_WCAS()->settings->getOption( 'search_layout' ),
-			'details_box' => 'hide'
+			'class'          => '',
+			'layout'         => $layout->layout,
+			'mobile_overlay' => $layout->mobile_overlay,
+			'details_box'    => 'hide'
 		), $atts, 'wcas-search-form' );
 
 		$searchArgs['class'] .= empty( $search_args['class'] ) ? 'woocommerce' : ' woocommerce';

@@ -146,7 +146,16 @@ class BeRocket_AAPF_get_terms {
         foreach($terms as &$term) {
             $term->depth = (isset($terms_sorted[$term->term_id]) ? $terms_sorted[$term->term_id] : 0);
         }
-        array_multisort($array_sort, SORT_ASC, SORT_NUMERIC, $terms);
+        if( is_array($array_sort) && is_array($terms) && count($array_sort) == count($terms) ) {
+            array_multisort($array_sort, SORT_ASC, SORT_NUMERIC, $terms);
+        } else {
+            BeRocket_error_notices::add_plugin_error(1, 'Hierarchical sort error', array(
+                'error'         => '$array_sort != $terms.get_terms -> hierarchical_sort',
+                'terms'         => $terms,
+                'args'          => $args,
+                'additional'    => $additional
+            ));
+        }
         return $terms;
     }
     public static function depth_clear($terms, $args = array(), $additional = array()) {

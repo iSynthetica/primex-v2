@@ -35,8 +35,9 @@
 .dgwt-wcas-settings > .error:not(.dgwt-wcas-notice),
 .dgwt-wcas-settings > .info:not(.dgwt-wcas-notice),
 .dgwt-wcas-settings > .warning:not(.dgwt-wcas-notice),
-.dgwt-wcas-settings > .updated:not(.dgwt-wcas-notice) {
-    display: none;
+.dgwt-wcas-settings > .updated:not(.dgwt-wcas-notice),
+.dgwt-wcas-settings > .updated:not(.fs-slug-ajax-search-for-woocommerce) {
+    display: none!important;
 }
 
 .dgwt-wcas-settings-hr {

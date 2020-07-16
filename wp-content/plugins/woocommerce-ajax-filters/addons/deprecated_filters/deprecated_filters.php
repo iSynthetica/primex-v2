@@ -34,6 +34,7 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
         add_filter( 'berocket_aapf_group_before_all', array($this, 'search_box_before_group_start'), 11, 2 );
         add_filter( 'berocket_aapf_group_after_all', array($this, 'search_box_after_group_end'), 9, 2 );
         add_filter( 'BeRocket_AAPF_getall_Template_Styles', array($this, 'remove_new_templates'), 9000000 );
+        add_filter( 'braapf_custom_user_css_replacement', array($this, 'custom_user_css_replacement') );
         update_option('braapf_new_filters_converted', false);
     }
     function wp() {
@@ -480,22 +481,39 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
                 $sb_style .= 'width:'.$search_box_width.'%;display:inline-block;padding: 4px;';
             }
             $search_box_button_class = 'search_box_button_class_'.rand();
-            if ( $search_box_style['search_position'] == 'before' || $search_box_style['search_position'] == 'before_after' ) {
+            if ( $search_box_style['search_position'] != 'after' ) {
                 echo '<div style="'.$sb_style.'"><a data-url="'.$search_box_url.'" class="'.$search_box_button_class.' berocket_search_box_button">'.$search_box_style['search_text'].'</a></div>';
             }
             $custom_vars['search_box_button_class'] = $search_box_button_class;
+            $sbb_style = '';
+            if( ! empty($search_box_style['button_background']) ) {
+                $sbb_style .= 'background-color:'.($search_box_style['button_background'][0] == '#' ? $search_box_style['button_background'] : '#'.$search_box_style['button_background']).';';
+            }
+            if( ! empty($search_box_style['text_color']) ) {
+                $sbb_style .= 'color:'.($search_box_style['text_color'][0] == '#' ? $search_box_style['text_color'] : '#'.$search_box_style['text_color']).';';
+            }
+            $sbb_style_hover = '';
+            if( ! empty($search_box_style['button_background_over']) ) {
+                $sbb_style_hover .= 'background-color:'.($search_box_style['button_background_over'][0] == '#' ? $search_box_style['button_background_over'] : '#'.$search_box_style['button_background_over']).';';
+            }
+            if( ! empty($search_box_style['text_color_over']) ) {
+                $sbb_style_hover .= 'color:'.($search_box_style['text_color_over'][0] == '#' ? $search_box_style['text_color_over'] : '#'.$search_box_style['text_color_over']).';';
+            }
+            $custom_vars['sbb_style'] = $sbb_style;
+            $custom_vars['sbb_style_hover'] = $sbb_style_hover;
         }
         return $custom_vars;
     }
     function search_box_after_group_end($custom_vars, $filters) {
         extract($custom_vars);
         if( ! empty($filters['search_box']) ) {
-            if ( $search_box_style['search_position'] == 'after' || $search_box_style['search_position'] == 'before_after' ) {
+            if ( $search_box_style['search_position'] != 'before' ) {
                 echo '<div style="'.$sb_style.'">
                 <a data-url="'.$search_box_url.'" 
                 class="'.$search_box_button_class.' berocket_search_box_button">
                 '.$search_box_style['search_text'].'</a></div>';
             }
+            echo '<style>.'.$search_box_button_class.'{'.$sbb_style.'}.'.$search_box_button_class.':hover{'.$sbb_style_hover.'}</style>';
         }
         return $custom_vars;
     }
@@ -537,6 +555,11 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
     }
     function remove_new_templates() {
         return array();
+    }
+    function custom_user_css_replacement($replace = array()) {
+        $replace['#widget#']        = '.berocket_aapf_widget';
+        $replace['#widget-title#']  = '.berocket_aapf_widget-title';
+        return $replace;
     }
 }
 new BeRocket_aapf_deprecated_compat_addon();

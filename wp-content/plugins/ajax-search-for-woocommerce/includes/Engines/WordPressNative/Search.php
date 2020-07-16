@@ -2,6 +2,7 @@
 
 namespace DgoraWcas\Engines\WordPressNative;
 
+use  DgoraWcas\Multilingual ;
 use  DgoraWcas\Product ;
 use  DgoraWcas\Helpers ;
 // Exit if accessed directly
@@ -399,9 +400,10 @@ class Search
             
             if ( $i < $limit ) {
                 $cat_name = html_entity_decode( $cat->name );
-                $pos = strpos( strtolower( $cat_name ), strtolower( $keyword ) );
+                $pos = strpos( mb_strtolower( $cat_name ), mb_strtolower( $keyword ) );
                 
                 if ( $pos !== false ) {
+                    $termLang = Multilingual::getTermLang( $cat->term_id, 'product_cat' );
                     $results[$i] = array(
                         'term_id'     => $cat->term_id,
                         'taxonomy'    => 'product_cat',
@@ -411,6 +413,7 @@ class Search
                         $cat->term_id,
                         'product_cat',
                         array(),
+                        $termLang,
                         array( $cat->term_id )
                     ),
                         'type'        => 'taxonomy',
@@ -449,7 +452,7 @@ class Search
             
             if ( $i < $limit ) {
                 $tag_name = html_entity_decode( $tag->name );
-                $pos = strpos( strtolower( $tag_name ), strtolower( $keyword ) );
+                $pos = strpos( mb_strtolower( $tag_name ), mb_strtolower( $keyword ) );
                 
                 if ( $pos !== false ) {
                     $results[$i] = array(
@@ -614,11 +617,21 @@ class Search
         if ( !empty($query->query_vars['order']) ) {
             $order = strtolower( $query->query_vars['order'] );
         }
-        $baseUrl = home_url() . strtok( $_SERVER["REQUEST_URI"], '?' ) . \WC_AJAX::get_endpoint( DGWT_WCAS_SEARCH_ACTION );
-        $url = add_query_arg( array(
-            's'      => $phrase,
+        $slugs = strtok( $_SERVER["REQUEST_URI"], '?' );
+        if ( $slugs == '/' ) {
+            $slugs = '';
+        }
+        $baseUrl = home_url() . $slugs . \WC_AJAX::get_endpoint( DGWT_WCAS_SEARCH_ACTION );
+        $urlPhrase = str_replace( "\\'", "'", $phrase );
+        $urlPhrase = str_replace( '\\"', '"', $urlPhrase );
+        $args = array(
+            's'      => urlencode( $urlPhrase ),
             'remote' => 1,
-        ), $baseUrl );
+        );
+        if ( Multilingual::isMultilingual() ) {
+            $args['l'] = Multilingual::getCurrentLanguage();
+        }
+        $url = add_query_arg( $args, $baseUrl );
         $postIn = array();
         $correctResponse = false;
         $r = wp_remote_retrieve_body( wp_remote_get( $url, array(

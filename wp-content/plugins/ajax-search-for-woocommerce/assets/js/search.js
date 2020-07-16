@@ -6,6 +6,7 @@
  *  For details, see the web site: https://github.com/devbridge/jQuery-Autocomplete
  *
  *  Modified by Damian Góra: http://damiangora.com
+ *  Minify: https://javascript-minifier.com/
  */
 
 /*jslint  browser: true, white: true, single: true, this: true, multivar: true */
@@ -256,17 +257,18 @@
         positionFixed: false,
         debounceWaitMs: 400,
         sendGAEvents: true,
-    };
+		enableGASiteSearchModule: false,
+    }
 
     function _lookupFilter(suggestion, originalQuery, queryLowerCase) {
         return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
-    };
+    }
 
     function _transformResult(response) {
         return typeof response === 'string' ? $.parseJSON(response) : response;
-    };
+    }
 
-    function _formatResult(suggestionValue, currentValue, highlight) {
+    function _formatResult(suggestionValue, currentValue, highlight, options) {
         // Do not replace anything if there current value is empty
         if (!currentValue) {
             return suggestionValue;
@@ -276,6 +278,10 @@
             suggestionValue = utils.highlight(suggestionValue, currentValue);
         }
 
+        if(!options.convertHtml){
+        	return suggestionValue;
+		}
+
         return suggestionValue.replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
@@ -283,8 +289,9 @@
             .replace(/&lt;sup/g, '<sup')
             .replace(/&lt;\/sup/g, '</sup')
             .replace(/sup&gt;/g, 'sup>')
-            .replace(/&lt;(\/?strong)&gt;/g, '<$1>');
-    };
+            .replace(/&lt;(\/?(strong|b))&gt;/g, '<$1>');
+
+    }
 
     DgwtWcasAutocompleteSearch.prototype = {
         initialize: function () {
@@ -617,13 +624,12 @@
         },
         initMobileMode: function () {
             var that = this;
+			var $formWrapper = that.getFormWrapper();
 
             if (
-                that.options.overlayMobile
+				$formWrapper.hasClass('js-dgwt-wcas-mobile-overlay-enabled')
                 && that.isMobileMode()
             ) {
-
-                var $formWrapper = that.getFormWrapper();
 
                 $formWrapper.prepend('<div class="js-dgwt-wcas-enable-mobile-form dgwt-wcas-enable-mobile-form"></div>');
 
@@ -1841,7 +1847,7 @@
                     title = title.length > 0 ? ' title="' + title + '"' : '';
 
                     html += '<div class="' + classes + '" data-index="' + i + '">';
-                    html += '<span' + title + ' class="' + innerClass + '">' + prepend + formatResult(suggestion.value, value, highlight) + append + '</span>';
+                    html += '<span' + title + ' class="' + innerClass + '">' + prepend + formatResult(suggestion.value, value, highlight, options) + append + '</span>';
                     html += '</div>';
                 } else {
 
@@ -1867,16 +1873,16 @@
 
                     // Title
                     html += '<span class="dgwt-wcas-st">';
-                    html += '<span class="dgwt-wcas-st-title">' + formatResult(suggestion.value, value, true) + parent + '</span>';
+                    html += '<span class="dgwt-wcas-st-title">' + formatResult(suggestion.value, value, true, options) + parent + '</span>';
 
                     // SKU
                     if (options.showSKU === true && typeof suggestion.sku != 'undefined' && suggestion.sku.length > 0) {
-                        html += '<span class="dgwt-wcas-sku">(' + dgwt_wcas.labels.sku_label + ' ' + formatResult(suggestion.sku, value, true) + ')</span>';
+                        html += '<span class="dgwt-wcas-sku">(' + dgwt_wcas.labels.sku_label + ' ' + formatResult(suggestion.sku, value, true, options) + ')</span>';
                     }
 
                     // Description
                     if (options.showDescription === true && typeof suggestion.desc != 'undefined' && suggestion.desc) {
-                        html += '<span class="dgwt-wcas-sd">' + formatResult(suggestion.desc, value, true) + '</span>';
+                        html += '<span class="dgwt-wcas-sd">' + formatResult(suggestion.desc, value, true, options) + '</span>';
                     }
 
                     html += '</span>';
@@ -2416,27 +2422,39 @@
             var that = this;
             if (that.options.sendGAEvents) {
                 try {
-
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'autocomplete_search', {
                             'event_label': label,
                             'event_category': category
                         });
-                        return;
-                    }
-
-                    if (typeof ga !== 'undefined') {
-                        ga('send', {
-                            hitType: 'event',
-                            eventCategory: category,
-                            eventAction: 'autocomplete_search',
-                            eventLabel: label
-                        });
-                    }
-
+                    } else if (typeof ga !== 'undefined') {
+						var tracker = ga.getAll()[0];
+						if (tracker) tracker.send({
+							hitType: 'event',
+							eventCategory: category,
+							eventAction: 'autocomplete_search',
+							eventLabel: label
+						});
+					}
                 } catch (error) {
                 }
             }
+			if (that.options.enableGASiteSearchModule) {
+				try {
+					if (typeof gtag !== 'undefined') {
+						gtag('event', 'page_view', {
+							'page_path': '/?s=' + encodeURI(label) + '&post_type=product&dgwt_wcas=1',
+						});
+					} else if (typeof ga !== 'undefined') {
+						var tracker2 = ga.getAll()[0];
+						if (tracker2) {
+							tracker2.set('page', '/?s=' + encodeURI(label) + '&post_type=product&dgwt_wcas=1');
+							tracker2.send('pageview');
+						}
+					}
+				} catch (error) {
+				}
+			}
         }
     };
 
@@ -2512,11 +2530,12 @@
                 showHeadings: dgwt_wcas.show_headings == 1 ? true : false,
                 isPremium: dgwt_wcas.is_premium == 1 ? true : false,
                 taxonomyBrands: dgwt_wcas.taxonomy_brands,
-                overlayMobile: dgwt_wcas.overlay_mobile == 1 ? true : false,
                 mobileBreakpoint: mobileBreakpoint,
                 mobileOverlayWrapper: dgwt_wcas.mobile_overlay_wrapper,
                 debounceWaitMs: dgwt_wcas.debounce_wait_ms,
                 sendGAEvents: dgwt_wcas.send_ga_events,
+                convertHtml: dgwt_wcas.convert_html,
+				enableGASiteSearchModule: dgwt_wcas.enable_ga_site_search_module,
             };
 
             $('.dgwt-wcas-search-input').dgwtWcasAutocomplete(window.dgwt_wcas.config);

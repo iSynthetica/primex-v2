@@ -50,6 +50,15 @@
     box-sizing: border-box;
     overflow-y: auto;
 }
+
+.dgwt-wcas-search-wrapp *,
+.dgwt-wcas-suggestions-wrapp *,
+.dgwt-wcas-details-wrapp * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 .dgwt-wcas-details-wrapp a:focus,
 .dgwt-wcas-suggestions-wrapp a:focus {
     outline:none;
@@ -1079,6 +1088,7 @@ body:not(.dgwt-wcas-is-details) .dgwt-wcas-suggestion:last-child {
 
 .dgwt-wcas-no-submit .dgwt-wcas-ico-magnifier {
     height: 50%;
+	margin: auto;
     max-height: 20px;
     width: 100%;
     max-width: 20px;

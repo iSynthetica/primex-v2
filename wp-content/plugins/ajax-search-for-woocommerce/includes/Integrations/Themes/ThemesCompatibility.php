@@ -71,10 +71,51 @@ class ThemesCompatibility {
 				'slug' => 'woodmart',
 				'name' => 'Woodmart',
 			),
-			'enfold'   => array(
+			'enfold'     => array(
 				'slug' => 'enfold',
 				'name' => 'Enfold',
-			)
+			),
+			'shopkeeper' => array(
+				'slug' => 'shopkeeper',
+				'name' => 'Shopkeeper',
+			),
+			'the7' => array(
+				'slug' => 'the7',
+				'name' => 'The7',
+			),
+			'dt-the7' => array(
+				'slug' => 'dt-the7',
+				'name' => 'The7',
+			),
+			'avada' => array(
+				'slug' => 'avada',
+				'name' => 'Avada',
+			),
+			'shop-isle' => array(
+				'slug'      => 'shop-isle',
+				'className' => 'ShopIsle',
+				'name'      => 'Shop Isle',
+			),
+			'shopical' => array(
+				'slug' => 'shopical',
+				'name' => 'Shopical',
+			),
+			'ekommart' => array(
+				'slug' => 'ekommart',
+				'name' => 'Ekommart',
+			),
+			'savoy'    => array(
+				'slug' => 'savoy',
+				'name' => 'Savoy',
+			),
+			'sober'    => array(
+				'slug' => 'sober',
+				'name' => 'Sober',
+			),
+			'bridge'    => array(
+				'slug' => 'bridge',
+				'name' => 'Bridge',
+			),
 		);
 	}
 
@@ -146,3 +187,5 @@ class ThemesCompatibility {
 	}
 
 }
+
+

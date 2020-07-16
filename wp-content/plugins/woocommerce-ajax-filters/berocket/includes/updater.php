@@ -226,7 +226,7 @@ if ( ! class_exists( 'BeRocket_updater' ) ) {
             foreach ( self::$plugin_info as $plugin ) {
                 if ( empty( $active_plugin[ $plugin[ 'id' ] ] ) && empty( $active_site_plugin[ $plugin[ 'id' ] ] ) ) {
                     $version_capability = br_get_value_from_array($plugin, array('version_capability'), 15);
-                    if ( $version_capability > 5 && $version_capability != 15 ) {
+                    if ( $version_capability > 5 && ! in_array($version_capability, array(15, 3, 17)) ) {
                         $meta_data = '?utm_source=paid_plugin&utm_medium=notice&utm_campaign='.$plugin['plugin_name'];
                         $not_activated_notices[] = array(
                             'start'         => 0,

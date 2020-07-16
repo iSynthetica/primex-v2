@@ -145,6 +145,8 @@
 			_this.hideOption(_this.$overlayMobileEl);
 			_this.hideOption(_this.$mobileBreakpointEl);
 
+			$("input[id*='bg_search_icon_color']").closest('tr').show();
+
 			switch (currentVal) {
 				case 'icon':
 					break;
@@ -160,6 +162,8 @@
 					if (hasAdvSettings) {
 
 						_this.showOption(_this.$overlayMobileEl);
+
+						$("input[id*='bg_search_icon_color']").closest('tr').hide();
 
 						if (_this.$overlayMobileEl.is(':checked')) {
 							_this.showOption(_this.$mobileBreakpointEl);
@@ -707,6 +711,7 @@
         onColorHandler: function () {
             var _this = this,
                 options = [
+                    'search_icon_color',
                     'bg_input_color',
                     'text_input_color',
                     'border_input_color',
@@ -1108,6 +1113,8 @@
                 _this.detailsWrapp.css('width', '');
             }
         },
+		onColorSearchIconColor: function ($el, value) {
+		},
         onColorBgInputColor: function ($el, value) {
             var _this = this;
             if (_this.isColor(value)) {

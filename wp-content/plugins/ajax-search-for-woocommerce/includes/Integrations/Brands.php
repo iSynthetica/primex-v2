@@ -109,7 +109,8 @@ class Brands {
 			'yith-woocommerce-brands-add-on/init.php',
 			'yith-woocommerce-brands-add-on-premium/init.php',
 			'perfect-woocommerce-brands/main.php',
-			'perfect-woocommerce-brands/perfect-woocommerce-brands.php'
+			'perfect-woocommerce-brands/perfect-woocommerce-brands.php',
+			'martfury-addons/martfury-addons.php'
 		);
 	}
 

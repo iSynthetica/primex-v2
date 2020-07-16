@@ -2,6 +2,7 @@
 
 namespace DgoraWcas\Integrations;
 
+use  DgoraWcas\Helpers ;
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) {
     exit;

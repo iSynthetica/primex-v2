@@ -906,7 +906,8 @@ berocket_custom_sidebar_open;
     berocket_add_filter('input_ckbox_changed', braapf_convert_ckbox_to_radio);
     //CHILD HIERARCHICAL
     $(document).on('click', '.bapf_ochild, .bapf_cchild', function(e) {
-        e.preventDefault;
+        e.preventDefault();
+        e.stopPropagation();
         if( $(this).is('.bapf_ochild' ) ) {
             $(this).trigger('bapf_ochild');
         } else {
@@ -915,13 +916,17 @@ berocket_custom_sidebar_open;
     });
     $(document).on('bapf_ochild', '.bapf_sfilter.bapf_ckbox ul li', function(e) {
         e.stopPropagation();
-        $(this).find('.bapf_ochild, .bapf_cchild').first().removeClass('bapf_ochild').removeClass('fa-plus').addClass('bapf_cchild').addClass('fa-minus');
-        $(this).find('ul').first().show();
+        if( berocket_apply_filters('colaps_child_open_apply', true, $(this)) ) {
+            $(this).find('.bapf_ochild, .bapf_cchild').first().removeClass('bapf_ochild').removeClass('fa-plus').addClass('bapf_cchild').addClass('fa-minus');
+            $(this).find('ul').first().show();
+        }
     });
     $(document).on('bapf_cchild', '.bapf_sfilter.bapf_ckbox ul li', function(e) {
         e.stopPropagation();
-        $(this).find('.bapf_ochild, .bapf_cchild').first().addClass('bapf_ochild').addClass('fa-plus').removeClass('bapf_cchild').removeClass('fa-minus');
-        $(this).find('ul').first().hide();
+        if( berocket_apply_filters('colaps_child_close_apply', true, $(this)) ) {
+            $(this).find('.bapf_ochild, .bapf_cchild').first().addClass('bapf_ochild').addClass('fa-plus').removeClass('bapf_cchild').removeClass('fa-minus');
+            $(this).find('ul').first().hide();
+        }
     });
     var braapf_hierarhical_values = [];
     braapf_hierarhical_save = function(data) {

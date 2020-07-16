@@ -9,14 +9,14 @@ if ( ! defined( 'DGWT_WCAS_FILE' ) ) {
 <div class="dgwt-wcas-details-inner dgwt-wcas-details-inner-product">
 	<div class="dgwt-wcas-product-details">
 
-		<a href="<?php echo esc_url( $vars->link ); ?>" title="<?php echo $vars->name; ?>">
+		<a href="<?php echo esc_url( $vars->link ); ?>" title="<?php echo wp_strip_all_tags($vars->name); ?>">
 			<div class="dgwt-wcas-details-main-image">
-				<img src="<?php echo esc_url( $vars->imageSrc ); ?>" alt="<?php echo esc_attr( $vars->name ); ?>">
+				<img src="<?php echo esc_url( $vars->imageSrc ); ?>" alt="<?php echo wp_strip_all_tags( $vars->name ); ?>">
 			</div>
 		</a>
 
 		<div class="dgwt-wcas-details-space">
-			<a class="dgwt-wcas-details-product-title" href="<?php echo esc_url( $vars->link ); ?>" title="<?php echo $vars->name; ?>">
+			<a class="dgwt-wcas-details-product-title" href="<?php echo esc_url( $vars->link ); ?>" title="<?php echo wp_strip_all_tags($vars->name); ?>">
 				<?php echo $vars->name; ?>
 			</a>
 			<?php if ( ! empty( $vars->sku ) ): ?>

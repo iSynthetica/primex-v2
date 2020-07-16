@@ -1,0 +1,82 @@
+2020-07-15T19:30:45+00:00 CRITICAL Uncaught Error: Class 'WC_Tax' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/admin/settings/class-wc-settings-tax.php:66
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-install.php(544): WC_Settings_Tax->get_sections()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-install.php(290): WC_Install::create_options()
+#2 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-install.php(175): WC_Install::install()
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WC_Install::check_version('')
+#4 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#5 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#6 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#7 /Users/user/Sites/primex/public_html/wp-config в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/admin/settings/class-wc-settings-tax.php на строке 66
+
+2020-07-15T19:32:44+00:00 CRITICAL Uncaught Error: Class 'WC_Data_Store' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-customer.php:99
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(757): WC_Customer->__construct(1, true)
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#2 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#4 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#5 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#6 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#7 /Users/user/Sites/primex/public_html/wp-config.php(81): require_o в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-wc-customer.php на строке 99
+
+2020-07-15T19:34:44+00:00 CRITICAL Uncaught Error: Class 'WC_Cart' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php:762
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#2 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#4 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#6 /Users/user/Sites/primex/public_html/wp-config.php(81): require_once('/Users/user/Sit...')
+#7 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#8 /Users/user/Sites/primex/p в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php на строке 762
+
+2020-07-15T19:40:54+00:00 CRITICAL Uncaught Error: Class 'WC_Cart' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php:762
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#2 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#4 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#6 /Users/user/Sites/primex/public_html/wp-config.php(81): require_once('/Users/user/Sit...')
+#7 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#8 /Users/user/Sites/primex/p в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php на строке 762
+
+2020-07-15T19:41:55+00:00 CRITICAL Uncaught Error: Class 'WC_Cart' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php:762
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#2 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#4 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#6 /Users/user/Sites/primex/public_html/wp-config.php(81): require_once('/Users/user/Sit...')
+#7 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#8 /Users/user/Sites/primex/p в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php на строке 762
+
+2020-07-15T19:43:56+00:00 CRITICAL Uncaught Error: Class 'WC_Cart' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php:762
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#2 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#4 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#6 /Users/user/Sites/primex/public_html/wp-config.php(81): require_once('/Users/user/Sit...')
+#7 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#8 /Users/user/Sites/primex/p в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php на строке 762
+
+2020-07-15T19:49:39+00:00 CRITICAL Uncaught Error: Class 'WC_Cart' not found in /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php:762
+Stack trace:
+#0 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(2422): WooCommerce->initialize_cart()
+#1 /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php(573): wc_load_cart()
+#2 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(287): WooCommerce->init('')
+#3 /Users/user/Sites/primex/public_html/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#4 /Users/user/Sites/primex/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /Users/user/Sites/primex/public_html/wp-settings.php(540): do_action('init')
+#6 /Users/user/Sites/primex/public_html/wp-config.php(81): require_once('/Users/user/Sit...')
+#7 /Users/user/Sites/primex/public_html/wp-load.php(37): require_once('/Users/user/Sit...')
+#8 /Users/user/Sites/primex/p в /Users/user/Sites/primex/public_html/wp-content/plugins/woocommerce/includes/class-woocommerce.php на строке 762
+

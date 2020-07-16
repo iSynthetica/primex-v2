@@ -6,10 +6,10 @@ namespace DgoraWcas;
 use DgoraWcas\Engines\TNTSearchMySQL\Indexer\Utils;
 
 class Product {
-	private $productID = 0;
-	private $wcProduct = null;
+	protected $productID = 0;
+	protected $wcProduct = null;
+	protected $langCode = 'en';
 	private $variations = array();
-	private $langCode = 'en';
 
 	public function __construct( $product ) {
 		if ( ! empty( $product ) && is_object( $product ) && is_a( $product, 'WC_Product' ) ) {
@@ -469,7 +469,7 @@ class Product {
 				$rawAttributes = apply_filters( 'dgwt/wcas/product/custom_attributes', $rawAttributes, $productID );
 
 				foreach ( $rawAttributes as $rawAttribute ) {
-					if ( $rawAttribute['is_taxonomy'] == 0 && ! empty( $rawAttribute['value'] ) ) {
+					if ( array_key_exists( 'is_taxonomy', $rawAttribute ) && $rawAttribute['is_taxonomy'] == 0 && ! empty( $rawAttribute['value'] ) ) {
 						$partTerms = explode( ' | ', $rawAttribute['value'] );
 
 						$terms = array_merge( $terms, $partTerms );

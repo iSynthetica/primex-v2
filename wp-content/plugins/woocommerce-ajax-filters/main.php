@@ -1410,6 +1410,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
             if( version_compare($plugins[$this->info['plugin_name']], '2.9', '>') || ( version_compare($plugins[$this->info['plugin_name']], '1.5', '>=') && version_compare($plugins[$this->info['plugin_name']], '2', '<')) ) {
                 $filters_converted = get_option('braapf_new_filters_converted');
                 if( empty($filters_converted) ) {
+                    do_action('bapf_include_all_tempate_styles');
                     require_once dirname( __FILE__ ) . '/fixes/replace_filters.php';
                     update_option('braapf_new_filters_converted', true);
                 }
@@ -1426,7 +1427,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
             $sidebars_widgets = $sidebars_widgets[$index];
             global $wp_registered_widgets;
             $test = $wp_registered_widgets;
-            if( is_array($sidebars_widgets) ) {
+            if( is_array($sidebars_widgets) && count($sidebars_widgets) ) {
                 foreach($sidebars_widgets as $widgets) {
                     if( strpos($widgets, 'berocket_aapf_group') === false && strpos($widgets, 'berocket_aapf_single') === false ) {
                         return $is_active_sidebar;
@@ -2373,10 +2374,10 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
     }
     public function br_custom_user_css() {
         $options     = $this->get_option();
-        $replace_css = array(
-            '#widget#'       => '.berocket_aapf_widget',
-            '#widget-title#' => '.berocket_aapf_widget-title'
-        );
+        $replace_css = apply_filters('braapf_custom_user_css_replacement', array(
+            '#widget#'       => 'div.bapf_sfilter',
+            '#widget-title#' => 'div.bapf_sfilter .bapf_head h3'
+        ));
         $result_css = str_replace(array('<style>', '</style>', '<'), '', $options[ 'user_custom_css' ]);
         foreach ( $replace_css as $key => $value ) {
             $result_css = str_replace( $key, $value, $result_css );

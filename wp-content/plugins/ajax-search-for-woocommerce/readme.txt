@@ -1,11 +1,10 @@
 === Ajax Search for WooCommerce  ===
 Contributors: damian-gora
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LD2ALVRLXPZPC
 Tags: woocommerce search, ajax search, search by sku, product search, woocommerce
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.5
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,10 +95,15 @@ There are five easy ways to display the AJAX search box in your theme:
 Or insert this function inside php file ( often it used to insert form inside page templates files ):
 
 = How do I replace the existing search bar in my theme with AJAX Search? =
-We have prepared a one-click replacement of search form for the following themes:
+We have prepared a one-click replacement of search bar for the following themes:
 
 *  Storefront
 *  Flatsome
+*  OceanWP
+*  Astra
+*  Avada
+*  and 13 more... See complete list of integrated themes on [our docs](https://ajaxsearch.pro/docs/integrations/?utm_source=readme&utm_medium=referral&utm_campaign=asfw&utm_content=theme-integrations).
+
 
 If you want to replace your search bar in some other theme, please [contact our support team](https://ajaxsearch.pro/contact/?utm_source=readme&utm_medium=referral&utm_campaign=asfw&utm_content=contact&utm_gen=utmdc)
 Also, we have developed snippets to replace the search bar in Porto, Autusin, Avada, Hestia, Electro and more themes. We will share the code soon.
@@ -135,6 +139,32 @@ You can read more and compare Pro and Free features here: [feature comparison](h
 5. Search config
 
 == Changelog ==
+
+= 1.7.2, July 12, 2020 =
+* ADD: Integration with FacetWP plugin
+* ADD: Support for Shopkeeper theme
+* ADD: Support for The7 theme
+* ADD: Support for Avada theme
+* ADD: Support for Shop Isle theme
+* ADD: Support for Shopical theme
+* ADD: Support for Ekommart theme
+* ADD: Support for Savoy theme
+* ADD: Support for Sober theme
+* ADD: Support for Bridge theme
+* ADD: Possibility to change search icon color
+* ADD: New filter hook for a search form value
+* ADD: Support for Site Search module in Google Analytics
+* FIX: Add CSS border-box for each elements in search bar, suggestions and details panel
+* FIX: Sending events to Google Tag Manager
+* FIX: Remove &lt;b&gt; from product title
+* FIX: Search in categories and tags for Russian terms
+* FIX: Duplicated category in breadcrumb
+* FIX: No results when searching for phrase included apostrophe or double quote
+* FIX: Details panel - Remove HTML from titles attribute
+* FIX: Fixed for integration with Woo Product Filter plugin by WooBeWoo
+* FIX: Fixed for integration with XforWooCommerce plugin
+* FIX: Error: Undefined index: is_taxonomy in some cases
+
 
 = 1.7.1, May 17, 2020 =
 * FIX: Selecting suggestions issue

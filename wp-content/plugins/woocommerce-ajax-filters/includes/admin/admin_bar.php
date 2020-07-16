@@ -21,6 +21,10 @@ if( ! class_exists('BeRocket_aapf_admin_bar_debug') ) {
                                 $html2 .= '<div><h3>'.esc_html(ucfirst(trim(str_replace('_', ' ', $data_status)))).'</h3><ul>';
                                 foreach($filters as $filter_id => $filter_message) {
                                     $filter_id = intval($filter_id);
+                                    $title = get_the_title($filter_id);
+                                    if( ! empty($title) ) {
+                                        $filter_message = '('.$title.')'.$filter_message;
+                                    }
                                     $html2 .= '<li title="'.esc_html($filter_message).'"><a href="'.admin_url('post.php?post='.$filter_id.'&action=edit').'" target="_blank">'.esc_html($filter_id).'</a></li>';
                                 }
                                 $html2 .= '</ul></div>';

@@ -38,6 +38,8 @@ class Personalization {
 
 		$max_form_width = absint( DGWT_WCAS()->settings->getOption( 'max_form_width' ) );
 
+		$search_icon_color = DGWT_WCAS()->settings->getOption( 'search_icon_color' );
+
 		ob_start();
 		?>
 		<style type="text/css">
@@ -191,6 +193,14 @@ class Personalization {
 			}
 
 			<?php endif; ?>
+
+			<?php
+			if(!empty($search_icon_color)){
+				echo '.dgwt-wcas-search-icon { color: ' . sanitize_text_field( $search_icon_color ) . ';}';
+				echo '.dgwt-wcas-search-icon path { fill: ' . sanitize_text_field( $search_icon_color ) . ';}';
+			}
+
+		?>
 
 		</style>
 		<?php

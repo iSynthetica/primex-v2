@@ -2,6 +2,7 @@
 
 namespace DgoraWcas;
 
+use  DgoraWcas\Engines\TNTSearchMySQL\SearchQuery\SearchResultsPageQuery ;
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) {
     exit;
@@ -11,7 +12,7 @@ class Helpers
     /**
      * Logger instance
      *
-     * @var WC_Logger
+     * @var \WC_Logger
      */
     public static  $log = false ;
     /**
@@ -82,6 +83,13 @@ class Helpers
             $classes[] = 'js-dgwt-wcas-layout-' . $type . ' dgwt-wcas-layout-' . $type;
         }
         
+        
+        if ( !empty($args['mobile_overlay']) && in_array( $args['mobile_overlay'], array( '1', 'on' ) ) ) {
+            $classes[] = 'js-dgwt-wcas-mobile-overlay-enabled';
+        } else {
+            $classes[] = 'js-dgwt-wcas-mobile-overlay-disabled';
+        }
+        
         return implode( ' ', $classes );
     }
     
@@ -90,7 +98,7 @@ class Helpers
      *
      * @param string $class
      *
-     * @return void
+     * @return string
      */
     public static function getMagnifierIco( $class = 'dgwt-wcas-ico-magnifier' )
     {
@@ -445,7 +453,7 @@ class Helpers
         
         if ( $args['check_similarity'] ) {
             $m = similar_text( $searched, $string, $percent );
-            $score = $score + $percent;
+            $score = ($score + $percent) / 3;
         }
         
         $pos = strpos( $string, $searched );
@@ -463,7 +471,7 @@ class Helpers
             
             // Bonus for exact match
             if ( $string === $searched ) {
-                $score += $args['score_containing'];
+                $score += $args['score_containing'] * 5;
             }
         }
         
@@ -1051,6 +1059,39 @@ class Helpers
             }
         }
         return $result;
+    }
+    
+    /**
+     * Search products with native engine
+     *
+     * @param $phrase
+     *
+     * @return int[]
+     */
+    public static function searchProducts( $phrase )
+    {
+        $postIn = array();
+        $baseUrl = home_url() . \WC_AJAX::get_endpoint( DGWT_WCAS_SEARCH_ACTION );
+        $urlPhrase = str_replace( "\\'", "'", $phrase );
+        $urlPhrase = str_replace( '\\"', '"', $urlPhrase );
+        $args = array(
+            's'      => urlencode( $urlPhrase ),
+            'remote' => 1,
+        );
+        if ( Multilingual::isMultilingual() ) {
+            $args['l'] = Multilingual::getCurrentLanguage();
+        }
+        $url = add_query_arg( $args, $baseUrl );
+        $r = wp_remote_retrieve_body( wp_remote_get( $url, array(
+            'timeout' => 120,
+        ) ) );
+        $decR = json_decode( $r );
+        if ( json_last_error() == JSON_ERROR_NONE ) {
+            if ( is_object( $decR ) && property_exists( $decR, 'suggestions' ) && is_array( $decR->suggestions ) ) {
+                $postIn = wp_list_pluck( $decR->suggestions, 'ID' );
+            }
+        }
+        return $postIn;
     }
 
 }

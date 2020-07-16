@@ -93,6 +93,12 @@ class Storefront {
 	 */
 	private function overwriteFunctions() {
 		if ( $this->canReplaceSearch() ) {
+
+			// Force enable overlay for mobile search
+			add_filter( 'dgwt/wcas/settings/load_value/key=enable_mobile_overlay', function () {
+				return 'on';
+			} );
+
 			require_once DGWT_WCAS_DIR . 'partials/themes/storefront.php';
 		}
 	}
