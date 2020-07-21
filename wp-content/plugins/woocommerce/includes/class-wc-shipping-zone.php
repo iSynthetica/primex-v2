@@ -171,6 +171,8 @@ class WC_Shipping_Zone extends WC_Legacy_Shipping_Zone {
 				$class_name  = $allowed_classes[ $raw_method->method_id ];
 				$instance_id = $raw_method->instance_id;
 
+				ob_start();
+
 				// The returned array may contain instances of shipping methods, as well
 				// as classes. If the "class" is an instance, just use it. If not,
 				// create an instance.
@@ -178,13 +180,21 @@ class WC_Shipping_Zone extends WC_Legacy_Shipping_Zone {
 					$class_name_of_instance  = get_class( $class_name );
 					$methods[ $instance_id ] = new $class_name_of_instance( $instance_id );
 				} else {
+                    var_dump(is_string( $class_name ));
+                    var_dump(class_exists( $class_name ));
 					// If the class is not an object, it should be a string. It's better
 					// to double check, to be sure (a class must be a string, anything)
 					// else would be useless.
 					if ( is_string( $class_name ) && class_exists( $class_name ) ) {
+                        var_dump("============== 03 =================");
 						$methods[ $instance_id ] = new $class_name( $instance_id );
 					}
 				}
+
+				var_dump($class_name);
+				var_dump($instance_id);
+
+				error_log(ob_get_clean());
 
 				// Let's make sure that we have an instance before setting its attributes.
 				if ( is_object( $methods[ $instance_id ] ) ) {

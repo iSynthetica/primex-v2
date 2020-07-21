@@ -45,6 +45,8 @@ class BeRocket_AAPF_dynamic_data_template {
         add_filter('BeRocket_AAPF_template_full_element_content', array($this, 'element_css_class'), 1300, 2);
         //Selected Filters Area
         add_filter('BeRocket_AAPF_template_full_element_content', array($this, 'selected_filters_hide_empty'), 1100, 2);
+        //Fix issues
+        add_filter('berocket_filter_filter_type_array', array($this, 'fix_not_correct_selected'));
     }
     function checkbox_checked($element, $term, $i, $berocket_query_var_title) {
         if( $berocket_query_var_title['new_template'] == 'checkbox' ) {
@@ -889,5 +891,12 @@ class BeRocket_AAPF_dynamic_data_template {
                 font-size: '.$options['tippy_color_img_fontsize'].'px;
             }</style>';
         }
+    }
+    function fix_not_correct_selected($options) {
+        global $wp_query;
+        if ( apply_filters( 'berocket_aapf_is_filtered_page_check', ! empty($_GET['filters']), 'get_filter_args', $wp_query ) ) {
+            br_aapf_args_converter($wp_query);
+        }
+        return $options;
     }
 }

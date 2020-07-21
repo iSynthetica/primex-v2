@@ -1767,6 +1767,7 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
         </div>';
     }
     public function shortcode_apply( $atts = array() ) {
+        if( ! is_array($atts) ) $atts = array();
         $atts = array_merge(array('apply' => true), $atts);
         remove_filter('berocket_aapf_wcshortcode_is_filtering', array($this, 'apply_filter_to_shortcode'));
         remove_filter('berocket_aapf_wcshortcode_is_filtering', array($this, 'not_apply_filter_to_shortcode'));

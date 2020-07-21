@@ -143,14 +143,10 @@ class BeRocket_aapf_deprecated_compat_addon extends BeRocket_framework_addon_lib
                     'no_func'       => 'jQuery(":contains(Deprecated Filters)").parents(".berocket_addon_label").find("input").prop("checked", true);',
                 ),
                 'no_x_button'   => true,
-                'close_with'    => array(
-                    'yes_button',
-                    'no_button', '', '', '', '', '', '', ''
-                ),
                 'height'        => '500px',
                 'width'         => '800px',
-            ),  
-            $popup_text, 
+            ),
+            $popup_text,
             array('event_new' => array('type' => 'event', 'event' => 'braapf_deprecated_filters_disabled'))
         );
         return $html;

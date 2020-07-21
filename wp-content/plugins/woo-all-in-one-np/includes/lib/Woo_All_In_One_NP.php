@@ -294,13 +294,23 @@ function woionp_sm_init() {
 
 function woionp_sm_add_nova_poshta($methods)
 {
+    if (!class_exists( 'Woo_All_In_One_NP_SM' ) || !class_exists( 'Woo_All_In_One_Localpickup_SM' ) || !class_exists( 'Woo_All_In_One_Courier_SM' )) {
+        woionp_sm_init();
+    }
 
-    $methods['novaposhta_warehouse_warehouse'] = 'Woo_All_In_One_NP_SM';
-    $methods['novaposhta_local_pickup'] = 'Woo_All_In_One_Localpickup_SM';
-    $methods['novaposhta_courier'] = 'Woo_All_In_One_Courier_SM';
+    if ( class_exists( 'Woo_All_In_One_NP_SM' ) ) {
+        $methods['novaposhta_warehouse_warehouse'] = 'Woo_All_In_One_NP_SM';
+    }
+
+    if ( class_exists( 'Woo_All_In_One_Localpickup_SM' ) ) {
+        $methods['novaposhta_local_pickup'] = 'Woo_All_In_One_Localpickup_SM';
+    }
+
+    if ( class_exists( 'Woo_All_In_One_Courier_SM' ) ) {
+        $methods['novaposhta_courier'] = 'Woo_All_In_One_Courier_SM';
+    }
 
     return $methods;
-
 }
 
 add_filter('woocommerce_shipping_methods', 'woionp_sm_add_nova_poshta');
